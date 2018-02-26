@@ -10,9 +10,9 @@ public class Chest {
 	static ArrayList<Items> chestList = new ArrayList<>();
 	
 	public static void getItem() {
-		Items i1 = new Items("Potion", 50, 10);
-		Items i2 = new Items("Weapon", 100, 20.5);
-		Items i3 = new Items("Armor", 200, 30.25);
+		Items i1 = new Items("Potion","This is a potion");
+		Items i2 = new Items("Weapon", "This is a weapon");
+		Items i3 = new Items("Armor", "This is armor");
 		chestList.add(i1);
 		chestList.add(i2);
 		chestList.add(i3);
@@ -22,9 +22,9 @@ public class Chest {
 	}
 	
 	public static void randomItem() {
-		Items i1 = new Items("Potion", 50, 10);
-		Items i2 = new Items("Weapon", 100, 20.5);
-		Items i3 = new Items("Armor", 200, 30.25);
+		Items i1 = new Items("Potion","This is a potion");
+		Items i2 = new Items("Weapon", "This is a weapon");
+		Items i3 = new Items("Armor", "This is armor");
 		chestList.add(i1);
 		chestList.add(i2);
 		chestList.add(i3);
