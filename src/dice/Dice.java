@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Dice {
 	HashMap<String, Integer> diceHM = new HashMap<>();
-
+	
 	public void fillMap() {
 		diceHM.put("d4", 4);
 		diceHM.put("d6", 6);
@@ -14,5 +14,5 @@ public class Dice {
 		diceHM.put("d20", 20);
 		diceHM.put("d100", 100);
 	}
-
+	
 }
