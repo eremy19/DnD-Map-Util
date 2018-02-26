@@ -2,16 +2,12 @@ package item;
 
 public class Items {
 	
-	
-	
 	private String name;
-	private int value;
-	private double weight;
+	private String notes;
 	
-	public Items(String name, int value, double d) {
+	public Items(String name, String notes) {
 		setName(name);
-		setValue(value);
-		setWeight(d);
+		setNotes(notes);
 	}
 
 	public String getName() {
@@ -22,33 +18,23 @@ public class Items {
 		this.name = name;
 	}
 
-	public int getValue() {
-		return value;
+	public String getNotes() {
+		return notes;
 	}
 
-	public void setValue(int value) {
-		this.value = value;
-	}
-
-	public double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(double d) {
-		this.weight = d;
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("name: "+name);
+		builder.append("Name: "+name);
 		builder.append("\n");
-		builder.append("Value: "+value+"gp");
-		builder.append("\n");
-		builder.append("Weight: "+weight+"lb");
-		builder.append("\n");
+		builder.append("Notes: "+notes);
 		return builder.toString();
 	}
-	
+
+
 	
 }
