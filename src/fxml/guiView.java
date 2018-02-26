@@ -32,17 +32,10 @@ public class guiView extends Application{
 	
 
 	// need button mouse click listener to switch to Map
+	
 	public final ObjectProperty<EventHandler<? super MouseEvent>> onMouseClickedProperty(){
-		
-		Parent root = FXMLLoader.load(getClass().getResource("OOPproject.fxml"));
-		Scene scene = new Scene(root,1200,800);
-		  Stage stage = (Stage)((Node)onMouseClickedProperty().getSource()).getScene().getWindow();
-		 
-	        stage.setScene(scene);
-			stage.setAlwaysOnTop(true);
-			stage.setResizable(false);
-			stage.show();
 		return null;
+	
 	}
 	
 	// need button mouse click listener to switch to Entity Editor
