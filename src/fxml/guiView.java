@@ -28,21 +28,12 @@ public class guiView extends Application{
 		stage.setAlwaysOnTop(true);
 		stage.setResizable(false);
 		stage.show();
+		
 	}
 	
 
 	// need button mouse click listener to switch to Map
-	
-	public final ObjectProperty<EventHandler<? super MouseEvent>> onMouseClickedProperty(){
-		return null;
-		
-	}
-	
+
 	// need button mouse click listener to switch to Entity Editor
-	public final ObjectProperty<EventHandler<? super MouseEvent>> onMouseClickedProperty1(){
-		
-		return null;
-	}
-	
 	
 }
