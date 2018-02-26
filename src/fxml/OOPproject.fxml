@@ -6,23 +6,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1757.0" prefWidth="2717.0" style="-fx-background-color: #7f7f7e;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="875.0" minWidth="0.0" prefWidth="0.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1857.0" minWidth="10.0" prefWidth="1857.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="10.0" prefWidth="457.0" />
+      <ColumnConstraints hgrow="SOMETIMES" />
+    <ColumnConstraints hgrow="SOMETIMES" />
+    <ColumnConstraints hgrow="SOMETIMES" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="1664.0" minHeight="10.0" prefHeight="1410.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="1461.0" minHeight="10.0" prefHeight="347.0" vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+      <VBox spacing="30.0">
          <children>
-            <ChoiceBox prefHeight="99.0" prefWidth="323.0" />
-            <Button mnemonicParsing="false" prefHeight="121.0" prefWidth="323.0" text="Entities">
+            <ChoiceBox maxHeight="60.0" maxWidth="500.0" minHeight="25.0" minWidth="200.0" />
+            <Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Entities">
                <font>
-                  <Font name="System Bold" size="50.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Button>
          </children>
@@ -33,19 +33,16 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.rowIndex="1">
+      <VBox spacing="20.0" GridPane.rowIndex="1">
          <children>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="500.0" text="Inport">
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding>
+            <Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Inport">
                <font>
-                  <Font size="50.0" />
+                  <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="500.0" text="Export">
+            <Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
                <font>
-                  <Font size="50.0" />
+                  <Font size="24.0" />
                </font>
             </Button>
          </children>
@@ -90,21 +87,21 @@
             <Insets bottom="100.0" left="100.0" right="101.0" top="100.0" />
          </GridPane.margin>
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <Pane />
+            <Pane GridPane.columnIndex="1" />
+            <Pane GridPane.columnIndex="2" />
+            <Pane GridPane.columnIndex="3" />
+            <Pane GridPane.columnIndex="4" />
+            <Pane GridPane.columnIndex="5" />
+            <Pane GridPane.columnIndex="6" />
+            <Pane GridPane.columnIndex="7" />
+            <Pane GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" GridPane.columnIndex="2">
+      <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <VBox spacing="30.0" GridPane.columnIndex="2">
          <children>
-            <TextArea prefHeight="1031.0" prefWidth="457.0" style="-fx-background-color: gray;">
+            <TextArea maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -112,11 +109,11 @@
                   <Font size="15.0" />
                </font>
             </TextArea>
-            <ChoiceBox prefHeight="65.0" prefWidth="488.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <ChoiceBox maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
+            <HBox fillHeight="false">
                <children>
-                  <TextField prefHeight="167.0" prefWidth="373.0" />
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="89.0" text="OK" />
+                  <TextField maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" />
+                  <Button maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" text="OK" />
                </children>
             </HBox>
          </children>
@@ -141,21 +138,81 @@
             <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
          </GridPane.margin>
          <children>
-            <Button mnemonicParsing="false" prefHeight="234.0" prefWidth="332.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="205.0" prefWidth="332.0" text="Button" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="198.0" prefWidth="332.0" text="Button" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="239.0" prefWidth="332.0" text="Button" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="138.0" prefWidth="332.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="217.0" prefWidth="331.0" text="Button" GridPane.columnIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="159.0" prefWidth="332.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="331.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="189.0" prefWidth="331.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="201.0" prefWidth="331.0" text="Button" GridPane.columnIndex="3" />
-            <Button layoutX="674.0" layoutY="29.0" mnemonicParsing="false" prefHeight="266.0" prefWidth="331.0" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="331.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" prefHeight="198.0" prefWidth="331.0" text="Button" GridPane.columnIndex="4" />
-            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" prefHeight="218.0" prefWidth="331.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" prefHeight="142.0" prefWidth="331.0" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" text="Button">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="674.0" layoutY="29.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </children>
