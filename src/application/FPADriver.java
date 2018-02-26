@@ -1,8 +1,14 @@
 package application;
 	
+import java.util.ArrayList;
+
+import item.Items;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import models.Chest;
 import models.Mob;
+import models.Monster;
+import models.Player;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -72,7 +78,17 @@ public class FPADriver extends Application {
 	
 	public static void main(String[] args) {
 //		launch(args);
-		Mob m = new Mob("Daniel", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30, "No notes");
+		Mob m = new Mob("Mob", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
+		Player p = new Player("Player", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
+		Monster mob = new Monster("Monster", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
+//		Mob m2 = new Mob(name, maxHP, strength, dexterity, constitution, inteligence, wisdom, charisma, armor, spellAttackBonus, spellCastingAbility, speed)
 		System.out.println(m);
+		System.out.println();
+		System.out.println(p);
+		System.out.println();
+		System.out.println(mob);
+//		Chest.getItem();
+//		Chest.randomItem();
+		
 	}
 }

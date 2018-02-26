@@ -28,8 +28,10 @@ public class Mob {
  * */
 	
 	public Mob(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
-			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, String notes) {
+			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed) {
 		setName(name);
+		setMaxHP(maxHP);
+		setCurrentHP(maxHP);
 		setStength(strength);
 		setDexterity(dexterity);
 		setConstitution(constitution);
@@ -40,7 +42,7 @@ public class Mob {
 		setSpellAttackBonus(spellAttackBonus);
 		setSpellCastingAbility(spellCastingAbility);
 		setSpeed(speed);
-		setNotes(notes);
+//		setNotes(notes);
 	}
 
 	public String getName() {
@@ -198,104 +200,44 @@ public class Mob {
 	public void setTempHP(int tempHP) {
 		this.tempHP = tempHP;
 	}
+	
+	public void notes(String notes) {
+		System.out.println(notes);
+	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Mob [name=");
 		builder.append(name);
-		builder.append(", maxHP=");
-		builder.append(maxHP);
-		builder.append(", currentHP=");
-		builder.append(currentHP);
-		builder.append(", tempHP=");
-		builder.append(tempHP);
-		builder.append(", strength=");
-		builder.append(strength);
-		builder.append(", strMod=");
-		builder.append(strMod);
-		builder.append(", dexterity=");
-		builder.append(dexterity);
-		builder.append(", dexMod=");
-		builder.append(dexMod);
-		builder.append(", constitution=");
-		builder.append(constitution);
-		builder.append(", conMod=");
-		builder.append(conMod);
-		builder.append(", inteligence=");
-		builder.append(inteligence);
-		builder.append(", intMod=");
-		builder.append(intMod);
-		builder.append(", wisdom=");
-		builder.append(wisdom);
-		builder.append(", wisMod=");
-		builder.append(wisMod);
-		builder.append(", charisma=");
-		builder.append(charisma);
-		builder.append(", chaMod=");
-		builder.append(chaMod);
-		builder.append(", armor=");
-		builder.append(armor);
-		builder.append(", spellAttackBonus=");
-		builder.append(spellAttackBonus);
-		builder.append(", spellCastingAbility=");
-		builder.append(spellCastingAbility);
-		builder.append(", speed=");
-		builder.append(speed);
-		builder.append(", notes=");
-		builder.append(notes);
-		builder.append("]");
+		builder.append("\n");
+		builder.append("MaxHP: "+maxHP);
+		builder.append("\n");
+		builder.append("CurrentHP: "+currentHP);
+		builder.append("\n");
+		builder.append("TempHP: "+tempHP);
+		builder.append("\n");
+		builder.append("Str: "+strength+"+("+strMod+")");
+		builder.append("\n");
+		builder.append("Dex: "+dexterity+"+("+dexMod+")");
+		builder.append("\n");
+		builder.append("Con: "+constitution+"+("+conMod+")");
+		builder.append("\n");
+		builder.append("Int: "+inteligence+"+("+intMod+")");
+		builder.append("\n");
+		builder.append("Wis: "+wisdom+"+("+wisMod+")");
+		builder.append("\n");
+		builder.append("Cha: "+charisma+"+("+chaMod+")");
+		builder.append("\n");
+		builder.append("AC: "+armor);
+		builder.append("\n");
+		builder.append("SAB: "+spellAttackBonus);
+		builder.append("\n");
+		builder.append("SCA: "+spellCastingAbility);
+		builder.append("\n");
+		builder.append("Speed: "+speed);
+		builder.append("\n");
 		return builder.toString();
 	}
-
-//	@Override
-//	public String toString() {
-//		StringBuilder builder = new StringBuilder();
-//		builder.append("Mob [getName()=");
-//		builder.append(getName());
-//		builder.append(", getStrength()=");
-//		builder.append(getStrength());
-//		builder.append(", getStrMod()=");
-//		builder.append(getStrMod());
-//		builder.append(", getDexterity()=");
-//		builder.append(getDexterity());
-//		builder.append(", getDexMod()=");
-//		builder.append(getDexMod());
-//		builder.append(", getConstitution()=");
-//		builder.append(getConstitution());
-//		builder.append(", getConMod()=");
-//		builder.append(getConMod());
-//		builder.append(", getInteligence()=");
-//		builder.append(getInteligence());
-//		builder.append(", getIntMod()=");
-//		builder.append(getIntMod());
-//		builder.append(", getWisdom()=");
-//		builder.append(getWisdom());
-//		builder.append(", getWisMod()=");
-//		builder.append(getWisMod());
-//		builder.append(", getCharisma()=");
-//		builder.append(getCharisma());
-//		builder.append(", getChaMod()=");
-//		builder.append(getChaMod());
-//		builder.append(", getArmor()=");
-//		builder.append(getArmor());
-//		builder.append(", getSpellAttackBonus()=");
-//		builder.append(getSpellAttackBonus());
-//		builder.append(", getSpellCastingAbility()=");
-//		builder.append(getSpellCastingAbility());
-//		builder.append(", getSpeed()=");
-//		builder.append(getSpeed());
-//		builder.append(", getNotes()=");
-//		builder.append(getNotes());
-//		builder.append(", getMaxHP()=");
-//		builder.append(getMaxHP());
-//		builder.append(", getCurrentHP()=");
-//		builder.append(getCurrentHP());
-//		builder.append(", getTempHP()=");
-//		builder.append(getTempHP());
-//		builder.append("]");
-//		return builder.toString();
-//	}
 
 	
 	
