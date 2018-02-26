@@ -1,6 +1,7 @@
 package application;
 	
 
+import fxml.guiView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import models.Chest;
@@ -27,6 +28,6 @@ public class FPADriver extends Application {
 //		System.out.println(mob);
 //		Chest.getItem();
 //		Chest.randomItem();
-		
+		guiView.runWindow();
 	}
 }
