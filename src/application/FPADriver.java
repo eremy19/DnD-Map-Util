@@ -7,6 +7,7 @@ import models.Chest;
 import models.Mob;
 import models.Monster;
 import models.Player;
+import util.SaveFile;
 
 public class FPADriver extends Application {
 	
@@ -15,7 +16,7 @@ public class FPADriver extends Application {
 	}
 	
 	public static void main(String[] args) {
-//		launch(args);
+		launch(args);
 //		Mob m = new Mob("Mob", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
 //		Player p = new Player("Player", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
 //		Monster mob = new Monster("Monster", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
@@ -27,6 +28,7 @@ public class FPADriver extends Application {
 //		System.out.println(mob);
 //		Chest.getItem();
 //		Chest.randomItem();
+//		SaveFile.players.add(p);
 		
 	}
 }
