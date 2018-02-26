@@ -40,7 +40,7 @@ public class guiView extends Application{
 	
 	// need button mouse click listener to switch to Entity Editor
 	public final ObjectProperty<EventHandler<? super MouseEvent>> onMouseClickedProperty1(){
-
+		
 		return null;
 	}
 	
