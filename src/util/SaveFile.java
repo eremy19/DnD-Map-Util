@@ -8,7 +8,15 @@ import models.Player;
 
 public class SaveFile {
 
-	ArrayList<Player> players = new ArrayList<>();
-	ArrayList<Monster> monsters = new ArrayList<>();
-	ArrayList<Items> items = new ArrayList<>();
+
+	public final ArrayList<Player> players;
+	public final ArrayList<Monster> monsters;
+	public final ArrayList<Items> items;
+
+	public SaveFile(ArrayList<Player> players, ArrayList<Monster> monsters, ArrayList<Items> items) {
+		this.players = players;
+		this.monsters = monsters;
+		this.items = items;
+	}
 }
+
