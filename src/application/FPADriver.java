@@ -26,10 +26,7 @@ public class FPADriver extends Application {
 //		System.out.println();
 //		System.out.println(mob);
 //		Chest.getItem();
-		for(int i =0;i>Chest.chestList.size();i++) {
-			Chest.randomItem();
-			
-		}
+//		Chest.randomItem();
 		
 	}
 }

@@ -27,6 +27,7 @@ public class Chest {
 	public static void addItem() throws IOException {
 		String name = ConsoleUI.promptForInput("What is the name", false);
 		String notes = ConsoleUI.promptForInput("What is this?", false);;
+		Items i = new Items(name, notes);
 	}
 	
 	public static void randomItem() {
@@ -37,9 +38,12 @@ public class Chest {
 		chestList.add(i2);
 		chestList.add(i3);
 		Random rand = new Random();
-		int index = rand.nextInt(chestList.size());
+		for(int i =0;i<chestList.size();i++) {
+			int index = rand.nextInt(chestList.size());
 		System.out.println(chestList.get(index));
-		System.out.println();
+			
+		}
+//		System.out.println();
 	}
 
 }
