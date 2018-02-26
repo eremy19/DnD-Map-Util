@@ -8,7 +8,6 @@ import models.Player;
 
 public class SaveFile {
 
-
 	public final ArrayList<Player> players;
 	public final ArrayList<Monster> monsters;
 	public final ArrayList<Items> items;
@@ -19,4 +18,3 @@ public class SaveFile {
 		this.items = items;
 	}
 }
-

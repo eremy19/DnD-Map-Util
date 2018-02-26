@@ -44,7 +44,6 @@ public class Chest {
 	public static void addItem() throws IOException {
 		String name = ConsoleUI.promptForInput("What is the name", false);
 		String notes = ConsoleUI.promptForInput("What is this?", false);
-		;
 		Items i = new Items(name, notes);
 		chestList.add(i);
 	}

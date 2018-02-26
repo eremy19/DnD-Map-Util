@@ -6,9 +6,7 @@ public class Monster extends Mob {
 			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed) {
 		super(name, maxHP, strength, dexterity, constitution, inteligence, wisdom, charisma, armor, spellAttackBonus,
 				spellCastingAbility, speed);
-		
-	}
 
-	
+	}
 
 }
