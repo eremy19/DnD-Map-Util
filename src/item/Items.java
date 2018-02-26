@@ -1,10 +1,10 @@
 package item;
 
 public class Items {
-	
+
 	private String name;
 	private String notes;
-	
+
 	public Items(String name, String notes) {
 		setName(name);
 		setNotes(notes);
@@ -29,12 +29,10 @@ public class Items {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Name: "+name);
+		builder.append("Name: " + name);
 		builder.append("\n");
-		builder.append("Notes: "+notes);
+		builder.append("Notes: " + notes);
 		return builder.toString();
 	}
 
-
-	
 }

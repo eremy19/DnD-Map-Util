@@ -24,9 +24,10 @@ public class Mob {
 	private int speed;
 	private String notes;
 
-/*statMod = (int)(stat-10)/2
- * */
-	
+	/*
+	 * statMod = (int)(stat-10)/2
+	 */
+
 	public Mob(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
 			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed) {
 		setName(name);
@@ -42,7 +43,7 @@ public class Mob {
 		setSpellAttackBonus(spellAttackBonus);
 		setSpellCastingAbility(spellCastingAbility);
 		setSpeed(speed);
-//		setNotes(notes);
+		// setNotes(notes);
 	}
 
 	public String getName() {
@@ -170,12 +171,11 @@ public class Mob {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
 	public int setMod(int stat) {
-		int statMod = (int)(stat-10)/2;
+		int statMod = (int) (stat - 10) / 2;
 		return statMod;
 	}
-
 
 	public int getMaxHP() {
 		return maxHP;
@@ -200,7 +200,7 @@ public class Mob {
 	public void setTempHP(int tempHP) {
 		this.tempHP = tempHP;
 	}
-	
+
 	public void notes(String notes) {
 		System.out.println(notes);
 	}
@@ -210,35 +210,33 @@ public class Mob {
 		StringBuilder builder = new StringBuilder();
 		builder.append(name);
 		builder.append("\n");
-		builder.append("MaxHP: "+maxHP);
+		builder.append("MaxHP: " + maxHP);
 		builder.append("\n");
-		builder.append("CurrentHP: "+currentHP);
+		builder.append("CurrentHP: " + currentHP);
 		builder.append("\n");
-		builder.append("TempHP: "+tempHP);
+		builder.append("TempHP: " + tempHP);
 		builder.append("\n");
-		builder.append("Str: "+strength+"+("+strMod+")");
+		builder.append("Str: " + strength + "+(" + strMod + ")");
 		builder.append("\n");
-		builder.append("Dex: "+dexterity+"+("+dexMod+")");
+		builder.append("Dex: " + dexterity + "+(" + dexMod + ")");
 		builder.append("\n");
-		builder.append("Con: "+constitution+"+("+conMod+")");
+		builder.append("Con: " + constitution + "+(" + conMod + ")");
 		builder.append("\n");
-		builder.append("Int: "+inteligence+"+("+intMod+")");
+		builder.append("Int: " + inteligence + "+(" + intMod + ")");
 		builder.append("\n");
-		builder.append("Wis: "+wisdom+"+("+wisMod+")");
+		builder.append("Wis: " + wisdom + "+(" + wisMod + ")");
 		builder.append("\n");
-		builder.append("Cha: "+charisma+"+("+chaMod+")");
+		builder.append("Cha: " + charisma + "+(" + chaMod + ")");
 		builder.append("\n");
-		builder.append("AC: "+armor);
+		builder.append("AC: " + armor);
 		builder.append("\n");
-		builder.append("SAB: "+spellAttackBonus);
+		builder.append("SAB: " + spellAttackBonus);
 		builder.append("\n");
-		builder.append("SCA: "+spellCastingAbility);
+		builder.append("SCA: " + spellCastingAbility);
 		builder.append("\n");
-		builder.append("Speed: "+speed);
+		builder.append("Speed: " + speed);
 		builder.append("\n");
 		return builder.toString();
 	}
 
-	
-	
 }
