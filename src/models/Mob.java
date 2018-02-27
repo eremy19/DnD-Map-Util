@@ -22,13 +22,15 @@ public class Mob {
 	private int spellAttackBonus;
 	private int spellCastingAbility;
 	private int speed;
+	private int initiative;
+	private String hitDie;
 	private String notes;
 
 /*statMod = (int)(stat-10)/2
  * */
 	
 	public Mob(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
-			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed) {
+			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, int initive, String hitDie) {
 		setName(name);
 		setMaxHP(maxHP);
 		setCurrentHP(maxHP);
@@ -42,6 +44,8 @@ public class Mob {
 		setSpellAttackBonus(spellAttackBonus);
 		setSpellCastingAbility(spellCastingAbility);
 		setSpeed(speed);
+		setInitiative(initive);
+		setHitDie(hitDie);
 //		setNotes(notes);
 	}
 
@@ -201,9 +205,48 @@ public class Mob {
 		this.tempHP = tempHP;
 	}
 	
+	public int getInitiative() {
+		return initiative;
+	}
+	
+	public void setInitiative(int initive) {
+		this.initiative = initive;
+	}
+	
+	public String getHitDie() {
+		return hitDie;
+	}
+
+	public void setHitDie(String hitDie) {
+		this.hitDie = hitDie;
+	}
+
+	public void updateStats(int str, int dex, int con, int intelligence, int wis, int cha, int hpCurrent, int hpMax, int tempHP, int armor, int spellCast, int spellAttack, int initive) {
+	setStength(str);
+	setDexterity(dex);
+	setConstitution(con);
+	setInteligence(intelligence);
+	setWisdom(wis);
+	setCharisma(cha);
+	setCurrentHP(hpCurrent);
+	setMaxHP(hpMax);
+	setTempHP(tempHP);
+	setSpellAttackBonus(spellAttack);
+	setSpellCastingAbility(spellCast);
+	setInitiative(initive);
+	}
+	
+	public void getStats() {
+		this.toString();
+	}
+	
+	public void getOptions() {
+		//this will determine what options are available.
+	}
 	public void notes(String notes) {
 		System.out.println(notes);
 	}
+
 
 	@Override
 	public String toString() {
@@ -236,6 +279,9 @@ public class Mob {
 		builder.append("\n");
 		builder.append("Speed: "+speed);
 		builder.append("\n");
+		builder.append("Initive: " +initiative);
+		builder.append("\n");
+		builder.append("Hit Die: "+hitDie);
 		return builder.toString();
 	}
 
