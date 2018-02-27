@@ -53,8 +53,8 @@ public class guiView extends Application implements Initializable{
 	Button EntitySceneSwap;
 	@FXML
 	ChoiceBox MapSelect;
-	@FXML
-	Stage Scene;
+//	@FXML
+//	Stage Scene;
 	
 
 	@Override
