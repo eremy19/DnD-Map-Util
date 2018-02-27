@@ -1,6 +1,7 @@
 package fxml;
 
 
+import java.beans.EventHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class guiView extends Application implements Initializable{
@@ -31,6 +33,13 @@ public class guiView extends Application implements Initializable{
 		stage.setScene(scene);
 		stage.setAlwaysOnTop(true);
 		stage.setResizable(false);
+//		this is what is registering any and all mouse events. This was for me to test and debug and use for later.
+//		change the ".ANY" to another filter to see that filter
+		 scene.addEventFilter(MouseEvent.ANY, (event) ->{ // "(event) ->" is a Lambda Expression; to treat functionality as method argument, or code as data.
+			 System.out.println("Target name: "+event.getTarget());
+			 System.out.println("Event registered: "+ event.getEventType().getName());
+		 });
+		
 		stage.show();
 	}
 	/*
@@ -44,6 +53,8 @@ public class guiView extends Application implements Initializable{
 	Button EntitySceneSwap;
 	@FXML
 	ChoiceBox MapSelect;
+	@FXML
+	Stage Scene;
 	
 
 	@Override
@@ -57,6 +68,7 @@ public class guiView extends Application implements Initializable{
 	private void changeToMap(ActionEvent event) {
 		EntitySceneSwap.setText("Clicked Entities");
 	}
+	
 
 	
 	
