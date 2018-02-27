@@ -1,39 +1,75 @@
 package fxml;
 
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.application.Application;
-import javafx.beans.property.ObjectProperty;
-import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
-public class guiView extends Application{
+public class guiView extends Application implements Initializable{
+	private Stage currentStage;
+	private String filePath = "OOPproject.fxml";
 
 	public static void runWindow() {
 		launch();
 	}
-	
 	@Override
-	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void start(Stage stage) throws IOException{
 		Parent root = FXMLLoader.load(getClass().getResource("OOPproject.fxml"));
-		
 		Scene scene = new Scene(root,1200,800);
 		stage.setScene(scene);
 		stage.setAlwaysOnTop(true);
 		stage.setResizable(false);
 		stage.show();
-		
+	}
+	/*
+	 * Notes on buttons
+	 * added   fx:controller="fxml.guiView"   to fxml grid pane declaration
+	 * In fxml File Change button id="" to fx:id=""
+	 * @FXML Button EntitySceneSwap <---takes button id and allows you to have events on it
+	 * initialize method works for setting the method needed for every button on MapView
+	 */
+	@FXML
+	Button EntitySceneSwap;
+	@FXML
+	ChoiceBox MapSelect;
+	
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		//add action to button  
+		EntitySceneSwap.setOnAction(this::changeToMap);
+		//add options to combo box
+		MapSelect.getItems().addAll("Option A", "Option B", "Option C");
 	}
 	
-	//grab scene, grab children, navigate to button, set eventlistener to button
-	// need button mouse click listener to switch to Map
+	private void changeToMap(ActionEvent event) {
+		EntitySceneSwap.setText("Clicked Entities");
+	}
 
-	// need button mouse click listener to switch to Entity Editor
 	
+	
+	/*
+	 * Attempts made to swap scenes:
+	 * having a method+button where it uses stage.setScene(): error in try/catches
+	 * @FXML MapSceneSwap button from Entity Scene doesnt work without the FXML Loader being for that fxml.
+	 * re-calling start with "current stage" and using currentFilepath for the FXML Loader: error somehow 
+	 * Having a second java file for the other FXML and scene: Error, cannot call launch() twice
+	 */
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 }
