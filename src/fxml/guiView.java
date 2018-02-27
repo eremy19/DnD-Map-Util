@@ -31,7 +31,7 @@ public class guiView extends Application{
 		
 	}
 	
-
+	//grab scene, grab children, navigate to button, set eventlistener to button
 	// need button mouse click listener to switch to Map
 
 	// need button mouse click listener to switch to Entity Editor
