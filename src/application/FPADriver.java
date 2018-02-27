@@ -1,18 +1,26 @@
 package application;
 	
 
-import fxml.guiView;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import models.Chest;
-import models.Mob;
-import models.Monster;
-import models.Player;
 
 public class FPADriver extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
+
+		try {
+			GridPane box = FXMLLoader.<GridPane>load(this.getClass().getResource("MapView.fxml"));
+			Scene scene = new Scene(box,1200,800);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args) {
