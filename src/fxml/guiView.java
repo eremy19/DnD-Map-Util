@@ -4,9 +4,12 @@ package fxml;
 import java.beans.EventHandler;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -39,9 +43,9 @@ public class guiView extends Application implements Initializable{
 			 System.out.println("Target name: "+event.getTarget());
 			 System.out.println("Event registered: "+ event.getEventType().getName());
 		 });
-		
 		stage.show();
 	}
+	
 	/*
 	 * Notes on buttons
 	 * added   fx:controller="fxml.guiView"   to fxml grid pane declaration
@@ -56,21 +60,31 @@ public class guiView extends Application implements Initializable{
 //	@FXML
 //	Stage Scene;
 	
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//add action to button  
 		EntitySceneSwap.setOnAction(this::changeToMap);
 		//add options to combo box
 		MapSelect.getItems().addAll("Option A", "Option B", "Option C");
+		//sets the first value they see in the dropdown
+		MapSelect.setValue("Option A");
+		//listens for when user changes option in box
+		// doesnt do much now, but here we can send the "new_value" to a method to display the correct map
+		MapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+          public void changed(ObservableValue ov, Number value, Number new_value) {
+            MapSelect.setValue(new_value);
+          }
+        });
+
 	}
 	
 	private void changeToMap(ActionEvent event) {
-		EntitySceneSwap.setText("Clicked Entities");
+		if (EntitySceneSwap.getText().equals("Entities")) {
+			EntitySceneSwap.setText("Clicked Entities");
+		} else {
+			EntitySceneSwap.setText("Entities");
+		}
 	}
-	
-
-	
 	
 	/*
 	 * Attempts made to swap scenes:
