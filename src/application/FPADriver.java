@@ -15,6 +15,7 @@ public class FPADriver extends Application {
 	String path = "../application/MapView.fxml";
 
 
+	
 	@Override
 	public void start(Stage Stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(path)));
