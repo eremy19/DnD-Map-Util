@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 public class UIController {
  
 	@FXML
-	private Button entityButton;
+	public Button entityButton;
 
 	private FPADriver FPAD;
 

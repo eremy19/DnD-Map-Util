@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 
 import controllers.UIController;
+import interfaces.ConsoleUI;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,12 +13,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class FPADriver extends Application {
-	String path = "../fxml/MapView.fxml";
+	String mapPath = "../fxml/MapView.fxml";
+	String entityPath = "../fxml/EntityView.fxml";
+	public String currentPath = mapPath;
+	
 
 
 	@Override
 	public void start(Stage Stage) throws IOException {
-		FXMLLoader loader = new FXMLLoader((getClass().getResource(path)));
+//		FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
+//		FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
+		FXMLLoader loader = new FXMLLoader((getClass().getResource(currentPath)));
+		
+		
+
 		Parent root = loader.load();
 		
 		UIController controller = loader.getController();
@@ -26,9 +35,10 @@ public class FPADriver extends Application {
 		
 		Scene scene = new Scene(root, 1200, 800);
 		Stage.setScene(scene);
-		Stage.setAlwaysOnTop(true);
+		Stage.setAlwaysOnTop(false);
 		Stage.setResizable(false);
 		Stage.show();
+		
 
 //		controller.entityButton.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
 //			@Override

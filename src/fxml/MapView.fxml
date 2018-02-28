@@ -141,7 +141,7 @@
             <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
          </GridPane.margin>
          <children>
-            <Button fx:id="entityButton" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButton" text="Entity">
+            <Button fx:id="entityButton" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Entity">
                <font>
                   <Font size="18.0" />
                </font>
