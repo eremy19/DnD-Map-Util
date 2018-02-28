@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UIController.java">
+<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UIController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" />
     <ColumnConstraints hgrow="SOMETIMES" />
@@ -36,19 +36,27 @@
       <VBox spacing="20.0" GridPane.rowIndex="1">
          <children>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Button id="importer" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
 =======
             <Button id="ImportButton" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
 >>>>>>> f7b008cb46f443a84ac5e7209d4d7d03bd31b1de
+=======
+            <Button fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
+>>>>>>> parent of 78d5e6b... Changed the pathing inside the fxmls to be the path of the controllers
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Button id="exporter" fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
 =======
             <Button id="ExportButton" fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
 >>>>>>> f7b008cb46f443a84ac5e7209d4d7d03bd31b1de
+=======
+            <Button fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
+>>>>>>> parent of 78d5e6b... Changed the pathing inside the fxmls to be the path of the controllers
                <font>
                   <Font size="24.0" />
                </font>
