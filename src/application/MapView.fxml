@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UIController.java">
+<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UIController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" />
     <ColumnConstraints hgrow="SOMETIMES" />
@@ -35,20 +35,13 @@
       </VBox>
       <VBox spacing="20.0" GridPane.rowIndex="1">
          <children>
-<<<<<<< HEAD
-            <Button id="importer" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
-=======
             <Button id="ImportButton" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
->>>>>>> f7b008cb46f443a84ac5e7209d4d7d03bd31b1de
+
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-<<<<<<< HEAD
-            <Button id="exporter" fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
-=======
             <Button id="ExportButton" fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
->>>>>>> f7b008cb46f443a84ac5e7209d4d7d03bd31b1de
                <font>
                   <Font size="24.0" />
                </font>
@@ -148,26 +141,7 @@
             <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
          </GridPane.margin>
          <children>
-<<<<<<< HEAD:src/fxml/MapView.fxml
-            <Button fx:id="entityButton" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Entity">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Button" GridPane.rowIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="White" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="White" GridPane.rowIndex="2">
-=======
             <Button id="EntityButton" fx:id="entityButton" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButton" text="Entity">
->>>>>>> f7b008cb46f443a84ac5e7209d4d7d03bd31b1de:src/application/MapView.fxml
                <font>
                   <Font size="18.0" />
                </font>
