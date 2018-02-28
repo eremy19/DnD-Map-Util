@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class FPADriver extends Application {
-	String path = "../fxml/MapView.fxml";
+	String path = "../application/MapView.fxml";
 
 
 	@Override

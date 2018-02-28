@@ -19,7 +19,7 @@
    <children>
       <VBox spacing="30.0">
          <children>
-            <ChoiceBox fx:id="MapSelect" maxHeight="60.0" maxWidth="500.0" minHeight="25.0" minWidth="200.0" />
+            <ChoiceBox id="MapSelectDropDown" fx:id="MapSelect" maxHeight="60.0" maxWidth="500.0" minHeight="25.0" minWidth="200.0" />
             <Button fx:id="EntitySceneSwap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Entities">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -35,12 +35,12 @@
       </VBox>
       <VBox spacing="20.0" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
+            <Button id="ImportButton" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
+            <Button id="ExportButton" fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
                <font>
                   <Font size="24.0" />
                </font>
@@ -50,7 +50,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
-      <GridPane gridLinesVisible="true" style="-fx-background-color: lightgreen;" GridPane.columnIndex="1">
+      <GridPane id="MapGridPane" gridLinesVisible="true" style="-fx-background-color: lightgreen;" GridPane.columnIndex="1">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -87,7 +87,7 @@
             <Insets bottom="100.0" left="100.0" right="101.0" top="100.0" />
          </GridPane.margin>
          <children>
-            <Pane />
+            <Pane id="p1" fx:id="p1" style="-fx-background-color: lightgreen;" />
             <Pane GridPane.columnIndex="1" />
             <Pane GridPane.columnIndex="2" />
             <Pane GridPane.columnIndex="3" />
@@ -101,7 +101,7 @@
       <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <VBox spacing="30.0" GridPane.columnIndex="2">
          <children>
-            <TextArea maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
+            <TextArea id="DescriptionArea" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -109,14 +109,14 @@
                   <Font size="15.0" />
                </font>
             </TextArea>
-            <ChoiceBox maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
+            <ChoiceBox id="OptionSelectDropDown" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
             <HBox fillHeight="false">
                <children>
-                  <TextField maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
+                  <TextField id="TextEntry" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
                      <font>
                         <Font size="12.0" />
                      </font></TextField>
-                  <Button maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" text="OK" />
+                  <Button id="TextEntryButton" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" text="OK" />
                </children>
             </HBox>
          </children>
@@ -126,7 +126,6 @@
       </VBox>
       <GridPane gridLinesVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" />
             <ColumnConstraints hgrow="SOMETIMES" />
             <ColumnConstraints hgrow="SOMETIMES" />
           <ColumnConstraints hgrow="SOMETIMES" />
@@ -141,77 +140,62 @@
             <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
          </GridPane.margin>
          <children>
-            <Button fx:id="entityButton" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButton" text="Entity">
+            <Button id="EntityButton" fx:id="entityButton" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButton" text="Entity">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="1">
+            <Button id="Default" fx:id="Default" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Default" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Button" GridPane.rowIndex="1">
+            <Button id="White" fx:id="White" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColor" text="White" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="White" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="White" GridPane.rowIndex="2">
+            <Button id="Black" fx:id="Black" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Black" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="Brown" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Brown" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Black" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Black" GridPane.columnIndex="2">
+            <Button id="Grey" fx:id="Grey" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Grey" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button id="Orange" fx:id="Orange" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Orange" GridPane.columnIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Brown" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Brown" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button id="Blue" fx:id="Blue" layoutX="674.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Blue" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Grey" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Grey" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button id="Green" fx:id="Green" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Green" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Orange" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Orange" GridPane.columnIndex="3">
+            <Button id="Yellow" fx:id="Yellow" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Yellow" GridPane.columnIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Blue" layoutX="674.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Blue" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <Button id="Purple" fx:id="Purple" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Purple" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Green" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Green" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="Yellow" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Yellow" GridPane.columnIndex="4">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="Purple" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Purple" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="Red" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Red" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Button id="Red" fx:id="Red" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" text="Red" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
