@@ -11,11 +11,11 @@ public class UIController {
 	private String color = "-fx-background-color: lightgreen;";
 	
 	@FXML
-	private Button entityButton;
+	public Button entityButton;
 	private Button EntitySceneSwap;
 	private Button ImportButton;
 	private Button ExportButton;
-	private Button Default;
+	public Button Default;
 	private Button White;
 	private Button Black;
 	private Button Grey;
