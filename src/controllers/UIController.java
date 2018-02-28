@@ -7,17 +7,35 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class UIController {
-
+ 
 	@FXML
 	private Button entityButton;
 
 	private FPADriver FPAD;
 
+	
+	
 	public void setMain(FPADriver FPAD) {
 		this.FPAD = FPAD;
 	}
 
+	
+	
 	public void handleButton() {
 		entityButton.setText("Changed");
 	}
+	
+	class buttonHandler implements EventHandler<ActionEvent>{
+		
+		
+		
+		@Override
+		public void handle(ActionEvent event) {
+			
+			
+		}
+		
+	}
+	
 }
+
