@@ -1,6 +1,12 @@
+/application/
 /fxml/
+<<<<<<< HEAD
 /item/
 /models/
 /util/
 /application/
 /dice/
+=======
+/dice/
+/controllers/
+>>>>>>> 22224f89437560c5c756dcd5847ac111c89efbbd

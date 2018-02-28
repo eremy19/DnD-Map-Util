@@ -1,41 +1,39 @@
 package application;
-	
 
+import java.io.IOException;
+
+import controllers.UIController;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class FPADriver extends Application {
-	
-	@Override
-	public void start(Stage primaryStage) throws Exception{
 
-		try {
-			GridPane box = FXMLLoader.<GridPane>load(this.getClass().getResource("MapView.fxml"));
-			Scene scene = new Scene(box,1200,800);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+	@Override
+	public void start(Stage Stage) throws IOException {
+		FXMLLoader loader = new FXMLLoader((getClass().getResource("../fxml/OOPproject.fxml")));
+		Parent root = loader.load();
+		UIController controller = loader.getController();
+		Scene scene = new Scene(root, 1200, 800);
+		Stage.setScene(scene);
+		Stage.setAlwaysOnTop(true);
+		Stage.setResizable(false);
+		Stage.show();
+
+		controller.entityButton.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				controller.entityButton.setText("YAY!!");
+			}
+		});
 	}
-	
+
 	public static void main(String[] args) {
-//		launch(args);
-//		Mob m = new Mob("Mob", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
-//		Player p = new Player("Player", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
-//		Monster mob = new Monster("Monster", 7, 0, 1, 2, 3, 5, 7, 15, 15, 15, 30);
-//		Mob m2 = new Mob(name, maxHP, strength, dexterity, constitution, inteligence, wisdom, charisma, armor, spellAttackBonus, spellCastingAbility, speed)
-//		System.out.println(m);
-//		System.out.println();
-//		System.out.println(p);
-//		System.out.println();
-//		System.out.println(mob);
-//		Chest.getItem();
-//		Chest.randomItem();
-		guiView.runWindow();
+		launch(args);
+
 	}
 }
