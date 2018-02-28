@@ -4,6 +4,7 @@ import javafx.scene.layout.GridPane;
 
 public class Map {
 
+	
 	public final String name;
 	public final GridPane map;
 	
