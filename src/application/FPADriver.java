@@ -13,17 +13,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class FPADriver extends Application {
-	String mapPath = "../fxml/MapView.fxml";
-	String entityPath = "../fxml/EntityView.fxml";
-	public String currentPath = mapPath;
-	
+
+String path = "../application/MapView.fxml";
+
 
 
 	@Override
 	public void start(Stage Stage) throws IOException {
 //		FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
 //		FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
-		FXMLLoader loader = new FXMLLoader((getClass().getResource(currentPath)));
+		FXMLLoader loader = new FXMLLoader((getClass().getResource(path)));
 		
 		
 
