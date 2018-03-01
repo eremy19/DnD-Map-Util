@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 public class UIController {
-	private String color = "-fx-background-color: lightgreen;";
+	public String color = "-fx-background-color: lightgreen;";
 	
 	@FXML
 	public Button entityButton;
