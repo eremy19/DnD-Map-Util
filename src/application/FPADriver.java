@@ -16,6 +16,7 @@ import controllers.EntityController;
 import controllers.UIController;
 import item.Items;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -79,6 +80,11 @@ public class FPADriver extends Application {
 				p.setOnMouseClicked(e -> p.setStyle(controller.color));
 			}
 		}
+		
+		
+		controller2.StatChange.setItems(FXCollections.observableArrayList(
+				"Name", "maxHP", "strength", "dexterity", "constitution", "inteligence", "wisdom", "charisma", "armor", "spellAttackBonus",
+				"spellCastingAbility", "speed", "initive", "hitDie"));
 
 		// controller.ImportMap.add
 		// controller.ImportMap.addEventFilter(ActionEvent.ACTION, new
