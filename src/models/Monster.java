@@ -1,6 +1,8 @@
 package models;
 
-public class Monster extends Mob {
+import java.io.Serializable;
+
+public class Monster extends Mob implements Serializable{
 
 	public Monster(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
 			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, int initive,

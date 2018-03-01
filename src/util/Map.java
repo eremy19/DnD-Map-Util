@@ -1,8 +1,10 @@
 package util;
 
+import java.io.Serializable;
+
 import javafx.scene.layout.GridPane;
 
-public class Map {
+public class Map implements Serializable{
 
 	
 	public final String name;

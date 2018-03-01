@@ -92,35 +92,44 @@ public class FPADriver extends Application {
 
 		String filePath = "./saveFileObject.ini";
 		File file = new File(filePath);
-		// Player p = new Player("Daniel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		// players.add(p);
-		// Map map = new Map("testmap", mapPane);
-		// maps.add(map);
-		// Monster m = new Monster("Monster", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		// monsters.add(m);
-		// Items i = new Items("Item", "Notes here");
-		// items.add(i);
+//		Player p = new Player("Daniel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
+//		players.add(p);
+//		Map map = new Map("testmap", mapPane);
+//		maps.add(map);
+//		Monster m = new Monster("Monster", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
+//		monsters.add(m);
+//		Items i = new Items("Item", "Notes here");
+//		items.add(i);
+		SaveFile sf = new SaveFile(items, players, monsters, maps);
 		// sf.getPlayerList().add(p);
-		// sf.playerList.add(p);
+//		sf.mapList.add(map);
+//		sf.playerList.add(p);
+//		sf.monsterList.add(m);
+//		sf.itemList.add(i);
 		// maps = sf.mapList;
 		// players = sf.playerList;
 		// monsters = sf.monsterList;
 		// items = sf.itemList;
-		SaveFile sf = new SaveFile(items, players, monsters, maps);
+//		try {
+//			saveFile(sf, filePath);
+//		} catch (IOException e1) {
+//			System.out.println("General IOException save");
+//			e1.printStackTrace();
+//		}
 
 		if (file.exists()) {
 			try {
 				sf = loadFile(filePath);
 			} catch (ClassNotFoundException e) {
-				System.out.println("ClassNotFoundException");
+				System.out.println("ClassNotFoundException load");
 				e.printStackTrace();
 			} catch (IOException e) {
-				System.out.println("General IOException");
+				System.out.println("General IOException load");
 				e.printStackTrace();
 			}
 
 		} else {
-			Alert alert = new Alert(AlertType.INFORMATION, "Make sure to save your work!", ButtonType.OK);
+			Alert alert = new Alert(AlertType.INFORMATION, "We cannot save javafx components such as gridpane. we need a way to track where the user changes color(labes in gridpane, lable color changed to represent what is what) and store changes possibly in a 2D array. save array as map.", ButtonType.OK);
 			alert.setHeaderText("No save file exist!");
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 			alert.show();
@@ -184,48 +193,50 @@ public class FPADriver extends Application {
 		Optional<String> filePath = Optional.empty();
 		String path;
 		do {
-			
-		try {
-			filePath = textDialog.showAndWait();
-		} catch (NoSuchElementException e) {
-			
-		}
-		try {
-			File file = new File(filePath.get());
-			if (file.exists()) {
-				path = filePath.get();
-				validFilePath = true;
-				try {
-					loadFile(path);
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			} else {
-				Alert alert = new Alert(AlertType.ERROR, "Please enter a valid file path!", ButtonType.OK);
-				alert.setHeaderText(null);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.showAndWait();
+
+			try {
+				filePath = textDialog.showAndWait();
+			} catch (NoSuchElementException e) {
+
 			}
-		} catch (NoSuchElementException e) {
-//			Alert alert = new Alert(AlertType.ERROR, "No such file path!", ButtonType.OK);
-//			alert.setHeaderText("Please enter a valid file path");
-//			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-//			alert.showAndWait();
-			validFilePath = true;
-		}
-		}while(!validFilePath);
+			try {
+				File file = new File(filePath.get());
+				if (file.exists()) {
+					path = filePath.get();
+					validFilePath = true;
+					try {
+						loadFile(path);
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else {
+					Alert alert = new Alert(AlertType.ERROR, "Please enter a valid file path!", ButtonType.OK);
+					alert.setHeaderText(null);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.showAndWait();
+				}
+			} catch (NoSuchElementException e) {
+				// Alert alert = new Alert(AlertType.ERROR, "No such file path!",
+				// ButtonType.OK);
+				// alert.setHeaderText("Please enter a valid file path");
+				// alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				// alert.showAndWait();
+				validFilePath = true;
+			}
+		} while (!validFilePath);
 
 	}
-	
+
 	public static void exportMap() {
 		Alert alert = new Alert(AlertType.NONE);
 		ButtonType btn = new ButtonType("Maybe...");
 		alert.getDialogPane().getButtonTypes().add(btn);
-		alert.setHeaderText("You clicked the export button. Sorry but, this method is currently empty... You could fix that :)"); 
+		alert.setHeaderText(
+				"You clicked the export button. Sorry but, this method is currently empty... You could fix that :)");
 		alert.showAndWait();
 	}
 

@@ -12,11 +12,11 @@ public class SaveFile implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	public ArrayList<Items> itemList;
-	public ArrayList<Player> playerList;
-	public ArrayList<Monster> monsterList;
-	public ArrayList<Map> mapList;
+//	private static final long serialVersionUID = 1L;
+	public ArrayList<Items> itemList = new ArrayList<>();
+	public ArrayList<Player> playerList = new ArrayList<>();
+	public ArrayList<Monster> monsterList = new ArrayList<>();
+	public ArrayList<Map> mapList = new ArrayList<>();
 	
 	public SaveFile(ArrayList<Items> itemList, ArrayList<Player> playerList, ArrayList<Monster> monsterList, ArrayList<Map> mapList) {
 		this.itemList = itemList;

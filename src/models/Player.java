@@ -1,6 +1,8 @@
 package models;
 
-public class Player extends Mob {
+import java.io.Serializable;
+
+public class Player extends Mob implements Serializable {
 
 	public Player(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
 			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, int initive,
