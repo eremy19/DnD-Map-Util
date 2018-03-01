@@ -16,6 +16,7 @@ import controllers.EntityController;
 import controllers.UIController;
 import item.Items;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -45,9 +46,6 @@ public class FPADriver extends Application {
 
 	@Override
 	public void start(Stage Stage) throws IOException {
-
-		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
-		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
 		FXMLLoader loader2 = new FXMLLoader((getClass().getResource(pathEntity)));
 
@@ -99,6 +97,7 @@ public class FPADriver extends Application {
 		// filePath();
 		// }
 		// });
+
 		initialLoad(map);
 	}
 
@@ -180,10 +179,8 @@ public class FPADriver extends Application {
 					try {
 						loadFile(path);
 					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} else {
@@ -193,11 +190,7 @@ public class FPADriver extends Application {
 					alert.showAndWait();
 				}
 			} catch (NoSuchElementException e) {
-				// Alert alert = new Alert(AlertType.ERROR, "No such file path!",
-				// ButtonType.OK);
-				// alert.setHeaderText("Please enter a valid file path");
-				// alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				// alert.showAndWait();
+		
 				validFilePath = true;
 			}
 		} while (!validFilePath);
