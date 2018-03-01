@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.NotSerializableException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import models.Monster;
 import models.Player;
@@ -35,15 +37,14 @@ public class FPADriver extends Application {
 	String pathEntity = "EntityView.fxml";
 	Scene sceneMap, sceneEntity;
 
-	ArrayList<Map> maps;
-	ArrayList<Player> players;
-	ArrayList<Monster> monsters;
-	ArrayList<Items> items;
+	ArrayList<Map> maps = new ArrayList<>();
+	ArrayList<Player> players = new ArrayList<>();
+	ArrayList<Monster> monsters = new ArrayList<>();
+	ArrayList<Items> items = new ArrayList<>();
 
 	@Override
 	public void start(Stage Stage) throws IOException {
 		
-		 initialLoad();
 
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
@@ -57,6 +58,8 @@ public class FPADriver extends Application {
 		EntityController controller2 = loader2.getController();
 
 		controller.setMain(this);
+		
+		GridPane map = controller.mapGrid;
 
 		sceneMap = new Scene(root, 1200, 800);
 		sceneEntity = new Scene(root2, 1200, 800);
@@ -64,7 +67,8 @@ public class FPADriver extends Application {
 		Stage.setAlwaysOnTop(false);
 		Stage.setResizable(false);
 		Stage.show();
-
+		
+		
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 		// controller.ImportMap.add
@@ -76,16 +80,27 @@ public class FPADriver extends Application {
 //				filePath();
 //			}
 //		});
+		initialLoad(map);
 	}
 
-	private void initialLoad() {
-		
+	private void initialLoad(GridPane mapPane) {
 		String filePath = "./saveFileObject.sfo";
+		Player p = new Player("Daniel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
+		players.add(p);
+		Map map = new Map("testmap", mapPane);
+		maps.add(map);
+		Monster m = new Monster("Monster", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
+		monsters.add(m);
+		Items i = new Items("Item", "Notes here");
+		items.add(i);
+//		sf.getPlayerList().add(p);
+//		sf.playerList.add(p);
+//		maps = sf.mapList;
+//		players = sf.playerList;
+//		monsters = sf.monsterList;
+//		items = sf.itemList;
 		SaveFile sf = new SaveFile(items, players, monsters, maps);
-		maps = sf.mapList;
-		players = sf.playerList;
-		monsters = sf.monsterList;
-		items = sf.itemList;
+		
 		
 		try {
 			sf = loadFile(filePath);
@@ -93,6 +108,9 @@ public class FPADriver extends Application {
 			System.out.println("There is no startup file. Creating one now.");
 			try {
 				saveFile(sf, filePath);
+			}catch (NotSerializableException e2) {
+				System.out.println("NotSerializableEx");
+				e2.printStackTrace();
 			} catch (IOException e1) {
 				System.out.println("caught save exception");
 				e1.printStackTrace();

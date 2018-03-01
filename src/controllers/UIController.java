@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 public class UIController {
@@ -27,6 +28,7 @@ public class UIController {
 	public Button Purple;
 	public Button Green;
 	public Pane p1;
+	public GridPane mapGrid;
 
 	
 	
