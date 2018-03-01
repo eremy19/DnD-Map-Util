@@ -221,7 +221,7 @@ public class Mob {
 		this.hitDie = hitDie;
 	}
 
-	public void updateStats(int str, int dex, int con, int intelligence, int wis, int cha, int hpCurrent, int hpMax, int tempHP, int armor, int spellCast, int spellAttack, int initive) {
+	public void updateStats(int str, int dex, int con, int intelligence, int wis, int cha, int hpCurrent, int hpMax, int tempHP, int armor, int spellCast, int spellAttack, int initiative) {
 	setStength(str);
 	setDexterity(dex);
 	setConstitution(con);
@@ -233,7 +233,7 @@ public class Mob {
 	setTempHP(tempHP);
 	setSpellAttackBonus(spellAttack);
 	setSpellCastingAbility(spellCast);
-	setInitiative(initive);
+	setInitiative(initiative);
 	}
 	
 	public void getStats() {
