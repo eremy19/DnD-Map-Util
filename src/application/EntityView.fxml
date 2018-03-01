@@ -19,7 +19,7 @@
       <VBox spacing="30.0">
          <children>
             <ChoiceBox maxHeight="60.0" maxWidth="500.0" minHeight="25.0" minWidth="200.0" />
-            <Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Entities">
+            <Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Maps">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

@@ -45,7 +45,7 @@ Scene sceneMap, sceneEntity;
 		Stage.setResizable(false);
 		Stage.show();
 		
-		controller.entityButton.setOnAction(e -> Stage.setScene(sceneEntity));
+		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 //		controller2.entities.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
 

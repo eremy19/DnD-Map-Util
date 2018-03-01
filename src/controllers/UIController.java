@@ -12,21 +12,21 @@ public class UIController {
 	
 	@FXML
 	public Button entityButton;
-	private Button EntitySceneSwap;
-	private Button ImportButton;
-	private Button ExportButton;
+	public Button entitySceneSwap;
+	public Button ImportButton;
+	public Button ExportButton;
 	public Button Default;
-	private Button White;
-	private Button Black;
-	private Button Grey;
-	private Button Brown;
-	private Button Blue;
-	private Button Yellow;
-	private Button Red;
-	private Button Orange;
-	private Button Purple;
-	private Button Green;
-	private Pane p1;
+	public Button White;
+	public Button Black;
+	public Button Grey;
+	public Button Brown;
+	public Button Blue;
+	public Button Yellow;
+	public Button Red;
+	public Button Orange;
+	public Button Purple;
+	public Button Green;
+	public Pane p1;
 
 	
 	
