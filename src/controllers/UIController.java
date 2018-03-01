@@ -55,7 +55,10 @@ public class UIController {
 	}
 
 	public void loadMap() {
-		FPADriver.filePath();
+		FPADriver.importMap();
+	}
+	public void saveMap() {
+		FPADriver.exportMap();
 	}
 	
 	

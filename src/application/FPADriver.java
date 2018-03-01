@@ -12,6 +12,7 @@ import java.io.NotSerializableException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import controllers.EntityController;
@@ -23,8 +24,13 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import models.Monster;
 import models.Player;
@@ -44,7 +50,6 @@ public class FPADriver extends Application {
 
 	@Override
 	public void start(Stage Stage) throws IOException {
-		
 
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
@@ -58,7 +63,7 @@ public class FPADriver extends Application {
 		EntityController controller2 = loader2.getController();
 
 		controller.setMain(this);
-		
+
 		GridPane map = controller.mapGrid;
 
 		sceneMap = new Scene(root, 1200, 800);
@@ -67,64 +72,85 @@ public class FPADriver extends Application {
 		Stage.setAlwaysOnTop(false);
 		Stage.setResizable(false);
 		Stage.show();
-		
-		
+
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 		// controller.ImportMap.add
-//		controller.ImportMap.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-			
-//			@Override
-//			public void handle(ActionEvent event) {
-////				System.out.println("hit");
-//				filePath();
-//			}
-//		});
+		// controller.ImportMap.addEventFilter(ActionEvent.ACTION, new
+		// EventHandler<ActionEvent>() {
+
+		// @Override
+		// public void handle(ActionEvent event) {
+		//// System.out.println("hit");
+		// filePath();
+		// }
+		// });
 		initialLoad(map);
 	}
 
 	private void initialLoad(GridPane mapPane) {
-		String filePath = "./saveFileObject.sfo";
-		Player p = new Player("Daniel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		players.add(p);
-		Map map = new Map("testmap", mapPane);
-		maps.add(map);
-		Monster m = new Monster("Monster", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		monsters.add(m);
-		Items i = new Items("Item", "Notes here");
-		items.add(i);
-//		sf.getPlayerList().add(p);
-//		sf.playerList.add(p);
-//		maps = sf.mapList;
-//		players = sf.playerList;
-//		monsters = sf.monsterList;
-//		items = sf.itemList;
+
+		String filePath = "./saveFileObject.ini";
+		File file = new File(filePath);
+		// Player p = new Player("Daniel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
+		// players.add(p);
+		// Map map = new Map("testmap", mapPane);
+		// maps.add(map);
+		// Monster m = new Monster("Monster", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
+		// monsters.add(m);
+		// Items i = new Items("Item", "Notes here");
+		// items.add(i);
+		// sf.getPlayerList().add(p);
+		// sf.playerList.add(p);
+		// maps = sf.mapList;
+		// players = sf.playerList;
+		// monsters = sf.monsterList;
+		// items = sf.itemList;
 		SaveFile sf = new SaveFile(items, players, monsters, maps);
-		
-		
-		try {
-			sf = loadFile(filePath);
-		}catch (FileNotFoundException e) {
-			System.out.println("There is no startup file. Creating one now.");
+
+		if (file.exists()) {
 			try {
-				saveFile(sf, filePath);
-			}catch (NotSerializableException e2) {
-				System.out.println("NotSerializableEx");
-				e2.printStackTrace();
-			} catch (IOException e1) {
-				System.out.println("caught save exception");
-				e1.printStackTrace();
+				sf = loadFile(filePath);
+			} catch (ClassNotFoundException e) {
+				System.out.println("ClassNotFoundException");
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println("General IOException");
+				e.printStackTrace();
 			}
-		} catch (ClassNotFoundException e) {
-			System.out.println("There was an error loading the startup file. ClassNotFound.");
-		}catch (EOFException e) {
-			System.out.println("There was an error loading the startup file EOFException.");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("General IOException");
-			e.printStackTrace();
+
+		} else {
+			Alert alert = new Alert(AlertType.INFORMATION, "Make sure to save your work!", ButtonType.OK);
+			alert.setHeaderText("No save file exist!");
+			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+			alert.show();
+
 		}
 
+		// try {
+		// sf = loadFile(filePath);
+		// }catch (FileNotFoundException e) {
+		// System.out.println("There is no startup file. Creating one now.");
+		// try {
+		// saveFile(sf, filePath);
+		// }catch (NotSerializableException e2) {
+		// System.out.println("NotSerializableEx");
+		// e2.printStackTrace();
+		// } catch (IOException e1) {
+		// System.out.println("caught save exception");
+		// e1.printStackTrace();
+		// }
+		// } catch (ClassNotFoundException e) {
+		// System.out.println("There was an error loading the startup file.
+		// ClassNotFound.");
+		// }catch (EOFException e) {
+		// System.out.println("There was an error loading the startup file
+		// EOFException.");
+		// e.printStackTrace();
+		// } catch (IOException e) {
+		// System.out.println("General IOException");
+		// e.printStackTrace();
+		// }
 
 	}
 
@@ -149,31 +175,60 @@ public class FPADriver extends Application {
 		fos.close();
 	}
 
-	
-	public static void filePath(){
-		Optional<String> filePath;
-		
+	public static void importMap() {
+		boolean validFilePath = false;
 		TextInputDialog textDialog = new TextInputDialog();
-        textDialog.setTitle("Create new item");
-        textDialog.setHeaderText(null);
-
-        textDialog.setContentText("Enter the filePath for the map: ");
-        filePath = textDialog.showAndWait();
-//        loadFile(filePath);
-        System.out.println(filePath);
-        String path = filePath.get();
-        try {
-			loadFile(path);
-		} catch (ClassNotFoundException e) {
-			System.out.println("Threw ClassNotFound");
-//			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("Threw general IOException");
-//			e.printStackTrace();
+		textDialog.setTitle("Import Map");
+		textDialog.setHeaderText(null);
+		textDialog.setContentText("Enter the filePath for the map: ");
+		Optional<String> filePath = Optional.empty();
+		String path;
+		do {
+			
+		try {
+			filePath = textDialog.showAndWait();
+		} catch (NoSuchElementException e) {
+			
 		}
+		try {
+			File file = new File(filePath.get());
+			if (file.exists()) {
+				path = filePath.get();
+				validFilePath = true;
+				try {
+					loadFile(path);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				Alert alert = new Alert(AlertType.ERROR, "Please enter a valid file path!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.showAndWait();
+			}
+		} catch (NoSuchElementException e) {
+//			Alert alert = new Alert(AlertType.ERROR, "No such file path!", ButtonType.OK);
+//			alert.setHeaderText("Please enter a valid file path");
+//			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+//			alert.showAndWait();
+			validFilePath = true;
+		}
+		}while(!validFilePath);
 
 	}
 	
+	public static void exportMap() {
+		Alert alert = new Alert(AlertType.NONE);
+		ButtonType btn = new ButtonType("Maybe...");
+		alert.getDialogPane().getButtonTypes().add(btn);
+		alert.setHeaderText("You clicked the export button. Sorry but, this method is currently empty... You could fix that :)"); 
+		alert.showAndWait();
+	}
+
 	public static void main(String[] args) {
 		launch(args);
 	}
