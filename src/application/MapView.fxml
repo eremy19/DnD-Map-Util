@@ -88,15 +88,7 @@
             <Insets bottom="100.0" left="100.0" right="101.0" top="100.0" />
          </GridPane.margin>
          <children>
-            <Pane id="p1" fx:id="p1" onMouseClicked="#pane1Change" style="-fx-background-color: lightgreen;" />
-            <Pane GridPane.columnIndex="1" />
-            <Pane GridPane.columnIndex="2" />
-            <Pane GridPane.columnIndex="3" />
-            <Pane GridPane.columnIndex="4" />
-            <Pane GridPane.columnIndex="5" />
-            <Pane GridPane.columnIndex="6" />
-            <Pane GridPane.columnIndex="7" />
-            <Pane GridPane.rowIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </GridPane>
       <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" />
