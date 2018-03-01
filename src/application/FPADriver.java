@@ -46,9 +46,6 @@ public class FPADriver extends Application {
 
 	@Override
 	public void start(Stage Stage) throws IOException {
-
-		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
-		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
 		FXMLLoader loader2 = new FXMLLoader((getClass().getResource(pathEntity)));
 
@@ -81,21 +78,7 @@ public class FPADriver extends Application {
 			}
 		}
 		
-		
-		controller2.StatChange.setItems(FXCollections.observableArrayList(
-				"Name", "maxHP", "strength", "dexterity", "constitution", "inteligence", "wisdom", "charisma", "armor", "spellAttackBonus",
-				"spellCastingAbility", "speed", "initive", "hitDie"));
-
-		// controller.ImportMap.add
-		// controller.ImportMap.addEventFilter(ActionEvent.ACTION, new
-		// EventHandler<ActionEvent>() {
-
-		// @Override
-		// public void handle(ActionEvent event) {
-		//// System.out.println("hit");
-		// filePath();
-		// }
-		// });
+	
 		initialLoad(map);
 	}
 
@@ -149,31 +132,6 @@ public class FPADriver extends Application {
 
 		}
 
-		// try {
-		// sf = loadFile(filePath);
-		// }catch (FileNotFoundException e) {
-		// System.out.println("There is no startup file. Creating one now.");
-		// try {
-		// saveFile(sf, filePath);
-		// }catch (NotSerializableException e2) {
-		// System.out.println("NotSerializableEx");
-		// e2.printStackTrace();
-		// } catch (IOException e1) {
-		// System.out.println("caught save exception");
-		// e1.printStackTrace();
-		// }
-		// } catch (ClassNotFoundException e) {
-		// System.out.println("There was an error loading the startup file.
-		// ClassNotFound.");
-		// }catch (EOFException e) {
-		// System.out.println("There was an error loading the startup file
-		// EOFException.");
-		// e.printStackTrace();
-		// } catch (IOException e) {
-		// System.out.println("General IOException");
-		// e.printStackTrace();
-		// }
-
 	}
 
 	public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
@@ -220,10 +178,8 @@ public class FPADriver extends Application {
 					try {
 						loadFile(path);
 					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} else {
@@ -233,11 +189,7 @@ public class FPADriver extends Application {
 					alert.showAndWait();
 				}
 			} catch (NoSuchElementException e) {
-				// Alert alert = new Alert(AlertType.ERROR, "No such file path!",
-				// ButtonType.OK);
-				// alert.setHeaderText("Please enter a valid file path");
-				// alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				// alert.showAndWait();
+		
 				validFilePath = true;
 			}
 		} while (!validFilePath);
