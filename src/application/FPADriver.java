@@ -80,10 +80,6 @@ public class FPADriver extends Application {
 		}
 		
 		
-		controller2.StatChange.setItems(FXCollections.observableArrayList(
-				"Name", "maxHP", "strength", "dexterity", "constitution", "inteligence", "wisdom", "charisma", "armor", "spellAttackBonus",
-				"spellCastingAbility", "speed", "initiative", "hitDie"));
-
 		initialLoad(map);
 	}
 

@@ -9,6 +9,4 @@ public class EntityController {
 	@FXML
 	public Button entities;
 
-	public ChoiceBox StatChange;
-
 }
