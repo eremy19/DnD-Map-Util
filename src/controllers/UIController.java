@@ -172,10 +172,6 @@ public class UIController {
 		FPADriver.exportMap();
 	}
 	
-	public void inputCharacterStats() {
-		TextInputDialog statPopUp = new TextInputDialog();
-		statPopUp.setTitle("Character Stats");
-	}
 
 	// class buttonHandler implements EventHandler<ActionEvent>{
 

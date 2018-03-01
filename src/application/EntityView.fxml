@@ -51,7 +51,7 @@
       </VBox>
       <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="CharacterCreate" mnemonicParsing="false" text="Make New Character" />
+            <Button fx:id="CharacterCreate" mnemonicParsing="false" onAction="#inputCharacterStats" text="Make New Character" />
             <ChoiceBox fx:id="StatChange" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
             <HBox fillHeight="false">
                <children>
