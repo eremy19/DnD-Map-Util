@@ -27,6 +27,9 @@ public class UIController {
 	public Button Orange;
 	public Button Purple;
 	public Button Green;
+	
+	public Button saveAll;
+	
 	public Pane p1;
 	public GridPane mapGrid;
 	public javafx.scene.control.TextArea descriptionArea;
@@ -184,7 +187,7 @@ public class UIController {
 		FPADriver.importMap();
 	}
 	public void saveMap() {
-		FPADriver.exportMap();
+//		FPADriver.exportMap();
 	}
 	
 	

@@ -1,4 +1,4 @@
-package util;
+package models;
 
 import java.io.Serializable;
 
@@ -8,9 +8,9 @@ public class Map implements Serializable{
 
 	
 	public final String name;
-	public final GridPane map;
+	public final String[][] map;
 	
-	public Map (String name, GridPane map) {
+	public Map (String name, String[][] map) {
 		this.name = name;
 		this.map = map;
 	}

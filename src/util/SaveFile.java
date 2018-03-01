@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import item.Items;
+import models.Map;
 import models.Monster;
 import models.Player;
 
