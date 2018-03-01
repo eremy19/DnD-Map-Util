@@ -2,7 +2,10 @@ package application;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -40,7 +43,7 @@ public class FPADriver extends Application {
 	@Override
 	public void start(Stage Stage) throws IOException {
 		
-		// initialLoad();
+		 initialLoad();
 
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
@@ -76,21 +79,34 @@ public class FPADriver extends Application {
 	}
 
 	private void initialLoad() {
-
-		String filePath = "saveFileObject";
+		
+		String filePath = "./saveFileObject.sfo";
 		SaveFile sf = new SaveFile(items, players, monsters, maps);
-		try {
-			sf = loadFile(filePath);
-		} catch (ClassNotFoundException e) {
-			System.out.println("There was an error loading the startup file.");
-		} catch (IOException e) {
-			System.out.println("There was an error loading the startup file.");
-		}
-
 		maps = sf.mapList;
 		players = sf.playerList;
 		monsters = sf.monsterList;
 		items = sf.itemList;
+		
+		try {
+			sf = loadFile(filePath);
+		}catch (FileNotFoundException e) {
+			System.out.println("There is no startup file. Creating one now.");
+			try {
+				saveFile(sf, filePath);
+			} catch (IOException e1) {
+				System.out.println("caught save exception");
+				e1.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println("There was an error loading the startup file. ClassNotFound.");
+		}catch (EOFException e) {
+			System.out.println("There was an error loading the startup file EOFException.");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("General IOException");
+			e.printStackTrace();
+		}
+
 
 	}
 
@@ -100,6 +116,8 @@ public class FPADriver extends Application {
 		ObjectInputStream ois = new ObjectInputStream(bis);
 		SaveFile sf = (SaveFile) ois.readObject();
 		ois.close();
+		bis.close();
+		fis.close();
 		return sf;
 	}
 
@@ -109,6 +127,8 @@ public class FPADriver extends Application {
 		ObjectOutputStream oos = new ObjectOutputStream(bos);
 		oos.writeObject(sf);
 		oos.close();
+		bos.close();
+		fos.close();
 	}
 
 	
