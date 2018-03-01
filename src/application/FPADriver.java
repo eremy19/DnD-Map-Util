@@ -1,17 +1,26 @@
 package application;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import controllers.EntityController;
 import controllers.UIController;
-import interfaces.ConsoleUI;
+import item.Items;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.Monster;
+import models.Player;
+import util.Map;
+import util.SaveFile;
 
 public class FPADriver extends Application {
 
@@ -19,10 +28,18 @@ String pathMap = "MapView.fxml";
 String pathEntity = "EntityView.fxml";
 Scene sceneMap, sceneEntity;
 
+ArrayList<Map> maps;
+ArrayList<Player> players;
+ArrayList<Monster> monsters;
+ArrayList<Items> items;
+
 
 
 	@Override
 	public void start(Stage Stage) throws IOException {
+		
+		initialLoad();
+		
 //		FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
 //		FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
@@ -61,6 +78,37 @@ Scene sceneMap, sceneEntity;
 //				controller.entityButton.setText("YAY!!");
 //			}
 //		});
+	}
+
+	private void initialLoad() {
+
+		String filePath = "saveFileObject";
+		
+		try {
+			SaveFile sf = loadFile(filePath);
+		} catch (ClassNotFoundException e) {
+			System.out.println("There was an error loading the startup file.");
+		} catch (IOException e) {
+			System.out.println("There was an error loading the startup file.");
+		}
+		
+	}
+
+	public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
+		FileInputStream fis = new FileInputStream(filePath);
+		BufferedInputStream bis = new BufferedInputStream(fis);
+		ObjectInputStream ois = new ObjectInputStream(bis);
+		SaveFile sf = (SaveFile)ois.readObject();
+		ois.close();
+		return sf;
+	}
+	
+	public static void saveFile (SaveFile sf, String filePath) throws IOException {
+		FileOutputStream fos = new FileOutputStream(filePath);
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		ObjectOutputStream oos = new ObjectOutputStream(bos);
+		oos.writeObject(sf);
+		oos.close();
 	}
 
 	public static void main(String[] args) {
