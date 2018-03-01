@@ -29,6 +29,7 @@ public class UIController {
 	public Button Green;
 	public Pane p1;
 	public GridPane mapGrid;
+	public javafx.scene.control.TextArea descriptionArea;
 
 	
 	
@@ -49,10 +50,135 @@ public class UIController {
 			entityButton.setText("Entity Selected");
 		}
 	}
-	public void selectColor() {
-		color = "-fx-background-color: white;";
-		System.out.println("Color changed to " + color);
+	
+	public void selectColorWhite() {
+		
+		
+		color = "-fx-background-color: white";
+		//System.out.println("Color changed to " + color);
+		descriptionArea.appendText("Color changed to:" + color.substring(21));
+//		DecreptionArea.appendText("Color changed to: " + color);
+		descriptionArea.appendText("\n");
+		descriptionArea.setEditable(false);
 	}
+	
+	public void selectColorBlack() {
+		
+		
+		color = "-fx-background-color: black";
+		//System.out.println("Color changed to " + color);
+		descriptionArea.appendText("Color changed to:" + color.substring(21));
+//		DecreptionArea.appendText("Color changed to: " + color);
+		descriptionArea.appendText("\n");
+		descriptionArea.setEditable(false);
+	}
+	
+	public void selectColorBlue() {
+		
+		
+		color = "-fx-background-color: blue";
+		//System.out.println("Color changed to " + color);
+		descriptionArea.appendText("Color changed to:" + color.substring(21));
+//		DecreptionArea.appendText("Color changed to: " + color);
+		descriptionArea.appendText("\n");
+		descriptionArea.setEditable(false);
+	}
+
+	public void selectColorBrown() {
+		
+		
+		color = "-fx-background-color: brown";
+		//System.out.println("Color changed to " + color);
+		descriptionArea.appendText("Color changed to:" + color.substring(21));
+//		DecreptionArea.appendText("Color changed to: " + color);
+		descriptionArea.appendText("\n");
+		descriptionArea.setEditable(false);
+	}
+
+	public void selectColorGrey() {
+	
+	
+	color = "-fx-background-color: grey";
+	//System.out.println("Color changed to " + color);
+	descriptionArea.appendText("Color changed to:" + color.substring(21));
+//	DecreptionArea.appendText("Color changed to: " + color);
+	descriptionArea.appendText("\n");
+	descriptionArea.setEditable(false);
+}
+
+	public void selectColorRed() {
+	
+	
+	color = "-fx-background-color: red";
+	//System.out.println("Color changed to " + color);
+	descriptionArea.appendText("Color changed to:" + color.substring(21));
+//	DecreptionArea.appendText("Color changed to: " + color);
+	descriptionArea.appendText("\n");
+	descriptionArea.setEditable(false);
+}
+
+	public void selectColorOrange() {
+	
+	
+	color = "-fx-background-color: orange";
+	//System.out.println("Color changed to " + color);
+	descriptionArea.appendText("Color changed to:" + color.substring(21));
+//	DecreptionArea.appendText("Color changed to: " + color);
+	descriptionArea.appendText("\n");
+	descriptionArea.setEditable(false);
+}
+
+	public void selectColorPurple() {
+	
+	
+	color = "-fx-background-color: purple";
+	//System.out.println("Color changed to " + color);
+	descriptionArea.appendText("Color changed to:" + color.substring(21));
+//	DecreptionArea.appendText("Color changed to: " + color);
+	descriptionArea.appendText("\n");
+	descriptionArea.setEditable(false);
+}
+
+	public void selectColorGreen() {
+	
+	
+	color = "-fx-background-color: green";
+	//System.out.println("Color changed to " + color);
+	descriptionArea.appendText("Color changed to:" + color.substring(21));
+//	DecreptionArea.appendText("Color changed to: " + color);
+	descriptionArea.appendText("\n");
+	descriptionArea.setEditable(false);
+}
+
+	public void selectColorYellow() {
+	
+	
+	color = "-fx-background-color: yellow";
+	//System.out.println("Color changed to " + color);
+	descriptionArea.appendText("Color changed to:" + color.substring(21));
+//	DecreptionArea.appendText("Color changed to: " + color);
+	descriptionArea.appendText("\n");
+	descriptionArea.setEditable(false);
+	
+}
+
+	public void selectColorDefault() {
+		color = "-fx-background-color: lightgreen;";
+		//System.out.println("Color changed to " + color);
+		descriptionArea.appendText("Color changed to:" + color.substring(21));
+//		DecreptionArea.appendText("Color changed to: " + color);
+		descriptionArea.appendText("\n");
+		descriptionArea.setEditable(false);
+	}
+	
+	public void pane1Change() {
+	p1.setStyle(color);
+	}
+	
+//	public void loadMap() {
+//		FPADriver.filePath();
+//	}
+
 
 	public void loadMap() {
 		FPADriver.importMap();
