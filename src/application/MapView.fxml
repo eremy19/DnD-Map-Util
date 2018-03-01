@@ -102,7 +102,7 @@
       <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <VBox spacing="30.0" GridPane.columnIndex="2">
          <children>
-            <TextArea id="DescriptionArea" fx:id="descriptionArea" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
+            <TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

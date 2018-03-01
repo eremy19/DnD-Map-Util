@@ -32,7 +32,6 @@ public class UIController {
 	public javafx.scene.control.TextArea descriptionArea;
 
 	
-	
 	private FPADriver FPAD;
 
 	

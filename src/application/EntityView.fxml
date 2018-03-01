@@ -73,7 +73,7 @@
          </padding></VBox>
       <VBox spacing="30.0" GridPane.columnIndex="1">
          <children>
-            <TextArea maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
+            <TextArea editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
