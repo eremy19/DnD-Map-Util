@@ -8,14 +8,18 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import controllers.EntityController;
 import controllers.UIController;
 import item.Items;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import models.Monster;
 import models.Player;
@@ -35,8 +39,8 @@ public class FPADriver extends Application {
 
 	@Override
 	public void start(Stage Stage) throws IOException {
-
-//		initialLoad();
+		
+		// initialLoad();
 
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
@@ -60,22 +64,15 @@ public class FPADriver extends Application {
 
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
-		// controller2.entities.addEventFilter(ActionEvent.ACTION, new
-		// EventHandler<ActionEvent>() {
-
-		// @Override
-		// public void handle(ActionEvent event) {
-		// // TODO Auto-generated method stub
-		//
-		// }
-		// });
-		// controller.entityButton.addEventFilter(ActionEvent.ACTION, new
-		// EventHandler<ActionEvent>() {
-		// @Override
-		// public void handle(ActionEvent event) {
-		// controller.entityButton.setText("YAY!!");
-		// }
-		// });
+		// controller.ImportMap.add
+//		controller.ImportMap.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+			
+//			@Override
+//			public void handle(ActionEvent event) {
+////				System.out.println("hit");
+//				filePath();
+//			}
+//		});
 	}
 
 	private void initialLoad() {
@@ -114,8 +111,32 @@ public class FPADriver extends Application {
 		oos.close();
 	}
 
+	
+	public static void filePath(){
+		Optional<String> filePath;
+		
+		TextInputDialog textDialog = new TextInputDialog();
+        textDialog.setTitle("Create new item");
+        textDialog.setHeaderText(null);
+
+        textDialog.setContentText("Enter the filePath for the map: ");
+        filePath = textDialog.showAndWait();
+//        loadFile(filePath);
+        System.out.println(filePath);
+        String path = filePath.get();
+        try {
+			loadFile(path);
+		} catch (ClassNotFoundException e) {
+			System.out.println("Threw ClassNotFound");
+//			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Threw general IOException");
+//			e.printStackTrace();
+		}
+
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
-
 	}
 }

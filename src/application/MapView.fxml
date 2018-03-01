@@ -35,7 +35,7 @@
       </VBox>
       <VBox spacing="20.0" GridPane.rowIndex="1">
          <children>
-            <Button id="ImportButton" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
+            <Button id="ImportButton" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadMap" text="Import">
 
                <font>
                   <Font size="24.0" />

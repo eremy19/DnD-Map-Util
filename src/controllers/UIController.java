@@ -13,7 +13,7 @@ public class UIController {
 	@FXML
 	public Button entityButton;
 	public Button entitySceneSwap;
-	public Button ImportButton;
+	public Button ImportMap;
 	public Button ExportButton;
 	public Button Default;
 	public Button White;
@@ -52,20 +52,22 @@ public class UIController {
 		System.out.println("Color changed to " + color);
 	}
 
-	
-	
-	
-	class buttonHandler implements EventHandler<ActionEvent>{
-		
-		
-		
-		@Override
-		public void handle(ActionEvent event) {
-			
-			
-		}
-		
+	public void loadMap() {
+		FPADriver.filePath();
 	}
+	
+	
+//	class buttonHandler implements EventHandler<ActionEvent>{
+		
+		
+		
+//	
+//		public void handle(ActionEvent event) {
+//			FPADriver.filePath();
+//			
+//		}
+		
+//	}
 	
 }
 
