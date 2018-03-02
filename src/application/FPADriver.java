@@ -28,8 +28,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+<<<<<<< HEAD
+import models.Monster;
+=======
 import models.Map;
 import models.Monster; 
+>>>>>>> parent of 1124c79... Added grid lines for the map, also made the saveAll button look more important.
 import models.Player;
 import util.SaveFile;
 
@@ -42,7 +46,6 @@ public class FPADriver extends Application {
 	ArrayList<Player> players = new ArrayList<>();
 	ArrayList<Monster> monsters = new ArrayList<>();
 	ArrayList<Items> items = new ArrayList<>();
-	ArrayList<Map> maps = new ArrayList<>();
 
 	@Override
 	public void start(Stage Stage) throws IOException {
@@ -72,7 +75,7 @@ public class FPADriver extends Application {
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 		
-//		controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
+		controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
@@ -84,6 +87,8 @@ public class FPADriver extends Application {
 				});
 			}
 		}
+<<<<<<< HEAD
+=======
 
 		//----------------------------------------------------------------------------------------------------------
 		
@@ -98,14 +103,15 @@ public class FPADriver extends Application {
 		// }
 		// });
 
-//		initialLoad(map);
+		initialLoad(map);
+>>>>>>> parent of 1124c79... Added grid lines for the map, also made the saveAll button look more important.
 	}
 
 	private void initialLoad(GridPane mapPane) {
 
 		String filePath = "./saveFileObject.ini";
 		File file = new File(filePath);
-		SaveFile sf = new SaveFile(items, players, monsters, maps);
+		SaveFile sf = new SaveFile(items, players, monsters);
 
 		if (file.exists()) {
 			try {
@@ -131,7 +137,10 @@ public class FPADriver extends Application {
 		players = sf.playerList;
 		monsters = sf.monsterList;
 		items = sf.itemList;
+<<<<<<< HEAD
+=======
 		maps = sf.mapList;		
+>>>>>>> parent of 1124c79... Added grid lines for the map, also made the saveAll button look more important.
 
 	}
 
