@@ -91,7 +91,21 @@
             <Pane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </GridPane>
+<<<<<<< HEAD
       <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" />
+=======
+      <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <Button id="saveAll" fx:id="saveAll" alignment="CENTER" maxHeight="120.0" maxWidth="240.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-border-color: black; -fx-border-width: 0.5;" text="Save All">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding></VBox>
+>>>>>>> parent of c0d15e6... commiting back to old save
       <VBox spacing="30.0" GridPane.columnIndex="2">
          <children>
             <TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">

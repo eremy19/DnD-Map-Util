@@ -28,9 +28,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import models.Map;
 >>>>>>> parent of e679296... nothing
+=======
+>>>>>>> parent of c0d15e6... commiting back to old save
 import models.Monster;
 import models.Player;
 import util.Map;
@@ -75,14 +78,24 @@ public class FPADriver extends Application {
 		Stage.setResizable(false);
 		Stage.show();
 
+<<<<<<< HEAD
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
+=======
+		// ----------------------------------------------------------------------------------------------------------
+
+		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
+		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
+
+		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
+>>>>>>> parent of c0d15e6... commiting back to old save
 
 		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
 				Pane p = new Pane();
 				GridPane.setConstraints(p, i, j);
 				controller.mapGrid.getChildren().add(p);
+<<<<<<< HEAD
 				p.setOnMouseClicked(e -> p.setStyle(controller.color));
 			}
 		}
@@ -102,6 +115,16 @@ public class FPADriver extends Application {
 		// });
 >>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 		initialLoad(map);
+=======
+				p.setOnMouseClicked(e -> {
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+				});
+				p.setOnDragDetected(e -> {
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+				});
+			}
+		}
+>>>>>>> parent of c0d15e6... commiting back to old save
 	}
 
 	private void initialLoad(GridPane mapPane) {
@@ -154,7 +177,13 @@ public class FPADriver extends Application {
 
 		}
 
+<<<<<<< HEAD
 		
+=======
+		players = sf.playerList;
+		monsters = sf.monsterList;
+		items = sf.itemList;
+>>>>>>> parent of c0d15e6... commiting back to old save
 
 	}
 
@@ -216,6 +245,7 @@ public class FPADriver extends Application {
 				}
 			} catch (NoSuchElementException e) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 				// Alert alert = new Alert(AlertType.ERROR, "No such file path!",
@@ -224,12 +254,16 @@ public class FPADriver extends Application {
 				// alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 				// alert.showAndWait();
 >>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
+=======
+
+>>>>>>> parent of c0d15e6... commiting back to old save
 				validFilePath = true;
 			}
 		} while (!validFilePath);
 
 	}
 
+<<<<<<< HEAD
 	public static void exportMap() {
 		Alert alert = new Alert(AlertType.NONE);
 		ButtonType btn = new ButtonType("Maybe...");
@@ -237,6 +271,29 @@ public class FPADriver extends Application {
 		alert.setHeaderText(
 				"You clicked the export button. Sorry but, this method is currently empty... You could fix that :)");
 		alert.showAndWait();
+=======
+	public static void exportMap(UIController controller) {
+		// Alert alert = new Alert(AlertType.NONE);
+		// ButtonType btn = new ButtonType("Maybe...");
+		// alert.getDialogPane().getButtonTypes().add(btn);
+		// alert.setHeaderText(
+		// "You clicked the export button. Sorry but, this method is currently empty...
+		// You could fix that :)");
+		// alert.showAndWait();
+
+		String[][] mapValues = new String[controller.mapGrid.getColumnConstraints().size()][controller.mapGrid
+				.getRowConstraints().size()];
+
+		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
+			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
+
+				mapValues[i][j] = controller.mapGrid.getChildren()
+						.get((i * controller.mapGrid.getColumnConstraints().size()) + j).getStyle();
+				System.out.println(mapValues[i][j]);
+			}
+		}
+
+>>>>>>> parent of c0d15e6... commiting back to old save
 	}
 
 	public static void main(String[] args) {
