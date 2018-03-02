@@ -2,16 +2,14 @@ package util;
 
 import java.io.Serializable;
 
-import javafx.scene.layout.GridPane;
-
 public class Map implements Serializable{
 
-	
+	private static final long serialVersionUID = 1L;
 	public final String name;
-	public final GridPane map;
+	public final String[] mapContents;
 	
-	public Map (String name, GridPane map) {
+	public Map (String name, String[] map) {
 		this.name = name;
-		this.map = map;
+		this.mapContents = map;
 	}
 }
