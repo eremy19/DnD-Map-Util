@@ -38,10 +38,10 @@ public class FPADriver extends Application {
 	String pathEntity = "EntityView.fxml";
 	Scene sceneMap, sceneEntity;
 
-	static ArrayList<Map> maps = new ArrayList<>();
+	ArrayList<Map> maps = new ArrayList<>();
 	static ArrayList<Player> players = new ArrayList<>();
-	static ArrayList<Monster> monsters = new ArrayList<>();
-	static ArrayList<Items> items = new ArrayList<>();
+	ArrayList<Monster> monsters = new ArrayList<>();
+	ArrayList<Items> items = new ArrayList<>();
 
 	ArrayList<Pane> mapContents = new ArrayList<>();
 
@@ -161,105 +161,100 @@ public class FPADriver extends Application {
 		items = sf.itemList;
 
 	}
-    
-    public static void addPlayer(Player p) {
-    	players.add(p);
-    	
-    	System.out.println("players entered: " + players.size());
-    }
-    public static void addMonster(Monster m) {
-    	monsters.add(m);
-    	
-    	System.out.println("Monsters entered: " + players.size());
-    }
 
-    public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
-   	 FileInputStream fis = new FileInputStream(filePath);
-   	 BufferedInputStream bis = new BufferedInputStream(fis);
-   	 ObjectInputStream ois = new ObjectInputStream(bis);
-   	 SaveFile sf = (SaveFile) ois.readObject();
-   	 ois.close();
-   	 bis.close();
-   	 fis.close();
-   	 return sf;
-    }
+	public static void addPlayer(Player p) {
+		players.add(p);
 
-    public static void saveFile(SaveFile sf, String filePath) throws IOException {
-   	 FileOutputStream fos = new FileOutputStream(filePath);
-   	 BufferedOutputStream bos = new BufferedOutputStream(fos);
-   	 ObjectOutputStream oos = new ObjectOutputStream(bos);
-   	 oos.writeObject(sf);
-   	 oos.close();
-   	 bos.close();
-   	 fos.close();
-    }
+		System.out.println("players entered: " + players.size());
+	}
 
-    public static void importMap() {
-   	 boolean validFilePath = false;
-   	 TextInputDialog textDialog = new TextInputDialog();
-   	 textDialog.setTitle("Import Map");
-   	 textDialog.setHeaderText(null);
-   	 textDialog.setContentText("Enter the filePath for the map: ");
-   	 Optional<String> filePath = Optional.empty();
-   	 String path;
-   	 do {
+	public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
+		FileInputStream fis = new FileInputStream(filePath);
+		BufferedInputStream bis = new BufferedInputStream(fis);
+		ObjectInputStream ois = new ObjectInputStream(bis);
+		SaveFile sf = (SaveFile) ois.readObject();
+		ois.close();
+		bis.close();
+		fis.close();
+		return sf;
+	}
 
-   		 try {
-   			 filePath = textDialog.showAndWait();
-   		 } catch (NoSuchElementException e) {
+	public static void saveFile(SaveFile sf, String filePath) throws IOException {
+		FileOutputStream fos = new FileOutputStream(filePath);
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		ObjectOutputStream oos = new ObjectOutputStream(bos);
+		oos.writeObject(sf);
+		oos.close();
+		bos.close();
+		fos.close();
+	}
 
-   		 }
-   		 try {
-   			 File file = new File(filePath.get());
-   			 if (file.exists()) {
-   				 path = filePath.get();
-   				 validFilePath = true;
-   				 try {
-   					 loadFile(path);
-   				 } catch (ClassNotFoundException e) {
-   					 // TODO Auto-generated catch block
-   					 e.printStackTrace();
-   				 } catch (IOException e) {
-   					 // TODO Auto-generated catch block
-   					 e.printStackTrace();
-   				 }
-   			 } else {
-   				 Alert alert = new Alert(AlertType.ERROR, "Please enter a valid file path!", ButtonType.OK);
-   				 alert.setHeaderText(null);
-   				 alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-   				 alert.showAndWait();
-   			 }
-   		 } catch (NoSuchElementException e) {
-   			 validFilePath = true;
-   		 }
-   	 } while (!validFilePath);
+	public static void importMap() {
+		boolean validFilePath = false;
+		TextInputDialog textDialog = new TextInputDialog();
+		textDialog.setTitle("Import Map");
+		textDialog.setHeaderText(null);
+		textDialog.setContentText("Enter the filePath for the map: ");
+		Optional<String> filePath = Optional.empty();
+		String path;
+		do {
 
-    }
+			try {
+				filePath = textDialog.showAndWait();
+			} catch (NoSuchElementException e) {
 
-    public static void exportMap(UIController controller) {
-   	 // Alert alert = new Alert(AlertType.NONE);
-   	 // ButtonType btn = new ButtonType("Maybe...");
-   	 // alert.getDialogPane().getButtonTypes().add(btn);
-   	 // alert.setHeaderText(
-   	 // "You clicked the export button. Sorry but, this method is currently empty...
-   	 // You could fix that :)");
-   	 // alert.showAndWait();
+			}
+			try {
+				File file = new File(filePath.get());
+				if (file.exists()) {
+					path = filePath.get();
+					validFilePath = true;
+					try {
+						loadFile(path);
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else {
+					Alert alert = new Alert(AlertType.ERROR, "Please enter a valid file path!", ButtonType.OK);
+					alert.setHeaderText(null);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.showAndWait();
+				}
+			} catch (NoSuchElementException e) {
+				validFilePath = true;
+			}
+		} while (!validFilePath);
 
-   	 String[][] mapValues = new String[controller.mapGrid.getColumnConstraints().size()][controller.mapGrid
-   			 .getRowConstraints().size()];
+	}
 
-   	 for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
-   		 for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
+	public static void exportMap(UIController controller) {
+		// Alert alert = new Alert(AlertType.NONE);
+		// ButtonType btn = new ButtonType("Maybe...");
+		// alert.getDialogPane().getButtonTypes().add(btn);
+		// alert.setHeaderText(
+		// "You clicked the export button. Sorry but, this method is currently empty...
+		// You could fix that :)");
+		// alert.showAndWait();
 
-   			 mapValues[i][j] = controller.mapGrid.getChildren()
-   					 .get((i * controller.mapGrid.getColumnConstraints().size()) + j).getStyle();
-   			 System.out.println(mapValues[i][j]);
-   		 }
-   	 }
+		String[][] mapValues = new String[controller.mapGrid.getColumnConstraints().size()][controller.mapGrid
+				.getRowConstraints().size()];
 
-    }
+		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
+			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
 
-    public static void main(String[] args) {
-   	 launch(args);
-    }
+				mapValues[i][j] = controller.mapGrid.getChildren()
+						.get((i * controller.mapGrid.getColumnConstraints().size()) + j).getStyle();
+				System.out.println(mapValues[i][j]);
+			}
+		}
+
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }
