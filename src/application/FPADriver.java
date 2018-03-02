@@ -39,7 +39,7 @@ public class FPADriver extends Application {
     Scene sceneMap, sceneEntity;
 
     ArrayList<Map> maps = new ArrayList<>();
-    ArrayList<Player> players = new ArrayList<>();
+    static ArrayList<Player> players = new ArrayList<>();
     ArrayList<Monster> monsters = new ArrayList<>();
     ArrayList<Items> items = new ArrayList<>();
 
@@ -145,6 +145,12 @@ public class FPADriver extends Application {
    	 monsters = sf.monsterList;
    	 items = sf.itemList;
 
+    }
+    
+    public static void addPlayer(Player p) {
+    	players.add(p);
+    	
+    	System.out.println("players entered: " + players.size());
     }
 
     public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
