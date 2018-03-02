@@ -16,7 +16,6 @@ import controllers.EntityController;
 import controllers.UIController;
 import item.Items;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -51,6 +50,11 @@ public class FPADriver extends Application {
 	@Override
 	public void start(Stage Stage) throws IOException {
 
+<<<<<<< HEAD
+=======
+		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
+		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
+>>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
 		FXMLLoader loader2 = new FXMLLoader((getClass().getResource(pathEntity)));
 
@@ -83,7 +87,20 @@ public class FPADriver extends Application {
 			}
 		}
 		
+<<<<<<< HEAD
 		
+=======
+		// controller.ImportMap.add
+		// controller.ImportMap.addEventFilter(ActionEvent.ACTION, new
+		// EventHandler<ActionEvent>() {
+
+		// @Override
+		// public void handle(ActionEvent event) {
+		//// System.out.println("hit");
+		// filePath();
+		// }
+		// });
+>>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 		initialLoad(map);
 	}
 
@@ -198,7 +215,15 @@ public class FPADriver extends Application {
 					alert.showAndWait();
 				}
 			} catch (NoSuchElementException e) {
+<<<<<<< HEAD
 
+=======
+				// Alert alert = new Alert(AlertType.ERROR, "No such file path!",
+				// ButtonType.OK);
+				// alert.setHeaderText("Please enter a valid file path");
+				// alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				// alert.showAndWait();
+>>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 				validFilePath = true;
 			}
 		} while (!validFilePath);
