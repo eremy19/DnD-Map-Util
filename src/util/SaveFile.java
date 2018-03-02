@@ -4,10 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import item.Items;
-<<<<<<< HEAD
 import models.Map;
-=======
->>>>>>> parent of 33f8546... minor changes
 import models.Monster;
 import models.Player;
 
@@ -21,20 +18,14 @@ public class SaveFile implements Serializable{
 	public ArrayList<Player> playerList = new ArrayList<>();
 	public ArrayList<Monster> monsterList = new ArrayList<>();
 	public ArrayList<Map> mapList = new ArrayList<>();
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 33f8546... minor changes
 	
 	public SaveFile(ArrayList<Items> itemList, ArrayList<Player> playerList, ArrayList<Monster> monsterList, ArrayList<Map> mapList) {
 		this.itemList = itemList;
 		this.playerList = playerList;
 		this.monsterList = monsterList;
 		this.mapList = mapList;
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 33f8546... minor changes
 	}
 
 //	public ArrayList<Items> getItemList() {
