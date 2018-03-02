@@ -25,12 +25,14 @@ public class EntityController {
 		FPADriver.addPlayer(mobBlank);
 		updateChoiceBox();
 	}
+	
 	public void generateBlankMonster(){
 		Monster mobBlank = new Monster("BlankMonster", 10,10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "d4");
 		System.out.println(mobBlank.toString());
 		FPADriver.addMonster(mobBlank);
 		updateChoiceBox();
 	}
+	
 	public void updateChoiceBox(){
 		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
 		ArrayList<String> names = new ArrayList<>();
