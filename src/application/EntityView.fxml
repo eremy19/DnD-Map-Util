@@ -8,11 +8,10 @@
 
 <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntityController">
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" />
-    <ColumnConstraints hgrow="SOMETIMES" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.5" minWidth="345.0" prefWidth="370.5" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="855.0" minWidth="742.5" prefWidth="829.5" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints vgrow="SOMETIMES" />
     <RowConstraints vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
@@ -24,16 +23,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-         </children>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-      <VBox spacing="20.0" GridPane.rowIndex="1">
-         <children>
+            <Button fx:id="CharacterCreate" mnemonicParsing="false" text="Make New Character" />
             <Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
                <font>
                   <Font size="24.0" />
@@ -45,46 +35,56 @@
                </font>
             </Button>
          </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-      <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <ChoiceBox maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
-            <HBox fillHeight="false">
-               <children>
-                  <TextField maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
-                     <font>
-                        <Font size="12.0" />
-                     </font></TextField>
-                  <Button maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" text="OK" />
-               </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </HBox>
-         </children>
          <GridPane.margin>
-            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            <Insets />
          </GridPane.margin>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding></VBox>
-      <VBox spacing="30.0" GridPane.columnIndex="1">
-         <children>
-            <TextArea maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray;">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextArea>
-         </children>
-         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <VBox fillWidth="false" prefHeight="800.0" prefWidth="400.0">
+               <children>
+                  <Label text="Name" />
+                  <TextField />
+                  <Label text="Armor" />
+                  <TextField />
+                  <Label text="Spell Casting Ability" />
+                  <TextField />
+                  <Label text="Spell AttackBonus" />
+                  <TextField />
+                  <Label text="Speed" />
+                  <TextField />
+                  <Label text="Initiative" />
+                  <TextField />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="800.0" prefWidth="400.0">
+               <children>
+                  <Label text="Inteligence" />
+                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Label text="Dexterity" />
+                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Label text="Strength" />
+                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Label text="Wisdom" />
+                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Label text="Constitution" />
+                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Label text="Charisma" />
+                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Label text="Attack Dice" />
+                  <ChoiceBox prefWidth="150.0" />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </GridPane>
