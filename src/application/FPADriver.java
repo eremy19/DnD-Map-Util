@@ -67,6 +67,8 @@ public class FPADriver extends Application {
    	 Stage.setAlwaysOnTop(false);
    	 Stage.setResizable(false);
    	 Stage.show();
+   	 
+   	 
 
    	 // ----------------------------------------------------------------------------------------------------------
 
@@ -90,6 +92,9 @@ public class FPADriver extends Application {
    	 }
 //   	 initialLoad();
     }
+    
+    
+    	
 
     private void initialLoad(GridPane mapPane) {
 
