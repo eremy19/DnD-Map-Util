@@ -29,7 +29,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import models.Map;
-import models.Monster; 
+import models.Monster;
 import models.Player;
 import util.SaveFile;
 
@@ -66,13 +66,12 @@ public class FPADriver extends Application {
 		Stage.setResizable(false);
 		Stage.show();
 
-		//----------------------------------------------------------------------------------------------------------
-		
-		
+		// ----------------------------------------------------------------------------------------------------------
+
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
-		
-		controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
+
+		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
@@ -80,13 +79,16 @@ public class FPADriver extends Application {
 				GridPane.setConstraints(p, i, j);
 				controller.mapGrid.getChildren().add(p);
 				p.setOnMouseClicked(e -> {
-					p.setStyle(controller.color);
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+				});
+				p.setOnDragDetected(e -> {
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 				});
 			}
 		}
 
-		//----------------------------------------------------------------------------------------------------------
-		
+		// ----------------------------------------------------------------------------------------------------------
+
 		// controller.ImportMap.add
 		// controller.ImportMap.addEventFilter(ActionEvent.ACTION, new
 		// EventHandler<ActionEvent>() {
@@ -127,11 +129,11 @@ public class FPADriver extends Application {
 			alert.show();
 
 		}
-		
+
 		players = sf.playerList;
 		monsters = sf.monsterList;
 		items = sf.itemList;
-		maps = sf.mapList;		
+		maps = sf.mapList;
 
 	}
 
@@ -190,7 +192,7 @@ public class FPADriver extends Application {
 					alert.showAndWait();
 				}
 			} catch (NoSuchElementException e) {
-		
+
 				validFilePath = true;
 			}
 		} while (!validFilePath);
@@ -198,23 +200,26 @@ public class FPADriver extends Application {
 	}
 
 	public static void exportMap(UIController controller) {
-//		Alert alert = new Alert(AlertType.NONE);
-//		ButtonType btn = new ButtonType("Maybe...");
-//		alert.getDialogPane().getButtonTypes().add(btn);
-//		alert.setHeaderText(
-//				"You clicked the export button. Sorry but, this method is currently empty... You could fix that :)");
-//		alert.showAndWait();
-		
-		String[][] mapValues = new String[controller.mapGrid.getColumnConstraints().size()][controller.mapGrid.getRowConstraints().size()];
+		// Alert alert = new Alert(AlertType.NONE);
+		// ButtonType btn = new ButtonType("Maybe...");
+		// alert.getDialogPane().getButtonTypes().add(btn);
+		// alert.setHeaderText(
+		// "You clicked the export button. Sorry but, this method is currently empty...
+		// You could fix that :)");
+		// alert.showAndWait();
+
+		String[][] mapValues = new String[controller.mapGrid.getColumnConstraints().size()][controller.mapGrid
+				.getRowConstraints().size()];
 
 		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
-			
-			mapValues[i][j] = controller.mapGrid.getChildren().get((i*controller.mapGrid.getColumnConstraints().size())+j).getStyle();
-			System.out.println(mapValues[i][j]);
+
+				mapValues[i][j] = controller.mapGrid.getChildren()
+						.get((i * controller.mapGrid.getColumnConstraints().size()) + j).getStyle();
+				System.out.println(mapValues[i][j]);
 			}
 		}
-		
+
 	}
 
 	public static void main(String[] args) {
