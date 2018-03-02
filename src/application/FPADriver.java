@@ -80,7 +80,10 @@ public class FPADriver extends Application {
 				GridPane.setConstraints(p, i, j);
 				controller.mapGrid.getChildren().add(p);
 				p.setOnMouseClicked(e -> {
-					p.setStyle(controller.color);
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+				});
+				p.setOnDragDetected(e -> {
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 				});
 			}
 		}
