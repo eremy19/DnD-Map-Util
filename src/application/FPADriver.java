@@ -38,7 +38,10 @@ public class FPADriver extends Application {
 	String pathEntity = "EntityView.fxml";
 	Scene sceneMap, sceneEntity;
 
+	static ArrayList<Map> maps = new ArrayList<>();
 	static ArrayList<Player> players = new ArrayList<>();
+	static ArrayList<Monster> monsters = new ArrayList<>();
+	static ArrayList<Items> items = new ArrayList<>();
 
 	ArrayList<Pane> mapContents = new ArrayList<>();
 
@@ -159,11 +162,6 @@ public class FPADriver extends Application {
 
 	}
 
-   	 players = sf.playerList;
-   	 monsters = sf.monsterList;
-   	 items = sf.itemList;
-
-    }
     public static ArrayList returnEntities() {
     	ArrayList entities = new ArrayList();
     	for (Player p : players) {
@@ -274,7 +272,8 @@ public class FPADriver extends Application {
        public static void main(String[] args) {
       	 launch(args);
        }
-   }   }
+   }
+=======
 	public static void addPlayer(Player p) {
 		players.add(p);
 
@@ -371,3 +370,4 @@ public class FPADriver extends Application {
 		launch(args);
 	}
 }
+>>>>>>> dcf0c061dfa8130a8471341cc254b3305c9408ab
