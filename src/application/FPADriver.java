@@ -54,6 +54,11 @@ public class FPADriver extends Application {
 	public void start(Stage Stage) throws IOException {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
+		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
+>>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 =======
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
 		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
@@ -113,6 +118,9 @@ public class FPADriver extends Application {
 		// filePath();
 		// }
 		// });
+<<<<<<< HEAD
+>>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
+=======
 >>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 		initialLoad(map);
 =======
@@ -246,17 +254,23 @@ public class FPADriver extends Application {
 			} catch (NoSuchElementException e) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 				// Alert alert = new Alert(AlertType.ERROR, "No such file path!",
 				// ButtonType.OK);
 				// alert.setHeaderText("Please enter a valid file path");
 				// alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 				// alert.showAndWait();
+<<<<<<< HEAD
 >>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 =======
 
 >>>>>>> parent of c0d15e6... commiting back to old save
+=======
+>>>>>>> parent of 05f319e... Merge branch 'master' of https://github.com/gt23669/DnD-Map-Util
 				validFilePath = true;
 			}
 		} while (!validFilePath);
