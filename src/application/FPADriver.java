@@ -38,10 +38,10 @@ public class FPADriver extends Application {
     String pathEntity = "EntityView.fxml";
     Scene sceneMap, sceneEntity;
 
-    ArrayList<Map> maps = new ArrayList<>();
+    static ArrayList<Map> maps = new ArrayList<>();
     static ArrayList<Player> players = new ArrayList<>();
-    ArrayList<Monster> monsters = new ArrayList<>();
-    ArrayList<Items> items = new ArrayList<>();
+    static ArrayList<Monster> monsters = new ArrayList<>();
+    static ArrayList<Items> items = new ArrayList<>();
 
     @Override
     public void start(Stage Stage) throws IOException {
@@ -156,6 +156,11 @@ public class FPADriver extends Application {
     	players.add(p);
     	
     	System.out.println("players entered: " + players.size());
+    }
+    public static void addMonster(Monster m) {
+    	monsters.add(m);
+    	
+    	System.out.println("Monsters entered: " + players.size());
     }
 
     public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
