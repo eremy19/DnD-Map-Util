@@ -127,6 +127,7 @@ public class FPADriver extends Application {
 			alert.show();
 
 		}
+	
 		
 		players = sf.playerList;
 		monsters = sf.monsterList;
