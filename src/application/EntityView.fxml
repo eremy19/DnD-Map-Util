@@ -66,17 +66,17 @@
             <VBox prefHeight="800.0" prefWidth="400.0">
                <children>
                   <Label text="Inteligence" />
-                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Slider max="30.0" />
                   <Label text="Dexterity" />
-                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Slider max="30.0" />
                   <Label text="Strength" />
-                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Slider max="30.0" />
                   <Label text="Wisdom" />
-                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Slider max="30.0" />
                   <Label text="Constitution" />
-                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Slider max="30.0" />
                   <Label text="Charisma" />
-                  <Slider blockIncrement="1.0" majorTickUnit="10.0" max="30.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Slider max="30.0" />
                   <Label text="Attack Dice" />
                   <ChoiceBox prefWidth="150.0" />
                </children>
