@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import item.Items;
+
 import models.Monster;
 import models.Player;
 
@@ -16,13 +17,13 @@ public class SaveFile implements Serializable{
 	public ArrayList<Items> itemList = new ArrayList<>();
 	public ArrayList<Player> playerList = new ArrayList<>();
 	public ArrayList<Monster> monsterList = new ArrayList<>();
-	public ArrayList<Map> mapList = new ArrayList<>();
+
 	
-	public SaveFile(ArrayList<Items> itemList, ArrayList<Player> playerList, ArrayList<Monster> monsterList, ArrayList<Map> mapList) {
+	public SaveFile(ArrayList<Items> itemList, ArrayList<Player> playerList, ArrayList<Monster> monsterList) {
 		this.itemList = itemList;
 		this.playerList = playerList;
 		this.monsterList = monsterList;
-		this.mapList = mapList;
+
 	}
 
 //	public ArrayList<Items> getItemList() {

@@ -30,7 +30,6 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import models.Monster;
 import models.Player;
-import util.Map;
 import util.SaveFile;
 
 public class FPADriver extends Application {
@@ -39,7 +38,6 @@ public class FPADriver extends Application {
 	String pathEntity = "EntityView.fxml";
 	Scene sceneMap, sceneEntity;
 
-	ArrayList<Map> maps = new ArrayList<>();
 	ArrayList<Player> players = new ArrayList<>();
 	ArrayList<Monster> monsters = new ArrayList<>();
 	ArrayList<Items> items = new ArrayList<>();
@@ -66,49 +64,33 @@ public class FPADriver extends Application {
 		Stage.setResizable(false);
 		Stage.show();
 
+		// ----------------------------------------------------------------------------------------------------------
+
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
+
+		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
 				Pane p = new Pane();
 				GridPane.setConstraints(p, i, j);
 				controller.mapGrid.getChildren().add(p);
-				p.setOnMouseClicked(e -> p.setStyle(controller.color));
+				p.setOnMouseClicked(e -> {
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+				});
+				p.setOnDragDetected(e -> {
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+				});
 			}
 		}
-		
-		initialLoad(map);
 	}
 
 	private void initialLoad(GridPane mapPane) {
 
 		String filePath = "./saveFileObject.ini";
 		File file = new File(filePath);
-		// Player p = new Player("Daniel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		// players.add(p);
-		// Map map = new Map("testmap", mapPane);
-		// maps.add(map);
-		// Monster m = new Monster("Monster", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		// monsters.add(m);
-		// Items i = new Items("Item", "Notes here");
-		// items.add(i);
-		SaveFile sf = new SaveFile(items, players, monsters, maps);
-		// sf.getPlayerList().add(p);
-		// sf.mapList.add(map);
-		// sf.playerList.add(p);
-		// sf.monsterList.add(m);
-		// sf.itemList.add(i);
-		// maps = sf.mapList;
-		// players = sf.playerList;
-		// monsters = sf.monsterList;
-		// items = sf.itemList;
-		// try {
-		// saveFile(sf, filePath);
-		// } catch (IOException e1) {
-		// System.out.println("General IOException save");
-		// e1.printStackTrace();
-		// }
+		SaveFile sf = new SaveFile(items, players, monsters);
 
 		if (file.exists()) {
 			try {
@@ -130,6 +112,10 @@ public class FPADriver extends Application {
 			alert.show();
 
 		}
+
+		players = sf.playerList;
+		monsters = sf.monsterList;
+		items = sf.itemList;
 
 	}
 
@@ -195,13 +181,27 @@ public class FPADriver extends Application {
 
 	}
 
-	public static void exportMap() {
-		Alert alert = new Alert(AlertType.NONE);
-		ButtonType btn = new ButtonType("Maybe...");
-		alert.getDialogPane().getButtonTypes().add(btn);
-		alert.setHeaderText(
-				"You clicked the export button. Sorry but, this method is currently empty... You could fix that :)");
-		alert.showAndWait();
+	public static void exportMap(UIController controller) {
+		// Alert alert = new Alert(AlertType.NONE);
+		// ButtonType btn = new ButtonType("Maybe...");
+		// alert.getDialogPane().getButtonTypes().add(btn);
+		// alert.setHeaderText(
+		// "You clicked the export button. Sorry but, this method is currently empty...
+		// You could fix that :)");
+		// alert.showAndWait();
+
+		String[][] mapValues = new String[controller.mapGrid.getColumnConstraints().size()][controller.mapGrid
+				.getRowConstraints().size()];
+
+		for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
+			for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
+
+				mapValues[i][j] = controller.mapGrid.getChildren()
+						.get((i * controller.mapGrid.getColumnConstraints().size()) + j).getStyle();
+				System.out.println(mapValues[i][j]);
+			}
+		}
+
 	}
 
 	public static void main(String[] args) {
