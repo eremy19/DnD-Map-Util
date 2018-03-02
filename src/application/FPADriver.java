@@ -46,7 +46,6 @@ public class FPADriver extends Application {
 
 	@Override
 	public void start(Stage Stage) throws IOException {
-
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
 		FXMLLoader loader2 = new FXMLLoader((getClass().getResource(pathEntity)));
 
@@ -78,7 +77,6 @@ public class FPADriver extends Application {
 				p.setOnMouseClicked(e -> p.setStyle(controller.color));
 			}
 		}
-		
 		
 		initialLoad(map);
 	}
@@ -133,8 +131,6 @@ public class FPADriver extends Application {
 
 		}
 
-		
-
 	}
 
 	public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
@@ -181,10 +177,8 @@ public class FPADriver extends Application {
 					try {
 						loadFile(path);
 					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} else {
