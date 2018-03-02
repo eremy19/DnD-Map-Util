@@ -28,6 +28,7 @@ public class UIController {
 	public Button Orange;
 	public Button Purple;
 	public Button Green;
+	public Button saveAll;
 	public Pane p1;
 	public GridPane mapGrid;
 	public javafx.scene.control.TextArea descriptionArea;
@@ -154,6 +155,10 @@ public class UIController {
 		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
+	}
+	
+	public void saveAllButton() {
+		System.out.println("hit");
 	}
 
 	public void pane1Change() {
