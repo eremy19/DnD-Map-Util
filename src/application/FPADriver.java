@@ -146,7 +146,16 @@ public class FPADriver extends Application {
    	 items = sf.itemList;
 
     }
-    
+    public static ArrayList returnEntities() {
+    	ArrayList entities = new ArrayList();
+    	for (Player p : players) {
+    		entities.add(p);
+    	}
+    	for (Monster m : monsters) {
+    		entities.add(m);
+    	}
+    	return entities;
+    }
     public static void addPlayer(Player p) {
     	players.add(p);
     	
