@@ -29,8 +29,17 @@ public class UIController {
 	public Button Purple;
 	public Button Green;
 	public Pane p1;
+	
 	public GridPane mapGrid;
+	//---------------------------------------------------------------------------------------------------------------
+	//Jett 3/3/18
+	public GridPane gridScene;
+	
+	public boolean isDragging = false;
+	//---------------------------------------------------------------------------------------------------------------
+	
 	public javafx.scene.control.TextArea descriptionArea;
+	
 
 	private FPADriver FPAD;
 

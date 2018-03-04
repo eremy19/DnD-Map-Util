@@ -85,21 +85,30 @@ public class FPADriver extends Application {
 
 				mapContents.add(p);
 				
+				//-------------------------------------------------------------------------------------------------------------
+				//Jett 3/3/18
+				
 				p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
 
 				p.setOnMouseClicked(e -> {
 					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
-					
-
-					int count = 0;
-					for (Pane pane : mapContents) {
-						System.out.println(pane.getStyle() + " - " + count);
-						count++;
-					}
+					controller.isDragging = false;
 				});
-				p.setOnDragDetected(e -> {
+				
+				p.setOnMouseDragged(e -> {
 					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+					controller.isDragging = true;
 				});
+				
+				p.setOnMouseEntered(e -> {
+					if (controller.isDragging) {
+					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+					};
+				});
+				
+				mapContents.get(0).setStyle("-fx-background-color: red; -fx-border-color: black; -fx-border-width: 0.5;");
+				
+				//-------------------------------------------------------------------------------------------------------------
 			}
 		}
 		// initialLoad();
