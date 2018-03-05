@@ -51,7 +51,7 @@
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
                     	<TextField fx:id="NameTypeBox" />
-                        <Button fx:id="NameOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
+                        <Button fx:id="NameOk" mnemonicParsing="false" onAction="#updateName" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
               	<Label text="Armor" />
