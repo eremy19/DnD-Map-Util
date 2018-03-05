@@ -25,6 +25,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -100,21 +104,71 @@ public class FPADriver extends Application {
 				
 				p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
 
-				p.setOnMouseClicked(e -> {
+				//-----------------------Levi 3/5 (Start)------------------------------------------
+				p.setOnMousePressed(e -> {
+					//event to initiate the drag or act as a click to make one square workable
 					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
-					controller.isDragging = false;
 				});
 				
-				p.setOnMouseDragged(e -> {
-					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
-					controller.isDragging = true;
+				p.setOnDragDetected(e -> {
+					//dragboard used to start drag and drop method.
+					Dragboard db = p.startDragAndDrop(TransferMode.COPY);
+					ClipboardContent content = new ClipboardContent();
+					content.putString(p.getStyle());
+					db.setContent(content);
+					
+					
 				});
+				p.setOnDragOver(new javafx.event.EventHandler<DragEvent>() {
+						//event to figure out when it is crossed over
+					@Override
+					public void handle(DragEvent event) {
+						if(event.getGestureSource() != p &&
+				                event.getDragboard().hasString()) {
+							 event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+						}
+						event.consume();
+					}
 				
-				p.setOnMouseEntered(e -> {
-					if (controller.isDragging) {
-					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
-					};
+				}); 
+				p.setOnDragEntered(new javafx.event.EventHandler<DragEvent>() {
+					//safety method to continue the drag and drop feature
+					@Override
+					public void handle(DragEvent event) {
+						Dragboard db = event.getDragboard();
+						if (event.getGestureSource() != p &&
+				                 event.getDragboard().hasString()) {
+				            p.setStyle(db.getString());
+				         }
+						
+					}
 				});
+				p.setOnDragExited(new javafx.event.EventHandler<DragEvent>() {
+					//just anotheer method to ensure this works. May not be needed
+				    public void handle(DragEvent event) {
+				        /* mouse moved away, remove the graphical cues */
+//				        p.setFill(Color.BLACK);
+
+				        event.consume();
+				    }
+				});
+				p.setOnDragDropped(new javafx.event.EventHandler<DragEvent>() {
+				    public void handle(DragEvent event) {
+				        // data dropped and end of the drag and drop feature.
+				      
+				        Dragboard db = event.getDragboard();
+				        boolean success = false;
+				        if (db.hasString()) {
+				           p.setStyle(db.getString());
+				           success = true;
+				        }
+				       
+				        
+				        event.consume();
+				     }
+				});
+				//----------------------------------Levi (End)------------------------------
+
 				
 				mapContents.get(0).setStyle("-fx-background-color: red; -fx-border-color: black; -fx-border-width: 0.5;");
 				
