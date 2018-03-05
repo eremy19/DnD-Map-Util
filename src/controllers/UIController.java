@@ -183,7 +183,6 @@ public class UIController {
 	}
 
 	public void saveMap() {
-//		FPADriver.exportMap();
 		FPADriver.exportMap(FPADriver.mapContents);
 	}
 	

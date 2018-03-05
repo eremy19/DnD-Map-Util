@@ -46,7 +46,6 @@ public class FPADriver extends Application {
 	public static ArrayList<Monster> monsters = new ArrayList<>();
 	public static ArrayList<Items> items = new ArrayList<>();
 
-	ArrayList<Pane> mapContents = new ArrayList<>();
 	static public ArrayList<Pane> mapContents = new ArrayList<>();
 
 	@Override
@@ -258,44 +257,6 @@ public class FPADriver extends Application {
        }
 
        public static void importMap() {
-      	 boolean validFilePath = false;
-      	 TextInputDialog textDialog = new TextInputDialog();
-      	 textDialog.setTitle("Import Map");
-      	 textDialog.setHeaderText(null);
-      	 textDialog.setContentText("Enter the filePath for the map: ");
-      	 Optional<String> filePath = Optional.empty();
-      	 String path;
-      	 do {
-
-      		 try {
-      			 filePath = textDialog.showAndWait();
-      		 } catch (NoSuchElementException e) {
-
-      		 }
-      		 try {
-      			 File file = new File(filePath.get());
-      			 if (file.exists()) {
-      				 path = filePath.get();
-      				 validFilePath = true;
-      				 try {
-      					 loadFile(path);
-      				 } catch (ClassNotFoundException e) {
-      					 // TODO Auto-generated catch block
-      					 e.printStackTrace();
-      				 } catch (IOException e) {
-      					 // TODO Auto-generated catch block
-      					 e.printStackTrace();
-      				 }
-      			 } else {
-      				 Alert alert = new Alert(AlertType.ERROR, "Please enter a valid file path!", ButtonType.OK);
-      				 alert.setHeaderText(null);
-      				 alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-      				 alert.showAndWait();
-      			 }
-      		 } catch (NoSuchElementException e) {
-      			 validFilePath = true;
-      		 }
-      	 } while (!validFilePath);
     	   getSavePath();
     	   try {
 			singleLoadFile();
@@ -346,27 +307,6 @@ public class FPADriver extends Application {
 //      	 } while (!validFilePath);
 
        }
-
-       public static void exportMap(UIController controller) {
-      	 // Alert alert = new Alert(AlertType.NONE);
-      	 // ButtonType btn = new ButtonType("Maybe...");
-      	 // alert.getDialogPane().getButtonTypes().add(btn);
-      	 // alert.setHeaderText(
-      	 // "You clicked the export button. Sorry but, this method is currently empty...
-      	 // You could fix that :)");
-      	 // alert.showAndWait();
-
-      	 String[][] mapValues = new String[controller.mapGrid.getColumnConstraints().size()][controller.mapGrid
-      			 .getRowConstraints().size()];
-
-      	 for (int i = 0; i < controller.mapGrid.getColumnConstraints().size(); i++) {
-      		 for (int j = 0; j < controller.mapGrid.getRowConstraints().size(); j++) {
-
-      			 mapValues[i][j] = controller.mapGrid.getChildren()
-      					 .get((i * controller.mapGrid.getColumnConstraints().size()) + j).getStyle();
-      			 System.out.println(mapValues[i][j]);
-      		 }
-      	 }
 
        public static void exportMap(ArrayList<Pane> mapContents) {
     	   getSavePath();
