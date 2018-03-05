@@ -48,17 +48,53 @@
         	<VBox fillWidth="false" prefHeight="800.0" prefWidth="400.0">
            	<children>
               	<Label text="Name" />
-              	<TextField />
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                    	<TextField fx:id="NameTypeBox" />
+                        <Button fx:id="NameOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="CurrentName" text="Current: " />
               	<Label text="Armor" />
-              	<TextField />
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="ArmorTypeBox" />
+                        <Button fx:id="ArmorOK" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="CurrentArmor" text="Current: " />
               	<Label text="Spell Casting Ability" />
-              	<TextField />
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="SCATypeBox" />
+                        <Button fx:id="SCAOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="CurrentSCA" text="Current: " />
               	<Label text="Spell AttackBonus" />
-              	<TextField />
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="SABTypeBox" />
+                        <Button fx:id="SABOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="CurrentSAB" text="Current: " />
               	<Label text="Speed" />
-              	<TextField />
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="SpeedTypeBox" />
+                        <Button fx:id="SpeedOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="CurentSpeed" text="Current: " />
               	<Label text="Initiative" />
-              	<TextField />
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="InitiativeTypeBox" />
+                        <Button fx:id="InitiativeOK" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="CurrentInitiative" text="Current: " />
            	</children>
            	<HBox.margin>
               	<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -67,19 +103,19 @@
         	<VBox prefHeight="800.0" prefWidth="400.0">
            	<children>
               	<Label text="Inteligence" />
-              	<Slider max="30.0" />
+              	<Slider fx:id="IntSlider" max="30.0" />
               	<Label text="Dexterity" />
-              	<Slider max="30.0" />
+              	<Slider fx:id="DexSlider" max="30.0" />
               	<Label text="Strength" />
-              	<Slider max="30.0" />
+              	<Slider fx:id="StrSlider" max="30.0" />
               	<Label text="Wisdom" />
-              	<Slider max="30.0" />
+              	<Slider fx:id="WisSlider" max="30.0" />
               	<Label text="Constitution" />
-              	<Slider max="30.0" />
+              	<Slider fx:id="ConSlider" max="30.0" />
               	<Label text="Charisma" />
-              	<Slider max="30.0" />
+              	<Slider fx:id="ChaSlider" max="30.0" />
               	<Label text="Attack Dice" />
-              	<ChoiceBox prefWidth="150.0" />
+              	<ChoiceBox fx:id="DiceSelectBox" prefWidth="150.0" />
            	</children>
            	<HBox.margin>
               	<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
