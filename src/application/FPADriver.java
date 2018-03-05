@@ -44,6 +44,10 @@ public class FPADriver extends Application {
 	static ArrayList<Player> players = new ArrayList<>();
 	static ArrayList<Monster> monsters = new ArrayList<>();
 	static ArrayList<Items> items = new ArrayList<>();
+	public static ArrayList<Map> maps = new ArrayList<>();
+	public static ArrayList<Player> players = new ArrayList<>();
+	public static ArrayList<Monster> monsters = new ArrayList<>();
+	public static ArrayList<Items> items = new ArrayList<>();
 
 	ArrayList<Pane> mapContents = new ArrayList<>();
 

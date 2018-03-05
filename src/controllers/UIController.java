@@ -1,13 +1,18 @@
 package controllers;
 
+import java.util.ArrayList;
+
 import application.FPADriver;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import util.Map;
 
 public class UIController {
 	public String color = "-fx-background-color: lightgreen;";
@@ -28,6 +33,9 @@ public class UIController {
 	public Button Orange;
 	public Button Purple;
 	public Button Green;
+	
+	public ChoiceBox<String> mapSelect;
+	
 	public Pane p1;
 	
 	public GridPane mapGrid;
@@ -179,6 +187,16 @@ public class UIController {
 
 	public void saveMap() {
 //		FPADriver.exportMap();
+	}
+	
+	public void updateMapSelect() {
+
+		ArrayList<String> names = new ArrayList<>();
+		for (Map m : FPADriver.maps) {
+			names.add(m.name);
+		}
+		
+		mapSelect.setItems(FXCollections.observableArrayList(names));
 	}
 	
 
