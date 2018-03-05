@@ -23,13 +23,13 @@ public class EntityController {
 	@FXML
 	public Button entities;
 	public ChoiceBox chooseEntity;
-	public static TextField NameTypeBox;
+	public TextField NameTypeBox;
 	public TextField ArmorTypeBox;
 	public TextField SCATypeBox;
 	public TextField SABTypeBox;
 	public TextField SpeedTypeBox;
 	public TextField InitiativeTypeBox;
-	public static Label CurrentName;
+	public Label CurrentName;
 
 	public Button CharacterCreate;
 	public Button MonsterCreate;
@@ -59,16 +59,20 @@ public class EntityController {
 	}
 	
 	//March 5th - Emily: changes text boxes to be the character selected
-	//Currently sets it to a new label. Is correct, but doesnt print it out.
-	public static void entitySelected(Number new_value) {
+	public void entitySelected(Number new_value) {
 		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
 		ArrayList<String> names = new ArrayList<>();
 		for (Mob m: temp) {
 			names.add(m.getName());
 		}
 		String selected = names.get((int)new_value);
-		Label test = new Label(selected);
-		CurrentName = test;
-		System.out.println(CurrentName.getText());
+		Mob currentEntity = AvaliableEntities.get(selected);
+		
+		NameTypeBox.setText(currentEntity.getName());
+		ArmorTypeBox.setText(String.valueOf(currentEntity.getArmor()));
+		SCATypeBox.setText(String.valueOf(currentEntity.getSpellCastingAbility()));
+		SABTypeBox.setText(String.valueOf(currentEntity.getSpellAttackBonus()));
+		SpeedTypeBox.setText(String.valueOf(currentEntity.getSpeed()));
+		InitiativeTypeBox.setText(String.valueOf(currentEntity.getInitiative()));
 	}
 }

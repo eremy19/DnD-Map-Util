@@ -54,7 +54,6 @@
                         <Button fx:id="NameOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-                  <Label fx:id="CurrentName" text="Current: " />
               	<Label text="Armor" />
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -62,7 +61,6 @@
                         <Button fx:id="ArmorOK" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-                  <Label fx:id="CurrentArmor" text="Current: " />
               	<Label text="Spell Casting Ability" />
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -70,7 +68,6 @@
                         <Button fx:id="SCAOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-                  <Label fx:id="CurrentSCA" text="Current: " />
               	<Label text="Spell AttackBonus" />
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -78,7 +75,6 @@
                         <Button fx:id="SABOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-                  <Label fx:id="CurrentSAB" text="Current: " />
               	<Label text="Speed" />
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -86,7 +82,6 @@
                         <Button fx:id="SpeedOk" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-                  <Label fx:id="CurentSpeed" text="Current: " />
               	<Label text="Initiative" />
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -94,7 +89,6 @@
                         <Button fx:id="InitiativeOK" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-                  <Label fx:id="CurrentInitiative" text="Current: " />
            	</children>
            	<HBox.margin>
               	<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
