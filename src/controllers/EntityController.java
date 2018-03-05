@@ -23,26 +23,30 @@ public class EntityController {
 	@FXML
 	public Button entities;
 	public ChoiceBox chooseEntity;
-	public static TextField NameTypeBox;
+	public TextField NameTypeBox;
 	public TextField ArmorTypeBox;
 	public TextField SCATypeBox;
 	public TextField SABTypeBox;
 	public TextField SpeedTypeBox;
 	public TextField InitiativeTypeBox;
-	public static Label CurrentName;
+	public Label CurrentName;
 
 	public Button CharacterCreate;
 	public Button MonsterCreate;
+	public int MonsterNum;
+	public int PlayerNum = 0;
 
 	public void generateBlankPlayer(){
-		Player mobBlank = new Player("BlankSlate", 10,10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "d4");
+		String name = "Character " + ++PlayerNum;
+		Player mobBlank = new Player(name, 10,10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "d4");
 		System.out.println(mobBlank.toString());
 		FPADriver.addPlayer(mobBlank);
 		updateChoiceBox();
 	}
 	
 	public void generateBlankMonster(){
-		Monster mobBlank = new Monster("BlankMonster", 10,10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "d4");
+		String name = "Monster " + ++MonsterNum;
+		Monster mobBlank = new Monster(name, 10,10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "d4");
 		System.out.println(mobBlank.toString());
 		FPADriver.addMonster(mobBlank);
 		updateChoiceBox();
@@ -59,16 +63,22 @@ public class EntityController {
 	}
 	
 	//March 5th - Emily: changes text boxes to be the character selected
-	//Currently sets it to a new label. Is correct, but doesnt print it out.
-	public static void entitySelected(Number new_value) {
-		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
-		ArrayList<String> names = new ArrayList<>();
-		for (Mob m: temp) {
-			names.add(m.getName());
-		}
-		String selected = names.get((int)new_value);
-		Label test = new Label(selected);
-		CurrentName = test;
-		System.out.println(CurrentName.getText());
+	//get value chooses the last value chosen from the box
+	// Note to self: add button that will then choose value
+	public void entitySelected() {
+		NameTypeBox.setText(AvaliableEntities.get(chooseEntity.getValue()).getName());
+		ArmorTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getArmor()));
+		SCATypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpellCastingAbility()));
+		SABTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpellAttackBonus()));
+		SpeedTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpeed()));
+		InitiativeTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getInitiative()));
 	}
+	
+	
+	public void updateName() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		temp.setName(NameTypeBox.getText());
+		updateChoiceBox();
+	}
+	
 }

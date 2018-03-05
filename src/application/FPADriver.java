@@ -82,6 +82,7 @@ public class FPADriver extends Application {
 		controller2.chooseEntity.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue ov, Number value, Number new_value) {
               EntityController.entitySelected(new_value);
+              controller2.entitySelected();
             }
           });
 		
