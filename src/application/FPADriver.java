@@ -232,8 +232,16 @@ public class FPADriver extends Application {
          		 
 //         	 System.out.println(mapContentsLoad[i]);
 //         	 maps.add(mapContentsLoad);
-         		 mapContents = loadPane;
+         		 }
+         	 for(int i = 0;i<maps.size();i++) {
+         		 if(!maps.get(1).name.equals(mapContentsLoad.name)) {
+         			 maps.add(mapContentsLoad);
+         		 }else {
+         			 
+         		 }
+         		 
          	 }
+         	 setMap(loadPane);
         	
         }
 
@@ -247,6 +255,10 @@ public class FPADriver extends Application {
       	 fos.close();
        }
        public static void singleSaveFile(Map m) throws IOException {
+//    	   File file = new File(saveMapPath);
+//    	   if(file.exists()) {
+//    		   file.delete();
+//    	   }
     	     FileOutputStream fos = new FileOutputStream(saveMapPath);
         	 BufferedOutputStream bos = new BufferedOutputStream(fos);
         	 ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -261,11 +273,9 @@ public class FPADriver extends Application {
     	   try {
 			singleLoadFile();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("class not found");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 //      	 boolean validFilePath = false;
 //      	 TextInputDialog textDialog = new TextInputDialog();
@@ -342,10 +352,17 @@ public class FPADriver extends Application {
         	 textDialog.setContentText("Enter the filePath for the save file: ");
         	 Optional<String> filePath = Optional.empty();
         	 filePath = textDialog.showAndWait();
-        	 saveMapPath = filePath.get();
+        	 try {
+				saveMapPath = filePath.get();
+			} catch (NoSuchElementException e) {
+			
+			}
        }
        public static void setMap(ArrayList<Pane> pane) {
-    	   mapContents = pane;
+    	   for(int i = 0;i<pane.size();i++) {
+    		   mapContents.get(i).setStyle(pane.get(i).getStyle());
+    	   }
+//    	   mapContents = pane;
        }
 
        public static void main(String[] args) {
