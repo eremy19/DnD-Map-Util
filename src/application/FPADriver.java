@@ -41,10 +41,6 @@ public class FPADriver extends Application {
 	Scene sceneMap, sceneEntity;
 	static String saveMapPath = "";
 
-	static ArrayList<Map> maps = new ArrayList<>();
-	static ArrayList<Player> players = new ArrayList<>();
-	static ArrayList<Monster> monsters = new ArrayList<>();
-	static ArrayList<Items> items = new ArrayList<>();
 	public static ArrayList<Map> maps = new ArrayList<>();
 	public static ArrayList<Player> players = new ArrayList<>();
 	public static ArrayList<Monster> monsters = new ArrayList<>();
@@ -81,7 +77,6 @@ public class FPADriver extends Application {
 
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
-
 		
 		// March 5th - Emily: creates listener for choosing an entity
 		controller2.chooseEntity.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {

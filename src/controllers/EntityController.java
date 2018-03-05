@@ -23,7 +23,6 @@ public class EntityController {
 	@FXML
 	public Button entities;
 	public ChoiceBox chooseEntity;
-	
 	public static TextField NameTypeBox;
 	public TextField ArmorTypeBox;
 	public TextField SCATypeBox;
