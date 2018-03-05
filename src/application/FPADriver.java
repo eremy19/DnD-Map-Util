@@ -16,6 +16,8 @@ import controllers.EntityController;
 import controllers.UIController;
 import item.Items;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -43,6 +45,10 @@ public class FPADriver extends Application {
 	static ArrayList<Player> players = new ArrayList<>();
 	static ArrayList<Monster> monsters = new ArrayList<>();
 	static ArrayList<Items> items = new ArrayList<>();
+	public static ArrayList<Map> maps = new ArrayList<>();
+	public static ArrayList<Player> players = new ArrayList<>();
+	public static ArrayList<Monster> monsters = new ArrayList<>();
+	public static ArrayList<Items> items = new ArrayList<>();
 
 	static public ArrayList<Pane> mapContents = new ArrayList<>();
 
@@ -76,6 +82,14 @@ public class FPADriver extends Application {
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 
+		
+		// March 5th - Emily: creates listener for choosing an entity
+		controller2.chooseEntity.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue ov, Number value, Number new_value) {
+              EntityController.entitySelected(new_value);
+            }
+          });
+		
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
