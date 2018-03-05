@@ -3,12 +3,9 @@ package controllers;
 import java.util.ArrayList;
 
 import application.FPADriver;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
