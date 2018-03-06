@@ -18,7 +18,7 @@ public class Dice {
 
 	public int rollDice(String diceName) {
 		Random random = new Random();
-		int roll = random.nextInt(diceHM.get(diceName)) + 1;
+		int roll = random.nextInt((int) diceHM.get(diceName)) + 1;
 		return roll;
 	}
 

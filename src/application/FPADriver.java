@@ -123,7 +123,9 @@ public class FPADriver extends Application {
 
 			}
 		});
-
+		//----------------------------(Levi 3/6)--------------------------------------
+		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
+		
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
