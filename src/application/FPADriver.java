@@ -2,6 +2,7 @@ package application;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -58,7 +59,6 @@ public class FPADriver extends Application {
 
 	@Override
 	public void start(Stage Stage) throws IOException {
-
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
 		FXMLLoader loader2 = new FXMLLoader((getClass().getResource(pathEntity)));
 
@@ -78,9 +78,19 @@ public class FPADriver extends Application {
 		Stage.setAlwaysOnTop(false);
 		Stage.setResizable(false);
 		Stage.show();
+		initialLoad();
+		controller.updateMapChoiceBox();
 
 		// ----------------------------------------------------------------------------------------------------------
-
+		Stage.setOnCloseRequest(event ->{
+			System.out.println("App is closing");
+			
+			try {
+				exitFileSave(maps, "./bulkLoad.txt");
+			} catch (IOException e) {
+				System.out.println("general IOException in exit save");
+			}
+		});
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 		// Emily - setting listeners for sliders
@@ -223,36 +233,32 @@ public class FPADriver extends Application {
 		}
 	}
 
-	private void initialLoad(GridPane mapPane) {
+	private void initialLoad() {
 
-		String filePath = "./saveFileObject.ini";
+		String filePath = "./bulkLoad.txt";
 		File file = new File(filePath);
-		SaveFile sf = new SaveFile(items, players, monsters, maps);
+//		SaveFile sf = new SaveFile(items, players, monsters, maps);
 
-		if (file.exists()) {
+		if (!file.exists()) {
 			try {
-				sf = loadFile(filePath);
-			} catch (ClassNotFoundException e) {
-				System.out.println("ClassNotFoundException load");
-				e.printStackTrace();
+				file.createNewFile();
 			} catch (IOException e) {
-				System.out.println("General IOException load");
+				System.out.println("General IOException initialLoad");
 				e.printStackTrace();
 			}
 
-		} else {
-			Alert alert = new Alert(AlertType.INFORMATION,
-					"We cannot save javafx components such as gridpane. we need a way to track where the user changes color(labes in gridpane, lable color changed to represent what is what) and store changes possibly in a 2D array. save array as map.",
-					ButtonType.OK);
-			alert.setHeaderText("No save file exist!");
-			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-			alert.show();
-
+		} 
+		try {
+			initialFileLoad(filePath);
+		}catch (EOFException e) {
+			System.out.println("EOFException in initial load");
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Class not found exception in initial load");
+		} catch (IOException e) {
+			System.out.println("General IOException in initial load");
+			e.printStackTrace();
 		}
-
-		players = sf.playerList;
-		monsters = sf.monsterList;
-		items = sf.itemList;
 
 	}
 
@@ -287,15 +293,19 @@ public class FPADriver extends Application {
 		System.out.println("Monsters entered: " + players.size());
 	}
 
-	public static SaveFile loadFile(String filePath) throws IOException, ClassNotFoundException {
+	public static void initialFileLoad(String filePath) throws IOException, ClassNotFoundException {
 		FileInputStream fis = new FileInputStream(filePath);
 		BufferedInputStream bis = new BufferedInputStream(fis);
 		ObjectInputStream ois = new ObjectInputStream(bis);
-		SaveFile sf = (SaveFile) ois.readObject();
+		ArrayList<Map> mapContentsLoad = (ArrayList<Map>) ois.readObject();
 		ois.close();
 		bis.close();
 		fis.close();
-		return sf;
+		
+		for(int i = 0;i<mapContentsLoad.size();i++) {
+			maps.add(i, mapContentsLoad.get(i));
+		}
+		
 	}
 
 	public static void singleLoadFile() throws IOException, ClassNotFoundException {
@@ -323,11 +333,15 @@ public class FPADriver extends Application {
 
 	}
 
-	public static void saveFile(SaveFile sf, String filePath) throws IOException {
+	public static void exitFileSave(ArrayList<Map> m, String filePath) throws IOException {
+		File file = new File(filePath);
+		if (file.exists()) {
+			file.delete();
+		}
 		FileOutputStream fos = new FileOutputStream(filePath);
 		BufferedOutputStream bos = new BufferedOutputStream(fos);
 		ObjectOutputStream oos = new ObjectOutputStream(bos);
-		oos.writeObject(sf);
+		oos.writeObject(m);
 		oos.close();
 		bos.close();
 		fos.close();
@@ -345,6 +359,7 @@ public class FPADriver extends Application {
 		oos.close();
 		bos.close();
 		fos.close();
+		maps.add(m);
 	}
 
 	public static void importMap() {
