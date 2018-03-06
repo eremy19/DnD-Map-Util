@@ -160,11 +160,18 @@ public class FPADriver extends Application {
 						Button b = new Button();
 						b.setText("0");
 						b.setFont(new Font(8));
-						b.setMinSize(2, 2);
-						b.setMaxSize(150, 150);
+						b.setMinSize(p.widthProperty().doubleValue()-8, p.heightProperty().doubleValue()-8);
 						b.setAlignment(Pos.CENTER);
+						b.setStyle("-fx-background-color: #0033ff; -fx-border-color: black; -fx-border-width: 0.5;");
+						
+						b.layoutXProperty().bind(p.widthProperty().subtract(b.widthProperty()).divide(2));
+						b.layoutYProperty().bind(p.heightProperty().subtract(b.heightProperty()).divide(2));
+
+						
 						if (p.getChildren().size() < 1) {
 							p.getChildren().add(b);
+						} else {
+							p.getChildren().remove(0);
 						}
 					} else {
 						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");

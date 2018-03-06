@@ -3,8 +3,6 @@ package controllers;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.jws.soap.SOAPBinding.Style;
-
 import application.FPADriver;
 import dice.Dice;
 import javafx.collections.FXCollections;
@@ -14,10 +12,13 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import models.Player;
 import util.Map;
 
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
+	private static HashMap<String, Player> AvaliableEntities = new HashMap();
+	
 	public String color = "-fx-background-color: lightgreen;";
 
 	@FXML
@@ -42,6 +43,7 @@ public class UIController {
 	public Button Green;
 
 	public ChoiceBox<String> mapSelect;
+	public ChoiceBox<String> entitySelect;
 	public Pane p1;
 
 	public GridPane mapGrid;
@@ -270,6 +272,22 @@ public class UIController {
 		// i++;
 		// }
 		mapSelect.setItems(FXCollections.observableArrayList(mapNames));
+	}
+
+	public void updateEntityChoiceBox() {
+		ArrayList<Player> temp = (ArrayList<Player>) FPADriver.players;
+		ArrayList<String> entityNames = new ArrayList<>();
+		int i = 0;
+		for (Player m : temp) {
+			entityNames.add(m.getName());
+			AvaliableEntities.put(m.getName(), m);
+		}
+		// for(Map m : FPADriver.maps) {
+		// AvaliableMaps.put(FPADriver.maps.get(i).name, FPADriver.maps.get(i));
+		// mapNames.add(AvaliableMaps.get(i));
+		// i++;
+		// }
+		entitySelect.setItems(FXCollections.observableArrayList(entityNames));
 	}
 
 	public void entitySelected() {
