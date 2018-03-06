@@ -83,7 +83,7 @@ public class FPADriver extends Application {
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 
-<<<<<<< HEAD
+
 		// March 5th - Emily: creates listener for choosing an entity
 		controller2.chooseEntity.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue ov, Number value, Number new_value) {
@@ -92,16 +92,13 @@ public class FPADriver extends Application {
 		});
 		
 		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
 				controller.entitySelected();
 				
 			}
 		});
 
-=======
->>>>>>> 72225db84cbe34081b84737c7f9994e713d590c6
+
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
@@ -280,21 +277,23 @@ public class FPADriver extends Application {
 			Pane p = new Pane();
 			p.setStyle(mapContentsLoad.mapContents[i]);
 			loadPane.add(p);
-			System.out.println(mapContentsLoad.mapContents[i]);
-			System.out.println("pane style: " + p.getStyle());
-			System.out.println("______");
+//			System.out.println(mapContentsLoad.mapContents[i]);
+//			System.out.println("pane style: " + p.getStyle());
+//			System.out.println("______");
 
 			// System.out.println(mapContentsLoad[i]);
-			// maps.add(mapContentsLoad);
+			 maps.add(mapContentsLoad);
 		}
-		for (int i = 0; i < maps.size(); i++) {
-			if (!maps.get(1).name.equals(mapContentsLoad.name)) {
-				maps.add(mapContentsLoad);
-			} else {
+//		for (int i = 0; i <= maps.size(); i++) {
+//			if (!maps.get(i).name.equals(mapContentsLoad.name)) {
+//				maps.add(mapContentsLoad);
+//			} else {
+//
+//			}
 
-			}
-
-		}
+//		}
+//		-----------------------------------daniel 3/5
+//		UIController.
 		setMap(loadPane);
 
 	}
