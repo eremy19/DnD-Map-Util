@@ -75,7 +75,7 @@ public class EntityController {
 		SABTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpellAttackBonus()));
 		SpeedTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpeed()));
 		InitiativeTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getInitiative()));
-		IntSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getInitiative());
+		IntSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getInteligence());
 		DexSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getDexterity());
 		ChaSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getCharisma());
 		StrSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getStrength());
