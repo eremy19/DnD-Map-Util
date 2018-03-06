@@ -89,6 +89,15 @@ public class FPADriver extends Application {
 				controller2.entitySelected();
 			}
 		});
+		
+		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+				controller.entitySelected();
+				
+			}
+		});
 
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
