@@ -69,7 +69,10 @@
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                    	<TextField fx:id="NameTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" />
+                    	<TextField fx:id="NameTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font></TextField>
                         <Button fx:id="NameOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateName" text="Ok" />
                      </children>
                   </HBox>
@@ -79,7 +82,10 @@
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="ArmorTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" />
+                        <TextField fx:id="ArmorTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font></TextField>
                         <Button fx:id="ArmorOK" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateArmor" text="Ok" />
                      </children>
                   </HBox>
@@ -89,7 +95,10 @@
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="SCATypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" />
+                        <TextField fx:id="SCATypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font></TextField>
                         <Button fx:id="SCAOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSCA" text="Ok" />
                      </children>
                   </HBox>
@@ -99,7 +108,10 @@
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="SABTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" />
+                        <TextField fx:id="SABTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font></TextField>
                         <Button fx:id="SABOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSAB" text="Ok" />
                      </children>
                   </HBox>
@@ -109,7 +121,10 @@
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="SpeedTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" />
+                        <TextField fx:id="SpeedTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font></TextField>
                         <Button fx:id="SpeedOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSpeed" text="Ok" />
                      </children>
                   </HBox>
@@ -119,7 +134,10 @@
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="InitiativeTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" />
+                        <TextField fx:id="InitiativeTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font></TextField>
                         <Button fx:id="InitiativeOK" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateInitiative" text="Ok" />
                      </children>
                   </HBox>
