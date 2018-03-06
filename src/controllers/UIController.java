@@ -21,8 +21,12 @@ public class UIController {
 	@FXML
 	public Button entityButton;
 	public Button entitySceneSwap;
+	
 	public Button ImportMap;
 	public Button ExportButton;
+	
+	public Button mapSelectButton;
+	
 	public Button Default;
 	public Button White;
 	public Button Black;
@@ -222,6 +226,20 @@ public class UIController {
 	public void entitySelected() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void mapSelector () {
+		String name = mapSelect.getAccessibleText();
+		
+		boolean validName = false;
+		
+		for (Map m : FPADriver.maps) {
+			if (m.name.equals(name)) {
+				validName = true;
+				
+				FPADriver.setMap(m);
+			}
+		}
 	}
 	
 

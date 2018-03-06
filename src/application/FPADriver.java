@@ -299,24 +299,20 @@ public class FPADriver extends Application {
 		ois.close();
 		bis.close();
 		fis.close();
-		ArrayList<Pane> loadPane = new ArrayList<>();
-		for (int i = 0; i < mapContentsLoad.mapContents.length; i++) {
-			Pane p = new Pane();
-			p.setStyle(mapContentsLoad.mapContents[i]);
-			loadPane.add(p);
-
-			 maps.add(mapContentsLoad);
+		
+		boolean isUnique = true;
+		
+		for (int i = 0; i < maps.size(); i++) {
+			if (maps.get(i).name.equals(mapContentsLoad.name)) {
+				isUnique = false;
+			}
 		}
-//		for (int i = 0; i <= maps.size(); i++) {
-//			if (!maps.get(i).name.equals(mapContentsLoad.name)) {
-//				maps.add(mapContentsLoad);
-//			} else {
-//
-//			}
-
-//		}
+		
+		if (isUnique) {
+			maps.add(mapContentsLoad);
+		}
 //		-----------------------------------daniel 3/5
-		setMap(loadPane);
+		setMap(mapContentsLoad);
 
 	}
 
@@ -395,9 +391,19 @@ public class FPADriver extends Application {
 		}
 	}
 
-	public static void setMap(ArrayList<Pane> pane) {
-		for (int i = 0; i < pane.size(); i++) {
-			mapContents.get(i).setStyle(pane.get(i).getStyle());
+	public static void setMap(Map pane) {
+
+		ArrayList<Pane> loadPane = new ArrayList<>();
+		
+		for (int i = 0; i < pane.mapContents.length; i++) {
+			Pane p = new Pane();
+			p.setStyle(pane.mapContents[i]);
+			loadPane.add(p);
+
+		}
+		
+		for (int i = 0; i < loadPane.size(); i++) {
+			mapContents.get(i).setStyle(loadPane.get(i).getStyle());
 		}
 		// mapContents = pane;
 	}
