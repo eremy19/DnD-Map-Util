@@ -213,7 +213,6 @@ public class FPADriver extends Application {
 		// e1.printStackTrace();
 		// }
 
-		
 		if (file.exists()) {
 			try {
 				sf = loadFile(filePath);
