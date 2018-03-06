@@ -85,13 +85,6 @@ public class FPADriver extends Application {
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
 
-		// March 5th - Emily: creates listener for choosing an entity
-		controller2.chooseEntity.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-			public void changed(ObservableValue ov, Number value, Number new_value) {
-				controller2.entitySelected();
-			}
-		});
-
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
