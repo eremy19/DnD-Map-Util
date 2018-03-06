@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntityController">
+<GridPane id="gridScene" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntityController">
   <columnConstraints>
   	<ColumnConstraints hgrow="SOMETIMES" maxWidth="457.5" minWidth="345.0" prefWidth="370.5" />
 	<ColumnConstraints hgrow="SOMETIMES" maxWidth="855.0" minWidth="742.5" prefWidth="829.5" />
@@ -53,9 +54,15 @@
      	<children>
         	<VBox fillWidth="false" prefHeight="800.0" prefWidth="400.0">
            	<children>
+<<<<<<< HEAD
               	<Label text="Name">
                      <font>
                         <Font size="36.0" />
+=======
+              	<Label text="Name" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+>>>>>>> 3af4058baf8bdc29c0266283810fc62ddaab3916
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -63,9 +70,15 @@
                         <Button fx:id="NameOk" mnemonicParsing="false" onAction="#updateName" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
+<<<<<<< HEAD
               	<Label text="Armor">
                      <font>
                         <Font size="36.0" />
+=======
+              	<Label text="Armor" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+>>>>>>> 3af4058baf8bdc29c0266283810fc62ddaab3916
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -73,7 +86,11 @@
                         <Button fx:id="ArmorOK" mnemonicParsing="false" onAction="#updateArmor" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
+<<<<<<< HEAD
               	<Label text="Spell Casting Ability">
+=======
+              	<Label text="Spell Casting Ability" textFill="#cccccc">
+>>>>>>> 3af4058baf8bdc29c0266283810fc62ddaab3916
                      <font>
                         <Font size="36.0" />
                      </font></Label>
@@ -83,9 +100,15 @@
                         <Button fx:id="SCAOk" mnemonicParsing="false" onAction="#updateSCA" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
+<<<<<<< HEAD
               	<Label text="Spell AttackBonus">
                      <font>
                         <Font size="36.0" />
+=======
+              	<Label text="Spell AttackBonus" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+>>>>>>> 3af4058baf8bdc29c0266283810fc62ddaab3916
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -93,9 +116,15 @@
                         <Button fx:id="SABOk" mnemonicParsing="false" onAction="#updateSAB" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
+<<<<<<< HEAD
               	<Label text="Speed">
                      <font>
                         <Font size="36.0" />
+=======
+              	<Label text="Speed" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+>>>>>>> 3af4058baf8bdc29c0266283810fc62ddaab3916
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -103,9 +132,15 @@
                         <Button fx:id="SpeedOk" mnemonicParsing="false" onAction="#updateSpeed" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
+<<<<<<< HEAD
               	<Label text="Initiative">
                      <font>
                         <Font size="36.0" />
+=======
+              	<Label text="Initiative" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+>>>>>>> 3af4058baf8bdc29c0266283810fc62ddaab3916
                      </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
@@ -120,6 +155,7 @@
         	</VBox>
         	<VBox prefHeight="800.0" prefWidth="400.0">
            	<children>
+<<<<<<< HEAD
               	<Label text="Inteligence">
                      <font>
                         <Font size="36.0" />
@@ -160,6 +196,43 @@
                         <Button fx:id="DiceOk" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" text="ok" />
                      </children>
                   </HBox>
+=======
+              	<Label text="Intelligence" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
+              	<Slider fx:id="IntSlider" max="30.0" />
+              	<Label text="Dexterity" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
+              	<Slider fx:id="DexSlider" max="30.0" />
+              	<Label text="Strength" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
+              	<Slider fx:id="StrSlider" max="30.0" />
+              	<Label text="Wisdom" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
+              	<Slider fx:id="WisSlider" max="30.0" />
+              	<Label text="Constitution" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
+              	<Slider fx:id="ConSlider" max="30.0" />
+              	<Label text="Charisma" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
+              	<Slider fx:id="ChaSlider" max="30.0" />
+              	<Label text="Attack Dice" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
+              	<ChoiceBox fx:id="DiceSelectBox" prefWidth="150.0" />
+>>>>>>> 3af4058baf8bdc29c0266283810fc62ddaab3916
            	</children>
            	<HBox.margin>
               	<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
