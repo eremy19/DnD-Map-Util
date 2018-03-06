@@ -244,6 +244,7 @@ public class UIController {
 
 	public void saveMap() {
 		FPADriver.exportMap(FPADriver.mapContents);
+		updateMapChoiceBox();
 	}
 
 	// public void updateChoiceBox(){
