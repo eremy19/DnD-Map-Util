@@ -199,6 +199,11 @@ public class UIController {
 		
 		mapSelect.setItems(FXCollections.observableArrayList(names));
 	}
+
+	public void entitySelected() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 	// class buttonHandler implements EventHandler<ActionEvent>{

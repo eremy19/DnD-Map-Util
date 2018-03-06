@@ -84,6 +84,7 @@ public class FPADriver extends Application {
 
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
+<<<<<<< HEAD
 		//Emily - setting listeners for sliders
 	    controller2.DexSlider.valueProperty().addListener(new ChangeListener<Number>() {
 	            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
@@ -107,6 +108,26 @@ public class FPADriver extends Application {
 	    controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d20", "d100"));
 	    
 	    // controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
+=======
+
+
+		// March 5th - Emily: creates listener for choosing an entity
+		controller2.chooseEntity.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue ov, Number value, Number new_value) {
+				controller2.entitySelected();
+			}
+		});
+		
+		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
+				controller.entitySelected();
+				
+			}
+		});
+
+
+		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
+>>>>>>> 7fa8ad9cb0c3a23674fe75bdcb31ba7cad2e0d60
 
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getColumnConstraints().size(); j++) {
@@ -284,21 +305,23 @@ public class FPADriver extends Application {
 			Pane p = new Pane();
 			p.setStyle(mapContentsLoad.mapContents[i]);
 			loadPane.add(p);
-			System.out.println(mapContentsLoad.mapContents[i]);
-			System.out.println("pane style: " + p.getStyle());
-			System.out.println("______");
+//			System.out.println(mapContentsLoad.mapContents[i]);
+//			System.out.println("pane style: " + p.getStyle());
+//			System.out.println("______");
 
 			// System.out.println(mapContentsLoad[i]);
-			// maps.add(mapContentsLoad);
+			 maps.add(mapContentsLoad);
 		}
-		for (int i = 0; i < maps.size(); i++) {
-			if (!maps.get(1).name.equals(mapContentsLoad.name)) {
-				maps.add(mapContentsLoad);
-			} else {
+//		for (int i = 0; i <= maps.size(); i++) {
+//			if (!maps.get(i).name.equals(mapContentsLoad.name)) {
+//				maps.add(mapContentsLoad);
+//			} else {
+//
+//			}
 
-			}
-
-		}
+//		}
+//		-----------------------------------daniel 3/5
+//		UIController.
 		setMap(loadPane);
 
 	}
