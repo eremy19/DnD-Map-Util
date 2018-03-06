@@ -58,8 +58,6 @@ public class FPADriver extends Application {
 	@Override
 	public void start(Stage Stage) throws IOException {
 
-		// FXMLLoader loader = new FXMLLoader((getClass().getResource(mapPath)));
-		// FXMLLoader loader = new FXMLLoader((getClass().getResource(entityPath)));
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
 		FXMLLoader loader2 = new FXMLLoader((getClass().getResource(pathEntity)));
 
@@ -195,31 +193,8 @@ public class FPADriver extends Application {
 
 		String filePath = "./saveFileObject.ini";
 		File file = new File(filePath);
-		// Player p = new Player("Daniel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		// players.add(p);
-		// Map map = new Map("testmap", mapPane);
-		// maps.add(map);
-		// Monster m = new Monster("Monster", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "d6");
-		// monsters.add(m);
-		// Items i = new Items("Item", "Notes here");
-		// items.add(i);
 		SaveFile sf = new SaveFile(items, players, monsters, maps);
-		// sf.getPlayerList().add(p);
-		// sf.mapList.add(map);
-		// sf.playerList.add(p);
-		// sf.monsterList.add(m);
-		// sf.itemList.add(i);
-		// maps = sf.mapList;
-		// players = sf.playerList;
-		// monsters = sf.monsterList;
-		// items = sf.itemList;
-		// try {
-		// saveFile(sf, filePath);
-		// } catch (IOException e1) {
-		// System.out.println("General IOException save");
-		// e1.printStackTrace();
-		// }
-
+		
 		if (file.exists()) {
 			try {
 				sf = loadFile(filePath);
@@ -294,12 +269,6 @@ public class FPADriver extends Application {
 			Pane p = new Pane();
 			p.setStyle(mapContentsLoad.mapContents[i]);
 			loadPane.add(p);
-			System.out.println(mapContentsLoad.mapContents[i]);
-			System.out.println("pane style: " + p.getStyle());
-			System.out.println("______");
-
-			// System.out.println(mapContentsLoad[i]);
-			// maps.add(mapContentsLoad);
 		}
 		for (int i = 0; i < maps.size(); i++) {
 			if (!maps.get(1).name.equals(mapContentsLoad.name)) {
@@ -324,10 +293,6 @@ public class FPADriver extends Application {
 	}
 
 	public static void singleSaveFile(Map m) throws IOException {
-		// File file = new File(saveMapPath);
-		// if(file.exists()) {
-		// file.delete();
-		// }
 		FileOutputStream fos = new FileOutputStream(saveMapPath);
 		BufferedOutputStream bos = new BufferedOutputStream(fos);
 		ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -346,45 +311,6 @@ public class FPADriver extends Application {
 		} catch (IOException e) {
 
 		}
-		// boolean validFilePath = false;
-		// TextInputDialog textDialog = new TextInputDialog();
-		// textDialog.setTitle("Import Map");
-		// textDialog.setHeaderText(null);
-		// textDialog.setContentText("Enter the filePath for the map: ");
-		// Optional<String> filePath = Optional.empty();
-		// String path;
-		// do {
-		//
-		// try {
-		// filePath = textDialog.showAndWait();
-		// } catch (NoSuchElementException e) {
-		//
-		// }
-		// try {
-		// File file = new File(filePath.get());
-		// if (file.exists()) {
-		// path = filePath.get();
-		// validFilePath = true;
-		// try {
-		// loadFile(path);
-		// } catch (ClassNotFoundException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		// } else {
-		// Alert alert = new Alert(AlertType.ERROR, "Please enter a valid file path!",
-		// ButtonType.OK);
-		// alert.setHeaderText(null);
-		// alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-		// alert.showAndWait();
-		// }
-		// } catch (NoSuchElementException e) {
-		// validFilePath = true;
-		// }
-		// } while (!validFilePath);
 
 	}
 
