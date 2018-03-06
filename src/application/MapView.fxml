@@ -14,12 +14,21 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints vgrow="SOMETIMES" />
-    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints minHeight="160.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <VBox spacing="30.0">
          <children>
-            <ChoiceBox id="MapSelectDropDown" fx:id="mapSelect" maxHeight="60.0" maxWidth="500.0" minHeight="25.0" minWidth="200.0" />
+            <HBox>
+               <children>
+                  <ChoiceBox id="MapSelectDropDown" fx:id="mapSelect" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" />
+                  <Button maxWidth="60.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" text="GO">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
             <Button id="EntityButton" fx:id="entitySceneSwap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Entities">
                <font>
                   <Font name="System Bold" size="24.0" />

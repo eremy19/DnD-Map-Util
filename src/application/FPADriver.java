@@ -17,22 +17,25 @@ import controllers.UIController;
 import item.Items;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import models.Monster;
 import models.Player;
 import util.Map;
 import util.SaveFile;
 
-public class FPADriver extends Application {
+public class FPADriver extends Application { 
 
 	String pathMap = "MapView.fxml";
 	String pathEntity = "EntityView.fxml";
@@ -43,7 +46,7 @@ public class FPADriver extends Application {
 	public static ArrayList<Monster> monsters = new ArrayList<>();
 	public static ArrayList<Items> items = new ArrayList<>();
 
-	ArrayList<Pane> mapContents = new ArrayList<>();
+	ArrayList<Pane> mapContents = new ArrayList<>(); 
 
 	@Override
 	public void start(Stage Stage) throws IOException {
@@ -87,11 +90,24 @@ public class FPADriver extends Application {
 				
 				//-------------------------------------------------------------------------------------------------------------
 				//Jett 3/3/18
+				//Jett 3/5/18
 				
 				p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
-
+				
 				p.setOnMouseClicked(e -> {
-					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+					if (controller.entitySelected) {
+						Button b = new Button();
+						b.setText("0");
+						b.setFont(new Font(8));
+						b.setMinSize(2, 2);
+						b.setMaxSize(150, 150);
+						b.setAlignment(Pos.CENTER);
+						if (p.getChildren().size() < 1) {
+						p.getChildren().add(b);
+						}
+					} else {
+						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
+					}
 					controller.isDragging = false;
 				});
 				
@@ -105,8 +121,6 @@ public class FPADriver extends Application {
 					p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 					};
 				});
-				
-				mapContents.get(0).setStyle("-fx-background-color: red; -fx-border-color: black; -fx-border-width: 0.5;");
 				
 				//-------------------------------------------------------------------------------------------------------------
 			}

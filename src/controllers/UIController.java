@@ -41,6 +41,8 @@ public class UIController {
 	public GridPane gridScene;
 	
 	public boolean isDragging = false;
+	public boolean entitySelected = false;
+	
 	//---------------------------------------------------------------------------------------------------------------
 	
 	public javafx.scene.control.TextArea descriptionArea;
@@ -55,8 +57,10 @@ public class UIController {
 	public void handleButton() {
 		if (entityButton.getText().equals("Entity Selected")) {
 			entityButton.setText("Entity");
+			entitySelected = false;
 		} else {
 			entityButton.setText("Entity Selected");
+			entitySelected = true;
 		}
 	}
 
