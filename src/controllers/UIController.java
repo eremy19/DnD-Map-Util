@@ -227,13 +227,10 @@ public class UIController {
 	}
 
 	public void mapSelector() {
-		String name = mapSelect.getAccessibleText();
-
-		boolean validName = false;
+		String name = mapSelect.getValue();
 
 		for (Map m : FPADriver.maps) {
 			if (m.name.equals(name)) {
-				validName = true;
 
 				FPADriver.setMap(m);
 			}
