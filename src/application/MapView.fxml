@@ -34,6 +34,11 @@
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
+            <Button fx:id="ResetMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" onAction="#reset" mnemonicParsing="false" text="Reset Map">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
             <VBox style="-fx-alignment: baseline-left;">
                <children>
                   <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" prefWidth="150.0" />
@@ -127,15 +132,15 @@
 						<Font size="15.0" />
 					</font>
 				</TextArea>
-				<ChoiceBox id="OptionSelectDropDown" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
+				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
 				<HBox fillHeight="false">
 					<children>
-						<TextField id="TextEntry" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
+						<TextField id="TextEntry" fx:id="TextBox" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
 							<font>
 								<Font size="12.0" />
 							</font>
 						</TextField>
-						<Button id="TextEntryButton" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" text="OK" />
+						<Button id="TextEntryButton" fx:id="textConfirm" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" onAction="#confirmText" text="OK" />
 					</children>
 				</HBox>
 			</children>
