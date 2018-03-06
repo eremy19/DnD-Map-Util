@@ -3,6 +3,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.jws.soap.SOAPBinding.Style;
+
 import application.FPADriver;
 import dice.Dice;
 import javafx.collections.FXCollections;
@@ -57,6 +59,7 @@ public class UIController {
 	public ChoiceBox<String> optionBox;
 	public TextField TextBox;
 	public Button textConfirm;
+	public Button ResetMap;
 	//---------------Levi (Break 3/6)-----------------------------
 	private FPADriver FPAD;
 
@@ -216,6 +219,15 @@ public class UIController {
 			descriptionArea.appendText("\n");
 		}
 	}
+	
+	public void reset() {
+		for (int i = 0; i < mapGrid.getChildren().size(); i++) {
+			
+				mapGrid.getChildren().get(i).setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
+			
+			}
+		
+		}
 	//-------------Levi (end)--------------------------------------
 //	public void pane1Change() {
 //		p1.setStyle(color);
