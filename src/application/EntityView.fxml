@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntityController">
+<GridPane id="gridScene" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntityController">
   <columnConstraints>
   	<ColumnConstraints hgrow="SOMETIMES" maxWidth="457.5" minWidth="345.0" prefWidth="370.5" />
 	<ColumnConstraints hgrow="SOMETIMES" maxWidth="855.0" minWidth="742.5" prefWidth="829.5" />
@@ -52,42 +53,60 @@
      	<children>
         	<VBox fillWidth="false" prefHeight="800.0" prefWidth="400.0">
            	<children>
-              	<Label text="Name" />
+              	<Label text="Name" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
                     	<TextField fx:id="NameTypeBox" />
                         <Button fx:id="NameOk" mnemonicParsing="false" onAction="#updateName" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Armor" />
+              	<Label text="Armor" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
                         <TextField fx:id="ArmorTypeBox" />
                         <Button fx:id="ArmorOK" mnemonicParsing="false" onAction="#updateArmor" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Spell Casting Ability" />
+              	<Label text="Spell Casting Ability" textFill="#cccccc">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
                         <TextField fx:id="SCATypeBox" />
                         <Button fx:id="SCAOk" mnemonicParsing="false" onAction="#updateSCA" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Spell AttackBonus" />
+              	<Label text="Spell AttackBonus" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
                         <TextField fx:id="SABTypeBox" />
                         <Button fx:id="SABOk" mnemonicParsing="false" onAction="#updateSAB" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Speed" />
+              	<Label text="Speed" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
                         <TextField fx:id="SpeedTypeBox" />
                         <Button fx:id="SpeedOk" mnemonicParsing="false" onAction="#updateSpeed" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Initiative" />
+              	<Label text="Initiative" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
                         <TextField fx:id="InitiativeTypeBox" />
@@ -101,19 +120,40 @@
         	</VBox>
         	<VBox prefHeight="800.0" prefWidth="400.0">
            	<children>
-              	<Label text="Inteligence" />
+              	<Label text="Intelligence" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
               	<Slider fx:id="IntSlider" max="30.0" />
-              	<Label text="Dexterity" />
+              	<Label text="Dexterity" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
               	<Slider fx:id="DexSlider" max="30.0" />
-              	<Label text="Strength" />
+              	<Label text="Strength" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
               	<Slider fx:id="StrSlider" max="30.0" />
-              	<Label text="Wisdom" />
+              	<Label text="Wisdom" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
               	<Slider fx:id="WisSlider" max="30.0" />
-              	<Label text="Constitution" />
+              	<Label text="Constitution" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
               	<Slider fx:id="ConSlider" max="30.0" />
-              	<Label text="Charisma" />
+              	<Label text="Charisma" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
               	<Slider fx:id="ChaSlider" max="30.0" />
-              	<Label text="Attack Dice" />
+              	<Label text="Attack Dice" textFill="#cccccc">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Label>
               	<ChoiceBox fx:id="DiceSelectBox" prefWidth="150.0" />
            	</children>
            	<HBox.margin>
