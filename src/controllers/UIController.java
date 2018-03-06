@@ -1,17 +1,21 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import application.FPADriver;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import models.Mob;
 import util.Map;
 
 public class UIController {
+	private static HashMap<String, Map> AvaliableMaps = new HashMap();
 	public String color = "-fx-background-color: lightgreen;";
 
 	@FXML
@@ -184,20 +188,35 @@ public class UIController {
 
 	public void loadMap() {
 		FPADriver.importMap();
+		updateMapChoiceBox();
 	}
 
 	public void saveMap() {
 		FPADriver.exportMap(FPADriver.mapContents);
 	}
-	
-	public void updateMapSelect() {
-
-		ArrayList<String> names = new ArrayList<>();
-		for (Map m : FPADriver.maps) {
-			names.add(m.name);
+//	public void updateChoiceBox(){
+//		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
+//		ArrayList<String> names = new ArrayList<>();
+//		for (Mob m: temp) {
+//			names.add(m.getName());
+//			AvaliableEntities.put(m.getName(), m);
+//		}
+//		chooseEntity.setItems(FXCollections.observableArrayList(names));
+//	}
+	public void updateMapChoiceBox() {
+		ArrayList<Map> temp = (ArrayList<Map>)FPADriver.returnMaps();
+		ArrayList<String> mapNames = new ArrayList<>();
+		int i = 0;
+		for(Map m: temp) {
+			mapNames.add(m.name);
+			AvaliableMaps.put(m.name, m);
 		}
-		
-		mapSelect.setItems(FXCollections.observableArrayList(names));
+//		for(Map m : FPADriver.maps) {
+//			AvaliableMaps.put(FPADriver.maps.get(i).name, FPADriver.maps.get(i));
+//			mapNames.add(AvaliableMaps.get(i));
+//			i++;
+//		}
+		mapSelect.setItems(FXCollections.observableArrayList(mapNames));
 	}
 
 	public void entitySelected() {

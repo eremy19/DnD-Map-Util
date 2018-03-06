@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow.ArrayLinkedList;
+
 import controllers.EntityController;
 import controllers.UIController;
 import item.Items;
@@ -240,6 +242,14 @@ public class FPADriver extends Application {
 		}
 		return entities;
 	}
+	
+	public static ArrayList returnMaps() {
+		ArrayList choiceBoxMaps = new ArrayList<>();
+		for(Map m : maps) {
+			choiceBoxMaps.add(m);
+		}
+		return choiceBoxMaps;
+	}
 
 	public static void addPlayer(Player p) {
 		players.add(p);
@@ -277,11 +287,7 @@ public class FPADriver extends Application {
 			Pane p = new Pane();
 			p.setStyle(mapContentsLoad.mapContents[i]);
 			loadPane.add(p);
-//			System.out.println(mapContentsLoad.mapContents[i]);
-//			System.out.println("pane style: " + p.getStyle());
-//			System.out.println("______");
 
-			// System.out.println(mapContentsLoad[i]);
 			 maps.add(mapContentsLoad);
 		}
 //		for (int i = 0; i <= maps.size(); i++) {
@@ -293,7 +299,6 @@ public class FPADriver extends Application {
 
 //		}
 //		-----------------------------------daniel 3/5
-//		UIController.
 		setMap(loadPane);
 
 	}
@@ -309,10 +314,10 @@ public class FPADriver extends Application {
 	}
 
 	public static void singleSaveFile(Map m) throws IOException {
-		// File file = new File(saveMapPath);
-		// if(file.exists()) {
-		// file.delete();
-		// }
+		 File file = new File(saveMapPath);
+		 if(file.exists()) {
+		 file.delete();
+		 }
 		FileOutputStream fos = new FileOutputStream(saveMapPath);
 		BufferedOutputStream bos = new BufferedOutputStream(fos);
 		ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -332,7 +337,7 @@ public class FPADriver extends Application {
 
 		}
 	}
-
+//------------------------------------------------daniel - the 192 starts here
 	public static void exportMap(ArrayList<Pane> mapContents) {
 		getSavePath();
 		String[] strArr = new String[mapContents.size()];
