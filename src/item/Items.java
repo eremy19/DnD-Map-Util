@@ -2,11 +2,11 @@ package item;
 
 import java.io.Serializable;
 
-public class Items implements Serializable{
-	
+public class Items implements Serializable {
+
 	private String name;
 	private String notes;
-	
+
 	public Items(String name, String notes) {
 		setName(name);
 		setNotes(notes);
@@ -31,12 +31,10 @@ public class Items implements Serializable{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Name: "+name);
+		builder.append("Name: " + name);
 		builder.append("\n");
-		builder.append("Notes: "+notes);
+		builder.append("Notes: " + notes);
 		return builder.toString();
 	}
 
-
-	
 }

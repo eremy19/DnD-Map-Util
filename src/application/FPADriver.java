@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow.ArrayLinkedList;
-
 import controllers.EntityController;
 import controllers.UIController;
 import item.Items;
@@ -39,7 +37,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import models.Mob;
 import models.Monster;
 import models.Player;
 import util.Map;
@@ -86,37 +83,46 @@ public class FPADriver extends Application {
 
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
-		//Emily - setting listeners for sliders
-	    controller2.DexSlider.valueProperty().addListener(new ChangeListener<Number>() {
-	            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
-	            	controller2.updateDex();}});
-	    controller2.WisSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
-            	controller2.updateWis();}});
-	    controller2.IntSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
-            	controller2.updateInt();}});
-	    controller2.ConSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
-            	controller2.updateCon();}});
-	    controller2.ChaSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
-            	controller2.updateCha();}});
-	    controller2.StrSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
-            	controller2.updateStr();}});
-		//Emily - Set HitDice Options
-	    controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d20", "d100"));
-	    
+		// Emily - setting listeners for sliders
+		controller2.DexSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				controller2.updateDex();
+			}
+		});
+		controller2.WisSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				controller2.updateWis();
+			}
+		});
+		controller2.IntSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				controller2.updateInt();
+			}
+		});
+		controller2.ConSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				controller2.updateCon();
+			}
+		});
+		controller2.ChaSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				controller2.updateCha();
+			}
+		});
+		controller2.StrSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				controller2.updateStr();
+			}
+		});
+		// Emily - Set HitDice Options
+		controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d20", "d100"));
 
-		
 		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
 				controller.entitySelected();
-				
+
 			}
 		});
-
 
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
@@ -133,7 +139,6 @@ public class FPADriver extends Application {
 				// Jett 3/5/18
 
 				p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
-
 
 				// -----------------------Levi 3/5
 				// (Start)------------------------------------------
@@ -157,10 +162,10 @@ public class FPADriver extends Application {
 				p.setOnDragDetected(e -> {
 					// dragboard used to start drag and drop method.
 					if (!controller.entitySelected) {
-					Dragboard db = p.startDragAndDrop(TransferMode.COPY);
-					ClipboardContent content = new ClipboardContent();
-					content.putString(p.getStyle());
-					db.setContent(content);
+						Dragboard db = p.startDragAndDrop(TransferMode.COPY);
+						ClipboardContent content = new ClipboardContent();
+						content.putString(p.getStyle());
+						db.setContent(content);
 					}
 				});
 				p.setOnDragOver(new javafx.event.EventHandler<DragEvent>() {
@@ -259,10 +264,10 @@ public class FPADriver extends Application {
 		}
 		return entities;
 	}
-	
+
 	public static ArrayList returnMaps() {
 		ArrayList choiceBoxMaps = new ArrayList<>();
-		for(Map m : maps) {
+		for (Map m : maps) {
 			choiceBoxMaps.add(m);
 		}
 		return choiceBoxMaps;
@@ -299,19 +304,19 @@ public class FPADriver extends Application {
 		ois.close();
 		bis.close();
 		fis.close();
-		
+
 		boolean isUnique = true;
-		
+
 		for (int i = 0; i < maps.size(); i++) {
 			if (maps.get(i).name.equals(mapContentsLoad.name)) {
 				isUnique = false;
 			}
 		}
-		
+
 		if (isUnique) {
 			maps.add(mapContentsLoad);
 		}
-//		-----------------------------------daniel 3/5
+		// -----------------------------------daniel 3/5
 		setMap(mapContentsLoad);
 
 	}
@@ -327,10 +332,10 @@ public class FPADriver extends Application {
 	}
 
 	public static void singleSaveFile(Map m) throws IOException {
-		 File file = new File(saveMapPath);
-		 if(file.exists()) {
-		 file.delete();
-		 }
+		File file = new File(saveMapPath);
+		if (file.exists()) {
+			file.delete();
+		}
 		FileOutputStream fos = new FileOutputStream(saveMapPath);
 		BufferedOutputStream bos = new BufferedOutputStream(fos);
 		ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -350,7 +355,8 @@ public class FPADriver extends Application {
 
 		}
 	}
-//------------------------------------------------daniel - the 192 starts here
+
+	// ------------------------------------------------daniel - the 192 starts here
 	public static void exportMap(ArrayList<Pane> mapContents) {
 		getSavePath();
 		String[] strArr = new String[mapContents.size()];
@@ -394,14 +400,14 @@ public class FPADriver extends Application {
 	public static void setMap(Map pane) {
 
 		ArrayList<Pane> loadPane = new ArrayList<>();
-		
+
 		for (int i = 0; i < pane.mapContents.length; i++) {
 			Pane p = new Pane();
 			p.setStyle(pane.mapContents[i]);
 			loadPane.add(p);
 
 		}
-		
+
 		for (int i = 0; i < loadPane.size(); i++) {
 			mapContents.get(i).setStyle(loadPane.get(i).getStyle());
 		}

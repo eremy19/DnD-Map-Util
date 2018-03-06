@@ -5,13 +5,11 @@ import java.util.HashMap;
 
 import application.FPADriver;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import models.Mob;
 import util.Map;
 
 public class UIController {
@@ -21,12 +19,12 @@ public class UIController {
 	@FXML
 	public Button entityButton;
 	public Button entitySceneSwap;
-	
+
 	public Button ImportMap;
 	public Button ExportButton;
-	
+
 	public Button mapSelectButton;
-	
+
 	public Button Default;
 	public Button White;
 	public Button Black;
@@ -38,23 +36,22 @@ public class UIController {
 	public Button Orange;
 	public Button Purple;
 	public Button Green;
-	
+
 	public ChoiceBox<String> mapSelect;
-	
+
 	public Pane p1;
-	
+
 	public GridPane mapGrid;
-	//---------------------------------------------------------------------------------------------------------------
-	//Jett 3/3/18
+	// ---------------------------------------------------------------------------------------------------------------
+	// Jett 3/3/18
 	public GridPane gridScene;
-	
+
 	public boolean isDragging = false;
 	public boolean entitySelected = false;
-	
-	//---------------------------------------------------------------------------------------------------------------
-	
+
+	// ---------------------------------------------------------------------------------------------------------------
+
 	public javafx.scene.control.TextArea descriptionArea;
-	
 
 	private FPADriver FPAD;
 
@@ -198,50 +195,50 @@ public class UIController {
 	public void saveMap() {
 		FPADriver.exportMap(FPADriver.mapContents);
 	}
-//	public void updateChoiceBox(){
-//		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
-//		ArrayList<String> names = new ArrayList<>();
-//		for (Mob m: temp) {
-//			names.add(m.getName());
-//			AvaliableEntities.put(m.getName(), m);
-//		}
-//		chooseEntity.setItems(FXCollections.observableArrayList(names));
-//	}
+
+	// public void updateChoiceBox(){
+	// ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
+	// ArrayList<String> names = new ArrayList<>();
+	// for (Mob m: temp) {
+	// names.add(m.getName());
+	// AvaliableEntities.put(m.getName(), m);
+	// }
+	// chooseEntity.setItems(FXCollections.observableArrayList(names));
+	// }
 	public void updateMapChoiceBox() {
-		ArrayList<Map> temp = (ArrayList<Map>)FPADriver.returnMaps();
+		ArrayList<Map> temp = (ArrayList<Map>) FPADriver.returnMaps();
 		ArrayList<String> mapNames = new ArrayList<>();
 		int i = 0;
-		for(Map m: temp) {
+		for (Map m : temp) {
 			mapNames.add(m.name);
 			AvaliableMaps.put(m.name, m);
 		}
-//		for(Map m : FPADriver.maps) {
-//			AvaliableMaps.put(FPADriver.maps.get(i).name, FPADriver.maps.get(i));
-//			mapNames.add(AvaliableMaps.get(i));
-//			i++;
-//		}
+		// for(Map m : FPADriver.maps) {
+		// AvaliableMaps.put(FPADriver.maps.get(i).name, FPADriver.maps.get(i));
+		// mapNames.add(AvaliableMaps.get(i));
+		// i++;
+		// }
 		mapSelect.setItems(FXCollections.observableArrayList(mapNames));
 	}
 
 	public void entitySelected() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	public void mapSelector () {
+
+	public void mapSelector() {
 		String name = mapSelect.getAccessibleText();
-		
+
 		boolean validName = false;
-		
+
 		for (Map m : FPADriver.maps) {
 			if (m.name.equals(name)) {
 				validName = true;
-				
+
 				FPADriver.setMap(m);
 			}
 		}
 	}
-	
 
 	// class buttonHandler implements EventHandler<ActionEvent>{
 

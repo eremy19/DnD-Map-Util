@@ -26,11 +26,13 @@ public class Mob {
 	private String hitDie;
 	private String notes;
 
-/*statMod = (int)(stat-10)/2
- * */
-	
+	/*
+	 * statMod = (int)(stat-10)/2
+	 */
+
 	public Mob(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
-			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, int initive, String hitDie) {
+			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, int initive,
+			String hitDie) {
 		setName(name);
 		setMaxHP(maxHP);
 		setCurrentHP(maxHP);
@@ -46,7 +48,7 @@ public class Mob {
 		setSpeed(speed);
 		setInitiative(initive);
 		setHitDie(hitDie);
-//		setNotes(notes);
+		// setNotes(notes);
 	}
 
 	public String getName() {
@@ -174,12 +176,11 @@ public class Mob {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
 	public int setMod(int stat) {
-		int statMod = (int)(stat-10)/2;
+		int statMod = (int) (stat - 10) / 2;
 		return statMod;
 	}
-
 
 	public int getMaxHP() {
 		return maxHP;
@@ -204,15 +205,15 @@ public class Mob {
 	public void setTempHP(int tempHP) {
 		this.tempHP = tempHP;
 	}
-	
+
 	public int getInitiative() {
 		return initiative;
 	}
-	
+
 	public void setInitiative(int initive) {
 		this.initiative = initive;
 	}
-	
+
 	public String getHitDie() {
 		return hitDie;
 	}
@@ -221,70 +222,69 @@ public class Mob {
 		this.hitDie = hitDie;
 	}
 
-	public void updateStats(int str, int dex, int con, int intelligence, int wis, int cha, int hpCurrent, int hpMax, int tempHP, int armor, int spellCast, int spellAttack, int initiative) {
-	setStength(str);
-	setDexterity(dex);
-	setConstitution(con);
-	setInteligence(intelligence);
-	setWisdom(wis);
-	setCharisma(cha);
-	setCurrentHP(hpCurrent);
-	setMaxHP(hpMax);
-	setTempHP(tempHP);
-	setSpellAttackBonus(spellAttack);
-	setSpellCastingAbility(spellCast);
-	setInitiative(initiative);
+	public void updateStats(int str, int dex, int con, int intelligence, int wis, int cha, int hpCurrent, int hpMax,
+			int tempHP, int armor, int spellCast, int spellAttack, int initiative) {
+		setStength(str);
+		setDexterity(dex);
+		setConstitution(con);
+		setInteligence(intelligence);
+		setWisdom(wis);
+		setCharisma(cha);
+		setCurrentHP(hpCurrent);
+		setMaxHP(hpMax);
+		setTempHP(tempHP);
+		setSpellAttackBonus(spellAttack);
+		setSpellCastingAbility(spellCast);
+		setInitiative(initiative);
 	}
-	
+
 	public void getStats() {
 		this.toString();
 	}
-	
+
 	public void getOptions() {
-		//this will determine what options are available.
+		// this will determine what options are available.
 	}
+
 	public void notes(String notes) {
 		System.out.println(notes);
 	}
-
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(name);
 		builder.append("\n");
-		builder.append("MaxHP: "+maxHP);
+		builder.append("MaxHP: " + maxHP);
 		builder.append("\n");
-		builder.append("CurrentHP: "+currentHP);
+		builder.append("CurrentHP: " + currentHP);
 		builder.append("\n");
-		builder.append("TempHP: "+tempHP);
+		builder.append("TempHP: " + tempHP);
 		builder.append("\n");
-		builder.append("Str: "+strength+"+("+strMod+")");
+		builder.append("Str: " + strength + "+(" + strMod + ")");
 		builder.append("\n");
-		builder.append("Dex: "+dexterity+"+("+dexMod+")");
+		builder.append("Dex: " + dexterity + "+(" + dexMod + ")");
 		builder.append("\n");
-		builder.append("Con: "+constitution+"+("+conMod+")");
+		builder.append("Con: " + constitution + "+(" + conMod + ")");
 		builder.append("\n");
-		builder.append("Int: "+inteligence+"+("+intMod+")");
+		builder.append("Int: " + inteligence + "+(" + intMod + ")");
 		builder.append("\n");
-		builder.append("Wis: "+wisdom+"+("+wisMod+")");
+		builder.append("Wis: " + wisdom + "+(" + wisMod + ")");
 		builder.append("\n");
-		builder.append("Cha: "+charisma+"+("+chaMod+")");
+		builder.append("Cha: " + charisma + "+(" + chaMod + ")");
 		builder.append("\n");
-		builder.append("AC: "+armor);
+		builder.append("AC: " + armor);
 		builder.append("\n");
-		builder.append("SAB: "+spellAttackBonus);
+		builder.append("SAB: " + spellAttackBonus);
 		builder.append("\n");
-		builder.append("SCA: "+spellCastingAbility);
+		builder.append("SCA: " + spellCastingAbility);
 		builder.append("\n");
-		builder.append("Speed: "+speed);
+		builder.append("Speed: " + speed);
 		builder.append("\n");
-		builder.append("Initive: " +initiative);
+		builder.append("Initive: " + initiative);
 		builder.append("\n");
-		builder.append("Hit Die: "+hitDie);
+		builder.append("Hit Die: " + hitDie);
 		return builder.toString();
 	}
 
-	
-	
 }

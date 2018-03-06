@@ -12,8 +12,4 @@ public class Player extends Mob implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	}
-
-
+}

@@ -2,11 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
 
 import application.FPADriver;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -92,6 +89,7 @@ public class EntityController {
 		temp.setName(NameTypeBox.getText());
 		updateChoiceBox();
 	}
+
 	public void updateArmor() {
 		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
 		String entry = ArmorTypeBox.getText();
