@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import application.FPADriver;
+import dice.Dice;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import util.Map;
@@ -38,7 +40,6 @@ public class UIController {
 	public Button Green;
 
 	public ChoiceBox<String> mapSelect;
-
 	public Pane p1;
 
 	public GridPane mapGrid;
@@ -52,7 +53,11 @@ public class UIController {
 	// ---------------------------------------------------------------------------------------------------------------
 
 	public javafx.scene.control.TextArea descriptionArea;
-
+//---------------------Levi 3/6 (Start)--------------------------------	
+	public ChoiceBox<String> optionBox;
+	public TextField TextBox;
+	public Button textConfirm;
+	//---------------Levi (Break 3/6)-----------------------------
 	private FPADriver FPAD;
 
 	public void setMain(FPADriver FPAD) {
@@ -178,10 +183,43 @@ public class UIController {
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
-
-	public void pane1Change() {
-		p1.setStyle(color);
+//-----------------------(Levi Continue 3/6)----------------------------
+	public void confirmText() {
+		if(optionBox.getValue().equals("Roll Dice")) {
+			Integer temp = 0;
+			Dice d = new Dice();
+			d.fillMap();
+			if(TextBox.getText().equals("d4")) {
+			temp = d.rollDice("d4");
+				descriptionArea.appendText("You rolled: "+temp); 
+			} else if(TextBox.getText().equals("d6")) {
+				temp = d.rollDice("d6");
+				descriptionArea.appendText("You rolled: "+temp); 				
+			} else if(TextBox.getText().equals("d8")) {
+				temp = d.rollDice("d8");
+				descriptionArea.appendText("You rolled: "+temp); 				
+			} else if(TextBox.getText().equals("d10")) {
+				temp = d.rollDice("d10");
+				descriptionArea.appendText("You rolled: "+temp); 
+			} else if(TextBox.getText().equals("d12")) {
+				temp = d.rollDice("d12");
+				descriptionArea.appendText("You rolled: "+temp); 				
+			} else if(TextBox.getText().equals("d20")) {
+				temp = d.rollDice("d20");
+				descriptionArea.appendText("You rolled: "+temp); 				
+			} else if(TextBox.getText().equals("d100")) {
+				temp = d.rollDice("d100");
+				descriptionArea.appendText("You rolled: "+temp); 
+			} else {
+				descriptionArea.appendText("You entered an invalid die");
+			}
+			descriptionArea.appendText("\n");
+		}
 	}
+	//-------------Levi (end)--------------------------------------
+//	public void pane1Change() {
+//		p1.setStyle(color);
+//	}
 
 	// public void loadMap() {
 	// FPADriver.filePath();

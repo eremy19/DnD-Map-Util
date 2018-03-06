@@ -2,8 +2,8 @@
 #gridScene {
     -fx-background-image: url(wallpaper.jpg);
     -fx-background-repeat: repeat repeat;  
-    -fx-background-size: 1200 800;
+    -fx-background-size: 1200.0 800.0;
     -fx-background-position: center center;
     
-    -fx-text-fill: rgb(255,255,255);
+    -fx-text-fill: rgb(255.0,255.0,255.0);
 }
