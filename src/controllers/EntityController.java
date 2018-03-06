@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import models.Mob;
 import models.Monster;
@@ -30,7 +31,13 @@ public class EntityController {
 	public TextField SpeedTypeBox;
 	public TextField InitiativeTypeBox;
 	public Label CurrentName;
-
+	public Slider IntSlider;
+	public Slider DexSlider;
+	public Slider ChaSlider;
+	public Slider StrSlider;
+	public Slider ConSlider;
+	public Slider WisSlider;
+	public ChoiceBox HitDiceSelect;
 	public Button CharacterCreate;
 	public Button MonsterCreate;
 	public int MonsterNum;
@@ -63,8 +70,7 @@ public class EntityController {
 	}
 	
 	//March 5th - Emily: changes text boxes to be the character selected
-	//get value chooses the last value chosen from the box
-	// Note to self: add button that will then choose value
+	// Throws exceptions if you change the name then dont reselect the character before editing, but otherwise works
 	public void entitySelected() {
 		NameTypeBox.setText(AvaliableEntities.get(chooseEntity.getValue()).getName());
 		ArmorTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getArmor()));
@@ -72,6 +78,14 @@ public class EntityController {
 		SABTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpellAttackBonus()));
 		SpeedTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpeed()));
 		InitiativeTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getInitiative()));
+		IntSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getInitiative());
+		DexSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getDexterity());
+		ChaSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getCharisma());
+		StrSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getStrength());
+		ConSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getConstitution());
+		WisSlider.setValue(AvaliableEntities.get(chooseEntity.getValue()).getWisdom());
+		HitDiceSelect.setValue(AvaliableEntities.get(chooseEntity.getValue()).getHitDie());
+	
 	}
 	public void updateName() {
 		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
@@ -132,5 +146,38 @@ public class EntityController {
 	      } catch (NumberFormatException e) {  
 	         return false;  
 	      }  
+	}
+	
+	//Updating from sliders
+	public void updateCha() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		temp.setCharisma((int)ChaSlider.getValue());
+	}
+	public void updateDex() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		temp.setDexterity((int)DexSlider.getValue());
+	}
+	public void updateInt() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		temp.setInteligence((int)IntSlider.getValue());
+	}
+	public void updateWis() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		temp.setWisdom((int)WisSlider.getValue());
+	}
+	public void updateStr() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		temp.setStength((int)StrSlider.getValue());
+	}
+	public void updateCon() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		temp.setConstitution((int)ConSlider.getValue());
+	}
+	
+	//update Dice
+	public void updateHitDice() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		String dice = (String) HitDiceSelect.getValue();
+		temp.setHitDie(dice);
 	}
 }
