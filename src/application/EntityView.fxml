@@ -19,7 +19,7 @@
      	<children>
             <HBox>
                <children>
-              	<ChoiceBox fx:id="chooseEntity" maxHeight="60.0" maxWidth="500.0" minHeight="25.0" minWidth="200.0" prefHeight="60.0" prefWidth="254.0" />
+              	<ChoiceBox fx:id="chooseEntity" maxHeight="67.0" maxWidth="500.0" minHeight="25.0" minWidth="200.0" prefHeight="67.0" prefWidth="250.0" />
                   <Button fx:id="EntityOk" mnemonicParsing="false" onAction="#entitySelected" prefHeight="65.0" prefWidth="85.0" text="Ok" />
                </children>
             </HBox>
@@ -28,8 +28,9 @@
               	<Font name="System Bold" size="24.0" />
            	</font>
         	</Button>
-        	<Button fx:id="CharacterCreate" mnemonicParsing="false" onAction="#generateBlankPlayer" text="Make New Character" />
-            <Button fx:id="MonsterCreate" mnemonicParsing="false" onAction="#generateBlankMonster" text="Make New Monster" />
+        	<Button fx:id="CharacterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankPlayer" text="Make New Character" />
+            <Button fx:id="MonsterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankMonster" text="Make New Monster" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" text="Instructions:&#10;If no entities are avaliable in the DropDown menu, Click on either the &quot;Make new Character&quot; or &quot;Make new Monster&quot; buttons&#10;Select an Entity, then Press Okay&#10;You may now edit the character to the right&#10;You MUST press the &quot;ok&quot; button if it is avaliable to update the character&#10;If you update the entity's name, you MUST reselect it from the dropdown and click &quot;ok&quot; before continuing to edit&#10;The Slider Bars will update automatically, no button needed" />
         	<Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
            	<font>
               	<Font size="24.0" />
@@ -52,45 +53,63 @@
      	<children>
         	<VBox fillWidth="false" prefHeight="800.0" prefWidth="400.0">
            	<children>
-              	<Label text="Name" />
+              	<Label text="Name">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                    	<TextField fx:id="NameTypeBox" />
+                    	<TextField fx:id="NameTypeBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="340.0" />
                         <Button fx:id="NameOk" mnemonicParsing="false" onAction="#updateName" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Armor" />
+              	<Label text="Armor">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="ArmorTypeBox" />
+                        <TextField fx:id="ArmorTypeBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="340.0" />
                         <Button fx:id="ArmorOK" mnemonicParsing="false" onAction="#updateArmor" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Spell Casting Ability" />
+              	<Label text="Spell Casting Ability">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="SCATypeBox" />
+                        <TextField fx:id="SCATypeBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="340.0" />
                         <Button fx:id="SCAOk" mnemonicParsing="false" onAction="#updateSCA" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Spell AttackBonus" />
+              	<Label text="Spell AttackBonus">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="SABTypeBox" />
+                        <TextField fx:id="SABTypeBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="340.0" />
                         <Button fx:id="SABOk" mnemonicParsing="false" onAction="#updateSAB" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Speed" />
+              	<Label text="Speed">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="SpeedTypeBox" />
+                        <TextField fx:id="SpeedTypeBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="340.0" />
                         <Button fx:id="SpeedOk" mnemonicParsing="false" onAction="#updateSpeed" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
-              	<Label text="Initiative" />
+              	<Label text="Initiative">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="InitiativeTypeBox" />
+                        <TextField fx:id="InitiativeTypeBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="340.0" />
                         <Button fx:id="InitiativeOK" mnemonicParsing="false" onAction="#updateInitiative" prefHeight="65.0" prefWidth="146.0" text="Ok" />
                      </children>
                   </HBox>
@@ -101,20 +120,46 @@
         	</VBox>
         	<VBox prefHeight="800.0" prefWidth="400.0">
            	<children>
-              	<Label text="Inteligence" />
-              	<Slider fx:id="IntSlider" max="30.0" />
-              	<Label text="Dexterity" />
-              	<Slider fx:id="DexSlider" max="30.0" />
-              	<Label text="Strength" />
-              	<Slider fx:id="StrSlider" max="30.0" />
-              	<Label text="Wisdom" />
-              	<Slider fx:id="WisSlider" max="30.0" />
-              	<Label text="Constitution" />
-              	<Slider fx:id="ConSlider" max="30.0" />
-              	<Label text="Charisma" />
-              	<Slider fx:id="ChaSlider" max="30.0" />
-              	<Label text="Attack Dice" />
-              	<ChoiceBox fx:id="DiceSelectBox" prefWidth="150.0" />
+              	<Label text="Inteligence">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+              	<Slider fx:id="IntSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+              	<Label text="Dexterity">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+              	<Slider fx:id="DexSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+              	<Label text="Strength">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+              	<Slider fx:id="StrSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+              	<Label text="Wisdom">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+              	<Slider fx:id="WisSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+              	<Label text="Constitution">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+              	<Slider fx:id="ConSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+              	<Label text="Charisma">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+              	<Slider fx:id="ChaSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+              	<Label text="Attack Dice">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+                  <HBox>
+                     <children>
+                    	<ChoiceBox fx:id="HitDiceSelect" prefHeight="60.0" prefWidth="120.0" />
+                        <Button fx:id="DiceOk" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" text="ok" />
+                     </children>
+                  </HBox>
            	</children>
            	<HBox.margin>
               	<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

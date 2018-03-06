@@ -18,6 +18,7 @@ import item.Items;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -36,6 +37,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import models.Mob;
 import models.Monster;
 import models.Player;
 import util.Map;
@@ -82,8 +84,29 @@ public class FPADriver extends Application {
 
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
-
-		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
+		//Emily - setting listeners for sliders
+	    controller2.DexSlider.valueProperty().addListener(new ChangeListener<Number>() {
+	            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
+	            	controller2.updateDex();}});
+	    controller2.WisSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
+            	controller2.updateWis();}});
+	    controller2.IntSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
+            	controller2.updateInt();}});
+	    controller2.ConSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
+            	controller2.updateCon();}});
+	    controller2.ChaSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
+            	controller2.updateCha();}});
+	    controller2.StrSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,Number old_val, Number new_val) {
+            	controller2.updateStr();}});
+		//Emily - Set HitDice Options
+	    controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d20", "d100"));
+	    
+	    // controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getColumnConstraints().size(); j++) {
