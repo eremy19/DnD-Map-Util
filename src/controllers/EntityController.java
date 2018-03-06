@@ -73,12 +73,64 @@ public class EntityController {
 		SpeedTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getSpeed()));
 		InitiativeTypeBox.setText(String.valueOf(AvaliableEntities.get(chooseEntity.getValue()).getInitiative()));
 	}
-	
-	
 	public void updateName() {
 		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
 		temp.setName(NameTypeBox.getText());
 		updateChoiceBox();
 	}
+	public void updateArmor() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		String entry = ArmorTypeBox.getText();
+		if (tryParseInt(entry)) {
+			temp.setArmor(Integer.parseInt(entry));
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}
+	public void updateSCA() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		String entry = SCATypeBox.getText();
+		if (tryParseInt(entry)) {
+			temp.setSpellCastingAbility(Integer.parseInt(entry));
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}
+	public void updateSAB() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		String entry = SABTypeBox.getText();
+		if (tryParseInt(entry)) {
+			temp.setSpellAttackBonus(Integer.parseInt(entry));
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}	
+	public void updateSpeed() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		String entry = SpeedTypeBox.getText();
+		if (tryParseInt(entry)) {
+			temp.setSpeed(Integer.parseInt(entry));
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}	
+	public void updateInitiative() {
+		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
+		String entry = InitiativeTypeBox.getText();
+		if (tryParseInt(entry)) {
+			temp.setInitiative(Integer.parseInt(entry));
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}	
 	
+	//mini try parse int so everything doesnt break when someone tries to enter a string
+	boolean tryParseInt(String value) {  
+	     try {  
+	         Integer.parseInt(value);  
+	         return true;  
+	      } catch (NumberFormatException e) {  
+	         return false;  
+	      }  
+	}
 }
