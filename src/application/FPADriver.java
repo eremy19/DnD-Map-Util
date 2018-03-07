@@ -99,19 +99,58 @@ public class FPADriver extends Application {
 			}
 		});
 		final KeyCodeCombination combo1 = new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN);
+		final KeyCodeCombination combo2 = new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN);
+		final KeyCodeCombination combo3 = new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_DOWN);
 		sceneMap.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler() {
 			@Override
 			public void handle(Event event) {
 				if(combo1.match((KeyEvent) event)) {
-					System.out.println("Key combo has been presssed");
+					System.out.println("Key combo(ctrl+o) has been presssed");
 					getSavePath(Stage);
 					try {
 						singleLoadFile();
+						controller.updateMapChoiceBox();
 					} catch (ClassNotFoundException e) {
 						System.out.println("ClassNotFoundException in keycombo load");
 					} catch (IOException e) {
 						System.out.println("General IOException in keycombo load");
 					}
+				}
+				if(combo2.match((KeyEvent) event)) {
+					System.out.println("Key combo(ctrl+s) has been presssed");
+					getSavePath2(Stage);
+					File file = new File(saveMapPath);
+					String name = file.getName();
+					String[] strArr = new String[mapContents.size()];
+					int i = 0;
+
+					for (Pane p : mapContents) {
+						strArr[i] = p.getStyle();
+						i++;
+					}
+					Map m = new Map(name, strArr);
+					try {
+						singleSaveFile(m);
+						controller.updateMapChoiceBox();
+					} catch (IOException e) {
+						System.out.println("General IOException in keycombo save");
+					}
+				}
+				if(combo3.match((KeyEvent) event)) {
+					System.out.println("Key combo(ctrl+r) has been presssed");
+					TextInputDialog textDialog = new TextInputDialog();
+					textDialog.setTitle("Remove Map");
+					textDialog.setHeaderText(null);
+					textDialog.setContentText("Which map do you want to remove?");
+					Optional<String> mapName = Optional.empty();
+					mapName = textDialog.showAndWait();
+					String name = mapName.get();
+					for(int i = 0;i<maps.size();i++) {
+						if(maps.get(i).name.matches(name)) {
+							maps.remove(i);
+						}
+					}
+					controller.updateMapChoiceBox();
 				}
 			}
 
@@ -430,6 +469,15 @@ public class FPADriver extends Application {
 		} catch (IOException e) {
 			System.out.println("singlesavefile exception");
 			e.printStackTrace();
+		}
+	}
+	public static void getSavePath2(Stage stage) {
+		File file;
+		FileChooser filechooser = new FileChooser();
+		file = filechooser.showSaveDialog(stage);
+		try {
+			saveMapPath = file.getAbsolutePath();
+		} catch (NullPointerException e) {
 		}
 	}
 
