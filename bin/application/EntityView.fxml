@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="gridScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #7f7f7e;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntityController">
+	<columnConstraints>
+		<ColumnConstraints hgrow="SOMETIMES" maxWidth="457.5" minWidth="289.0" prefWidth="290.0" />
+		<ColumnConstraints hgrow="SOMETIMES" maxWidth="911.0" minWidth="742.5" prefWidth="910.0" />
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints vgrow="SOMETIMES" />
+	</rowConstraints>
+	<children>
+		<VBox spacing="30.0">
+			<children>
+				<HBox>
+					<children>
+						<ChoiceBox fx:id="chooseEntity" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" />
+						<Button fx:id="EntityOk" maxWidth="50.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#entitySelected" text="GO">
+							<font>
+								<Font size="18.0" />
+							</font>
+						</Button>
+					</children>
+				</HBox>
+				<Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Maps">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+				</Button>
+				<Button fx:id="CharacterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankPlayer" text="Make New Character">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+				</Button>
+				<Button fx:id="MonsterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankMonster" text="Make New Monster">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+				</Button>
+				<TextArea maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" text="Instructions:&#10;If no entities are avaliable in the DropDown menu, Click on either the &quot;Make new Character&quot; or &quot;Make new Monster&quot; buttons&#10;Select an Entity, then Press Okay&#10;You may now edit the character to the right&#10;You MUST press the &quot;ok&quot; button if it is avaliable to update the character&#10;If you update the entity's name, you MUST reselect it from the dropdown and click &quot;ok&quot; before continuing to edit&#10;The Slider Bars will update automatically, no button needed">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</TextArea>
+				<Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+				</Button>
+				<Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+				</Button>
+			</children>
+			<GridPane.margin>
+				<Insets />
+			</GridPane.margin>
+			<padding>
+				<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+			</padding>
+		</VBox>
+		<HBox GridPane.columnIndex="1">
+			<children>
+				<VBox maxHeight="800.0" maxWidth="600.0" minHeight="200.0" minWidth="400.0">
+					<children>
+						<Label text="Name" textFill="#cccccc">
+							<font>
+								<Font size="36.0" />
+							</font>
+						</Label>
+						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+							<children>
+								<TextField fx:id="NameTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+									<font>
+										<Font name="System Bold" size="30.0" />
+									</font>
+								</TextField>
+								<Button fx:id="NameOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateName" text="Ok" />
+							</children>
+						</HBox>
+						<Label text="Armor" textFill="#cccccc">
+							<font>
+								<Font size="36.0" />
+							</font>
+						</Label>
+						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+							<children>
+								<TextField fx:id="ArmorTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+									<font>
+										<Font name="System Bold" size="30.0" />
+									</font>
+								</TextField>
+								<Button fx:id="ArmorOK" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateArmor" text="Ok" />
+							</children>
+						</HBox>
+						<Label text="Spell Casting Ability" textFill="#cccccc">
+							<font>
+								<Font size="36.0" />
+							</font>
+						</Label>
+						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+							<children>
+								<TextField fx:id="SCATypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+									<font>
+										<Font name="System Bold" size="30.0" />
+									</font>
+								</TextField>
+								<Button fx:id="SCAOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSCA" text="Ok" />
+							</children>
+						</HBox>
+						<Label text="Spell AttackBonus" textFill="#cccccc">
+							<font>
+								<Font size="36.0" />
+							</font>
+						</Label>
+						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+							<children>
+								<TextField fx:id="SABTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+									<font>
+										<Font name="System Bold" size="30.0" />
+									</font>
+								</TextField>
+								<Button fx:id="SABOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSAB" text="Ok" />
+							</children>
+						</HBox>
+						<Label text="Speed" textFill="#cccccc">
+							<font>
+								<Font size="36.0" />
+							</font>
+						</Label>
+						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+							<children>
+								<TextField fx:id="SpeedTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+									<font>
+										<Font name="System Bold" size="30.0" />
+									</font>
+								</TextField>
+								<Button fx:id="SpeedOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSpeed" text="Ok" />
+							</children>
+						</HBox>
+						<Label text="Initiative" textFill="#cccccc">
+							<font>
+								<Font size="36.0" />
+							</font>
+						</Label>
+						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+							<children>
+								<TextField fx:id="InitiativeTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+									<font>
+										<Font name="System Bold" size="30.0" />
+									</font>
+								</TextField>
+								<Button fx:id="InitiativeOK" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateInitiative" text="Ok" />
+							</children>
+						</HBox>
+                  <Label text="Icon" textFill="#cccccc">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                        <Pane id="warrior" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                        <Pane id="ranger" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                        <Pane id="wizard" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                        <Pane id="dragonborn" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                        <Pane id="dwarf" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                        <Pane id="tiefling" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                        <Pane id="monk" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                        <Pane id="highelf" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
+                     </children></HBox>
+					</children>
+					<HBox.margin>
+						<Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+					</HBox.margin>
+				</VBox>
+				<VBox maxHeight="800.0" maxWidth="600.0" minHeight="200.0" minWidth="400.0">
+					<children>
+						<Label text="Intelligence" textFill="#cccccc">
+							<font>
+								<Font name="System Bold" size="36.0" />
+							</font>
+						</Label>
+						<Slider fx:id="IntSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+							<padding>
+								<Insets bottom="10.0" />
+							</padding>
+						</Slider>
+						<Label text="Dexterity" textFill="#cccccc">
+							<font>
+								<Font name="System Bold" size="36.0" />
+							</font>
+						</Label>
+						<Slider fx:id="DexSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+							<padding>
+								<Insets bottom="10.0" />
+							</padding>
+						</Slider>
+						<Label text="Strength" textFill="#cccccc">
+							<font>
+								<Font name="System Bold" size="36.0" />
+							</font>
+						</Label>
+						<Slider fx:id="StrSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+							<padding>
+								<Insets bottom="10.0" />
+							</padding>
+						</Slider>
+						<Label text="Wisdom" textFill="#cccccc">
+							<font>
+								<Font name="System Bold" size="36.0" />
+							</font>
+						</Label>
+						<Slider fx:id="WisSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+							<padding>
+								<Insets bottom="10.0" />
+							</padding>
+						</Slider>
+						<Label text="Constitution" textFill="#cccccc">
+							<font>
+								<Font name="System Bold" size="36.0" />
+							</font>
+						</Label>
+						<Slider fx:id="ConSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+							<padding>
+								<Insets bottom="10.0" />
+							</padding>
+						</Slider>
+						<Label text="Charisma" textFill="#cccccc">
+							<font>
+								<Font name="System Bold" size="36.0" />
+							</font>
+						</Label>
+						<Slider fx:id="ChaSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+							<padding>
+								<Insets bottom="10.0" />
+							</padding>
+						</Slider>
+						<Label text="Attack Dice" textFill="#cccccc">
+							<font>
+								<Font name="System Bold" size="36.0" />
+							</font>
+						</Label>
+						<HBox>
+							<children>
+								<ChoiceBox fx:id="HitDiceSelect" prefHeight="60.0" prefWidth="120.0" />
+								<Button fx:id="DiceOk" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" text="ok" />
+							</children>
+						</HBox>
+					</children>
+					<HBox.margin>
+						<Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+					</HBox.margin>
+				</VBox>
+			</children>
+		</HBox>
+	</children>
+</GridPane>
