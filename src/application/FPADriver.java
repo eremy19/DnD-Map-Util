@@ -90,7 +90,7 @@ public class FPADriver extends Application {
 
 		// ----------------------------------------------------------------------------------------------------------
 		Stage.setOnCloseRequest(event ->{
-			System.out.println("App is closing");
+//			System.out.println("App is closing");
 			
 			try {
 				exitFileSave(maps, "./bulkLoad.txt");
@@ -461,15 +461,16 @@ public class FPADriver extends Application {
 		textDialog.setContentText("Enter the name for the new map ");
 		Optional<String> mapName = Optional.empty();
 		mapName = textDialog.showAndWait();
-		String name = mapName.get();
-		Map m = new Map(name, strArr);
-
 		try {
+			String name = mapName.get();
+			Map m = new Map(name, strArr);
 			singleSaveFile(m);
-		} catch (IOException e) {
-			System.out.println("singlesavefile exception");
-			e.printStackTrace();
+		} catch (NoSuchElementException | IOException e) {
+			
 		}
+
+		
+		
 	}
 	public static void getSavePath2(Stage stage) {
 		File file;
