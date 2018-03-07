@@ -284,6 +284,7 @@ public class Mob {
 		builder.append("Initive: " + initiative);
 		builder.append("\n");
 		builder.append("Hit Die: " + hitDie);
+		builder.append("\n");
 		return builder.toString();
 	}
 

@@ -197,7 +197,7 @@ public class FPADriver extends Application {
 			}
 		});
 		//----------------------------(Levi 3/6)--------------------------------------
-		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice", "Change Health"));
+		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
 		
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 		
@@ -237,7 +237,7 @@ public class FPADriver extends Application {
 						b.setOnMouseClicked(fe -> {
 							controller.entityName = ent.mob.getName();
 							controller.descriptionArea.appendText(ent.mob.toString());
-							
+							ent.updateOptions(ent.optionsStringArr);
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
 						});
 						
@@ -250,6 +250,7 @@ public class FPADriver extends Application {
 							p.getChildren().remove(0);
 						}
 					} else {
+						
 						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 					}
 				});

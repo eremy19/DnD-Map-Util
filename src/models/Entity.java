@@ -8,7 +8,7 @@ public class Entity {
 
 	public Button button;
 	public Mob mob;
-	public String[] optionsStringArr = {"Change health", "Remove"};
+	public String[] optionsStringArr = {"Change health", "Remove" , "Roll Dice"};
 	public ArrayList<String> options = new ArrayList<>();
 	
 	public Entity (Button b, Mob m) {
