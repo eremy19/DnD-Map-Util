@@ -153,7 +153,9 @@ public class FPADriver extends Application {
 
 		});
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
-		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
+		controller2.entities.setOnAction(e -> {Stage.setScene(sceneMap);
+		controller.updateEntityChoiceBox();
+		});
 		// Emily - setting listeners for sliders
 		controller2.DexSlider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
