@@ -527,6 +527,14 @@ public class FPADriver extends Application {
 		}
 		// mapContents = pane;
 	}
+	
+	public static void importEntity() {
+		
+	}
+	
+	public static void exportEntity() {
+		
+	}
 
 	public static void main(String[] args) {
 		launch(args);
