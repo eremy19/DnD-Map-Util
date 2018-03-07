@@ -20,6 +20,8 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -32,11 +34,16 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Monster;
 import models.Player;
@@ -90,6 +97,24 @@ public class FPADriver extends Application {
 			} catch (IOException e) {
 				System.out.println("general IOException in exit save");
 			}
+		});
+		final KeyCodeCombination combo1 = new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN);
+		sceneMap.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler() {
+			@Override
+			public void handle(Event event) {
+				if(combo1.match((KeyEvent) event)) {
+					System.out.println("Key combo has been presssed");
+					getSavePath(Stage);
+					try {
+						singleLoadFile();
+					} catch (ClassNotFoundException e) {
+						System.out.println("ClassNotFoundException in keycombo load");
+					} catch (IOException e) {
+						System.out.println("General IOException in keycombo load");
+					}
+				}
+			}
+
 		});
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
 		controller2.entities.setOnAction(e -> Stage.setScene(sceneMap));
@@ -242,6 +267,7 @@ public class FPADriver extends Application {
 
 	private void initialLoad() {
 
+		
 		String filePath = "./bulkLoad.txt";
 		File file = new File(filePath);
 //		SaveFile sf = new SaveFile(items, players, monsters, maps);
@@ -370,7 +396,7 @@ public class FPADriver extends Application {
 	}
 
 	public static void importMap() {
-		getSavePath();
+		getSavePath(null);
 		try {
 			singleLoadFile();
 		} catch (ClassNotFoundException e) {
@@ -382,7 +408,7 @@ public class FPADriver extends Application {
 
 	// ------------------------------------------------daniel - the 192 starts here
 	public static void exportMap(ArrayList<Pane> mapContents) {
-		getSavePath();
+		getSavePath(null);
 		String[] strArr = new String[mapContents.size()];
 		int i = 0;
 
@@ -407,7 +433,15 @@ public class FPADriver extends Application {
 		}
 	}
 
-	public static void getSavePath() {
+	public static void getSavePath(Stage stage) {
+		if(stage!=null) {
+			File file;
+			FileChooser FileChooser = new FileChooser();
+			file = FileChooser.showOpenDialog(stage);
+			saveMapPath = file.getAbsolutePath();
+			System.out.println(saveMapPath);
+		}else {
+			
 		TextInputDialog textDialog = new TextInputDialog();
 		textDialog.setTitle("Save Path");
 		textDialog.setHeaderText(null);
@@ -418,6 +452,7 @@ public class FPADriver extends Application {
 			saveMapPath = filePath.get();
 		} catch (NoSuchElementException e) {
 
+			}
 		}
 	}
 
