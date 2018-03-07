@@ -26,10 +26,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
@@ -41,14 +38,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import models.Entity;
 import models.Monster;
 import models.Player;
 import util.Map;
-import util.SaveFile;
 
 public class FPADriver extends Application {
 
@@ -64,6 +60,7 @@ public class FPADriver extends Application {
 
 	static public ArrayList<Pane> mapContents = new ArrayList<>();
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void start(Stage Stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader((getClass().getResource(pathMap)));
@@ -198,7 +195,7 @@ public class FPADriver extends Application {
 			}
 		});
 		//----------------------------(Levi 3/6)--------------------------------------
-		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice","Change Health"));
+		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
 		
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 		
@@ -222,14 +219,27 @@ public class FPADriver extends Application {
 					// event to initiate the drag or act as a click to make one square workable
 					if (controller.entitySelected) {
 						Button b = new Button();
-						b.setText("0");
+						
+						Entity ent = new Entity(b, controller.AvaliableEntities.get(controller.entitySelect.getValue()));
+						
+						
+						b.setText(ent.mob.getName().substring(0, 1));
 						b.setFont(new Font(8));
 						b.setMinSize(p.widthProperty().doubleValue()-8, p.heightProperty().doubleValue()-8);
 						b.setAlignment(Pos.CENTER);
-						b.setStyle("-fx-background-color: #0033ff; -fx-border-color: black; -fx-border-width: 0.5;");
+						b.setStyle("-fx-background-color: #7861ff; -fx-border-color: black; -fx-border-width: 0.5;");
 						
 						b.layoutXProperty().bind(p.widthProperty().subtract(b.widthProperty()).divide(2));
 						b.layoutYProperty().bind(p.heightProperty().subtract(b.heightProperty()).divide(2));
+						
+						b.setOnMouseClicked(fe -> {
+							controller.entityName = ent.mob.getName();
+							controller.descriptionArea.appendText(ent.mob.toString());
+							
+							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
+						});
+						
+						
 
 						
 						if (p.getChildren().size() < 1) {
@@ -524,14 +534,6 @@ public class FPADriver extends Application {
 			mapContents.get(i).setStyle(loadPane.get(i).getStyle());
 		}
 		// mapContents = pane;
-	}
-	
-	public static void importEntity() {
-		
-	}
-	
-	public static void exportEntity() {
-		
 	}
 
 	public static void main(String[] args) {

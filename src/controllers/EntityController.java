@@ -178,12 +178,4 @@ public class EntityController {
 		String dice = (String) HitDiceSelect.getValue();
 		temp.setHitDie(dice);
 	}
-	
-	public void loadEntity() {
-		
-	}
-	
-	public void saveEntity() {
-		
-	}
 }

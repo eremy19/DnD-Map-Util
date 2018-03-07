@@ -12,15 +12,17 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import models.Entity;
 import models.Player;
 import util.Map;
 
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
-	private static HashMap<String, Player> AvaliableEntities = new HashMap();
+	public static HashMap<String, Player> AvaliableEntities = new HashMap();
 	
 	public String color = "-fx-background-color: lightgreen;";
 	public static String entityName = null;
+
 	@FXML
 	public Button entityButton;
 	public Button entitySceneSwap;
@@ -219,11 +221,6 @@ public class UIController {
 				descriptionArea.appendText("You entered an invalid die");
 			}
 			descriptionArea.appendText("\n");
-			//------------------------------------------Levi(Start)3/7----------------------------
-		} else if(optionBox.getValue().equals("Change Health")) {
-//			entityName
-		
-			
 		}
 	}
 	

@@ -40,16 +40,6 @@
 					</font>
 				</Button>
             <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" prefWidth="150.0" />
-            <Button fx:id="ResetMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" onAction="#reset" mnemonicParsing="false" text="Reset Map">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Button>
-            <VBox style="-fx-alignment: baseline-left;">
-               <children>
-                  <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" prefWidth="150.0" />
-               </children>
-            </VBox>
 			</children>
 			<GridPane.margin>
 				<Insets />
@@ -170,11 +160,6 @@
 				<Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
 			</GridPane.margin>
 			<children>
-				<Button fx:id="entityButton" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButton" text="Entity">
-					<font>
-						<Font size="18.0" />
-					</font>
-				</Button>
 				<Button id="Default" fx:id="Default" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorDefault" text="Default" GridPane.rowIndex="1">
 					<font>
 						<Font size="18.0" />
