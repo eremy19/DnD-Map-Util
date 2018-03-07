@@ -438,7 +438,11 @@ public class FPADriver extends Application {
 			File file;
 			FileChooser FileChooser = new FileChooser();
 			file = FileChooser.showOpenDialog(stage);
-			saveMapPath = file.getAbsolutePath();
+			try {
+				saveMapPath = file.getAbsolutePath();
+			} catch (NullPointerException e) {
+				
+			}
 			System.out.println(saveMapPath);
 		}else {
 			
