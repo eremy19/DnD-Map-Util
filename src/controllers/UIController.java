@@ -223,6 +223,7 @@ public class UIController {
 		} else if(optionBox.getValue().equals("Change Health")) {
 //			entityName
 		
+			
 		}
 	}
 	
