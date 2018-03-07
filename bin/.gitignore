@@ -1,8 +1,9 @@
 /application/
 /pics/
-<<<<<<< HEAD
-/application/
-=======
 /controllers/
 /dice/
->>>>>>> parent of a156f15... Swapped Entity Select and Reset Map
+/models/
+/util/
+/application/
+/controllers/
+/dice/

@@ -46,13 +46,13 @@
 }
 #monk {
 	
-    -fx-background-image: url(/pics/monk.png);
+    -fx-background-image: url(pics/monk.jpg);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
 }
 #highelf {
 	
-    -fx-background-image: url(/pics/highelf.png);
+    -fx-background-image: url(pics/highelf.jpg);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
 }

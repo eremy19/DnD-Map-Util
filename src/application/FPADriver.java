@@ -199,6 +199,7 @@ public class FPADriver extends Application {
 		});
 		//----------------------------(Levi 3/6)--------------------------------------
 		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
+		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice","Change Health"));
 		
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
 		
