@@ -12,12 +12,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import models.Mob;
 import models.Player;
+import models.Monster;
 import util.Map;
 
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
-	private static HashMap<String, Player> AvaliableEntities = new HashMap();
+	private static HashMap<String, Mob> AvaliableEntities = new HashMap();
 	
 	public String color = "-fx-background-color: lightgreen;";
 
@@ -275,19 +277,13 @@ public class UIController {
 	}
 
 	public void updateEntityChoiceBox() {
-		ArrayList<Player> temp = (ArrayList<Player>) FPADriver.players;
-		ArrayList<String> entityNames = new ArrayList<>();
-		int i = 0;
-		for (Player m : temp) {
-			entityNames.add(m.getName());
+		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
+		ArrayList<String> names = new ArrayList<>();
+		for (Mob m: temp) {
+			names.add(m.getName());
 			AvaliableEntities.put(m.getName(), m);
 		}
-		// for(Map m : FPADriver.maps) {
-		// AvaliableMaps.put(FPADriver.maps.get(i).name, FPADriver.maps.get(i));
-		// mapNames.add(AvaliableMaps.get(i));
-		// i++;
-		// }
-		entitySelect.setItems(FXCollections.observableArrayList(entityNames));
+		entitySelect.setItems(FXCollections.observableArrayList(names));
 	}
 
 	public void entitySelected() {
