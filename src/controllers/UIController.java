@@ -222,8 +222,27 @@ public class UIController {
 				descriptionArea.appendText("You entered an invalid die");
 			}
 			descriptionArea.appendText("\n");
-		}
+		} else if(optionBox.getValue().equals("Change Health")) {
+		String temp = null;
+		temp = TextBox.getText();
+		boolean parseable = false;
+		  try {  
+		         Integer.parseInt(temp);  
+		        parseable = true;  
+		      } catch (NumberFormatException e) {  
+		         parseable = false;  
+		      }  
+		  if(parseable) {
+			  Integer newHealth = 0;
+			  newHealth = Integer.parseInt(temp);
+			  AvaliableEntities.get(entityName).setCurrentHP(newHealth); 
+		  }else {
+			  descriptionArea.appendText("You entered an invalid input \n");
+		  }
 	}
+}
+
+
 	
 	public void reset() {
 		for (int i = 0; i < mapGrid.getChildren().size(); i++) {
