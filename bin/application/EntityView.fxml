@@ -48,13 +48,11 @@
 						<Font size="18.0" />
 					</font>
 				</TextArea>
-				<Button fx:id="entityImport" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
 				<Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
-				<Button fx:id="entityExport" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
 				<Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
 					<font>
 						<Font name="System Bold" size="24.0" />
