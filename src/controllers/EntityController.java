@@ -19,8 +19,18 @@ public class EntityController {
 
 	@FXML
 	public Button entities;
+	public Button NameOk;
+	public Button HealthOk;
+	public Button ArmorOk;
+	public Button SCAOk;
+	public Button SABOk;
+	public Button SpeedOk;
+	public Button InitiativeOk;
+	public Button DiceOk;
+	public Button removeButton;
 	public ChoiceBox chooseEntity;
 	public TextField NameTypeBox;
+	public TextField HealthTypeBox;
 	public TextField ArmorTypeBox;
 	public TextField SCATypeBox;
 	public TextField SABTypeBox;
@@ -66,6 +76,7 @@ public class EntityController {
 	public void entitySelected() {
 		try {
 			NameTypeBox.setText(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getName());
+			HealthTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getMaxHP()));
 			ArmorTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getArmor()));
 			SCATypeBox.setText(
 					String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getSpellCastingAbility()));
@@ -81,13 +92,66 @@ public class EntityController {
 			ConSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getConstitution());
 			WisSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getWisdom());
 			HitDiceSelect.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getHitDie());
+			enableEntityEdit();
 		} catch (NullPointerException e) {
 
 		}
 
 	}
+	
+	public void enableEntityEdit() {
+		NameTypeBox.setDisable(false);
+		HealthTypeBox.setDisable(false);
+		ArmorTypeBox.setDisable(false);
+		SCATypeBox.setDisable(false);
+		SABTypeBox.setDisable(false);
+		SpeedTypeBox.setDisable(false);
+		InitiativeTypeBox.setDisable(false);
+		IntSlider.setDisable(false);
+		DexSlider.setDisable(false);
+		ChaSlider.setDisable(false);
+		StrSlider.setDisable(false);
+		ConSlider.setDisable(false);
+		WisSlider.setDisable(false);
+		HitDiceSelect.setDisable(false);
+		NameOk.setDisable(false);
+		HealthOk.setDisable(false);
+		ArmorOk.setDisable(false);
+		SCAOk.setDisable(false);
+		SABOk.setDisable(false);
+		SpeedOk.setDisable(false);
+		InitiativeOk.setDisable(false);
+		DiceOk.setDisable(false);
+		removeButton.setDisable(false);
+	}
+	public void disableEntityEdit() {
+		NameTypeBox.setDisable(true);
+		HealthTypeBox.setDisable(true);
+		ArmorTypeBox.setDisable(true);
+		SCATypeBox.setDisable(true);
+		SABTypeBox.setDisable(true);
+		SpeedTypeBox.setDisable(true);
+		InitiativeTypeBox.setDisable(true);
+		IntSlider.setDisable(true);
+		DexSlider.setDisable(true);
+		ChaSlider.setDisable(true);
+		StrSlider.setDisable(true);
+		ConSlider.setDisable(true);
+		WisSlider.setDisable(true);
+		HitDiceSelect.setDisable(true);
+		NameOk.setDisable(true);
+		HealthOk.setDisable(true);
+		ArmorOk.setDisable(true);
+		SCAOk.setDisable(true);
+		SABOk.setDisable(true);
+		SpeedOk.setDisable(true);
+		InitiativeOk.setDisable(true);
+		DiceOk.setDisable(true);
+		removeButton.setDisable(true);
+	}
 	public void removeEntity() {
 		FPADriver.AvaliableEntities.remove(chooseEntity.getValue());
+		disableEntityEdit();
 		updateChoiceBox();
 	}
 	
@@ -96,7 +160,6 @@ public class EntityController {
 		try {
 			temp.setName(NameTypeBox.getText());
 		} catch (NullPointerException e) {
-
 		}
 		try {
 			if (FPADriver.AvaliableEntities.containsKey(temp.getName())) {
@@ -111,9 +174,17 @@ public class EntityController {
 		} catch (NullPointerException e) {
 
 		}
+		disableEntityEdit();
 		updateChoiceBox();
 	}
-
+	public void updateHealth() {
+		String entry = HealthTypeBox.getText();
+		if (tryParseInt(entry)) {
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setMaxHP(Integer.parseInt(entry));
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}
 	public void updateArmor() {
 		String entry = ArmorTypeBox.getText();
 		if (tryParseInt(entry)) {

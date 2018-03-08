@@ -291,6 +291,7 @@ public class FPADriver extends Application {
 						controller.handleButton();
 						controller.entityButton.setStyle("-fx-background-color: gray;");
 					} else {
+						controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
 						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 					}
 				});
