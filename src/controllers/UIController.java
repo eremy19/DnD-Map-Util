@@ -19,10 +19,10 @@ import util.Map;
 
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
-	public static HashMap<String, Mob> AvaliableEntities = new HashMap();
+	public HashMap<String, Mob> AvaliableEntities = new HashMap();
 	
 	public String color = "-fx-background-color: lightgreen;";
-	public static String entityName = null;
+	public String entityName = null;
 
 	@FXML
 	public Button entityButton;
@@ -222,7 +222,7 @@ public class UIController {
 				descriptionArea.appendText("You entered an invalid die");
 			}
 			descriptionArea.appendText("\n");
-		} else if(optionBox.getValue().equals("Change Health")) {
+		} else if(optionBox.getValue().equals("Change health")) {
 		String temp = null;
 		temp = TextBox.getText();
 		boolean parseable = false;

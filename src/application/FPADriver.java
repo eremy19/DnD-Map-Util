@@ -236,6 +236,7 @@ public class FPADriver extends Application {
 						
 						b.setOnMouseClicked(fe -> {
 							controller.entityName = ent.mob.getName();
+							
 							controller.descriptionArea.appendText(ent.mob.toString());
 							ent.updateOptions(ent.optionsStringArr);
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
