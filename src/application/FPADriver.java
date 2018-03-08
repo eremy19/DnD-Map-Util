@@ -241,7 +241,8 @@ public class FPADriver extends Application {
 						b.setOnMouseClicked(fe -> {
 							controller.entityName = ent;
 							
-							controller.descriptionArea.appendText(ent.mob.toString());
+							controller.descriptionArea.appendText(ent.mob.getName() + "\nMax hp:" + ent.mob.getMaxHP() + "\nCurrent hp: " + ent.mob.getCurrentHP() +"\n");
+							
 							
 							ent.updateOptions(ent.optionsStringArr);
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));

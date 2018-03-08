@@ -237,7 +237,7 @@ public class UIController {
 			  Integer newHealth = 0;
 			  newHealth = Integer.parseInt(temp);
 			  AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth); 
-			  descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth);
+			  descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n");
 		  }else {
 			  descriptionArea.appendText("You entered an invalid input \n");
 		  }
@@ -245,6 +245,8 @@ public class UIController {
 		Pane p = (Pane) entityName.button.getParent();
 		p.getChildren().remove(entityName.button);
 		entityName = null;
+	} else if (optionBox.getValue().equals("More info")) {
+		descriptionArea.appendText(entityName.mob.toString());
 	}
 }
 
