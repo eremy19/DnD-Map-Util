@@ -161,6 +161,7 @@ public class UIController {
 					rollMult(dice);
 					}
 				} else {
+					descriptionArea.appendText("Entered an Invalid Dice");
 				}
 				descriptionArea.appendText("\n");
 
@@ -178,16 +179,16 @@ public class UIController {
 					Integer newHealth = 0;
 					newHealth = Integer.parseInt(temp);
 					FPADriver.AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth);
-					descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n");
+					descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n \n");
 				} else {
-					descriptionArea.appendText("You entered an invalid input \n");
+					descriptionArea.appendText("You entered an invalid input \n\n");
 				}
 			} else if (optionBox.getValue().equals("Remove")) {
 				Pane p = (Pane) entityName.button.getParent();
 				p.getChildren().remove(entityName.button);
 				entityName = null;
 			} else if (optionBox.getValue().equals("More info")) {
-				descriptionArea.appendText(entityName.mob.toString());
+				descriptionArea.appendText(entityName.mob.toString() + "\n");
 			}
 		} catch (
 
@@ -196,6 +197,7 @@ public class UIController {
 		} catch (NullPointerException e) {
 
 		}
+		TextBox.setPromptText("Enter text here");
 	}
 
 	public void rollOne() {
@@ -224,7 +226,7 @@ public class UIController {
 			temp = d.rollDice("d100");
 			descriptionArea.appendText("You rolled: " + temp);
 		} else {
-			descriptionArea.appendText("You entered an invalid die");
+			descriptionArea.appendText("You entered an invalid die\n");
 		}
 	}
 
@@ -269,7 +271,7 @@ public class UIController {
 				}
 			}
 			if (dicetotal.isEmpty()) {
-				descriptionArea.appendText("Invalid Die");
+				descriptionArea.appendText("Invalid Die\n");
 			} else {
 				descriptionArea.appendText("" + dicetotal.get(0));
 				int total = dicetotal.get(0);
@@ -280,7 +282,7 @@ public class UIController {
 				descriptionArea.appendText(" = " + total);
 			}
 		} else {
-			descriptionArea.appendText("You entered an invalid die");
+			descriptionArea.appendText("You entered an invalid die\n");
 		}
 	}
 
