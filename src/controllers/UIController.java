@@ -19,10 +19,10 @@ import util.Map;
 
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
-	public static HashMap<String, Mob> AvaliableEntities = new HashMap();
+	public HashMap<String, Mob> AvaliableEntities = new HashMap();
 	
 	public String color = "-fx-background-color: lightgreen;";
-	public static String entityName = null;
+	public Entity entityName = null;
 
 	@FXML
 	public Button entityButton;
@@ -56,6 +56,7 @@ public class UIController {
 
 	public boolean isDragging = false;
 	public boolean entitySelected = false;
+	public boolean canSelect = false;
 
 	// ---------------------------------------------------------------------------------------------------------------
 
@@ -76,7 +77,7 @@ public class UIController {
 		if (entityButton.getText().equals("Entity Selected")) {
 			entityButton.setText("Entity");
 			entitySelected = false;
-		} else {
+		} else if (canSelect) {
 			entityButton.setText("Entity Selected");
 			entitySelected = true;
 		}
@@ -222,7 +223,7 @@ public class UIController {
 				descriptionArea.appendText("You entered an invalid die");
 			}
 			descriptionArea.appendText("\n");
-		} else if(optionBox.getValue().equals("Change Health")) {
+		} else if(optionBox.getValue().equals("Change health")) {
 		String temp = null;
 		temp = TextBox.getText();
 		boolean parseable = false;
@@ -231,14 +232,21 @@ public class UIController {
 		        parseable = true;  
 		      } catch (NumberFormatException e) {  
 		         parseable = false;  
-		      }  
+		      } 
 		  if(parseable) {
 			  Integer newHealth = 0;
 			  newHealth = Integer.parseInt(temp);
-			  AvaliableEntities.get(entityName).setCurrentHP(newHealth); 
+			  AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth); 
+			  descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n");
 		  }else {
 			  descriptionArea.appendText("You entered an invalid input \n");
 		  }
+	} else if(optionBox.getValue().equals("Remove")) {
+		Pane p = (Pane) entityName.button.getParent();
+		p.getChildren().remove(entityName.button);
+		entityName = null;
+	} else if (optionBox.getValue().equals("More info")) {
+		descriptionArea.appendText(entityName.mob.toString());
 	}
 }
 
@@ -306,10 +314,6 @@ public class UIController {
 		entitySelect.setItems(FXCollections.observableArrayList(names));
 	}
 
-	public void entitySelected() {
-		// TODO Auto-generated method stub
-
-	}
 
 	public void mapSelector() {
 		String name = mapSelect.getValue();
@@ -321,6 +325,23 @@ public class UIController {
 			}
 		}
 	}
+	
+	public void updateSelector ()  {
+		if (entitySelect.getValue() != null && entitySelect.getValue().length() > 1) {
+			canSelect = true;
+			entityButton.setStyle("");
+		} else {
+			canSelect = false;
+		}
+	}
+	
+	public void deselect () {
+		entityName = null;
+	}
+	
+	public void txtReset () {
+		descriptionArea.setText("");
+	} 
 
 	// class buttonHandler implements EventHandler<ActionEvent>{
 

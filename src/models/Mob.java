@@ -286,6 +286,7 @@ public class Mob implements Serializable {
 		builder.append("Initive: " + initiative);
 		builder.append("\n");
 		builder.append("Hit Die: " + hitDie);
+		builder.append("\n");
 		return builder.toString();
 	}
 
