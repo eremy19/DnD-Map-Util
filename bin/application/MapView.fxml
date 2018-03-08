@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane id="gridScene" fx:id="gridScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deselect" prefHeight="800.0" prefWidth="1200.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UIController">
+<GridPane id="gridScene" fx:id="gridScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deselect" onMouseMoved="#updateSelector" prefHeight="800.0" prefWidth="1200.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UIController">
 	<columnConstraints>
 		<ColumnConstraints hgrow="SOMETIMES" />
 		<ColumnConstraints hgrow="SOMETIMES" />
@@ -138,14 +138,23 @@
 		</VBox>
 		<VBox spacing="30.0" GridPane.columnIndex="2">
 			<children>
-				<TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-width: 0.5;">
-					<opaqueInsets>
-						<Insets />
-					</opaqueInsets>
-					<font>
-						<Font size="12.0" />
-					</font>
-				</TextArea>
+            <VBox alignment="CENTER_RIGHT">
+               <children>
+      				<TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-width: 0.5;">
+      					<opaqueInsets>
+      						<Insets />
+      					</opaqueInsets>
+      					<font>
+      						<Font size="12.0" />
+      					</font>
+      				</TextArea>
+                  <Button fx:id="txtReset" alignment="CENTER" contentDisplay="RIGHT" maxHeight="40.0" maxWidth="50.0" minHeight="5.0" minWidth="10.0" mnemonicParsing="false" onAction="#txtReset" text="reset" textAlignment="CENTER">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
 				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
 				<HBox fillHeight="false">
 					<children>

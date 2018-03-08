@@ -336,6 +336,10 @@ public class UIController {
 	public void deselect () {
 		entityName = null;
 	}
+	
+	public void txtReset () {
+		descriptionArea.setText("");
+	} 
 
 	// class buttonHandler implements EventHandler<ActionEvent>{
 
