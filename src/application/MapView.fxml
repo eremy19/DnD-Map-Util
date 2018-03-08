@@ -29,7 +29,7 @@
       				<HBox>
       					<children>
       						<ChoiceBox id="MapSelectDropDown" fx:id="mapSelect" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" />
-      						<Button fx:id="mapSelectButton" maxWidth="60.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#mapSelector" text="GO">
+      						<Button fx:id="mapSelectButton" maxHeight="60.0" maxWidth="60.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#mapSelector" text="GO">
       							<font>
       								<Font size="18.0" />
       							</font>
@@ -55,8 +55,8 @@
                   </Label>
                   <HBox>
                      <children>
-                        <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="136.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" prefHeight="65.0" prefWidth="190.0" />
-            				<Button fx:id="entityButton" maxHeight="80.0" maxWidth="160.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="65.0" prefWidth="87.0" text="Select">
+                        <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="160.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" />
+            				<Button fx:id="entityButton" maxHeight="50.0" maxWidth="300.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleButton" text="Select">
             					<font>
             						<Font size="18.0" />
             					</font>

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javafx.scene.control.Button;
 
-public class Entity {
+public class Entity { 
 
 	public Button button;
 	public Mob mob;

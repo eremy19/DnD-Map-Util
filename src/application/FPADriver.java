@@ -246,7 +246,11 @@ public class FPADriver extends Application {
 				Pane p = new Pane();
 				GridPane.setConstraints(p, j, i);
 				controller.mapGrid.getChildren().add(p);
-
+				
+				p.setMinSize(10, 8);
+				p.setPrefSize(50, 40);
+				p.setMaxSize(80, 60);
+				
 				mapContents.add(p);
 
 				p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
@@ -685,6 +689,8 @@ public class FPADriver extends Application {
 		ArrayList<Pane> loadPane = new ArrayList<>();
 		for (int i = 0; i < pane.mapContents.length; i++) {
 			Pane p = new Pane();
+			
+			mapContents.get(i).getChildren().removeAll(FXCollections.observableArrayList(mapContents.get(i).getChildren()));
 			p.setStyle(pane.mapContents[i]);
 			loadPane.add(p);
 		}
