@@ -17,6 +17,7 @@ public class Entity {
 	}
 	
 	public void updateOptions (String[] opts) {
+		options.clear();
 		for (String string : opts) {
 			options.add(string);
 		}

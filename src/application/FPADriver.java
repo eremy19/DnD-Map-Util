@@ -238,6 +238,7 @@ public class FPADriver extends Application {
 							controller.entityName = ent.mob.getName();
 							
 							controller.descriptionArea.appendText(ent.mob.toString());
+							
 							ent.updateOptions(ent.optionsStringArr);
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
 						});
