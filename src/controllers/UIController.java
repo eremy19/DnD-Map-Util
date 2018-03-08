@@ -19,20 +19,15 @@ import util.Map;
 
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
-	public HashMap<String, Mob> AvaliableEntities = new HashMap();
-	
 	public String color = "-fx-background-color: lightgreen;";
 	public Entity entityName = null;
 
 	@FXML
 	public Button entityButton;
 	public Button entitySceneSwap;
-
 	public Button ImportMap;
 	public Button ExportButton;
-
 	public Button mapSelectButton;
-
 	public Button Default;
 	public Button White;
 	public Button Black;
@@ -48,25 +43,17 @@ public class UIController {
 	public ChoiceBox<String> mapSelect;
 	public ChoiceBox<String> entitySelect;
 	public Pane p1;
-
 	public GridPane mapGrid;
-	// ---------------------------------------------------------------------------------------------------------------
-	// Jett 3/3/18
 	public GridPane gridScene;
-
 	public boolean isDragging = false;
 	public boolean entitySelected = false;
 	public boolean canSelect = false;
 
-	// ---------------------------------------------------------------------------------------------------------------
-
 	public javafx.scene.control.TextArea descriptionArea;
-//---------------------Levi 3/6 (Start)--------------------------------	
 	public ChoiceBox<String> optionBox;
 	public TextField TextBox;
 	public Button textConfirm;
 	public Button ResetMap;
-	//---------------Levi (Break 3/6)-----------------------------
 	private FPADriver FPAD;
 
 	public void setMain(FPADriver FPAD) {
@@ -84,71 +71,50 @@ public class UIController {
 	}
 
 	public void selectColorWhite() {
-
 		color = "-fx-background-color: white";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorBlack() {
-
 		color = "-fx-background-color: black";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorBlue() {
-
 		color = "-fx-background-color: blue";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorBrown() {
-
 		color = "-fx-background-color: brown";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorGrey() {
-
 		color = "-fx-background-color: grey";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorRed() {
-
 		color = "-fx-background-color: red";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorOrange() {
-
 		color = "-fx-background-color: orange";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
@@ -156,29 +122,21 @@ public class UIController {
 	public void selectColorPurple() {
 
 		color = "-fx-background-color: purple";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorGreen() {
-
 		color = "-fx-background-color: green";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
 
 	public void selectColorYellow() {
-
 		color = "-fx-background-color: yellow";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 
@@ -186,88 +144,77 @@ public class UIController {
 
 	public void selectColorDefault() {
 		color = "-fx-background-color: lightgreen;";
-		// System.out.println("Color changed to " + color);
 		descriptionArea.appendText("Color changed to:" + color.substring(21));
-		// DecreptionArea.appendText("Color changed to: " + color);
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
-//-----------------------(Levi Continue 3/6)----------------------------
+
 	public void confirmText() {
-		if(optionBox.getValue().equals("Roll Dice")) {
+		if (optionBox.getValue().equals("Roll Dice")) {
 			Integer temp = 0;
 			Dice d = new Dice();
 			d.fillMap();
-			if(TextBox.getText().equals("d4")) {
-			temp = d.rollDice("d4");
-				descriptionArea.appendText("You rolled: "+temp); 
-			} else if(TextBox.getText().equals("d6")) {
+			if (TextBox.getText().equals("d4")) {
+				temp = d.rollDice("d4");
+				descriptionArea.appendText("You rolled: " + temp);
+			} else if (TextBox.getText().equals("d6")) {
 				temp = d.rollDice("d6");
-				descriptionArea.appendText("You rolled: "+temp); 				
-			} else if(TextBox.getText().equals("d8")) {
+				descriptionArea.appendText("You rolled: " + temp);
+			} else if (TextBox.getText().equals("d8")) {
 				temp = d.rollDice("d8");
-				descriptionArea.appendText("You rolled: "+temp); 				
-			} else if(TextBox.getText().equals("d10")) {
+				descriptionArea.appendText("You rolled: " + temp);
+			} else if (TextBox.getText().equals("d10")) {
 				temp = d.rollDice("d10");
-				descriptionArea.appendText("You rolled: "+temp); 
-			} else if(TextBox.getText().equals("d12")) {
+				descriptionArea.appendText("You rolled: " + temp);
+			} else if (TextBox.getText().equals("d12")) {
 				temp = d.rollDice("d12");
-				descriptionArea.appendText("You rolled: "+temp); 				
-			} else if(TextBox.getText().equals("d20")) {
+				descriptionArea.appendText("You rolled: " + temp);
+			} else if (TextBox.getText().equals("d20")) {
 				temp = d.rollDice("d20");
-				descriptionArea.appendText("You rolled: "+temp); 				
-			} else if(TextBox.getText().equals("d100")) {
+				descriptionArea.appendText("You rolled: " + temp);
+			} else if (TextBox.getText().equals("d100")) {
 				temp = d.rollDice("d100");
-				descriptionArea.appendText("You rolled: "+temp); 
+				descriptionArea.appendText("You rolled: " + temp);
 			} else {
 				descriptionArea.appendText("You entered an invalid die");
 			}
 			descriptionArea.appendText("\n");
-		} else if(optionBox.getValue().equals("Change health")) {
-		String temp = null;
-		temp = TextBox.getText();
-		boolean parseable = false;
-		  try {  
-		         Integer.parseInt(temp);  
-		        parseable = true;  
-		      } catch (NumberFormatException e) {  
-		         parseable = false;  
-		      } 
-		  if(parseable) {
-			  Integer newHealth = 0;
-			  newHealth = Integer.parseInt(temp);
-			  AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth); 
-			  descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n");
-		  }else {
-			  descriptionArea.appendText("You entered an invalid input \n");
-		  }
-	} else if(optionBox.getValue().equals("Remove")) {
-		Pane p = (Pane) entityName.button.getParent();
-		p.getChildren().remove(entityName.button);
-		entityName = null;
-	} else if (optionBox.getValue().equals("More info")) {
-		descriptionArea.appendText(entityName.mob.toString());
+		} else if (optionBox.getValue().equals("Change health")) {
+			String temp = null;
+			temp = TextBox.getText();
+			boolean parseable = false;
+			try {
+				Integer.parseInt(temp);
+				parseable = true;
+			} catch (NumberFormatException e) {
+				parseable = false;
+			}
+			if (parseable) {
+				Integer newHealth = 0;
+				newHealth = Integer.parseInt(temp);
+				FPADriver.AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth);
+				descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n");
+			} else {
+				descriptionArea.appendText("You entered an invalid input \n");
+			}
+		} else if (optionBox.getValue().equals("Remove")) {
+			Pane p = (Pane) entityName.button.getParent();
+			p.getChildren().remove(entityName.button);
+			entityName = null;
+		} else if (optionBox.getValue().equals("More info")) {
+			descriptionArea.appendText(entityName.mob.toString());
+		}
 	}
-}
 
-
-	
 	public void reset() {
 		for (int i = 0; i < mapGrid.getChildren().size(); i++) {
-			
-				mapGrid.getChildren().get(i).setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
-			
-			}
-		
-		}
-	//-------------Levi (end)--------------------------------------
-//	public void pane1Change() {
-//		p1.setStyle(color);
-//	}
 
-	// public void loadMap() {
-	// FPADriver.filePath();
-	// }
+			mapGrid.getChildren().get(i)
+					.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
+
+		}
+
+	}
 
 	public void loadMap() {
 		FPADriver.importMap();
@@ -279,15 +226,6 @@ public class UIController {
 		updateMapChoiceBox();
 	}
 
-	// public void updateChoiceBox(){
-	// ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
-	// ArrayList<String> names = new ArrayList<>();
-	// for (Mob m: temp) {
-	// names.add(m.getName());
-	// AvaliableEntities.put(m.getName(), m);
-	// }
-	// chooseEntity.setItems(FXCollections.observableArrayList(names));
-	// }
 	public void updateMapChoiceBox() {
 		ArrayList<Map> temp = (ArrayList<Map>) FPADriver.returnMaps();
 		ArrayList<String> mapNames = new ArrayList<>();
@@ -296,24 +234,16 @@ public class UIController {
 			mapNames.add(m.name);
 			AvaliableMaps.put(m.name, m);
 		}
-		// for(Map m : FPADriver.maps) {
-		// AvaliableMaps.put(FPADriver.maps.get(i).name, FPADriver.maps.get(i));
-		// mapNames.add(AvaliableMaps.get(i));
-		// i++;
-		// }
 		mapSelect.setItems(FXCollections.observableArrayList(mapNames));
 	}
 
 	public void updateEntityChoiceBox() {
-		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
 		ArrayList<String> names = new ArrayList<>();
-		for (Mob m: temp) {
-			names.add(m.getName());
-			AvaliableEntities.put(m.getName(), m);
+		for (String name : FPADriver.AvaliableEntities.keySet()) {
+			names.add(name);
 		}
 		entitySelect.setItems(FXCollections.observableArrayList(names));
 	}
-
 
 	public void mapSelector() {
 		String name = mapSelect.getValue();
@@ -325,8 +255,8 @@ public class UIController {
 			}
 		}
 	}
-	
-	public void updateSelector ()  {
+
+	public void updateSelector() {
 		if (entitySelect.getValue() != null && entitySelect.getValue().length() > 1) {
 			canSelect = true;
 			entityButton.setStyle("");
@@ -334,23 +264,12 @@ public class UIController {
 			canSelect = false;
 		}
 	}
-	
-	public void deselect () {
+
+	public void deselect() {
 		entityName = null;
 	}
-	
-	public void txtReset () {
+
+	public void txtReset() {
 		descriptionArea.setText("");
-	} 
-
-	// class buttonHandler implements EventHandler<ActionEvent>{
-
-	//
-	// public void handle(ActionEvent event) {
-	// FPADriver.filePath();
-	//
-	// }
-
-	// }
-
+	}
 }

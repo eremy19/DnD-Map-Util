@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -42,6 +43,7 @@ import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Entity;
+import models.Mob;
 import models.Monster;
 import models.Player;
 import util.Map;
@@ -52,12 +54,12 @@ public class FPADriver extends Application {
 	String pathEntity = "EntityView.fxml";
 	Scene sceneMap, sceneEntity;
 	static String saveMapPath = "";
-
 	public static ArrayList<Map> maps = new ArrayList<>();
-	public static ArrayList<Player> players = new ArrayList<>();
-	public static ArrayList<Monster> monsters = new ArrayList<>();
-	public static ArrayList<Items> items = new ArrayList<>();
-
+	// Emily 3/7 --- Unused arrayLists that are more for stretch goals
+	// private static ArrayList<Player> players = new ArrayList<>();
+	// private static ArrayList<Monster> monsters = new ArrayList<>();
+	// public static ArrayList<Items> items = new ArrayList<>();
+	public static HashMap<String, Mob> AvaliableEntities = new HashMap();
 	static public ArrayList<Pane> mapContents = new ArrayList<>();
 
 	@SuppressWarnings("unchecked")
@@ -85,13 +87,11 @@ public class FPADriver extends Application {
 		initialLoad();
 		controller.updateMapChoiceBox();
 
-		// ----------------------------------------------------------------------------------------------------------
-		
 		controller.entityButton.setStyle("-fx-background-color: gray;");
-		
-		Stage.setOnCloseRequest(event ->{
-//			System.out.println("App is closing");
-			
+
+		Stage.setOnCloseRequest(event -> {
+			// System.out.println("App is closing");
+
 			try {
 				exitFileSave(maps, "./bulkLoad.txt");
 			} catch (IOException e) {
@@ -104,7 +104,7 @@ public class FPADriver extends Application {
 		sceneMap.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler() {
 			@Override
 			public void handle(Event event) {
-				if(combo1.match((KeyEvent) event)) {
+				if (combo1.match((KeyEvent) event)) {
 					System.out.println("Key combo(ctrl+o) has been presssed");
 					getSavePath(Stage);
 					try {
@@ -116,7 +116,7 @@ public class FPADriver extends Application {
 						System.out.println("General IOException in keycombo load");
 					}
 				}
-				if(combo2.match((KeyEvent) event)) {
+				if (combo2.match((KeyEvent) event)) {
 					System.out.println("Key combo(ctrl+s) has been presssed");
 					getSavePath2(Stage);
 					File file = new File(saveMapPath);
@@ -136,7 +136,7 @@ public class FPADriver extends Application {
 						System.out.println("General IOException in keycombo save");
 					}
 				}
-				if(combo3.match((KeyEvent) event)) {
+				if (combo3.match((KeyEvent) event)) {
 					System.out.println("Key combo(ctrl+r) has been presssed");
 					TextInputDialog textDialog = new TextInputDialog();
 					textDialog.setTitle("Remove Map");
@@ -145,8 +145,8 @@ public class FPADriver extends Application {
 					Optional<String> mapName = Optional.empty();
 					mapName = textDialog.showAndWait();
 					String name = mapName.get();
-					for(int i = 0;i<maps.size();i++) {
-						if(maps.get(i).name.matches(name)) {
+					for (int i = 0; i < maps.size(); i++) {
+						if (maps.get(i).name.matches(name)) {
 							maps.remove(i);
 						}
 					}
@@ -156,10 +156,10 @@ public class FPADriver extends Application {
 
 		});
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
-		controller2.entities.setOnAction(e -> {Stage.setScene(sceneMap);
-		controller.updateEntityChoiceBox();
+		controller2.entities.setOnAction(e -> {
+			Stage.setScene(sceneMap);
+			controller.updateEntityChoiceBox();
 		});
-		// Emily - setting listeners for sliders
 		controller2.DexSlider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
 				controller2.updateDex();
@@ -190,20 +190,17 @@ public class FPADriver extends Application {
 				controller2.updateStr();
 			}
 		});
-		// Emily - Set HitDice Options
 		controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d20", "d100"));
 
 		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
-//				controller.entitySelected();
-
 			}
 		});
-		//----------------------------(Levi 3/6)--------------------------------------
+		// ----------------------------(Levi 3/6)--------------------------------------
 		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
-		
+
 		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
-		
+
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getColumnConstraints().size(); j++) {
 				Pane p = new Pane();
@@ -212,62 +209,49 @@ public class FPADriver extends Application {
 
 				mapContents.add(p);
 
-				// -------------------------------------------------------------------------------------------------------------
-				// Jett 3/3/18
-				// Jett 3/5/18
-
 				p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
 
-				// -----------------------Levi 3/5
-				// (Start)------------------------------------------
 				p.setOnMousePressed(e -> {
-					// event to initiate the drag or act as a click to make one square workable
 					if (controller.entitySelected && controller.entitySelect.getValue() != null) {
 						System.out.println(controller.entitySelect.getValue());
 						Button b = new Button();
-						
-						Entity ent = new Entity(b, controller.AvaliableEntities.get(controller.entitySelect.getValue()));
-						
-						
+
+						Entity ent = new Entity(b, AvaliableEntities.get(controller.entitySelect.getValue()));
+
 						b.setText(ent.mob.getName().substring(0, 2));
 						b.setFont(new Font(8));
-						b.setMinSize(p.widthProperty().doubleValue()-8, p.heightProperty().doubleValue()-8);
+						b.setMinSize(p.widthProperty().doubleValue() - 8, p.heightProperty().doubleValue() - 8);
 						b.setAlignment(Pos.CENTER);
 						b.setStyle("-fx-background-color: #7861ff; -fx-border-color: black; -fx-border-width: 0.5;");
-						
+
 						b.layoutXProperty().bind(p.widthProperty().subtract(b.widthProperty()).divide(2));
 						b.layoutYProperty().bind(p.heightProperty().subtract(b.heightProperty()).divide(2));
-						
+
 						b.setOnMouseClicked(fe -> {
 							controller.entityName = ent;
-							
-							controller.descriptionArea.appendText(ent.mob.getName() + "\nMax hp:" + ent.mob.getMaxHP() + "\nCurrent hp: " + ent.mob.getCurrentHP() +"\n");
-							
-							
+
+							controller.descriptionArea.appendText(ent.mob.getName() + "\nMax hp:" + ent.mob.getMaxHP()
+									+ "\nCurrent hp: " + ent.mob.getCurrentHP() + "\n");
+
 							ent.updateOptions(ent.optionsStringArr);
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
-							
+
 						});
-						
-						
+
 						if (p.getChildren().size() < 1) {
 							p.getChildren().add(b);
 						} else {
 							p.getChildren().remove(0);
 						}
-						
 						controller.canSelect = false;
 						controller.handleButton();
 						controller.entityButton.setStyle("-fx-background-color: gray;");
-						
 					} else {
-						
 						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 					}
 				});
 
 				p.setOnDragDetected(e -> {
-					// dragboard used to start drag and drop method.
 					if (!controller.entitySelected) {
 						Dragboard db = p.startDragAndDrop(TransferMode.COPY);
 						ClipboardContent content = new ClipboardContent();
@@ -276,7 +260,6 @@ public class FPADriver extends Application {
 					}
 				});
 				p.setOnDragOver(new javafx.event.EventHandler<DragEvent>() {
-					// event to figure out when it is crossed over
 					@Override
 					public void handle(DragEvent event) {
 						if (event.getGestureSource() != p && event.getDragboard().hasString()) {
@@ -284,57 +267,40 @@ public class FPADriver extends Application {
 						}
 						event.consume();
 					}
-
 				});
 				p.setOnDragEntered(new javafx.event.EventHandler<DragEvent>() {
-					// safety method to continue the drag and drop feature
 					@Override
 					public void handle(DragEvent event) {
 						Dragboard db = event.getDragboard();
 						if (event.getGestureSource() != p && event.getDragboard().hasString()) {
 							p.setStyle(db.getString());
 						}
-
 					}
 				});
 				p.setOnDragExited(new javafx.event.EventHandler<DragEvent>() {
-					// just anotheer method to ensure this works. May not be needed
 					public void handle(DragEvent event) {
-						/* mouse moved away, remove the graphical cues */
-						// p.setFill(Color.BLACK);
-
 						event.consume();
 					}
 				});
 				p.setOnDragDropped(new javafx.event.EventHandler<DragEvent>() {
 					public void handle(DragEvent event) {
-						// data dropped and end of the drag and drop feature.
-
 						Dragboard db = event.getDragboard();
 						boolean success = false;
 						if (db.hasString()) {
 							p.setStyle(db.getString());
 							success = true;
 						}
-
 						event.consume();
 					}
 				});
-				// ----------------------------------Levi (End)------------------------------
-
-				// -------------------------------------------------------------------------------------------------------------
 			}
-
 		}
 	}
 
 	private void initialLoad() {
-
-		
 		String filePath = "./bulkLoad.txt";
 		File file = new File(filePath);
-//		SaveFile sf = new SaveFile(items, players, monsters, maps);
-
+		// SaveFile sf = new SaveFile(items, players, monsters, maps);
 		if (!file.exists()) {
 			try {
 				file.createNewFile();
@@ -342,13 +308,11 @@ public class FPADriver extends Application {
 				System.out.println("General IOException initialLoad");
 				e.printStackTrace();
 			}
-
-		} 
+		}
 		try {
 			initialFileLoad(filePath);
-		}catch (EOFException e) {
+		} catch (EOFException e) {
 			System.out.println("EOFException in initial load");
-			
 		} catch (ClassNotFoundException e) {
 			System.out.println("Class not found exception in initial load");
 		} catch (IOException e) {
@@ -356,17 +320,6 @@ public class FPADriver extends Application {
 			e.printStackTrace();
 		}
 
-	}
-
-	public static ArrayList returnEntities() {
-		ArrayList entities = new ArrayList();
-		for (Player p : players) {
-			entities.add(p);
-		}
-		for (Monster m : monsters) {
-			entities.add(m);
-		}
-		return entities;
 	}
 
 	public static ArrayList returnMaps() {
@@ -378,15 +331,11 @@ public class FPADriver extends Application {
 	}
 
 	public static void addPlayer(Player p) {
-		players.add(p);
-
-		System.out.println("players entered: " + players.size());
+		AvaliableEntities.put(p.getName(), p);
 	}
 
 	public static void addMonster(Monster m) {
-		monsters.add(m);
-
-		System.out.println("Monsters entered: " + players.size());
+		AvaliableEntities.put(m.getName(), m);
 	}
 
 	public static void initialFileLoad(String filePath) throws IOException, ClassNotFoundException {
@@ -397,11 +346,11 @@ public class FPADriver extends Application {
 		ois.close();
 		bis.close();
 		fis.close();
-		
-		for(int i = 0;i<mapContentsLoad.size();i++) {
+
+		for (int i = 0; i < mapContentsLoad.size(); i++) {
 			maps.add(i, mapContentsLoad.get(i));
 		}
-		
+
 	}
 
 	public static void singleLoadFile() throws IOException, ClassNotFoundException {
@@ -412,9 +361,7 @@ public class FPADriver extends Application {
 		ois.close();
 		bis.close();
 		fis.close();
-
 		boolean isUnique = true;
-
 		for (int i = 0; i < maps.size(); i++) {
 			if (maps.get(i).name.equals(mapContentsLoad.name)) {
 				isUnique = false;
@@ -424,9 +371,7 @@ public class FPADriver extends Application {
 		if (isUnique) {
 			maps.add(mapContentsLoad);
 		}
-		// -----------------------------------daniel 3/5
 		setMap(mapContentsLoad);
-
 	}
 
 	public static void exitFileSave(ArrayList<Map> m, String filePath) throws IOException {
@@ -490,12 +435,10 @@ public class FPADriver extends Application {
 			Map m = new Map(name, strArr);
 			singleSaveFile(m);
 		} catch (NoSuchElementException | IOException e) {
-			
-		}
 
-		
-		
+		}
 	}
+
 	public static void getSavePath2(Stage stage) {
 		File file;
 		FileChooser filechooser = new FileChooser();
@@ -507,47 +450,42 @@ public class FPADriver extends Application {
 	}
 
 	public static void getSavePath(Stage stage) {
-		if(stage!=null) {
+		if (stage != null) {
 			File file;
 			FileChooser FileChooser = new FileChooser();
 			file = FileChooser.showOpenDialog(stage);
 			try {
 				saveMapPath = file.getAbsolutePath();
 			} catch (NullPointerException e) {
-				
+
 			}
 			System.out.println(saveMapPath);
-		}else {
-			
-		TextInputDialog textDialog = new TextInputDialog();
-		textDialog.setTitle("Save Path");
-		textDialog.setHeaderText(null);
-		textDialog.setContentText("Enter the filePath for the save file: ");
-		Optional<String> filePath = Optional.empty();
-		filePath = textDialog.showAndWait();
-		try {
-			saveMapPath = filePath.get();
-		} catch (NoSuchElementException e) {
+		} else {
+
+			TextInputDialog textDialog = new TextInputDialog();
+			textDialog.setTitle("Save Path");
+			textDialog.setHeaderText(null);
+			textDialog.setContentText("Enter the filePath for the save file: ");
+			Optional<String> filePath = Optional.empty();
+			filePath = textDialog.showAndWait();
+			try {
+				saveMapPath = filePath.get();
+			} catch (NoSuchElementException e) {
 
 			}
 		}
 	}
 
 	public static void setMap(Map pane) {
-
 		ArrayList<Pane> loadPane = new ArrayList<>();
-
 		for (int i = 0; i < pane.mapContents.length; i++) {
 			Pane p = new Pane();
 			p.setStyle(pane.mapContents[i]);
 			loadPane.add(p);
-
 		}
-
 		for (int i = 0; i < loadPane.size(); i++) {
 			mapContents.get(i).setStyle(loadPane.get(i).getStyle());
 		}
-		// mapContents = pane;
 	}
 
 	public static void main(String[] args) {
