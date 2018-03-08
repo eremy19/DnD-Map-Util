@@ -152,34 +152,18 @@ public class UIController {
 	public void confirmText() {
 		try {
 			if (optionBox.getValue().equals("Roll Dice")) {
-				Integer temp = 0;
-				Dice d = new Dice();
-				d.fillMap();
-				if (TextBox.getText().equals("d4")) {
-					temp = d.rollDice("d4");
-					descriptionArea.appendText("You rolled: " + temp);
-				} else if (TextBox.getText().equals("d6")) {
-					temp = d.rollDice("d6");
-					descriptionArea.appendText("You rolled: " + temp);
-				} else if (TextBox.getText().equals("d8")) {
-					temp = d.rollDice("d8");
-					descriptionArea.appendText("You rolled: " + temp);
-				} else if (TextBox.getText().equals("d10")) {
-					temp = d.rollDice("d10");
-					descriptionArea.appendText("You rolled: " + temp);
-				} else if (TextBox.getText().equals("d12")) {
-					temp = d.rollDice("d12");
-					descriptionArea.appendText("You rolled: " + temp);
-				} else if (TextBox.getText().equals("d20")) {
-					temp = d.rollDice("d20");
-					descriptionArea.appendText("You rolled: " + temp);
-				} else if (TextBox.getText().equals("d100")) {
-					temp = d.rollDice("d100");
-					descriptionArea.appendText("You rolled: " + temp);
+				// Emily 3/8 splits the string to see how many dice there are
+				String[] dice = TextBox.getText().split("d");
+				if (dice.length == 2) {
+					if (dice[0].equals("")) {
+						rollOne();
+					} else {
+					rollMult(dice);
+					}
 				} else {
-					descriptionArea.appendText("You entered an invalid die");
 				}
 				descriptionArea.appendText("\n");
+
 			} else if (optionBox.getValue().equals("Change health")) {
 				String temp = null;
 				temp = TextBox.getText();
@@ -205,21 +189,109 @@ public class UIController {
 			} else if (optionBox.getValue().equals("More info")) {
 				descriptionArea.appendText(entityName.mob.toString());
 			}
-		} catch (NumberFormatException e) {
+		} catch (
+
+		NumberFormatException e) {
 			System.out.println("NumFormatEx");
 		} catch (NullPointerException e) {
 
 		}
 	}
 
-	public void reset() {
-		for (int i = 0; i < mapGrid.getChildren().size(); i++) {
+	public void rollOne() {
+		Integer temp = 0;
+		Dice d = new Dice();
+		d.fillMap();
+		if (TextBox.getText().equals("d4")) {
+			temp = d.rollDice("d4");
+			descriptionArea.appendText("You rolled: " + temp);
+		} else if (TextBox.getText().equals("d6")) {
+			temp = d.rollDice("d6");
+			descriptionArea.appendText("You rolled: " + temp);
+		} else if (TextBox.getText().equals("d8")) {
+			temp = d.rollDice("d8");
+			descriptionArea.appendText("You rolled: " + temp);
+		} else if (TextBox.getText().equals("d10")) {
+			temp = d.rollDice("d10");
+			descriptionArea.appendText("You rolled: " + temp);
+		} else if (TextBox.getText().equals("d12")) {
+			temp = d.rollDice("d12");
+			descriptionArea.appendText("You rolled: " + temp);
+		} else if (TextBox.getText().equals("d20")) {
+			temp = d.rollDice("d20");
+			descriptionArea.appendText("You rolled: " + temp);
+		} else if (TextBox.getText().equals("d100")) {
+			temp = d.rollDice("d100");
+			descriptionArea.appendText("You rolled: " + temp);
+		} else {
+			descriptionArea.appendText("You entered an invalid die");
+		}
+	}
 
+	public void rollMult(String[] dice) {
+		Integer temp = 0;
+		Dice d = new Dice();
+		d.fillMap();
+		boolean parseable = false;
+		try {
+			Integer.parseInt(dice[0]);
+			parseable = true;
+		} catch (NumberFormatException e) {
+			parseable = false;
+		}
+		if (parseable) {
+			int num = Integer.parseInt(dice[0]);
+			descriptionArea.appendText("You rolled: ");
+			ArrayList<Integer> dicetotal = new ArrayList<>();
+			for (int i = 0; i < num; i++) {
+				if (dice[1].equals("4")) {
+					temp = d.rollDice("d4");
+					dicetotal.add(temp);
+				} else if (dice[1].equals("6")) {
+					temp = d.rollDice("d6");
+					dicetotal.add(temp);
+				} else if (dice[1].equals("8")) {
+					temp = d.rollDice("d8");
+					dicetotal.add(temp);
+				} else if (dice[1].equals("10")) {
+					temp = d.rollDice("d10");
+					dicetotal.add(temp);
+				} else if (dice[1].equals("12")) {
+					temp = d.rollDice("d12");
+					dicetotal.add(temp);
+				} else if (dice[1].equals("20")) {
+					temp = d.rollDice("d20");
+					dicetotal.add(temp);
+				} else if (dice[1].equals("100")) {
+					temp = d.rollDice("d100");
+					dicetotal.add(temp);
+				} else {
+				}
+			}
+			if (dicetotal.isEmpty()) {
+				descriptionArea.appendText("Invalid Die");
+			} else {
+				descriptionArea.appendText("" + dicetotal.get(0));
+				int total = dicetotal.get(0);
+				for (int j = 1; j < dicetotal.size(); j++) {
+					descriptionArea.appendText(" + " + dicetotal.get(j));
+					total += dicetotal.get(j);
+				}
+				descriptionArea.appendText(" = " + total);
+			}
+		} else {
+			descriptionArea.appendText("You entered an invalid die");
+		}
+	}
+
+	public void reset() {
+		for (int i = 0; i < mapGrid.getChildren().size()-1; i++) {
+
+			FPADriver.mapContents.get(i).getChildren().removeAll(FXCollections.observableArrayList(FPADriver.mapContents.get(i).getChildren()));
+			
 			mapGrid.getChildren().get(i)
 					.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
-			
 		}
-
 	}
 
 	public void loadMap() {
