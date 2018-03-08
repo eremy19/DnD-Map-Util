@@ -18,17 +18,26 @@
 	<children>
 		<VBox spacing="30.0">
 			<children>
-				<HBox>
-					<children>
-						<ChoiceBox fx:id="chooseEntity" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" />
-						<Button fx:id="EntityOk" maxWidth="50.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#entitySelected" text="GO">
-							<font>
-								<Font size="18.0" />
-							</font>
-						</Button>
-					</children>
-				</HBox>
-				<Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Maps">
+            <VBox>
+               <children>
+                  <Label text="Entity Select" textFill="#d6d6d6">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+      				<HBox>
+      					<children>
+      						<ChoiceBox fx:id="chooseEntity" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" />
+      						<Button fx:id="EntityOk" maxWidth="50.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#entitySelected" text="GO">
+      							<font>
+      								<Font size="18.0" />
+      							</font>
+      						</Button>
+      					</children>
+      				</HBox>
+               </children>
+            </VBox>
+				<Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Edit Maps">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
