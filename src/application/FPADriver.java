@@ -332,21 +332,11 @@ public class FPADriver extends Application {
 	}
 
 	public static void addPlayer(Player p) {
-		if (AvaliableEntities.containsKey(p.getName())) {
-			p.setName(p.getName() + "(1)");
-			AvaliableEntities.put(p.getName(), p);
-		} else {
-			AvaliableEntities.put(p.getName(), p);
-		}
+		AvaliableEntities.put(p.getName(), p);
 	}
 
 	public static void addMonster(Monster m) {
-		if (AvaliableEntities.containsKey(m.getName())) {
-			m.setName(m.getName() + "(1)");
-			AvaliableEntities.put(m.getName(), m);
-		} else {
-			AvaliableEntities.put(m.getName(), m);
-		}
+		AvaliableEntities.put(m.getName(), m);
 	}
 
 	public static void initialFileLoad(String filePath) throws IOException, ClassNotFoundException {

@@ -102,58 +102,54 @@ public class EntityController {
 	public void updateName() {
 		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		temp.setName(NameTypeBox.getText());
-		if (FPADriver.AvaliableEntities.containsKey(temp.getName())) {	
-			FPADriver.AvaliableEntities.remove(chooseEntity.getValue());
-			String newName = temp.getName() + "(1)";
-			temp.setName(newName);
-			FPADriver.AvaliableEntities.put(temp.getName() ,temp);
-		} else {
-			FPADriver.AvaliableEntities.remove(chooseEntity.getValue());
-			FPADriver.AvaliableEntities.put(temp.getName(), temp);
-		}
 		updateChoiceBox();
 	}
 
 	public void updateArmor() {
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		String entry = ArmorTypeBox.getText();
 		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setArmor(Integer.parseInt(entry));
+			temp.setArmor(Integer.parseInt(entry));
 		} else {
 			System.out.println("Incorrect Entry In Text Box");
 		}
 	}
 
 	public void updateSCA() {
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		String entry = SCATypeBox.getText();
 		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setSpellCastingAbility(Integer.parseInt(entry));
+			temp.setSpellCastingAbility(Integer.parseInt(entry));
 		} else {
 			System.out.println("Incorrect Entry In Text Box");
 		}
 	}
 
 	public void updateSAB() {
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		String entry = SABTypeBox.getText();
 		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setSpellAttackBonus(Integer.parseInt(entry));
+			temp.setSpellAttackBonus(Integer.parseInt(entry));
 		} else {
 			System.out.println("Incorrect Entry In Text Box");
 		}
 	}
 
 	public void updateSpeed() {
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		String entry = SpeedTypeBox.getText();
 		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setSpeed(Integer.parseInt(entry));
+			temp.setSpeed(Integer.parseInt(entry));
 		} else {
 			System.out.println("Incorrect Entry In Text Box");
 		}
 	}
 
 	public void updateInitiative() {
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		String entry = InitiativeTypeBox.getText();
 		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setInitiative(Integer.parseInt(entry));
+			temp.setInitiative(Integer.parseInt(entry));
 		} else {
 			System.out.println("Incorrect Entry In Text Box");
 		}
@@ -171,32 +167,39 @@ public class EntityController {
 	}
 
 	public void updateCha() {
-		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setCharisma((int) ChaSlider.getValue());
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
+		temp.setCharisma((int) ChaSlider.getValue());
 	}
 
 	public void updateDex() {
-		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setDexterity((int) DexSlider.getValue());
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
+		temp.setDexterity((int) DexSlider.getValue());
 	}
 
 	public void updateInt() {
-		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setInteligence((int) IntSlider.getValue());
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
+		temp.setInteligence((int) IntSlider.getValue());
 	}
 
 	public void updateWis() {
-		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setWisdom((int) WisSlider.getValue());
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
+		temp.setWisdom((int) WisSlider.getValue());
 	}
 
 	public void updateStr() {
-		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setStength((int) StrSlider.getValue());
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
+		temp.setStength((int) StrSlider.getValue());
 	}
 
 	public void updateCon() {
-		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setConstitution((int) ConSlider.getValue());
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
+		temp.setConstitution((int) ConSlider.getValue());
 	}
 
 	public void updateHitDice() {
+		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		String dice = (String) HitDiceSelect.getValue();
-		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setHitDie(dice);
+		temp.setHitDie(dice);
 	}
 	
 	public void loadEntities() {
