@@ -48,12 +48,12 @@
 						<Font size="18.0" />
 					</font>
 				</TextArea>
-				<Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Import">
+				<Button fx:id="importEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadEntities" text="Import">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
-				<Button maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Export">
+				<Button fx:id="exportEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#saveEntities" text="Export">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>

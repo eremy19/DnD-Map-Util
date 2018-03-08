@@ -1,6 +1,8 @@
 package models;
 
-public class Mob {
+import java.io.Serializable;
+
+public class Mob implements Serializable {
 
 	private String name;
 	private int maxHP;

@@ -59,9 +59,19 @@ public class EntityController {
 	public void updateChoiceBox(){
 		ArrayList<Mob> temp = (ArrayList<Mob>)FPADriver.returnEntities();
 		ArrayList<String> names = new ArrayList<>();
-		for (Mob m: temp) {
-			names.add(m.getName());
-			AvaliableEntities.put(m.getName(), m);
+		if(temp.isEmpty()) {
+			for(Mob m:AvaliableEntities.values()) {
+				names.add(m.getName());
+				temp.add(m);
+				
+			}
+			
+		}else {
+			for (Mob m: temp) {
+				names.add(m.getName());
+				AvaliableEntities.put(m.getName(), m);
+			
+		}
 		}
 		chooseEntity.setItems(FXCollections.observableArrayList(names));
 	}
@@ -177,5 +187,16 @@ public class EntityController {
 		Mob temp = AvaliableEntities.get(chooseEntity.getValue());
 		String dice = (String) HitDiceSelect.getValue();
 		temp.setHitDie(dice);
+	}
+	
+	public void loadEntities() {
+		FPADriver.getSavePath(null);
+		AvaliableEntities = FPADriver.importSingleEntity();
+		updateChoiceBox();
+		
+	}
+	public void saveEntities() {
+		FPADriver.getSavePath(null);
+		FPADriver.exportSingleEntity(AvaliableEntities);
 	}
 }
