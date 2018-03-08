@@ -163,6 +163,7 @@ public class UIController {
 					rollMult(dice);
 					}
 				} else {
+					descriptionArea.appendText("Entered an Invalid Die");
 				}
 				descriptionArea.appendText("\n");
 

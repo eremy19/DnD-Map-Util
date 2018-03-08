@@ -229,7 +229,7 @@ public class FPADriver extends Application {
 				controller2.updateStr();
 			}
 		});
-		controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d20", "d100"));
+		controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "d20", "d100"));
 
 		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
