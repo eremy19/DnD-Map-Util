@@ -232,12 +232,12 @@ public class UIController {
 		        parseable = true;  
 		      } catch (NumberFormatException e) {  
 		         parseable = false;  
-		      }  
+		      } 
 		  if(parseable) {
 			  Integer newHealth = 0;
 			  newHealth = Integer.parseInt(temp);
 			  AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth); 
-			  descriptionArea.appendText(entityName.mob.getName() + "'s health changed to " + newHealth);
+			  descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth);
 		  }else {
 			  descriptionArea.appendText("You entered an invalid input \n");
 		  }
