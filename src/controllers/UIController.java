@@ -240,6 +240,8 @@ public class UIController {
 		  }else {
 			  descriptionArea.appendText("You entered an invalid input \n");
 		  }
+	} else if(optionBox.getValue().equals("Remove")) {
+		AvaliableEntities.remove(entityName);
 	}
 }
 
