@@ -56,6 +56,7 @@ public class UIController {
 
 	public boolean isDragging = false;
 	public boolean entitySelected = false;
+	public boolean canSelect = false;
 
 	// ---------------------------------------------------------------------------------------------------------------
 
@@ -76,7 +77,7 @@ public class UIController {
 		if (entityButton.getText().equals("Entity Selected")) {
 			entityButton.setText("Entity");
 			entitySelected = false;
-		} else {
+		} else if (canSelect) {
 			entityButton.setText("Entity Selected");
 			entitySelected = true;
 		}
@@ -306,10 +307,6 @@ public class UIController {
 		entitySelect.setItems(FXCollections.observableArrayList(names));
 	}
 
-	public void entitySelected() {
-		// TODO Auto-generated method stub
-
-	}
 
 	public void mapSelector() {
 		String name = mapSelect.getValue();
@@ -320,6 +317,19 @@ public class UIController {
 				FPADriver.setMap(m);
 			}
 		}
+	}
+	
+	public void updateSelector ()  {
+		if (entitySelect.getValue() != null && entitySelect.getValue().length() > 1) {
+			canSelect = true;
+			entityButton.setStyle("");
+		} else {
+			canSelect = false;
+		}
+	}
+	
+	public void deselect () {
+		entityName = null;
 	}
 
 	// class buttonHandler implements EventHandler<ActionEvent>{

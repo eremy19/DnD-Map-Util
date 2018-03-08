@@ -86,6 +86,9 @@ public class FPADriver extends Application {
 		controller.updateMapChoiceBox();
 
 		// ----------------------------------------------------------------------------------------------------------
+		
+		controller.entityButton.setStyle("-fx-background-color: gray;");
+		
 		Stage.setOnCloseRequest(event ->{
 //			System.out.println("App is closing");
 			
@@ -192,7 +195,7 @@ public class FPADriver extends Application {
 
 		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
-				controller.entitySelected();
+//				controller.entitySelected();
 
 			}
 		});
@@ -219,13 +222,14 @@ public class FPADriver extends Application {
 				// (Start)------------------------------------------
 				p.setOnMousePressed(e -> {
 					// event to initiate the drag or act as a click to make one square workable
-					if (controller.entitySelected) {
+					if (controller.entitySelected && controller.entitySelect.getValue() != null) {
+						System.out.println(controller.entitySelect.getValue());
 						Button b = new Button();
 						
 						Entity ent = new Entity(b, controller.AvaliableEntities.get(controller.entitySelect.getValue()));
 						
 						
-						b.setText(ent.mob.getName().substring(0, 1));
+						b.setText(ent.mob.getName().substring(0, 2));
 						b.setFont(new Font(8));
 						b.setMinSize(p.widthProperty().doubleValue()-8, p.heightProperty().doubleValue()-8);
 						b.setAlignment(Pos.CENTER);
@@ -240,16 +244,20 @@ public class FPADriver extends Application {
 							controller.descriptionArea.appendText(ent.mob.toString());
 							ent.updateOptions(ent.optionsStringArr);
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
+							
 						});
 						
-						
-
 						
 						if (p.getChildren().size() < 1) {
 							p.getChildren().add(b);
 						} else {
 							p.getChildren().remove(0);
 						}
+						
+						controller.canSelect = false;
+						controller.handleButton();
+						controller.entityButton.setStyle("-fx-background-color: gray;");
+						
 					} else {
 						
 						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");

@@ -39,7 +39,7 @@
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
-            <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseReleased="#updateSelector" prefWidth="150.0" />
 			</children>
 			<GridPane.margin>
 				<Insets />
