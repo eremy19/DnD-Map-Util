@@ -52,9 +52,9 @@
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
-				<TextArea maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" prefHeight="223.0" prefWidth="250.0" text="Instructions:&#10;If no entities are avaliable in the DropDown menu, Click on either the &quot;Make new Character&quot; or &quot;Make new Monster&quot; buttons&#10;Select an Entity, then Press Okay&#10;You may now edit the character to the right&#10;You MUST press the &quot;ok&quot; button if it is avaliable to update the character&#10;If you update the entity's name, you MUST reselect it from the dropdown and click &quot;ok&quot; before continuing to edit&#10;The Slider Bars will update automatically, no button needed">
+				<TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" prefHeight="223.0" prefWidth="250.0" text="Instructions:&#10;- Click &quot;New Character&quot; or &quot;New Monster&quot; &#10;- Select an Entity, then Press GO&#10;- Edit the character&#10;- Press &quot;Ok&quot; after typing in changes&#10;- After Name Change you MUST reselect and press GO&#10;- The Slider Bars will update automatically" wrapText="true">
 					<font>
-						<Font size="18.0" />
+						<Font size="14.0" />
 					</font>
 				</TextArea>
 				<Button fx:id="importEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadEntities" text="Import">
@@ -94,11 +94,26 @@
 								<Button fx:id="NameOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateName" text="Ok" />
 							</children>
 						</HBox>
-						<Label text="Armor" textFill="#cccccc">
+						<Label text="Max Health" textFill="#cccccc">
 							<font>
 								<Font size="32.0" />
 							</font>
 						</Label>
+                  <HBox layoutX="10.0" layoutY="57.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="HealthTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="HealthOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateHealth" text="Ok" />
+                     </children>
+                  </HBox>
+                  <Label text="Armor" textFill="#cccccc">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
 								<TextField fx:id="ArmorTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
@@ -169,22 +184,6 @@
 								<Button fx:id="InitiativeOK" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateInitiative" text="Ok" />
 							</children>
 						</HBox>
-                  <Label text="Icon" textFill="#cccccc">
-                     <font>
-                        <Font size="32.0" />
-                     </font>
-                  </Label>
-                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
-                     <children>
-                        <Pane id="warrior" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                        <Pane id="ranger" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                        <Pane id="wizard" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                        <Pane id="dragonborn" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                        <Pane id="dwarf" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                        <Pane id="tiefling" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                        <Pane id="monk" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                        <Pane id="highelf" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" />
-                     </children></HBox>
 					</children>
 					<HBox.margin>
 						<Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />

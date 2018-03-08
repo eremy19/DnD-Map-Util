@@ -21,6 +21,7 @@ public class EntityController {
 	public Button entities;
 	public ChoiceBox chooseEntity;
 	public TextField NameTypeBox;
+	public TextField HealthTypeBox;
 	public TextField ArmorTypeBox;
 	public TextField SCATypeBox;
 	public TextField SABTypeBox;
@@ -66,6 +67,7 @@ public class EntityController {
 	public void entitySelected() {
 		try {
 			NameTypeBox.setText(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getName());
+			HealthTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getMaxHP()));
 			ArmorTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getArmor()));
 			SCATypeBox.setText(
 					String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getSpellCastingAbility()));
@@ -113,7 +115,14 @@ public class EntityController {
 		}
 		updateChoiceBox();
 	}
-
+	public void updateHealth() {
+		String entry = HealthTypeBox.getText();
+		if (tryParseInt(entry)) {
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setMaxHP(Integer.parseInt(entry));
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}
 	public void updateArmor() {
 		String entry = ArmorTypeBox.getText();
 		if (tryParseInt(entry)) {
