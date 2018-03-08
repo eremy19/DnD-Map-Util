@@ -65,6 +65,11 @@
                   </HBox>
                </children>
             </VBox>
+            <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" text="Instructions:&#10;- To view more options, select entity on map then go to dropdown&#10;- Enter Dice in d# format" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
 			</children>
 			<GridPane.margin>
 				<Insets />
