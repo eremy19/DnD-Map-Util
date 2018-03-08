@@ -1,6 +1,8 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 import application.FPADriver;
@@ -311,7 +313,9 @@ public class UIController {
 		for (Map m : temp) {
 			mapNames.add(m.name);
 			AvaliableMaps.put(m.name, m);
+			
 		}
+		Collections.sort(mapNames);
 		mapSelect.setItems(FXCollections.observableArrayList(mapNames));
 	}
 
@@ -320,6 +324,7 @@ public class UIController {
 		for (String name : FPADriver.AvaliableEntities.keySet()) {
 			names.add(name);
 		}
+		Collections.sort(names);
 		entitySelect.setItems(FXCollections.observableArrayList(names));
 	}
 

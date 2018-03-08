@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import application.FPADriver;
@@ -70,6 +71,7 @@ public class EntityController {
 		for (String name : FPADriver.AvaliableEntities.keySet()) {
 			names.add(name);
 		}
+		Collections.sort(names);
 		chooseEntity.setItems(FXCollections.observableArrayList(names));
 	}
 
