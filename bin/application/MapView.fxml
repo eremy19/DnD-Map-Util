@@ -46,14 +46,6 @@
                   <Insets top="10.0" />
                </VBox.margin>
 				</Button>
-				<Button fx:id="entityButton" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleButton" text="Select Entity">
-					<font>
-						<Font name="System Bold" size="24.0" />
-					</font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-				</Button>
             <VBox>
                <children>
                   <Label text="Entity Select" textFill="#d6d6d6">
@@ -61,7 +53,16 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" prefWidth="150.0" />
+                  <HBox>
+                     <children>
+                        <ChoiceBox fx:id="entitySelect" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="136.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" prefHeight="65.0" prefWidth="190.0" />
+            				<Button fx:id="entityButton" maxHeight="80.0" maxWidth="160.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="65.0" prefWidth="87.0" text="Select">
+            					<font>
+            						<Font size="18.0" />
+            					</font>
+            				</Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
 			</children>
@@ -154,17 +155,25 @@
                   </Button>
                </children>
             </VBox>
-				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
-				<HBox fillHeight="false">
-					<children>
-						<TextField id="TextEntry" fx:id="TextBox" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
-							<font>
-								<Font size="12.0" />
-							</font>
-						</TextField>
-						<Button id="TextEntryButton" fx:id="textConfirm" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" onAction="#confirmText" text="OK" />
-					</children>
-				</HBox>
+            <VBox>
+               <children>
+                  <VBox>
+                     <children>
+            				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
+            				<HBox fillHeight="false">
+            					<children>
+            						<TextField id="TextEntry" fx:id="TextBox" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
+            							<font>
+            								<Font size="12.0" />
+            							</font>
+            						</TextField>
+            						<Button id="TextEntryButton" fx:id="textConfirm" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" onAction="#confirmText" text="OK" />
+            					</children>
+            				</HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
 			</children>
 			<padding>
 				<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

@@ -61,11 +61,11 @@ public class UIController {
 	}
 
 	public void handleButton() {
-		if (entityButton.getText().equals("Entity Selected")) {
-			entityButton.setText("Entity");
+		if (entityButton.getText().equals("Placing...")) {
+			entityButton.setText("Select");
 			entitySelected = false;
 		} else if (canSelect) {
-			entityButton.setText("Entity Selected");
+			entityButton.setText("Placing...");
 			entitySelected = true;
 		}
 	}
