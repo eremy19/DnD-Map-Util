@@ -300,13 +300,13 @@ public class EntityController {
 
 	public void loadEntities() {
 		FPADriver.getSavePath(null);
-		FPADriver.AvaliableEntities = FPADriver.importEntity();
+		FPADriver.importSingleEntity(null);
 		updateChoiceBox();
 
 	}
 
 	public void saveEntities() {
 		FPADriver.getSavePath(null);
-		FPADriver.exportEntity(FPADriver.AvaliableEntities);
+		FPADriver.exportSingleEntity(FPADriver.AvaliableEntities.get(chooseEntity.getValue()), null);
 	}
 }

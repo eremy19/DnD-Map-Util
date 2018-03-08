@@ -112,14 +112,13 @@ public class FPADriver extends Application {
 			public void handle(Event event) {
 				if (combo1.match((KeyEvent) event)) {
 					getSavePath(Stage);
-					importSingleEntity(saveMapPath);
+					importEntity(saveMapPath);
 					
 					controller.updateEntityChoiceBox();
 				}
 				if (combo2.match((KeyEvent) event)) {
 					getSavePath2(Stage);
-					Mob temp = AvaliableEntities.get(controller2.chooseEntity.getValue());
-					exportSingleEntity(temp, saveMapPath);
+					exportEntity(AvaliableEntities);
 
 				}
 				if (combo3.match((KeyEvent) event)) {
@@ -522,28 +521,11 @@ public class FPADriver extends Application {
 		}
 	}
 
-	public static HashMap<String, Mob> importEntity() {
-		HashMap<String, Mob> tempHM = new HashMap<>();
-		try {
-			FileInputStream fis = new FileInputStream(saveMapPath);
-			BufferedInputStream bis = new BufferedInputStream(fis);
-			ObjectInputStream ois = new ObjectInputStream(bis);
-			tempHM = (HashMap) ois.readObject();
-			ois.close();
-			bis.close();
-			fis.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("FileNotFoundException in importSingleEntity");
-		} catch (ClassNotFoundException e) {
-			System.out.println("ClassNotFoundException in importSingleEntity");
-		} catch (IOException e) {
-			System.out.println("IOException in importSingleEntity");
-			e.printStackTrace();
+	public static Mob importSingleEntity(String saveMapPath) {
+		if(saveMapPath==null) {
+			saveMapPath = FPADriver.saveMapPath;			
 		}
-		return tempHM;
-	}
-	
-	public static void importSingleEntity(String saveMapPath) {
+		
 		Mob m = null;
 		try {
 			FileInputStream fis = new FileInputStream(saveMapPath);
@@ -570,16 +552,38 @@ public class FPADriver extends Application {
 		}
 		
 		AvaliableEntities.put(m.getName(), m);
+		return m;
 		
-		System.out.println(m.getClass().getName());
-		System.out.println(m.getClass().getSimpleName());
-		System.out.println(m.getClass().getClassLoader());
-		System.out.println(m.getClass().getTypeName());
+	}
+	
+	public static void importEntity(String saveMapPath) {
+		HashMap<String, Mob> tempHM = new HashMap<>();
+		try {
+			FileInputStream fis = new FileInputStream(saveMapPath);
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			ObjectInputStream ois = new ObjectInputStream(bis);
+			tempHM = (HashMap) ois.readObject();
+			ois.close();
+			bis.close();
+			fis.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("FileNotFoundException in importSingleEntity");
+		} catch (ClassNotFoundException e) {
+			System.out.println("ClassNotFoundException in importSingleEntity");
+		} catch (IOException e) {
+			System.out.println("IOException in importSingleEntity");
+			e.printStackTrace();
+		}
+		
+		AvaliableEntities.putAll(tempHM);
 
 		
 	}
 	
 	public static void exportSingleEntity(Mob m, String saveMapPath) {
+		if(saveMapPath==null) {
+			saveMapPath = FPADriver.saveMapPath;
+		}
 		File file = new File(saveMapPath);
 		if (file.exists()) {
 			file.delete();
@@ -623,6 +627,8 @@ public class FPADriver extends Application {
 	// ------------------------------------------------daniel - the 192 starts here
 	public static void exportMap(ArrayList<Pane> mapContents) {
 		getSavePath(null);
+		File file = new File(saveMapPath);
+		String name = file.getName();
 		String[] strArr = new String[mapContents.size()];
 		int i = 0;
 
@@ -630,14 +636,7 @@ public class FPADriver extends Application {
 			strArr[i] = p.getStyle();
 			i++;
 		}
-		TextInputDialog textDialog = new TextInputDialog();
-		textDialog.setTitle("Map Name");
-		textDialog.setHeaderText(null);
-		textDialog.setContentText("Enter the name for the new map ");
-		Optional<String> mapName = Optional.empty();
-		mapName = textDialog.showAndWait();
 		try {
-			String name = mapName.get();
 			Map m = new Map(name, strArr);
 			singleSaveFile(m);
 		} catch (NoSuchElementException | IOException e) {
