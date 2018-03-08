@@ -237,13 +237,14 @@ public class UIController {
 			  Integer newHealth = 0;
 			  newHealth = Integer.parseInt(temp);
 			  AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth); 
-			  System.out.println(entityName.mob.getName() + "'s health changed to " + newHealth);
+			  descriptionArea.appendText(entityName.mob.getName() + "'s health changed to " + newHealth);
 		  }else {
 			  descriptionArea.appendText("You entered an invalid input \n");
 		  }
 	} else if(optionBox.getValue().equals("Remove")) {
 		Pane p = (Pane) entityName.button.getParent();
 		p.getChildren().remove(entityName.button);
+		entityName = null;
 	}
 }
 
@@ -333,7 +334,6 @@ public class UIController {
 	}
 	
 	public void deselect () {
-		System.out.println(entityName.mob.getName() + " deselect");
 		entityName = null;
 	}
 
