@@ -131,13 +131,6 @@
 			</children>
 		</GridPane>
 		<VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
-			<children>
-				<Button id="saveAll" fx:id="saveAll" alignment="CENTER" blendMode="GREEN" maxHeight="120.0" maxWidth="240.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" style="-fx-border-color: black; -fx-border-width: 1;" text="Save All">
-					<font>
-						<Font size="24.0" />
-					</font>
-				</Button>
-			</children>
 			<padding>
 				<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
 			</padding>
