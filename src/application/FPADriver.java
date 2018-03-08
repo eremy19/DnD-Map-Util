@@ -239,7 +239,7 @@ public class FPADriver extends Application {
 						b.layoutYProperty().bind(p.heightProperty().subtract(b.heightProperty()).divide(2));
 						
 						b.setOnMouseClicked(fe -> {
-							controller.entityName = ent.mob.getName();
+							controller.entityName = ent;
 							
 							controller.descriptionArea.appendText(ent.mob.toString());
 							

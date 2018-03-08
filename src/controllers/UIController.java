@@ -22,7 +22,7 @@ public class UIController {
 	public HashMap<String, Mob> AvaliableEntities = new HashMap();
 	
 	public String color = "-fx-background-color: lightgreen;";
-	public String entityName = null;
+	public Entity entityName = null;
 
 	@FXML
 	public Button entityButton;
@@ -236,12 +236,14 @@ public class UIController {
 		  if(parseable) {
 			  Integer newHealth = 0;
 			  newHealth = Integer.parseInt(temp);
-			  AvaliableEntities.get(entityName).setCurrentHP(newHealth); 
+			  AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth); 
+			  System.out.println(entityName.mob.getName() + "'s health changed to " + newHealth);
 		  }else {
 			  descriptionArea.appendText("You entered an invalid input \n");
 		  }
 	} else if(optionBox.getValue().equals("Remove")) {
-		AvaliableEntities.remove(entityName);
+		Pane p = (Pane) entityName.button.getParent();
+		p.getChildren().remove(entityName.button);
 	}
 }
 
@@ -331,6 +333,7 @@ public class UIController {
 	}
 	
 	public void deselect () {
+		System.out.println(entityName.mob.getName() + " deselect");
 		entityName = null;
 	}
 
