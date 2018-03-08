@@ -57,24 +57,8 @@ public class EntityController {
 
 	public void updateChoiceBox() {
 		ArrayList<String> names = new ArrayList<>();
-<<<<<<< HEAD
-		if(temp.isEmpty()) {
-			for(Mob m:AvaliableEntities.values()) {
-				names.add(m.getName());
-				temp.add(m);
-				
-			}
-			
-		}else {
-			for (Mob m: temp) {
-				names.add(m.getName());
-				AvaliableEntities.put(m.getName(), m);
-			
-		}
-=======
 		for (String name : FPADriver.AvaliableEntities.keySet()) {
 			names.add(name);
->>>>>>> f10324ccfe649fc4dbad1266dca98145faadff82
 		}
 		chooseEntity.setItems(FXCollections.observableArrayList(names));
 	}
@@ -102,11 +86,11 @@ public class EntityController {
 	public void updateName() {
 		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		temp.setName(NameTypeBox.getText());
-		if (FPADriver.AvaliableEntities.containsKey(temp.getName())) {	
+		if (FPADriver.AvaliableEntities.containsKey(temp.getName())) {
 			FPADriver.AvaliableEntities.remove(chooseEntity.getValue());
 			String newName = temp.getName() + "(1)";
 			temp.setName(newName);
-			FPADriver.AvaliableEntities.put(temp.getName() ,temp);
+			FPADriver.AvaliableEntities.put(temp.getName(), temp);
 		} else {
 			FPADriver.AvaliableEntities.remove(chooseEntity.getValue());
 			FPADriver.AvaliableEntities.put(temp.getName(), temp);
@@ -198,15 +182,16 @@ public class EntityController {
 		String dice = (String) HitDiceSelect.getValue();
 		FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setHitDie(dice);
 	}
-	
+
 	public void loadEntities() {
 		FPADriver.getSavePath(null);
-		AvaliableEntities = FPADriver.importSingleEntity();
+		FPADriver.AvaliableEntities = FPADriver.importSingleEntity();
 		updateChoiceBox();
-		
+
 	}
+
 	public void saveEntities() {
 		FPADriver.getSavePath(null);
-		FPADriver.exportSingleEntity(AvaliableEntities);
+		FPADriver.exportSingleEntity(FPADriver.AvaliableEntities);
 	}
 }

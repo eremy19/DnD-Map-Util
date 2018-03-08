@@ -86,6 +86,8 @@ public class FPADriver extends Application {
 		Stage.setResizable(false);
 		Stage.show();
 		initialLoad();
+		initialEntityLoad();
+		controller2.updateChoiceBox();
 		controller.updateMapChoiceBox();
 
 		controller.entityButton.setStyle("-fx-background-color: gray;");
@@ -95,6 +97,7 @@ public class FPADriver extends Application {
 
 			try {
 				exitFileSave(maps, "./bulkLoad.txt");
+				exitEntityFileSave(AvaliableEntities, "./bulkEntityLoad");
 			} catch (IOException e) {
 				System.out.println("general IOException in exit save");
 			}
@@ -297,6 +300,60 @@ public class FPADriver extends Application {
 			}
 		}
 	}
+	public static void exitEntityFileSave(HashMap<String, Mob> hm, String filePath) throws IOException {
+		File file = new File(filePath);
+		if (file.exists()) {
+			file.delete();
+		}
+		FileOutputStream fos = new FileOutputStream(filePath);
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		ObjectOutputStream oos = new ObjectOutputStream(bos);
+		oos.writeObject(hm);
+		oos.close();
+		bos.close();
+		fos.close();
+	}
+	
+	private void initialEntityLoad() {
+		String filePath = "./bulkEntityLoad";
+		File file = new File(filePath);
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				System.out.println("General IOException initialEntityLoad");
+				e.printStackTrace();
+			}
+		}
+		initialEntityFileLoad(filePath);
+		
+	}
+	public static void initialEntityFileLoad(String filePath){
+		HashMap<String, Mob> entityContentsLoad = new HashMap<>();
+		try {
+			FileInputStream fis = new FileInputStream(filePath);
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			ObjectInputStream ois = new ObjectInputStream(bis);
+			entityContentsLoad = (HashMap<String, Mob>) ois.readObject();
+			ois.close();
+			bis.close();
+			fis.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch blockS
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+//		entityContentsLoad=AvaliableEntities;
+		AvaliableEntities = entityContentsLoad;
+		
+	}
+	
 
 	private void initialLoad() {
 		String filePath = "./bulkLoad.txt";
