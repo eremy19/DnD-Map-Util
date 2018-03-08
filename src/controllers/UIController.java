@@ -150,59 +150,65 @@ public class UIController {
 	}
 
 	public void confirmText() {
-		if (optionBox.getValue().equals("Roll Dice")) {
-			Integer temp = 0;
-			Dice d = new Dice();
-			d.fillMap();
-			if (TextBox.getText().equals("d4")) {
-				temp = d.rollDice("d4");
-				descriptionArea.appendText("You rolled: " + temp);
-			} else if (TextBox.getText().equals("d6")) {
-				temp = d.rollDice("d6");
-				descriptionArea.appendText("You rolled: " + temp);
-			} else if (TextBox.getText().equals("d8")) {
-				temp = d.rollDice("d8");
-				descriptionArea.appendText("You rolled: " + temp);
-			} else if (TextBox.getText().equals("d10")) {
-				temp = d.rollDice("d10");
-				descriptionArea.appendText("You rolled: " + temp);
-			} else if (TextBox.getText().equals("d12")) {
-				temp = d.rollDice("d12");
-				descriptionArea.appendText("You rolled: " + temp);
-			} else if (TextBox.getText().equals("d20")) {
-				temp = d.rollDice("d20");
-				descriptionArea.appendText("You rolled: " + temp);
-			} else if (TextBox.getText().equals("d100")) {
-				temp = d.rollDice("d100");
-				descriptionArea.appendText("You rolled: " + temp);
-			} else {
-				descriptionArea.appendText("You entered an invalid die");
+		try {
+			if (optionBox.getValue().equals("Roll Dice")) {
+				Integer temp = 0;
+				Dice d = new Dice();
+				d.fillMap();
+				if (TextBox.getText().equals("d4")) {
+					temp = d.rollDice("d4");
+					descriptionArea.appendText("You rolled: " + temp);
+				} else if (TextBox.getText().equals("d6")) {
+					temp = d.rollDice("d6");
+					descriptionArea.appendText("You rolled: " + temp);
+				} else if (TextBox.getText().equals("d8")) {
+					temp = d.rollDice("d8");
+					descriptionArea.appendText("You rolled: " + temp);
+				} else if (TextBox.getText().equals("d10")) {
+					temp = d.rollDice("d10");
+					descriptionArea.appendText("You rolled: " + temp);
+				} else if (TextBox.getText().equals("d12")) {
+					temp = d.rollDice("d12");
+					descriptionArea.appendText("You rolled: " + temp);
+				} else if (TextBox.getText().equals("d20")) {
+					temp = d.rollDice("d20");
+					descriptionArea.appendText("You rolled: " + temp);
+				} else if (TextBox.getText().equals("d100")) {
+					temp = d.rollDice("d100");
+					descriptionArea.appendText("You rolled: " + temp);
+				} else {
+					descriptionArea.appendText("You entered an invalid die");
+				}
+				descriptionArea.appendText("\n");
+			} else if (optionBox.getValue().equals("Change health")) {
+				String temp = null;
+				temp = TextBox.getText();
+				boolean parseable = false;
+				try {
+					Integer.parseInt(temp);
+					parseable = true;
+				} catch (NumberFormatException e) {
+					parseable = false;
+				}
+				if (parseable) {
+					Integer newHealth = 0;
+					newHealth = Integer.parseInt(temp);
+					FPADriver.AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth);
+					descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n");
+				} else {
+					descriptionArea.appendText("You entered an invalid input \n");
+				}
+			} else if (optionBox.getValue().equals("Remove")) {
+				Pane p = (Pane) entityName.button.getParent();
+				p.getChildren().remove(entityName.button);
+				entityName = null;
+			} else if (optionBox.getValue().equals("More info")) {
+				descriptionArea.appendText(entityName.mob.toString());
 			}
-			descriptionArea.appendText("\n");
-		} else if (optionBox.getValue().equals("Change health")) {
-			String temp = null;
-			temp = TextBox.getText();
-			boolean parseable = false;
-			try {
-				Integer.parseInt(temp);
-				parseable = true;
-			} catch (NumberFormatException e) {
-				parseable = false;
-			}
-			if (parseable) {
-				Integer newHealth = 0;
-				newHealth = Integer.parseInt(temp);
-				FPADriver.AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth);
-				descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n");
-			} else {
-				descriptionArea.appendText("You entered an invalid input \n");
-			}
-		} else if (optionBox.getValue().equals("Remove")) {
-			Pane p = (Pane) entityName.button.getParent();
-			p.getChildren().remove(entityName.button);
-			entityName = null;
-		} else if (optionBox.getValue().equals("More info")) {
-			descriptionArea.appendText(entityName.mob.toString());
+		} catch (NumberFormatException e) {
+			System.out.println("NumFormatEx");
+		} catch (NullPointerException e) {
+
 		}
 	}
 

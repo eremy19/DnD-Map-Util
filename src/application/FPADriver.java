@@ -105,6 +105,41 @@ public class FPADriver extends Application {
 		final KeyCodeCombination combo1 = new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN);
 		final KeyCodeCombination combo2 = new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN);
 		final KeyCodeCombination combo3 = new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_DOWN);
+		sceneEntity.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler() {
+
+			@Override
+			public void handle(Event event) {
+				if (combo1.match((KeyEvent) event)) {
+					getSavePath(Stage);
+					importSingleEntity(saveMapPath);
+					
+					controller.updateEntityChoiceBox();
+				}
+				if (combo2.match((KeyEvent) event)) {
+					getSavePath2(Stage);
+					Mob temp = AvaliableEntities.get(controller2.chooseEntity.getValue());
+					exportSingleEntity(temp, saveMapPath);
+
+				}
+				if (combo3.match((KeyEvent) event)) {
+					TextInputDialog textDialog = new TextInputDialog();
+					textDialog.setTitle("Remove Entity");
+					textDialog.setHeaderText(null);
+					textDialog.setContentText("Which entity do you want to remove?");
+					Optional<String> entityName = Optional.empty();
+					entityName = textDialog.showAndWait();
+					String name = entityName.get();
+					for (String key : AvaliableEntities.keySet()) {
+						if (AvaliableEntities.get(key).getName().equals(name)) {
+							AvaliableEntities.remove(key);
+							controller2.updateChoiceBox();
+							break;
+						}
+					}
+				}
+			}
+
+		});
 		sceneMap.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler() {
 			@Override
 			public void handle(Event event) {
@@ -300,6 +335,7 @@ public class FPADriver extends Application {
 			}
 		}
 	}
+
 	public static void exitEntityFileSave(HashMap<String, Mob> hm, String filePath) throws IOException {
 		File file = new File(filePath);
 		if (file.exists()) {
@@ -313,7 +349,7 @@ public class FPADriver extends Application {
 		bos.close();
 		fos.close();
 	}
-	
+
 	private void initialEntityLoad() {
 		String filePath = "./bulkEntityLoad";
 		File file = new File(filePath);
@@ -326,9 +362,10 @@ public class FPADriver extends Application {
 			}
 		}
 		initialEntityFileLoad(filePath);
-		
+
 	}
-	public static void initialEntityFileLoad(String filePath){
+
+	public static void initialEntityFileLoad(String filePath) {
 		HashMap<String, Mob> entityContentsLoad = new HashMap<>();
 		try {
 			FileInputStream fis = new FileInputStream(filePath);
@@ -338,6 +375,8 @@ public class FPADriver extends Application {
 			ois.close();
 			bis.close();
 			fis.close();
+		} catch (EOFException e) {
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -349,11 +388,10 @@ public class FPADriver extends Application {
 			e.printStackTrace();
 		}
 
-//		entityContentsLoad=AvaliableEntities;
+		// entityContentsLoad=AvaliableEntities;
 		AvaliableEntities = entityContentsLoad;
-		
+
 	}
-	
 
 	private void initialLoad() {
 		String filePath = "./bulkLoad.txt";
@@ -481,7 +519,8 @@ public class FPADriver extends Application {
 
 		}
 	}
-	public static HashMap<String, Mob> importSingleEntity() {
+
+	public static HashMap<String, Mob> importEntity() {
 		HashMap<String, Mob> tempHM = new HashMap<>();
 		try {
 			FileInputStream fis = new FileInputStream(saveMapPath);
@@ -502,7 +541,63 @@ public class FPADriver extends Application {
 		return tempHM;
 	}
 	
-	public static void exportSingleEntity(HashMap<String, Mob> avaliableEntities) {
+	public static void importSingleEntity(String saveMapPath) {
+		Mob m = null;
+		try {
+			FileInputStream fis = new FileInputStream(saveMapPath);
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			ObjectInputStream ois = new ObjectInputStream(bis);
+			m = (Mob) ois.readObject();
+			ois.close();
+			bis.close();
+			fis.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(m.getClass().getSimpleName().equals("Player")) {
+			m = (Player)m;
+		}else {
+			m = (Monster)m;
+		}
+		
+		AvaliableEntities.put(m.getName(), m);
+		
+		System.out.println(m.getClass().getName());
+		System.out.println(m.getClass().getSimpleName());
+		System.out.println(m.getClass().getClassLoader());
+		System.out.println(m.getClass().getTypeName());
+
+		
+	}
+	
+	public static void exportSingleEntity(Mob m, String saveMapPath) {
+		File file = new File(saveMapPath);
+		if (file.exists()) {
+			file.delete();
+		}
+		try {
+			FileOutputStream fos = new FileOutputStream(saveMapPath);
+			BufferedOutputStream bos = new BufferedOutputStream(fos);
+			ObjectOutputStream oos = new ObjectOutputStream(bos);
+			oos.writeObject(m);
+			oos.close();
+			bos.close();
+			fos.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("FileNotFoundException in exportSingleEntity");
+		} catch (IOException e) {
+			System.out.println("General IOExceptin in exportSingleEntity");
+		}
+	}
+
+	public static void exportEntity(HashMap<String, Mob> avaliableEntities) {
 		File file = new File(saveMapPath);
 		if (file.exists()) {
 			file.delete();
@@ -521,7 +616,6 @@ public class FPADriver extends Application {
 			System.out.println("General IOExceptin in exportSingleEntity");
 		}
 
-	
 	}
 
 	// ------------------------------------------------daniel - the 192 starts here
