@@ -105,7 +105,6 @@ public class EntityController {
 		try {
 			temp.setName(NameTypeBox.getText());
 		} catch (NullPointerException e) {
-
 		}
 		try {
 			if (FPADriver.AvaliableEntities.containsKey(temp.getName())) {
@@ -120,6 +119,13 @@ public class EntityController {
 		} catch (NullPointerException e) {
 
 		}
+		NameTypeBox.setEditable(false);
+		HealthTypeBox.setEditable(false);
+		ArmorTypeBox.setEditable(false);
+		SCATypeBox.setEditable(false);
+		SABTypeBox.setEditable(false);
+		SpeedTypeBox.setEditable(false);
+		InitiativeTypeBox.setEditable(false);
 		updateChoiceBox();
 	}
 	public void updateHealth() {
