@@ -217,7 +217,7 @@ public class UIController {
 
 			mapGrid.getChildren().get(i)
 					.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
-
+			
 		}
 
 	}
@@ -273,6 +273,7 @@ public class UIController {
 
 	public void deselect() {
 		entityName = null;
+		optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
 	}
 
 	public void txtReset() {
