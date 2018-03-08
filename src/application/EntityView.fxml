@@ -42,17 +42,17 @@
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
-				<Button fx:id="CharacterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankPlayer" text="Make New Character">
+				<Button fx:id="CharacterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankPlayer" text="New Character">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
-				<Button fx:id="MonsterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankMonster" text="Make New Monster">
+				<Button fx:id="MonsterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankMonster" text="New Monster">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Button>
-				<TextArea maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" text="Instructions:&#10;If no entities are avaliable in the DropDown menu, Click on either the &quot;Make new Character&quot; or &quot;Make new Monster&quot; buttons&#10;Select an Entity, then Press Okay&#10;You may now edit the character to the right&#10;You MUST press the &quot;ok&quot; button if it is avaliable to update the character&#10;If you update the entity's name, you MUST reselect it from the dropdown and click &quot;ok&quot; before continuing to edit&#10;The Slider Bars will update automatically, no button needed">
+				<TextArea maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" prefHeight="223.0" prefWidth="250.0" text="Instructions:&#10;If no entities are avaliable in the DropDown menu, Click on either the &quot;Make new Character&quot; or &quot;Make new Monster&quot; buttons&#10;Select an Entity, then Press Okay&#10;You may now edit the character to the right&#10;You MUST press the &quot;ok&quot; button if it is avaliable to update the character&#10;If you update the entity's name, you MUST reselect it from the dropdown and click &quot;ok&quot; before continuing to edit&#10;The Slider Bars will update automatically, no button needed">
 					<font>
 						<Font size="18.0" />
 					</font>

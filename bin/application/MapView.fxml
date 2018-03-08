@@ -38,15 +38,21 @@
       				</HBox>
                </children>
             </VBox>
-				<Button id="EntityButton" fx:id="entitySceneSwap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Entities">
+				<Button id="EntityButton" fx:id="entitySceneSwap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Edit Entities">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
 				</Button>
 				<Button fx:id="entityButton" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleButton" text="Select Entity">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
 				</Button>
             <VBox>
                <children>
