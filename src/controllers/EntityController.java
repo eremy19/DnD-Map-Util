@@ -86,7 +86,11 @@ public class EntityController {
 		}
 
 	}
-
+	public void removeEntity() {
+		FPADriver.AvaliableEntities.remove(chooseEntity.getValue());
+		updateChoiceBox();
+	}
+	
 	public void updateName() {
 		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		try {

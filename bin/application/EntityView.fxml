@@ -80,9 +80,9 @@
 				<VBox maxHeight="800.0" maxWidth="600.0" minHeight="200.0" minWidth="400.0">
 					<children>
 						<Label text="Name" textFill="#cccccc">
-							<font>
-								<Font size="36.0" />
-							</font>
+                     <font>
+                        <Font size="32.0" />
+                     </font>
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
@@ -96,7 +96,7 @@
 						</HBox>
 						<Label text="Armor" textFill="#cccccc">
 							<font>
-								<Font size="36.0" />
+								<Font size="32.0" />
 							</font>
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
@@ -111,7 +111,7 @@
 						</HBox>
 						<Label text="Spell Casting Ability" textFill="#cccccc">
 							<font>
-								<Font size="36.0" />
+								<Font size="32.0" />
 							</font>
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
@@ -126,7 +126,7 @@
 						</HBox>
 						<Label text="Spell AttackBonus" textFill="#cccccc">
 							<font>
-								<Font size="36.0" />
+								<Font size="32.0" />
 							</font>
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
@@ -141,7 +141,7 @@
 						</HBox>
 						<Label text="Speed" textFill="#cccccc">
 							<font>
-								<Font size="36.0" />
+								<Font size="32.0" />
 							</font>
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
@@ -156,7 +156,7 @@
 						</HBox>
 						<Label text="Initiative" textFill="#cccccc">
 							<font>
-								<Font size="36.0" />
+								<Font size="32.0" />
 							</font>
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
@@ -171,7 +171,7 @@
 						</HBox>
                   <Label text="Icon" textFill="#cccccc">
                      <font>
-                        <Font size="36.0" />
+                        <Font size="32.0" />
                      </font>
                   </Label>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
@@ -194,7 +194,7 @@
 					<children>
 						<Label text="Intelligence" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="36.0" />
+								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
 						<Slider fx:id="IntSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
@@ -204,7 +204,7 @@
 						</Slider>
 						<Label text="Dexterity" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="36.0" />
+								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
 						<Slider fx:id="DexSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
@@ -214,7 +214,7 @@
 						</Slider>
 						<Label text="Strength" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="36.0" />
+								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
 						<Slider fx:id="StrSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
@@ -224,7 +224,7 @@
 						</Slider>
 						<Label text="Wisdom" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="36.0" />
+								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
 						<Slider fx:id="WisSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
@@ -234,7 +234,7 @@
 						</Slider>
 						<Label text="Constitution" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="36.0" />
+								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
 						<Slider fx:id="ConSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
@@ -244,7 +244,7 @@
 						</Slider>
 						<Label text="Charisma" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="36.0" />
+								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
 						<Slider fx:id="ChaSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
@@ -254,13 +254,24 @@
 						</Slider>
 						<Label text="Attack Dice" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="36.0" />
+								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<HBox>
+						<HBox prefHeight="65.0" prefWidth="199.0">
 							<children>
 								<ChoiceBox fx:id="HitDiceSelect" prefHeight="60.0" prefWidth="120.0" />
-								<Button fx:id="DiceOk" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" text="ok" />
+								<Button fx:id="DiceOk" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" text="Ok">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeEntity" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Button>
 							</children>
 						</HBox>
 					</children>
