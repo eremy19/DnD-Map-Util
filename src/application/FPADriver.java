@@ -89,6 +89,7 @@ public class FPADriver extends Application {
 		initialEntityLoad();
 		controller2.updateChoiceBox();
 		controller.updateMapChoiceBox();
+		controller.updateEntityChoiceBox();
 
 		controller.entityButton.setStyle("-fx-background-color: gray;");
 
