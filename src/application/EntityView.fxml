@@ -86,7 +86,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="NameTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+								<TextField fx:id="NameTypeBox" editable="false" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Name">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -101,7 +101,7 @@
 						</Label>
                   <HBox layoutX="10.0" layoutY="57.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="HealthTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+                        <TextField fx:id="HealthTypeBox" editable="false" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Health Value">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -116,7 +116,7 @@
                   </Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="ArmorTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+								<TextField fx:id="ArmorTypeBox" editable="false" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Armor Value">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -131,7 +131,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SCATypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+								<TextField fx:id="SCATypeBox" editable="false" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SCA Value">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -146,7 +146,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SABTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+								<TextField fx:id="SABTypeBox" editable="false" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SAB Value">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -161,7 +161,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SpeedTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+								<TextField fx:id="SpeedTypeBox" editable="false" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Speed Value">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -176,7 +176,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="InitiativeTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Empty">
+								<TextField fx:id="InitiativeTypeBox" editable="false" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Initiative Value">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>

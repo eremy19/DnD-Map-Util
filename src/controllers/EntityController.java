@@ -83,6 +83,13 @@ public class EntityController {
 			ConSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getConstitution());
 			WisSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getWisdom());
 			HitDiceSelect.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getHitDie());
+			NameTypeBox.setEditable(true);
+			HealthTypeBox.setEditable(true);
+			ArmorTypeBox.setEditable(true);
+			SCATypeBox.setEditable(true);
+			SABTypeBox.setEditable(true);
+			SpeedTypeBox.setEditable(true);
+			InitiativeTypeBox.setEditable(true);
 		} catch (NullPointerException e) {
 
 		}
