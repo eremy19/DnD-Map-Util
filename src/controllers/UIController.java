@@ -22,7 +22,18 @@ import util.Map;
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
 	public String color = "-fx-background-color: lightgreen;";
+	public String entityStyle = null;
 	public Entity entityName = null;
+
+	@FXML
+	public Pane warrior;
+	public Pane ranger;
+	public Pane wizard;
+	public Pane dragonborn;
+	public Pane dwarf;
+	public Pane tiefling;
+	public Pane monk;
+	public Pane highelf;
 
 	@FXML
 	public Button entityButton;
@@ -160,7 +171,7 @@ public class UIController {
 					if (dice[0].equals("")) {
 						rollOne();
 					} else {
-					rollMult(dice);
+						rollMult(dice);
 					}
 				} else {
 					descriptionArea.appendText("Entered an Invalid Die");
@@ -289,10 +300,11 @@ public class UIController {
 	}
 
 	public void reset() {
-		for (int i = 0; i < mapGrid.getChildren().size()-1; i++) {
+		for (int i = 0; i < mapGrid.getChildren().size() - 1; i++) {
 
-			FPADriver.mapContents.get(i).getChildren().removeAll(FXCollections.observableArrayList(FPADriver.mapContents.get(i).getChildren()));
-			
+			FPADriver.mapContents.get(i).getChildren()
+					.removeAll(FXCollections.observableArrayList(FPADriver.mapContents.get(i).getChildren()));
+
 			mapGrid.getChildren().get(i)
 					.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
 		}
@@ -315,7 +327,7 @@ public class UIController {
 		for (Map m : temp) {
 			mapNames.add(m.name);
 			AvaliableMaps.put(m.name, m);
-			
+
 		}
 		Collections.sort(mapNames);
 		mapSelect.setItems(FXCollections.observableArrayList(mapNames));
@@ -357,5 +369,91 @@ public class UIController {
 
 	public void txtReset() {
 		descriptionArea.setText("");
+	}
+
+	public void setPicWarrior() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/warrior.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
+	}
+
+	public void setPicRanger() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/ranger.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
+	}
+
+	public void setPicWizard() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/wizard.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
+	}
+
+	public void setPicDragonBorn() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dragonborn.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
+	}
+
+	public void setPicDwarf() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dwarf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
+	}
+
+	public void setPicTiefling() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/tieflin.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
+	}
+
+	public void setPicHighelf() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/highelf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
+	}
+
+	public void setPicMonk() {
+		if (entityStyle != null) {
+			descriptionArea.appendText("Icon discarded");
+			entityStyle = null;
+		} else {
+		descriptionArea.appendText("Icon loaded...\n");
+
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/monk.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+		}
 	}
 }

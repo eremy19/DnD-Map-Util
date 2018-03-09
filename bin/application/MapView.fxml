@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
 
 <GridPane id="gridScene" fx:id="gridScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deselect" onMouseMoved="#updateSelector" prefHeight="800.0" prefWidth="1200.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UIController">
 	<columnConstraints>
@@ -84,9 +85,11 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <HBox>
+                  <VBox>
                      <children>
-                        <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="160.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" style="-fx-background-color: #81888e;">
+                   		  <HBox>
+                           <children>
+                                  <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="160.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" style="-fx-background-color: #81888e;">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -112,14 +115,83 @@
                               </Lighting>
                            </effect>
             				</Button>
+                           </children>
+                        </HBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Pane id="warrior" fx:id="warrior" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicWarrior" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                    <Pane id="ranger" fx:id="ranger" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicRanger" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                    <Pane id="wizard" fx:id="wizard" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicWizard" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                    <Pane id="dragonborn" fx:id="dragonborn" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicDragonBorn" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Pane id="dwarf" fx:id="dwarf" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicDwarf" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                    <Pane id="tiefling" fx:id="tiefling" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicTiefling" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                    <Pane id="highelf" fx:id="highelf" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicHighelf" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                    <Pane id="monk" fx:id="monk" maxHeight="100.0" maxWidth="100.0" minHeight="45.0" minWidth="45.0" onMouseClicked="#setPicMonk" style="-fx-background-color: gray;" stylesheets="@application.css">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Pane>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
-                  </HBox>
+                  </VBox>
                </children>
             </VBox>
             <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;" text="Instructions:&#10;- To view more options, select entity on map then go to dropdown&#10;- Enter Dice in d# format" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
+               <effect>
+                  <InnerShadow height="48.32" radius="30.490000000000002" width="75.64" />
+               </effect>
             </TextArea>
 			</children>
 			<GridPane.margin>
@@ -223,6 +295,9 @@
       					<font>
       						<Font size="12.0" />
       					</font>
+                     <effect>
+                        <InnerShadow height="48.32" radius="30.490000000000002" width="75.64" />
+                     </effect>
       				</TextArea>
                   <Button fx:id="txtReset" alignment="CENTER" contentDisplay="RIGHT" maxHeight="40.0" maxWidth="50.0" minHeight="5.0" minWidth="10.0" mnemonicParsing="false" onAction="#txtReset" style="-fx-background-color: #71604b;" text="reset" textAlignment="CENTER">
                      <font>

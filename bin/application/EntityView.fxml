@@ -58,7 +58,7 @@
       				</HBox>
                </children>
             </VBox>
-				<Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" style="-fx-background-color: #81888e;" text="Edit Maps">
+				<Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" style="-fx-background-color: #C0baac;" text="Edit Maps">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
@@ -107,6 +107,9 @@
 					<font>
 						<Font size="14.0" />
 					</font>
+               <effect>
+                  <InnerShadow height="31.93" radius="38.2325" width="123.0" />
+               </effect>
 				</TextArea>
 				<Button fx:id="importEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadEntities" style="-fx-background-color: #81888e;" text="Import">
 					<font>
@@ -407,7 +410,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="IntSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #71604b; -fx-border-width: 4px;">
+						<Slider fx:id="IntSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -427,7 +430,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="DexSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #71604b; -fx-border-width: 4px;">
+						<Slider fx:id="DexSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -447,7 +450,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="StrSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #71604b; -fx-border-width: 4px;">
+						<Slider fx:id="StrSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -467,7 +470,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="WisSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #71604b; -fx-border-width: 4px;">
+						<Slider fx:id="WisSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -487,7 +490,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="ConSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #71604b; -fx-border-width: 4px;">
+						<Slider fx:id="ConSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -507,7 +510,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="ChaSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #71604b; -fx-border-width: 4px;">
+						<Slider fx:id="ChaSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>

@@ -265,7 +265,7 @@ public class FPADriver extends Application {
 						b.setFont(new Font(8));
 						b.setMinSize(p.widthProperty().doubleValue() - 8, p.heightProperty().doubleValue() - 8);
 						b.setAlignment(Pos.CENTER);
-						b.setStyle("-fx-background-color: #7861ff; -fx-border-color: black; -fx-border-width: 0.5;");
+						b.setStyle("");
 
 						b.layoutXProperty().bind(p.widthProperty().subtract(b.widthProperty()).divide(2));
 						b.layoutYProperty().bind(p.heightProperty().subtract(b.heightProperty()).divide(2));
@@ -280,7 +280,12 @@ public class FPADriver extends Application {
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
 							
 							controller.TextBox.setPromptText(ent.mob.getName());
-
+							
+							if (controller.entityStyle != null && b.getStyle().equals("")) {
+								b.setStyle(controller.entityStyle);
+								controller.entityStyle = null;
+								controller.descriptionArea.appendText("Icon set\n");
+							}
 						});
 
 						if (p.getChildren().size() < 1) {
