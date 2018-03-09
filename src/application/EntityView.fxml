@@ -160,7 +160,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="NameTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Name" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+								<TextField fx:id="NameTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Name" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -175,7 +175,7 @@
                               </Lighting>
                            </effect>
 								</TextField>
-								<Button fx:id="NameOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateName" style="-fx-background-color: #71604b;" text="Ok">
+								<Button fx:id="NameOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateName" style="-fx-background-color: #71604b;" text="Ok">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -195,7 +195,7 @@
 						</Label>
                   <HBox layoutX="10.0" layoutY="57.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="HealthTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Health Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+                        <TextField fx:id="HealthTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Health Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -210,7 +210,7 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Button fx:id="HealthOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateHealth" style="-fx-background-color: #71604b;" text="Ok">
+                        <Button fx:id="HealthOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateHealth" style="-fx-background-color: #71604b;" text="Ok">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -230,7 +230,7 @@
                   </Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="ArmorTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Armor Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+								<TextField fx:id="ArmorTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Armor Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -245,7 +245,7 @@
                               </Lighting>
                            </effect>
 								</TextField>
-								<Button fx:id="ArmorOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateArmor" style="-fx-background-color: #71604b;" text="Ok">
+								<Button fx:id="ArmorOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateArmor" style="-fx-background-color: #71604b;" text="Ok">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -265,7 +265,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SCATypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SCA Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+								<TextField fx:id="SCATypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SCA Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -280,7 +280,7 @@
                               </Lighting>
                            </effect>
 								</TextField>
-								<Button fx:id="SCAOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSCA" style="-fx-background-color: #71604b;" text="Ok">
+								<Button fx:id="SCAOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSCA" style="-fx-background-color: #71604b;" text="Ok">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -300,7 +300,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SABTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SAB Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+								<TextField fx:id="SABTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SAB Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -315,7 +315,7 @@
                               </Lighting>
                            </effect>
 								</TextField>
-								<Button fx:id="SABOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSAB" style="-fx-background-color: #71604b;" text="Ok">
+								<Button fx:id="SABOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSAB" style="-fx-background-color: #71604b;" text="Ok">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -335,7 +335,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SpeedTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Speed Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+								<TextField fx:id="SpeedTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Speed Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -350,7 +350,7 @@
                               </Lighting>
                            </effect>
 								</TextField>
-								<Button fx:id="SpeedOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSpeed" style="-fx-background-color: #71604b;" text="Ok">
+								<Button fx:id="SpeedOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSpeed" style="-fx-background-color: #71604b;" text="Ok">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -370,7 +370,7 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="InitiativeTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Initiative Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+								<TextField fx:id="InitiativeTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Initiative Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
@@ -385,7 +385,7 @@
                               </Lighting>
                            </effect>
 								</TextField>
-								<Button fx:id="InitiativeOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateInitiative" style="-fx-background-color: #71604b;" text="Ok">
+								<Button fx:id="InitiativeOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateInitiative" style="-fx-background-color: #71604b;" text="Ok">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -410,7 +410,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="IntSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
+						<Slider fx:id="IntSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -430,7 +430,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="DexSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
+						<Slider fx:id="DexSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -450,7 +450,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="StrSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
+						<Slider fx:id="StrSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -470,7 +470,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="WisSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
+						<Slider fx:id="WisSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -490,7 +490,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="ConSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
+						<Slider fx:id="ConSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -510,7 +510,7 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="ChaSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
+						<Slider fx:id="ChaSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
@@ -532,7 +532,7 @@
 						</Label>
 						<HBox prefHeight="65.0" prefWidth="199.0">
 							<children>
-								<ChoiceBox fx:id="HitDiceSelect" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: #81888e;">
+								<ChoiceBox fx:id="HitDiceSelect" disable="true" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: #81888e;">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -543,7 +543,7 @@
                                  </light>
                               </Lighting>
                            </effect></ChoiceBox>
-								<Button fx:id="DiceOk" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #71604b;" text="Ok">
+								<Button fx:id="DiceOk" disable="true" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #71604b;" text="Ok">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -557,7 +557,7 @@
                                  </light>
                               </Lighting>
                            </effect></Button>
-                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeEntity" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
+                        <Button fx:id="removeButton" disable="true" mnemonicParsing="false" onAction="#removeEntity" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
                            <HBox.margin>
                               <Insets left="40.0" />
                            </HBox.margin>

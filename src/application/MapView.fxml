@@ -185,7 +185,7 @@
                   </VBox>
                </children>
             </VBox>
-            <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;" text="Instructions:&#10;- To view more options, select entity on map then go to dropdown&#10;- Enter Dice in d# format" wrapText="true">
+            <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="176.0" minWidth="200.0" prefHeight="176.0" prefWidth="250.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;" text="Instructions:&#10;- To view more options, select entity on map then go to dropdown&#10;- Enter Dice in d# format" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
