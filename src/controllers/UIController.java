@@ -448,7 +448,7 @@ public class UIController {
 
 	public void setPicMonk() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
 		descriptionArea.appendText("Icon loaded...\n");
