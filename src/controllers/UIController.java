@@ -432,7 +432,7 @@ public class UIController {
 		} else {
 		descriptionArea.appendText("Icon loaded...\n");
 
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/tieflin.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/tiefling.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
