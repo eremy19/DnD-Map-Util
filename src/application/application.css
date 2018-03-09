@@ -1,6 +1,6 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 #gridScene {
-    -fx-background-image: url(wallpaper.jpg);
+    -fx-background-image: url(dungeonwall.png);
     -fx-background-repeat: repeat repeat;  
     -fx-background-size: 1200.0 800.0;
     -fx-background-position: center center;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -27,45 +28,118 @@
                   </Label>
       				<HBox>
       					<children>
-      						<ChoiceBox fx:id="chooseEntity" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" />
-      						<Button fx:id="EntityOk" maxWidth="50.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#entitySelected" text="GO">
+      						<ChoiceBox fx:id="chooseEntity" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" style="-fx-background-color: #81888e;">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></ChoiceBox>
+      						<Button fx:id="EntityOk" maxWidth="50.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#entitySelected" style="-fx-background-color: #71604b;" text="GO">
       							<font>
       								<Font size="18.0" />
       							</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
       						</Button>
       					</children>
       				</HBox>
                </children>
             </VBox>
-				<Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Edit Maps">
+				<Button id="entities" fx:id="entities" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" style="-fx-background-color: #C0baac;" text="Edit Maps">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="218.0" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button fx:id="CharacterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankPlayer" text="New Character">
+				<Button fx:id="CharacterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankPlayer" style="-fx-background-color: #81888e;" text="New Character">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="218.0" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button fx:id="MonsterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankMonster" text="New Monster">
+				<Button fx:id="MonsterCreate" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#generateBlankMonster" style="-fx-background-color: #81888e;" text="New Monster">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="218.0" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" prefHeight="223.0" prefWidth="250.0" text="Instructions:&#10;- Click &quot;New Character&quot; or &quot;New Monster&quot; &#10;- Select an Entity, then Press GO&#10;- Edit the character&#10;- Press &quot;Ok&quot; after typing in changes&#10;- After Name Change you MUST reselect and press GO&#10;- The Slider Bars will update automatically" wrapText="true">
+				<TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" prefHeight="223.0" prefWidth="250.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;" text="Instructions:&#10;- Click &quot;New Character&quot; or &quot;New Monster&quot; &#10;- Select an Entity, then Press GO&#10;- Edit the character&#10;- Press &quot;Ok&quot; after typing in changes&#10;- After Name Change you MUST reselect and press GO&#10;- The Slider Bars will update automatically" wrapText="true">
 					<font>
 						<Font size="14.0" />
 					</font>
+               <effect>
+                  <InnerShadow height="31.93" radius="38.2325" width="123.0" />
+               </effect>
 				</TextArea>
-				<Button fx:id="importEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadEntities" text="Import">
+				<Button fx:id="importEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadEntities" style="-fx-background-color: #81888e;" text="Import">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="218.0" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button fx:id="exportEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#saveEntities" text="Export">
+				<Button fx:id="exportEntity" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#saveEntities" style="-fx-background-color: #81888e;" text="Export">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="218.0" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
 			</children>
 			<GridPane.margin>
@@ -86,12 +160,32 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="NameTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Name">
+								<TextField fx:id="NameTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Name" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
 								</TextField>
-								<Button fx:id="NameOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateName" text="Ok" />
+								<Button fx:id="NameOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateName" style="-fx-background-color: #71604b;" text="Ok">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
 							</children>
 						</HBox>
 						<Label text="Max Health" textFill="#cccccc">
@@ -101,12 +195,32 @@
 						</Label>
                   <HBox layoutX="10.0" layoutY="57.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="HealthTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Health Value">
+                        <TextField fx:id="HealthTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Health Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
-                        <Button fx:id="HealthOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateHealth" text="Ok" />
+                        <Button fx:id="HealthOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateHealth" style="-fx-background-color: #71604b;" text="Ok">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
                      </children>
                   </HBox>
                   <Label text="Armor" textFill="#cccccc">
@@ -116,12 +230,32 @@
                   </Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="ArmorTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Armor Value">
+								<TextField fx:id="ArmorTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Armor Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
 								</TextField>
-								<Button fx:id="ArmorOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateArmor" text="Ok" />
+								<Button fx:id="ArmorOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateArmor" style="-fx-background-color: #71604b;" text="Ok">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
 							</children>
 						</HBox>
 						<Label text="Spell Casting Ability" textFill="#cccccc">
@@ -131,12 +265,32 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SCATypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SCA Value">
+								<TextField fx:id="SCATypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SCA Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
 								</TextField>
-								<Button fx:id="SCAOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSCA" text="Ok" />
+								<Button fx:id="SCAOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSCA" style="-fx-background-color: #71604b;" text="Ok">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
 							</children>
 						</HBox>
 						<Label text="Spell AttackBonus" textFill="#cccccc">
@@ -146,12 +300,32 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SABTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SAB Value">
+								<TextField fx:id="SABTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter SAB Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
 								</TextField>
-								<Button fx:id="SABOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSAB" text="Ok" />
+								<Button fx:id="SABOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSAB" style="-fx-background-color: #71604b;" text="Ok">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
 							</children>
 						</HBox>
 						<Label text="Speed" textFill="#cccccc">
@@ -161,12 +335,32 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="SpeedTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Speed Value">
+								<TextField fx:id="SpeedTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Speed Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
 								</TextField>
-								<Button fx:id="SpeedOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSpeed" text="Ok" />
+								<Button fx:id="SpeedOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateSpeed" style="-fx-background-color: #71604b;" text="Ok">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
 							</children>
 						</HBox>
 						<Label text="Initiative" textFill="#cccccc">
@@ -176,12 +370,32 @@
 						</Label>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
-								<TextField fx:id="InitiativeTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Initiative Value">
+								<TextField fx:id="InitiativeTypeBox" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Initiative Value" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
 									<font>
 										<Font name="System Bold" size="30.0" />
 									</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
 								</TextField>
-								<Button fx:id="InitiativeOk" disable="true" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateInitiative" text="Ok" />
+								<Button fx:id="InitiativeOk" maxHeight="60.0" maxWidth="150.0" minHeight="40.0" minWidth="50.0" mnemonicParsing="false" onAction="#updateInitiative" style="-fx-background-color: #71604b;" text="Ok">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
 							</children>
 						</HBox>
 					</children>
@@ -196,60 +410,120 @@
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="IntSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+						<Slider fx:id="IntSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="218.0" />
+                           </light>
+                        </Lighting>
+                     </effect>
 						</Slider>
 						<Label text="Dexterity" textFill="#cccccc">
 							<font>
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="DexSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+						<Slider fx:id="DexSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="218.0" />
+                           </light>
+                        </Lighting>
+                     </effect>
 						</Slider>
 						<Label text="Strength" textFill="#cccccc">
 							<font>
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="StrSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+						<Slider fx:id="StrSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="218.0" />
+                           </light>
+                        </Lighting>
+                     </effect>
 						</Slider>
 						<Label text="Wisdom" textFill="#cccccc">
 							<font>
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="WisSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+						<Slider fx:id="WisSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="218.0" />
+                           </light>
+                        </Lighting>
+                     </effect>
 						</Slider>
 						<Label text="Constitution" textFill="#cccccc">
 							<font>
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="ConSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+						<Slider fx:id="ConSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="218.0" />
+                           </light>
+                        </Lighting>
+                     </effect>
 						</Slider>
 						<Label text="Charisma" textFill="#cccccc">
 							<font>
 								<Font name="System Bold" size="32.0" />
 							</font>
 						</Label>
-						<Slider fx:id="ChaSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #f5f5f5;">
+						<Slider fx:id="ChaSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
 							<padding>
 								<Insets bottom="10.0" />
 							</padding>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="218.0" />
+                           </light>
+                        </Lighting>
+                     </effect>
 						</Slider>
 						<Label text="Attack Dice" textFill="#cccccc">
 							<font>
@@ -258,18 +532,48 @@
 						</Label>
 						<HBox prefHeight="65.0" prefWidth="199.0">
 							<children>
-								<ChoiceBox fx:id="HitDiceSelect" disable="true" prefHeight="60.0" prefWidth="120.0" />
-								<Button fx:id="DiceOk" disable="true" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" text="Ok">
+								<ChoiceBox fx:id="HitDiceSelect" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: #81888e;">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></ChoiceBox>
+								<Button fx:id="DiceOk" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #71604b;" text="Ok">
                            <font>
                               <Font size="18.0" />
-                           </font></Button>
-                        <Button fx:id="removeButton" disable="true" mnemonicParsing="false" onAction="#removeEntity" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
+                           </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
+                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeEntity" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
                            <HBox.margin>
                               <Insets left="40.0" />
                            </HBox.margin>
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="218.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </Button>
 							</children>
 						</HBox>

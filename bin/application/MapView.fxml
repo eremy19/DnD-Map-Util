@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -28,23 +29,53 @@
                   </Label>
       				<HBox>
       					<children>
-      						<ChoiceBox id="MapSelectDropDown" fx:id="mapSelect" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" />
-      						<Button fx:id="mapSelectButton" maxHeight="60.0" maxWidth="60.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#mapSelector" text="GO">
+      						<ChoiceBox id="MapSelectDropDown" fx:id="mapSelect" maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="200.0" style="-fx-background-color: #81888e;">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="219.86" />
+                                 </light>
+                              </Lighting>
+                           </effect></ChoiceBox>
+      						<Button fx:id="mapSelectButton" maxHeight="60.0" maxWidth="60.0" minHeight="60.0" minWidth="50.0" mnemonicParsing="false" onAction="#mapSelector" style="-fx-background-color: #71604b;" text="GO">
       							<font>
       								<Font size="18.0" />
       							</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="219.86" />
+                                 </light>
+                              </Lighting>
+                           </effect>
       						</Button>
       					</children>
       				</HBox>
                </children>
             </VBox>
-				<Button id="EntityButton" fx:id="entitySceneSwap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" text="Edit Entities">
+				<Button id="EntityButton" fx:id="entitySceneSwap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" style="-fx-background-color: #C0baac;" text="Edit Entities">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
             <VBox>
                <children>
@@ -55,17 +86,37 @@
                   </Label>
                   <HBox>
                      <children>
-                        <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="160.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" />
-            				<Button fx:id="entityButton" maxHeight="50.0" maxWidth="300.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleButton" text="Select">
+                        <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="160.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" style="-fx-background-color: #81888e;">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="219.86" />
+                                 </light>
+                              </Lighting>
+                           </effect></ChoiceBox>
+            				<Button fx:id="entityButton" maxHeight="50.0" maxWidth="300.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleButton" style="-fx-background-color: #71604b;" text="Select">
             					<font>
             						<Font size="18.0" />
             					</font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="219.86" />
+                                 </light>
+                              </Lighting>
+                           </effect>
             				</Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" text="Instructions:&#10;- To view more options, select entity on map then go to dropdown&#10;- Enter Dice in d# format" wrapText="true">
+            <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="200.0" minWidth="200.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;" text="Instructions:&#10;- To view more options, select entity on map then go to dropdown&#10;- Enter Dice in d# format" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
@@ -80,16 +131,36 @@
 		</VBox>
 		<VBox spacing="20.0" GridPane.rowIndex="1">
 			<children>
-				<Button id="ImportButton" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadMap" text="Import">
+				<Button id="ImportButton" fx:id="ImportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#loadMap" style="-fx-background-color: #81888e;" text="Import">
 
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="ExportButton" fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#saveMap" text="Export">
+				<Button id="ExportButton" fx:id="ExportMap" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#saveMap" style="-fx-background-color: #81888e;" text="Export">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
 			</children>
 			<padding>
@@ -145,7 +216,7 @@
 			<children>
             <VBox alignment="CENTER_RIGHT">
                <children>
-      				<TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-width: 0.5;">
+      				<TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;">
       					<opaqueInsets>
       						<Insets />
       					</opaqueInsets>
@@ -153,10 +224,20 @@
       						<Font size="12.0" />
       					</font>
       				</TextArea>
-                  <Button fx:id="txtReset" alignment="CENTER" contentDisplay="RIGHT" maxHeight="40.0" maxWidth="50.0" minHeight="5.0" minWidth="10.0" mnemonicParsing="false" onAction="#txtReset" text="reset" textAlignment="CENTER">
+                  <Button fx:id="txtReset" alignment="CENTER" contentDisplay="RIGHT" maxHeight="40.0" maxWidth="50.0" minHeight="5.0" minWidth="10.0" mnemonicParsing="false" onAction="#txtReset" style="-fx-background-color: #71604b;" text="reset" textAlignment="CENTER">
                      <font>
                         <Font size="10.0" />
                      </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="219.86" />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </Button>
                </children>
             </VBox>
@@ -164,15 +245,45 @@
                <children>
                   <VBox>
                      <children>
-            				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" />
+            				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" style="-fx-background-color: #81888e;">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="219.86" />
+                                 </light>
+                              </Lighting>
+                           </effect></ChoiceBox>
             				<HBox fillHeight="false">
             					<children>
-            						<TextField id="TextEntry" fx:id="TextBox" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here">
+            						<TextField id="TextEntry" fx:id="TextBox" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
             							<font>
             								<Font size="12.0" />
             							</font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant azimuth="219.86" />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
             						</TextField>
-            						<Button id="TextEntryButton" fx:id="textConfirm" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" onAction="#confirmText" text="OK" />
+            						<Button id="TextEntryButton" fx:id="textConfirm" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" onAction="#confirmText" style="-fx-background-color: #71604b;" text="OK">
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant azimuth="219.86" />
+                                       </light>
+                                    </Lighting>
+                                 </effect></Button>
             					</children>
             				</HBox>
                      </children>
@@ -200,65 +311,185 @@
 				<Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
 			</GridPane.margin>
 			<children>
-				<Button id="Default" fx:id="Default" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorDefault" text="Default" GridPane.rowIndex="1">
+				<Button id="Default" fx:id="Default" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorDefault" style="-fx-background-color: #C0baac;" text="Default" GridPane.rowIndex="1">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="White" fx:id="White" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorWhite" text="White" GridPane.rowIndex="2">
+				<Button id="White" fx:id="White" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorWhite" style="-fx-background-color: #C0baac;" text="White" GridPane.rowIndex="2">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Black" fx:id="Black" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorBlack" text="Black" GridPane.columnIndex="1">
+				<Button id="Black" fx:id="Black" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorBlack" style="-fx-background-color: #C0baac;" text="Black" GridPane.columnIndex="1">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button fx:id="Brown" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorBrown" text="Brown" GridPane.columnIndex="1" GridPane.rowIndex="2">
+				<Button fx:id="Brown" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorBrown" style="-fx-background-color: #C0baac;" text="Brown" GridPane.columnIndex="1" GridPane.rowIndex="2">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Grey" fx:id="Grey" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorGrey" text="Grey" GridPane.columnIndex="1" GridPane.rowIndex="1">
+				<Button id="Grey" fx:id="Grey" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorGrey" style="-fx-background-color: #C0baac;" text="Grey" GridPane.columnIndex="1" GridPane.rowIndex="1">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Orange" fx:id="Orange" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorOrange" text="Orange" GridPane.columnIndex="2">
+				<Button id="Orange" fx:id="Orange" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorOrange" style="-fx-background-color: #C0baac;" text="Orange" GridPane.columnIndex="2">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Blue" fx:id="Blue" layoutX="674.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorBlue" text="Blue" GridPane.columnIndex="3" GridPane.rowIndex="2">
+				<Button id="Blue" fx:id="Blue" layoutX="674.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorBlue" style="-fx-background-color: #C0baac;" text="Blue" GridPane.columnIndex="3" GridPane.rowIndex="2">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Green" fx:id="Green" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorGreen" text="Green" GridPane.columnIndex="2" GridPane.rowIndex="2">
+				<Button id="Green" fx:id="Green" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorGreen" style="-fx-background-color: #C0baac;" text="Green" GridPane.columnIndex="2" GridPane.rowIndex="2">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Yellow" fx:id="Yellow" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorYellow" text="Yellow" GridPane.columnIndex="3">
+				<Button id="Yellow" fx:id="Yellow" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorYellow" style="-fx-background-color: #C0baac;" text="Yellow" GridPane.columnIndex="3">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Purple" fx:id="Purple" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorPurple" text="Purple" GridPane.columnIndex="2" GridPane.rowIndex="1">
+				<Button id="Purple" fx:id="Purple" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorPurple" style="-fx-background-color: #C0baac;" text="Purple" GridPane.columnIndex="2" GridPane.rowIndex="1">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-				<Button id="Red" fx:id="Red" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorRed" text="Red" GridPane.columnIndex="3" GridPane.rowIndex="1">
+				<Button id="Red" fx:id="Red" layoutX="10.0" layoutY="29.0" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectColorRed" style="-fx-background-color: #C0baac;" text="Red" GridPane.columnIndex="3" GridPane.rowIndex="1">
 					<font>
 						<Font size="18.0" />
 					</font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
 				</Button>
-            <Button fx:id="ResetMap" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#reset" text="Reset Map">
+            <Button fx:id="ResetMap" maxHeight="75.0" maxWidth="150.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onAction="#reset" style="-fx-background-color: #C0baac;" text="Reset Map">
                <font>
                   <Font size="18.0" />
                </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="219.86" />
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
 			</children>
 		</GridPane>
