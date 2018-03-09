@@ -280,7 +280,11 @@ public class FPADriver extends Application {
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
 							
 							controller.TextBox.setPromptText(ent.mob.getName());
-
+							
+							if (controller.entityStyle != null) {
+								b.setStyle(controller.entityStyle);
+								controller.entityStyle = null;
+							}
 						});
 
 						if (p.getChildren().size() < 1) {

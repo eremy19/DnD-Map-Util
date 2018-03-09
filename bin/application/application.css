@@ -13,46 +13,54 @@
     -fx-background-image: url(/pics/warrior.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }
 #ranger {
 	
     -fx-background-image: url(/pics/ranger.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }
 #wizard {
 	
     -fx-background-image: url(/pics/wizard.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }
 #dragonborn {
 	
     -fx-background-image: url(/pics/dragonborn.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }
 #dwarf {
 	
     -fx-background-image: url(/pics/dwarf.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }
 #tiefling {
 	
     -fx-background-image: url(/pics/tiefling.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }
 #monk {
 	
     -fx-background-image: url(/pics/monk.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }
 #highelf {
 	
     -fx-background-image: url(/pics/highelf.png);
     -fx-background-repeat: stretch;  
     -fx-background-position: center center;
+    -fx-background-size: 100.0% 100.0%;
 }

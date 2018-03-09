@@ -22,7 +22,18 @@ import util.Map;
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
 	public String color = "-fx-background-color: lightgreen;";
+	public String entityStyle = null;
 	public Entity entityName = null;
+	
+	@FXML
+	public Pane warrior;
+	public Pane ranger;
+	public Pane wizard;
+	public Pane dragonborn;
+	public Pane dwarf;
+	public Pane tiefling;
+	public Pane monk;
+	public Pane highelf;
 
 	@FXML
 	public Button entityButton;
@@ -357,5 +368,44 @@ public class UIController {
 
 	public void txtReset() {
 		descriptionArea.setText("");
+	}
+	
+	public void setPicWarrior() {
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/warrior.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+	}
+	
+	public void setPicRanger() {
+
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/ranger.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+	}
+	
+	public void setPicWizard() {
+
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/wizard.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";	
+	}
+	
+	public void setPicDragonBorn() {
+
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dragonborn.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+	}
+	
+	public void setPicDwarf() {
+
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dwarf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+	}
+	
+	public void setPicTiefling() {
+
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/tieflin.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+	}
+	
+	public void setPicHighelf() {
+
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/highelf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+	}
+	
+	public void setPicMonk() {
+
+		entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/monk.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";	
 	}
 }
