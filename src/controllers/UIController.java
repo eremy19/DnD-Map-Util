@@ -373,20 +373,20 @@ public class UIController {
  
 	public void setPicWarrior() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon Warrior loaded...\n");
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/warrior.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicRanger() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon Archer loaded...\n");
 
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/ranger.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
@@ -394,10 +394,10 @@ public class UIController {
 
 	public void setPicWizard() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon Wizard loaded...\n");
 
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/wizard.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
@@ -405,10 +405,10 @@ public class UIController {
 
 	public void setPicDragonBorn() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon Dragonborn loaded...\n");
 
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dragonborn.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
@@ -416,10 +416,10 @@ public class UIController {
 
 	public void setPicDwarf() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon Dwarf loaded...\n");
 
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dwarf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
@@ -427,10 +427,10 @@ public class UIController {
 
 	public void setPicTiefling() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon Tiefling loaded...\n");
 
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/tiefling.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
@@ -438,10 +438,10 @@ public class UIController {
 
 	public void setPicHighelf() {
 		if (entityStyle != null) {
-			descriptionArea.appendText("Icon discarded");
+			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon High elf loaded...\n");
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/highelf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
@@ -451,7 +451,7 @@ public class UIController {
 			descriptionArea.appendText("Icon discarded\n");
 			entityStyle = null;
 		} else {
-		descriptionArea.appendText("Icon loaded...\n");
+		descriptionArea.appendText("Icon monk loaded...\n");
 
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/monk.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
