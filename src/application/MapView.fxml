@@ -284,11 +284,21 @@
 				<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
 			</padding>
          <children>
-            <Label style="-fx-background-color: red;" text="The DND Cartographer" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
+            <VBox id="banner" fx:id="banner" alignment="TOP_CENTER" maxHeight="240.0" maxWidth="400.0" minHeight="120.0" minWidth="200.0" stylesheets="@application.css">
+               <children>
+                  <Label alignment="TOP_CENTER" maxHeight="200.0" maxWidth="180.0" minHeight="80.0" minWidth="125.0" stylesheets="@application.css" text="The DND Cartographer" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="6.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
          </children>
 		</VBox>
 		<VBox spacing="30.0" GridPane.columnIndex="2">
@@ -327,6 +337,11 @@
                <children>
                   <VBox>
                      <children>
+                        <Label text="Options Select" textFill="#d6d6d6">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
             				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" style="-fx-background-color: #81888e;">
                            <effect>
                               <Lighting>

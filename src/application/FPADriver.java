@@ -275,7 +275,7 @@ public class FPADriver extends Application {
 
 							controller.descriptionArea.appendText(ent.mob.getName() + "\nMax hp:" + ent.mob.getMaxHP()
 									+ "\nCurrent hp: " + ent.mob.getCurrentHP() + "\n\n");
-
+							
 							ent.updateOptions(ent.optionsStringArr);
 							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
 							

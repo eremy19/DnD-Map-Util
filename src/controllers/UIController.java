@@ -370,7 +370,7 @@ public class UIController {
 	public void txtReset() {
 		descriptionArea.setText("");
 	}
-
+ 
 	public void setPicWarrior() {
 		if (entityStyle != null) {
 			descriptionArea.appendText("Icon discarded");

@@ -64,3 +64,11 @@
     -fx-background-position: center center;
     -fx-background-size: 100.0% 100.0%;
 }
+
+#banner {
+	
+    -fx-background-image: url(/pics/banner.png);
+    -fx-background-repeat: stretch;  
+    -fx-background-position: top center;
+    -fx-background-size: 100% 100%;
+}
