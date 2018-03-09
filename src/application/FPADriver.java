@@ -12,12 +12,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import controllers.EntityController;
 import controllers.UIController;
-import item.Items;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -53,7 +53,7 @@ public class FPADriver extends Application {
 
 	String pathMap = "MapView.fxml";
 	String pathEntity = "EntityView.fxml";
-	Scene sceneMap, sceneEntity;
+	public static Scene sceneMap, sceneEntity;
 	static String saveMapPath = "";
 	public static ArrayList<Map> maps = new ArrayList<>();
 	// Emily 3/7 --- Unused arrayLists that are more for stretch goals
@@ -62,6 +62,8 @@ public class FPADriver extends Application {
 	// public static ArrayList<Items> items = new ArrayList<>();
 	public static HashMap<String, Mob> AvaliableEntities = new HashMap();
 	static public ArrayList<Pane> mapContents = new ArrayList<>();
+	
+	public static HashSet<String> currentlyActiveKeys;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -92,6 +94,8 @@ public class FPADriver extends Application {
 		controller.updateEntityChoiceBox();
 
 		controller.entityButton.setStyle("-fx-background-color: gray;");
+		
+        prepareActionHandlers();
 
 		Stage.setOnCloseRequest(event -> {
 			// System.out.println("App is closing");
@@ -286,6 +290,7 @@ public class FPADriver extends Application {
 								controller.entityStyle = null;
 								controller.descriptionArea.appendText("Icon set\n");
 							}
+							
 						});
 
 						if (p.getChildren().size() < 1) {
@@ -709,4 +714,24 @@ public class FPADriver extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+	private static void prepareActionHandlers()
+    {
+        currentlyActiveKeys = new HashSet<String>();
+        sceneMap.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event)
+            {
+                currentlyActiveKeys.add(event.getCode().toString());
+            }
+        });
+        sceneMap.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event)
+            {
+                currentlyActiveKeys.remove(event.getCode().toString());
+
+            }
+        });
+    }
 }

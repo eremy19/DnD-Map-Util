@@ -456,4 +456,21 @@ public class UIController {
 			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/monk.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
+	
+	public void moveCharacter() {
+//		
+//		String[] keysPressed = new String[FPADriver.currentlyActiveKeys.size()];
+//		keysPressed = FPADriver.currentlyActiveKeys.toArray(keysPressed);
+//		String key = keysPressed[0];
+//		
+//		sout
+//		
+//		if (entityName != null && key.equals("W")) {
+//			int i = FPADriver.mapContents.indexOf(entityName.button.getParent());
+//			if (FPADriver.mapContents.get(i-gridScene.getColumnConstraints().size()).getChildren().size() <1) {
+//			FPADriver.mapContents.get(i-gridScene.getColumnConstraints().size()).getChildren().add(entityName.button);
+//			FPADriver.mapContents.get(i).getChildren().removeAll(entityName.button);
+//			}
+//		}
+	}
 }
