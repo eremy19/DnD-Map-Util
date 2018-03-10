@@ -185,7 +185,7 @@
                   </VBox>
                </children>
             </VBox>
-            <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="176.0" minWidth="200.0" prefHeight="176.0" prefWidth="250.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;" text="Welcome To The DND Cartographer&#10;Instructions:&#10;- To view more options, select entity on map then go to dropdown&#10;- Enter Dice in &quot;d#&quot; or &quot;#d#&quot; format" wrapText="true">
+            <TextArea editable="false" maxHeight="500.0" maxWidth="500.0" minHeight="176.0" minWidth="200.0" prefHeight="176.0" prefWidth="250.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;" text="Welcome To The DND Cartographer&#10;Instructions:&#10;- To view more options, select entity on map then go to dropdown" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
@@ -275,9 +275,6 @@
 			<GridPane.margin>
 				<Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
 			</GridPane.margin>
-			<children>
-				<Pane prefHeight="200.0" prefWidth="200.0" />
-			</children>
 		</GridPane>
 		<VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
 			<padding>
@@ -305,7 +302,7 @@
 			<children>
             <VBox alignment="CENTER_RIGHT">
                <children>
-      				<TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="400.0" minWidth="200.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;">
+      				<TextArea id="DescriptionArea" fx:id="descriptionArea" editable="false" maxHeight="600.0" maxWidth="600.0" minHeight="360.0" minWidth="200.0" prefHeight="376.0" prefWidth="200.0" style="-fx-border-color: #7B888b; -fx-border-width: 4px;">
       					<opaqueInsets>
       						<Insets />
       					</opaqueInsets>
@@ -316,7 +313,7 @@
                         <InnerShadow height="48.32" radius="30.490000000000002" width="75.64" />
                      </effect>
       				</TextArea>
-                  <Button fx:id="txtReset" alignment="CENTER" contentDisplay="RIGHT" maxHeight="40.0" maxWidth="50.0" minHeight="5.0" minWidth="10.0" mnemonicParsing="false" onAction="#txtReset" style="-fx-background-color: #71604b;" text="reset" textAlignment="CENTER">
+                  <Button fx:id="txtReset" alignment="CENTER" contentDisplay="RIGHT" maxHeight="40.0" maxWidth="60.0" minHeight="5.0" minWidth="20.0" mnemonicParsing="false" onAction="#txtReset" style="-fx-background-color: #81888e;" text="clear text" textAlignment="CENTER">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -331,18 +328,12 @@
                         </Lighting>
                      </effect>
                   </Button>
-               </children>
-            </VBox>
-            <VBox>
-               <children>
-                  <VBox>
-                     <children>
-                        <Label text="Options Select" textFill="#d6d6d6">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Label>
-            				<ChoiceBox id="OptionSelectDropDown" fx:id="optionBox" maxHeight="100.0" maxWidth="600.0" minHeight="50.0" minWidth="200.0" style="-fx-background-color: #81888e;">
+      				<HBox fillHeight="false">
+      					<children>
+      						<TextField id="TextEntry" fx:id="DiceBox" maxHeight="80.0" maxWidth="450.0" minHeight="40.0" minWidth="60.0" promptText="&quot;d#&quot; or &quot;#d#&quot;" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
+      							<font>
+      								<Font size="12.0" />
+      							</font>
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -352,13 +343,35 @@
                                     <Light.Distant azimuth="219.86" />
                                  </light>
                               </Lighting>
-                           </effect></ChoiceBox>
-            				<HBox fillHeight="false">
-            					<children>
-            						<TextField id="TextEntry" fx:id="TextBox" maxHeight="80.0" maxWidth="450.0" minHeight="50.0" minWidth="160.0" promptText="Enter text here" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
-            							<font>
-            								<Font size="12.0" />
-            							</font>
+                           </effect>
+      						</TextField>
+      						<Button id="TextEntryButton" fx:id="textConfirm" maxHeight="80.0" maxWidth="150.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#rollDice" style="-fx-background-color: #71604b;" text="Roll Dice">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="219.86" />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+      					</children>
+      				</HBox>
+                  <VBox>
+                     <children>
+                        <Label text="Entity Options" textFill="#d6d6d6">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <TextField id="TextEntry" fx:id="HPBox" disable="true" maxHeight="80.0" maxWidth="450.0" minHeight="40.0" minWidth="60.0" promptText="#" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
                                  <effect>
                                     <Lighting>
                                        <bumpInput>
@@ -369,20 +382,57 @@
                                        </light>
                                     </Lighting>
                                  </effect>
-            						</TextField>
-            						<Button id="TextEntryButton" fx:id="textConfirm" maxHeight="80.0" maxWidth="150.0" minHeight="50.0" minWidth="40.0" mnemonicParsing="false" onAction="#confirmText" style="-fx-background-color: #71604b;" text="OK">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="changeHealthButton" disable="true" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#changeHealth" style="-fx-background-color: #71604b;" text="Update HP">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
                                  <effect>
                                     <Lighting>
                                        <bumpInput>
                                           <Shadow />
                                        </bumpInput>
                                        <light>
-                                          <Light.Distant azimuth="219.86" />
+                                          <Light.Distant azimuth="210.0" />
                                        </light>
                                     </Lighting>
-                                 </effect></Button>
-            					</children>
-            				</HBox>
+                                 </effect>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Button fx:id="viewStatsButton" disable="true" layoutX="10.0" layoutY="45.0" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#viewStats" style="-fx-background-color: #C0baac;" text="View Stats">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="210.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Button>
+                        <Button fx:id="removeEntityButton" disable="true" layoutX="10.0" layoutY="110.0" maxHeight="100.0" maxWidth="500.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#removefromMap" style="-fx-background-color: #C0baac;" text="Remove Entity">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant azimuth="210.0" />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Button>
                      </children>
                   </VBox>
                </children>

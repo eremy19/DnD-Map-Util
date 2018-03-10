@@ -56,7 +56,6 @@ public class FPADriver extends Application {
 	public static Scene sceneMap, sceneEntity;
 	static String saveMapPath = "";
 	public static ArrayList<Map> maps = new ArrayList<>();
-	// Emily 3/7 --- Unused arrayLists that are more for stretch goals
 	// private static ArrayList<Player> players = new ArrayList<>();
 	// private static ArrayList<Monster> monsters = new ArrayList<>();
 	// public static ArrayList<Items> items = new ArrayList<>();
@@ -239,11 +238,7 @@ public class FPADriver extends Application {
 			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
 			}
 		});
-		// ----------------------------(Levi 3/6)--------------------------------------
-		controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
-
-		// controller.ExportButton.setOnAction(e -> FPADriver.exportMap(controller));
-
+	
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getColumnConstraints().size(); j++) {
 				Pane p = new Pane();
@@ -281,10 +276,11 @@ public class FPADriver extends Application {
 									+ "\nCurrent hp: " + ent.mob.getCurrentHP() + "\n\n");
 							
 							ent.updateOptions(ent.optionsStringArr);
-							controller.optionBox.setItems(FXCollections.observableArrayList(ent.options));
-							
-							controller.TextBox.setPromptText(ent.mob.getName());
-							
+							controller.HPBox.setDisable(false);
+							controller.removeEntityButton.setDisable(false);
+							controller.viewStatsButton.setDisable(false);
+							controller.changeHealthButton.setDisable(false);
+													
 							if (controller.entityStyle != null && b.getStyle().equals("")) {
 								b.setStyle(controller.entityStyle);
 								controller.entityStyle = null;
@@ -302,7 +298,11 @@ public class FPADriver extends Application {
 						controller.handleButton();
 						controller.entityButton.setStyle("-fx-background-color: gray;");
 					} else {
-						controller.optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
+						controller.HPBox.setDisable(true);
+						controller.removeEntityButton.setDisable(true);
+						controller.viewStatsButton.setDisable(true);
+						controller.changeHealthButton.setDisable(true);
+
 						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 					}
 				});
