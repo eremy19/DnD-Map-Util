@@ -275,9 +275,6 @@
 			<GridPane.margin>
 				<Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
 			</GridPane.margin>
-			<children>
-				<Pane prefHeight="200.0" prefWidth="200.0" />
-			</children>
 		</GridPane>
 		<VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
 			<padding>
