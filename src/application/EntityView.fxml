@@ -153,11 +153,15 @@
 			<children>
 				<VBox maxHeight="800.0" maxWidth="600.0" minHeight="200.0" minWidth="400.0">
 					<children>
-						<Label text="Name" textFill="#cccccc">
-                     <font>
-                        <Font size="32.0" />
-                     </font>
-						</Label>
+                  <HBox>
+                     <children>
+      						<Label text="Name" textFill="#cccccc">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+      						</Label>
+                     </children>
+                  </HBox>
 						<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0">
 							<children>
 								<TextField fx:id="NameTypeBox" disable="true" maxHeight="60.0" maxWidth="350.0" minHeight="40.0" minWidth="100.0" promptText="Enter Name" style="-fx-background-color: #C0baac; -fx-border-color: #7B888b; -fx-border-width: 4px;">
@@ -405,9 +409,9 @@
 				</VBox>
 				<VBox maxHeight="800.0" maxWidth="600.0" minHeight="200.0" minWidth="400.0">
 					<children>
-						<Label text="Intelligence" textFill="#cccccc">
+						<Label contentDisplay="CENTER" maxWidth="500.0" text="Intelligence" textAlignment="CENTER" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="32.0" />
+								<Font name="System Bold" size="24.0" />
 							</font>
 						</Label>
 						<Slider fx:id="IntSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
@@ -425,9 +429,9 @@
                         </Lighting>
                      </effect>
 						</Slider>
-						<Label text="Dexterity" textFill="#cccccc">
+						<Label contentDisplay="CENTER" maxWidth="500.0" text="Dexterity" textAlignment="CENTER" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="32.0" />
+								<Font name="System Bold" size="24.0" />
 							</font>
 						</Label>
 						<Slider fx:id="DexSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
@@ -445,9 +449,9 @@
                         </Lighting>
                      </effect>
 						</Slider>
-						<Label text="Strength" textFill="#cccccc">
+						<Label contentDisplay="CENTER" maxWidth="500.0" text="Strength" textAlignment="CENTER" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="32.0" />
+								<Font name="System Bold" size="24.0" />
 							</font>
 						</Label>
 						<Slider fx:id="StrSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
@@ -465,9 +469,9 @@
                         </Lighting>
                      </effect>
 						</Slider>
-						<Label text="Wisdom" textFill="#cccccc">
+						<Label contentDisplay="CENTER" maxWidth="500.0" text="Wisdom" textAlignment="CENTER" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="32.0" />
+								<Font name="System Bold" size="24.0" />
 							</font>
 						</Label>
 						<Slider fx:id="WisSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
@@ -485,9 +489,9 @@
                         </Lighting>
                      </effect>
 						</Slider>
-						<Label text="Constitution" textFill="#cccccc">
+						<Label contentDisplay="CENTER" maxWidth="500.0" text="Constitution" textAlignment="CENTER" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="32.0" />
+								<Font name="System Bold" size="24.0" />
 							</font>
 						</Label>
 						<Slider fx:id="ConSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
@@ -505,9 +509,9 @@
                         </Lighting>
                      </effect>
 						</Slider>
-						<Label text="Charisma" textFill="#cccccc">
+						<Label contentDisplay="CENTER" maxWidth="500.0" text="Charisma" textAlignment="CENTER" textFill="#cccccc">
 							<font>
-								<Font name="System Bold" size="32.0" />
+								<Font name="System Bold" size="24.0" />
 							</font>
 						</Label>
 						<Slider fx:id="ChaSlider" blockIncrement="1.0" disable="true" majorTickUnit="5.0" max="30.0" maxHeight="160.0" maxWidth="400.0" minHeight="20.0" minWidth="300.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #C0baac; -fx-border-color: #81888e; -fx-border-width: 4px;">
@@ -525,58 +529,114 @@
                         </Lighting>
                      </effect>
 						</Slider>
-						<Label text="Attack Dice" textFill="#cccccc">
-							<font>
-								<Font name="System Bold" size="32.0" />
-							</font>
-						</Label>
-						<HBox prefHeight="65.0" prefWidth="199.0">
-							<children>
-								<ChoiceBox fx:id="HitDiceSelect" disable="true" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: #81888e;">
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant azimuth="218.0" />
-                                 </light>
-                              </Lighting>
-                           </effect></ChoiceBox>
-								<Button fx:id="DiceOk" disable="true" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #71604b;" text="Ok">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant azimuth="218.0" />
-                                 </light>
-                              </Lighting>
-                           </effect></Button>
-                        <Button fx:id="removeButton" disable="true" mnemonicParsing="false" onAction="#removeEntity" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
-                           <HBox.margin>
-                              <Insets left="40.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant azimuth="218.0" />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Button>
-							</children>
-						</HBox>
+                  <HBox maxWidth="500.0">
+                     <children>
+                        <VBox maxWidth="400.0" minWidth="200.0">
+                           <children>
+            						<Label text="Attack Dice" textFill="#cccccc">
+            							<font>
+            								<Font size="32.0" />
+            							</font>
+            						</Label>
+            						<HBox maxWidth="400.0">
+            							<children>
+            								<ChoiceBox fx:id="HitDiceSelect" disable="true" prefHeight="60.0" prefWidth="135.0" style="-fx-background-color: #81888e;">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant azimuth="218.0" />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                    </ChoiceBox>
+            								<Button fx:id="DiceOk" disable="true" mnemonicParsing="false" onAction="#updateHitDice" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #71604b;" text="Ok">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant azimuth="218.0" />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+            							</children>
+            						</HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" maxWidth="400.0" minWidth="200.0">
+                           <children>
+                              <Label text="Icon" textFill="#cccccc">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Label>
+                              <HBox maxWidth="400.0">
+                                 <children>
+                                    <ChoiceBox fx:id="IconSelect" disable="true" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #81888e;">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant azimuth="218.0" />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                    <Button fx:id="IconOk" disable="true" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #71604b;" text="Ok">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant azimuth="218.0" />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button fx:id="removeButton" disable="true" mnemonicParsing="false" onAction="#removeEntity" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="218.0" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <VBox.margin>
+                        <Insets left="240.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
 					</children>
 					<HBox.margin>
 						<Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />

@@ -45,6 +45,8 @@ public class EntityController {
 	public Slider ConSlider;
 	public Slider WisSlider;
 	public ChoiceBox HitDiceSelect;
+	public ChoiceBox IconSelect;
+	public Button IconOk;
 	public Button CharacterCreate;
 	public Button MonsterCreate;
 	public int MonsterNum;
@@ -125,6 +127,8 @@ public class EntityController {
 		InitiativeOk.setDisable(false);
 		DiceOk.setDisable(false);
 		removeButton.setDisable(false);
+		IconSelect.setDisable(false);
+		IconOk.setDisable(false);
 	}
 	public void disableEntityEdit() {
 		NameTypeBox.setDisable(true);
@@ -150,6 +154,8 @@ public class EntityController {
 		InitiativeOk.setDisable(true);
 		DiceOk.setDisable(true);
 		removeButton.setDisable(true);
+		IconSelect.setDisable(true);
+		IconOk.setDisable(true);
 	}
 	public void removeEntity() {
 		FPADriver.AvaliableEntities.remove(chooseEntity.getValue());

@@ -52,6 +52,9 @@ public class UIController {
 	public Button Orange;
 	public Button Purple;
 	public Button Green;
+	public Button changeHealthButton;
+	public Button viewStatsButton;
+	public Button removeEntityButton;
 
 	public ChoiceBox<String> mapSelect;
 	public ChoiceBox<String> entitySelect;
@@ -63,9 +66,9 @@ public class UIController {
 	public boolean canSelect = false;
 
 	public javafx.scene.control.TextArea descriptionArea;
-	public ChoiceBox<String> optionBox;
-	public TextField TextBox;
-	public Button textConfirm;
+	public TextField DiceBox;
+	public TextField HPBox;
+
 	public Button ResetMap;
 	private FPADriver FPAD;
 
@@ -161,81 +164,70 @@ public class UIController {
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
-
-	public void confirmText() {
-		try {
-			if (optionBox.getValue().equals("Roll Dice")) {
-				// Emily 3/8 splits the string to see how many dice there are
-				String[] dice = TextBox.getText().split("d");
-				if (dice.length == 2) {
-					if (dice[0].equals("")) {
-						rollOne();
-					} else {
-						rollMult(dice);
-					}
-				} else {
-					descriptionArea.appendText("Entered an Invalid Die");
-				}
-				descriptionArea.appendText("\n");
-
-			} else if (optionBox.getValue().equals("Change health")) {
-				String temp = null;
-				temp = TextBox.getText();
-				boolean parseable = false;
-				try {
-					Integer.parseInt(temp);
-					parseable = true;
-				} catch (NumberFormatException e) {
-					parseable = false;
-				}
-				if (parseable) {
-					Integer newHealth = 0;
-					newHealth = Integer.parseInt(temp);
-					FPADriver.AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth);
-					descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n \n");
-				} else {
-					descriptionArea.appendText("You entered an invalid input \n\n");
-				}
-			} else if (optionBox.getValue().equals("Remove")) {
-				Pane p = (Pane) entityName.button.getParent();
-				p.getChildren().remove(entityName.button);
-				entityName = null;
-			} else if (optionBox.getValue().equals("More info")) {
-				descriptionArea.appendText(entityName.mob.toString() + "\n");
+	public void rollDice() {
+		String[] dice = DiceBox.getText().split("d");
+		if (dice.length == 2) {
+			if (dice[0].equals("")) {
+				rollOne();
+			} else {
+				rollMult(dice);
 			}
-		} catch (
-
-		NumberFormatException e) {
-			System.out.println("NumFormatEx");
-		} catch (NullPointerException e) {
-
+		} else {
+			descriptionArea.appendText("Entered an Invalid Die");
 		}
-		TextBox.setPromptText("Enter text here");
+		descriptionArea.appendText("\n");
 	}
-
+	public void changeHealth() {
+		String temp = null;
+		temp = HPBox.getText();
+		boolean parseable = false;
+		try {
+			Integer.parseInt(temp);
+			parseable = true;
+		} catch (NumberFormatException e) {
+			parseable = false;
+		}
+		if (parseable) {
+			Integer newHealth = 0;
+			newHealth = Integer.parseInt(temp);
+			FPADriver.AvaliableEntities.get(entityName.mob.getName()).setCurrentHP(newHealth);
+			descriptionArea.appendText(entityName.mob.getName() + "'s current hp: " + newHealth + "\n \n");
+		} else {
+			descriptionArea.appendText("You entered an invalid input \n\n");
+		}
+	}
+	public void viewStats() {
+		descriptionArea.appendText(entityName.mob.toString() + "\n");
+	}
+	public void removefromMap() {
+		Pane p = (Pane) entityName.button.getParent();
+		p.getChildren().remove(entityName.button);
+		entityName = null;
+	}
+	
 	public void rollOne() {
 		Integer temp = 0;
 		Dice d = new Dice();
 		d.fillMap();
-		if (TextBox.getText().equals("d4")) {
+		if (DiceBox.getText().equals("d4")) {
 			temp = d.rollDice("d4");
 			descriptionArea.appendText("You rolled: " + temp);
-		} else if (TextBox.getText().equals("d6")) {
+		} else if (DiceBox.getText().equals("d6")) {
 			temp = d.rollDice("d6");
 			descriptionArea.appendText("You rolled: " + temp);
-		} else if (TextBox.getText().equals("d8")) {
+		} else if (DiceBox.getText().equals("d8")) {
 			temp = d.rollDice("d8");
 			descriptionArea.appendText("You rolled: " + temp);
-		} else if (TextBox.getText().equals("d10")) {
+		} else if (DiceBox.getText().equals("d10")) {
 			temp = d.rollDice("d10");
 			descriptionArea.appendText("You rolled: " + temp);
-		} else if (TextBox.getText().equals("d12")) {
+		} else if (DiceBox.getText().equals("d12")) {
 			temp = d.rollDice("d12");
 			descriptionArea.appendText("You rolled: " + temp);
-		} else if (TextBox.getText().equals("d20")) {
+		} else if (DiceBox.getText().equals("d20")) {
 			temp = d.rollDice("d20");
 			descriptionArea.appendText("You rolled: " + temp);
-		} else if (TextBox.getText().equals("d100")) {
+		} else if (DiceBox.getText().equals("d100")) {
 			temp = d.rollDice("d100");
 			descriptionArea.appendText("You rolled: " + temp);
 		} else {
@@ -364,7 +356,10 @@ public class UIController {
 
 	public void deselect() {
 		entityName = null;
-		optionBox.setItems(FXCollections.observableArrayList("Roll Dice"));
+		HPBox.setDisable(true);
+		removeEntityButton.setDisable(true);
+		viewStatsButton.setDisable(true);
+		changeHealthButton.setDisable(true);
 	}
 
 	public void txtReset() {
