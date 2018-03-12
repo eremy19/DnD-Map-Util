@@ -154,8 +154,8 @@ public class EntityController {
 		InitiativeOk.setDisable(true);
 		DiceOk.setDisable(true);
 		removeButton.setDisable(true);
-		IconSelect.setDisable(true);
-		IconOk.setDisable(true);
+	//	IconSelect.setDisable(true);
+	//	IconOk.setDisable(true);
 	}
 	public void removeEntity() {
 		FPADriver.AvaliableEntities.remove(chooseEntity.getValue());

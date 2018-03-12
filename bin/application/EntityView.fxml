@@ -576,67 +576,28 @@
                         </VBox>
                         <VBox layoutX="10.0" layoutY="10.0" maxWidth="400.0" minWidth="200.0">
                            <children>
-                              <Label text="Icon" textFill="#cccccc">
+                              <Button fx:id="removeButton" disable="true" mnemonicParsing="false" onAction="#removeEntity" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
                                  <font>
-                                    <Font size="32.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
-                              </Label>
-                              <HBox maxWidth="400.0">
-                                 <children>
-                                    <ChoiceBox fx:id="IconSelect" disable="true" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #81888e;">
-                                       <effect>
-                                          <Lighting>
-                                             <bumpInput>
-                                                <Shadow />
-                                             </bumpInput>
-                                             <light>
-                                                <Light.Distant azimuth="218.0" />
-                                             </light>
-                                          </Lighting>
-                                       </effect>
-                                       <HBox.margin>
-                                          <Insets left="5.0" />
-                                       </HBox.margin>
-                                    </ChoiceBox>
-                                    <Button fx:id="IconOk" disable="true" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #71604b;" text="Ok">
-                                       <effect>
-                                          <Lighting>
-                                             <bumpInput>
-                                                <Shadow />
-                                             </bumpInput>
-                                             <light>
-                                                <Light.Distant azimuth="218.0" />
-                                             </light>
-                                          </Lighting>
-                                       </effect>
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </HBox>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant azimuth="218.0" />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets left="40.0" top="50.0" />
+                                 </VBox.margin>
+                              </Button>
                            </children>
                         </VBox>
                      </children>
                   </HBox>
-                  <Button fx:id="removeButton" disable="true" mnemonicParsing="false" onAction="#removeEntity" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #dd3333;" text="Remove">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                     <effect>
-                        <Lighting>
-                           <bumpInput>
-                              <Shadow />
-                           </bumpInput>
-                           <light>
-                              <Light.Distant azimuth="218.0" />
-                           </light>
-                        </Lighting>
-                     </effect>
-                     <VBox.margin>
-                        <Insets left="240.0" top="20.0" />
-                     </VBox.margin>
-                  </Button>
 					</children>
 					<HBox.margin>
 						<Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
