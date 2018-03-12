@@ -109,8 +109,8 @@ public class UIController {
 	}
 
 	public void selectColorBrown() {
-		color = "-fx-background-color: brown";
-		descriptionArea.appendText("Color changed to:" + color.substring(21));
+		color = "-fx-background-color: #855c33";
+		descriptionArea.appendText("Color changed to:" + " brown");
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
