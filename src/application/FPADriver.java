@@ -29,6 +29,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
@@ -40,6 +41,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -61,7 +63,7 @@ public class FPADriver extends Application {
 	// public static ArrayList<Items> items = new ArrayList<>();
 	public static HashMap<String, Mob> AvaliableEntities = new HashMap();
 	static public ArrayList<Pane> mapContents = new ArrayList<>();
-	
+
 	public static HashSet<String> currentlyActiveKeys;
 
 	@SuppressWarnings("unchecked")
@@ -92,9 +94,11 @@ public class FPADriver extends Application {
 		controller.updateMapChoiceBox();
 		controller.updateEntityChoiceBox();
 
-		controller.entityButton.setStyle("-fx-background-color: gray;");
+		prepareActionHandlers();
 		
-        prepareActionHandlers();
+		controller.entitySelect.onMouseReleasedProperty().set(e -> {
+			controller.canPlace = true;
+		});
 
 		Stage.setOnCloseRequest(event -> {
 			// System.out.println("App is closing");
@@ -116,7 +120,7 @@ public class FPADriver extends Application {
 				if (combo1.match((KeyEvent) event)) {
 					getSavePath(Stage);
 					importEntity(saveMapPath);
-					
+
 					controller.updateEntityChoiceBox();
 				}
 				if (combo2.match((KeyEvent) event)) {
@@ -232,29 +236,30 @@ public class FPADriver extends Application {
 				controller2.updateStr();
 			}
 		});
-		controller2.HitDiceSelect.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "d20", "d100"));
+		controller2.HitDiceSelect
+				.setItems(FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "d20", "d100"));
 
 		controller.mapSelect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue observable, Number oldValue, Number newValue) {
 			}
 		});
-	
+
 		for (int i = 0; i < controller.mapGrid.getRowConstraints().size(); i++) {
 			for (int j = 0; j < controller.mapGrid.getColumnConstraints().size(); j++) {
 				Pane p = new Pane();
 				GridPane.setConstraints(p, j, i);
 				controller.mapGrid.getChildren().add(p);
-				
+
 				p.setMinSize(10, 8);
 				p.setPrefSize(50, 40);
 				p.setMaxSize(80, 60);
-				
+
 				mapContents.add(p);
 
 				p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
 
 				p.setOnMousePressed(e -> {
-					if (controller.entitySelected && controller.entitySelect.getValue() != null) {
+					if (controller.entitySelect.getValue() != null && controller.canPlace) {
 						System.out.println(controller.entitySelect.getValue());
 						Button b = new Button();
 
@@ -264,8 +269,14 @@ public class FPADriver extends Application {
 						b.setFont(new Font(8));
 						b.setMinSize(p.widthProperty().doubleValue() - 8, p.heightProperty().doubleValue() - 8);
 						b.setAlignment(Pos.CENTER);
-						b.setStyle("");
-
+						if (controller.selectedPic != null) {
+							b.setStyle(controller.selectedPic);
+							controller.selectedPic = null;
+							b.textFillProperty().set(Paint.valueOf("#ffffff"));
+						} else {
+							b.setStyle("");
+							b.textFillProperty().set(Paint.valueOf("#000000"));
+						}
 						b.layoutXProperty().bind(p.widthProperty().subtract(b.widthProperty()).divide(2));
 						b.layoutYProperty().bind(p.heightProperty().subtract(b.heightProperty()).divide(2));
 
@@ -274,19 +285,20 @@ public class FPADriver extends Application {
 
 							controller.descriptionArea.appendText(ent.mob.getName() + "\nMax hp:" + ent.mob.getMaxHP()
 									+ "\nCurrent hp: " + ent.mob.getCurrentHP() + "\n\n");
-							
+
 							ent.updateOptions(ent.optionsStringArr);
 							controller.HPBox.setDisable(false);
 							controller.removeEntityButton.setDisable(false);
 							controller.viewStatsButton.setDisable(false);
 							controller.changeHealthButton.setDisable(false);
-													
-							if (controller.entityStyle != null && b.getStyle().equals("")) {
-								b.setStyle(controller.entityStyle);
-								controller.entityStyle = null;
+
+							if (controller.selectedPic != null) {
+								b.setStyle(controller.selectedPic);
+								controller.selectedPic = null;
 								controller.descriptionArea.appendText("Icon set\n");
+								b.textFillProperty().set(Paint.valueOf("#ffffff"));
 							}
-							
+
 						});
 
 						if (p.getChildren().size() < 1) {
@@ -295,8 +307,6 @@ public class FPADriver extends Application {
 							p.getChildren().remove(0);
 						}
 						controller.canSelect = false;
-						controller.handleButton();
-						controller.entityButton.setStyle("-fx-background-color: gray;");
 					} else {
 						controller.HPBox.setDisable(true);
 						controller.removeEntityButton.setDisable(true);
@@ -305,6 +315,9 @@ public class FPADriver extends Application {
 
 						p.setStyle(controller.color + "; -fx-border-color: black; -fx-border-width: 0.5;");
 					}
+					
+					controller.canPlace = false;
+					
 				});
 
 				p.setOnDragDetected(e -> {
@@ -538,10 +551,10 @@ public class FPADriver extends Application {
 	}
 
 	public static Mob importSingleEntity(String saveMapPath) {
-		if(saveMapPath==null) {
-			saveMapPath = FPADriver.saveMapPath;			
+		if (saveMapPath == null) {
+			saveMapPath = FPADriver.saveMapPath;
 		}
-		
+
 		Mob m = null;
 		try {
 			FileInputStream fis = new FileInputStream(saveMapPath);
@@ -561,17 +574,17 @@ public class FPADriver extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(m.getClass().getSimpleName().equals("Player")) {
-			m = (Player)m;
-		}else {
-			m = (Monster)m;
+		if (m.getClass().getSimpleName().equals("Player")) {
+			m = (Player) m;
+		} else {
+			m = (Monster) m;
 		}
-		
+
 		AvaliableEntities.put(m.getName(), m);
 		return m;
-		
+
 	}
-	
+
 	public static void importEntity(String saveMapPath) {
 		HashMap<String, Mob> tempHM = new HashMap<>();
 		try {
@@ -590,14 +603,13 @@ public class FPADriver extends Application {
 			System.out.println("IOException in importSingleEntity");
 			e.printStackTrace();
 		}
-		
+
 		AvaliableEntities.putAll(tempHM);
 
-		
 	}
-	
+
 	public static void exportSingleEntity(Mob m, String saveMapPath) {
-		if(saveMapPath==null) {
+		if (saveMapPath == null) {
 			saveMapPath = FPADriver.saveMapPath;
 		}
 		File file = new File(saveMapPath);
@@ -701,8 +713,9 @@ public class FPADriver extends Application {
 		ArrayList<Pane> loadPane = new ArrayList<>();
 		for (int i = 0; i < pane.mapContents.length; i++) {
 			Pane p = new Pane();
-			
-			mapContents.get(i).getChildren().removeAll(FXCollections.observableArrayList(mapContents.get(i).getChildren()));
+
+			mapContents.get(i).getChildren()
+					.removeAll(FXCollections.observableArrayList(mapContents.get(i).getChildren()));
 			p.setStyle(pane.mapContents[i]);
 			loadPane.add(p);
 		}
@@ -714,24 +727,21 @@ public class FPADriver extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
-	private static void prepareActionHandlers()
-    {
-        currentlyActiveKeys = new HashSet<String>();
-        sceneMap.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event)
-            {
-                currentlyActiveKeys.add(event.getCode().toString());
-            }
-        });
-        sceneMap.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event)
-            {
-                currentlyActiveKeys.remove(event.getCode().toString());
 
-            }
-        });
-    }
+	private static void prepareActionHandlers() {
+		currentlyActiveKeys = new HashSet<String>();
+		sceneMap.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent event) {
+				currentlyActiveKeys.add(event.getCode().toString());
+			}
+		});
+		sceneMap.setOnKeyReleased(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent event) {
+				currentlyActiveKeys.remove(event.getCode().toString());
+
+			}
+		});
+	}
 }

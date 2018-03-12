@@ -22,7 +22,7 @@ import util.Map;
 public class UIController {
 	private static HashMap<String, Map> AvaliableMaps = new HashMap();
 	public String color = "-fx-background-color: lightgreen;";
-	public String entityStyle = null;
+	public String selectedPic = null;
 	public Entity entityName = null;
 
 	@FXML
@@ -64,6 +64,7 @@ public class UIController {
 	public boolean isDragging = false;
 	public boolean entitySelected = false;
 	public boolean canSelect = false;
+	public boolean canPlace = false;
 
 	public javafx.scene.control.TextArea descriptionArea;
 	public TextField DiceBox;
@@ -164,6 +165,7 @@ public class UIController {
 		descriptionArea.appendText("\n");
 		descriptionArea.setEditable(false);
 	}
+
 	public void rollDice() {
 		String[] dice = DiceBox.getText().split("d");
 		if (dice.length == 2) {
@@ -177,6 +179,7 @@ public class UIController {
 		}
 		descriptionArea.appendText("\n");
 	}
+
 	public void changeHealth() {
 		String temp = null;
 		temp = HPBox.getText();
@@ -196,15 +199,17 @@ public class UIController {
 			descriptionArea.appendText("You entered an invalid input \n\n");
 		}
 	}
+
 	public void viewStats() {
 		descriptionArea.appendText(entityName.mob.toString() + "\n");
 	}
+
 	public void removefromMap() {
 		Pane p = (Pane) entityName.button.getParent();
 		p.getChildren().remove(entityName.button);
 		entityName = null;
 	}
-	
+
 	public void rollOne() {
 		Integer temp = 0;
 		Dice d = new Dice();
@@ -299,7 +304,7 @@ public class UIController {
 
 			mapGrid.getChildren().get(i)
 					.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
-			System.out.println(mapGrid.getChildren().size() + " "  +i);
+			System.out.println(mapGrid.getChildren().size() + " " + i);
 		}
 	}
 
@@ -349,10 +354,68 @@ public class UIController {
 	public void updateSelector() {
 		if (entitySelect.getValue() != null && entitySelect.getValue().length() > 1) {
 			canSelect = true;
-			entityButton.setStyle("");
 		} else {
 			canSelect = false;
 		}
+		updateButtons();
+	}
+
+	private void updateButtons() {
+		if (canSelect && selectedPic == null) {
+			warrior.setOpacity(1);
+			 ranger.setOpacity(1);
+			 wizard.setOpacity(1);
+		 dragonborn.setOpacity(1);
+			  dwarf.setOpacity(1);
+		   tiefling.setOpacity(1);
+			highelf.setOpacity(1);
+			   monk.setOpacity(1);
+		} else {
+			if (selectedPic != null) {
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/warrior.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					warrior.setOpacity(.5);
+				}
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/ranger.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					ranger.setOpacity(.5);
+				}
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/dragonborn.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					dragonborn.setOpacity(.5);
+				}
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/wizard.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					wizard.setOpacity(.5);
+				}
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/dwarf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					dwarf.setOpacity(.5);
+				}
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/tiefling.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					tiefling.setOpacity(.5);
+				}
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/highelf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					highelf.setOpacity(.5);
+				}
+				if (!selectedPic.equals(
+						"-fx-background-color: black;-fx-background-image: url(/pics/monk.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;")) {
+					monk.setOpacity(.5);
+				}
+			} else {
+				warrior.setOpacity(.5);
+				ranger.setOpacity(.5);
+				wizard.setOpacity(.5);
+				dragonborn.setOpacity(.5);
+				tiefling.setOpacity(.5);
+				dwarf.setOpacity(.5);
+				highelf.setOpacity(.5);
+				monk.setOpacity(.5);
+			}
+		}
+
 	}
 
 	public void deselect() {
@@ -366,107 +429,137 @@ public class UIController {
 	public void txtReset() {
 		descriptionArea.setText("");
 	}
- 
+
 	public void setPicWarrior() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon Warrior loaded...\n");
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/warrior.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon Warrior loaded...\n");
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/warrior.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicRanger() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon Archer loaded...\n");
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon Archer loaded...\n");
 
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/ranger.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/ranger.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicWizard() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon Wizard loaded...\n");
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon Wizard loaded...\n");
 
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/wizard.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/wizard.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicDragonBorn() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon Dragonborn loaded...\n");
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon Dragonborn loaded...\n");
 
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dragonborn.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/dragonborn.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicDwarf() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon Dwarf loaded...\n");
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon Dwarf loaded...\n");
 
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/dwarf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/dwarf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicTiefling() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon Tiefling loaded...\n");
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon Tiefling loaded...\n");
 
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/tiefling.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/tiefling.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicHighelf() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon High elf loaded...\n");
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/highelf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon High elf loaded...\n");
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/highelf.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
 
 	public void setPicMonk() {
-		if (entityStyle != null) {
+		if (!canPlace) {
+			canPlace = true;
+		}
+		if (selectedPic != null) {
 			descriptionArea.appendText("Icon discarded\n");
-			entityStyle = null;
-		} else {
-		descriptionArea.appendText("Icon monk loaded...\n");
+			selectedPic = null;
+		} else if (canSelect) {
+			descriptionArea.appendText("Icon monk loaded...\n");
 
-			entityStyle = "-fx-background-color: black;-fx-background-image: url(/pics/monk.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
+			selectedPic = "-fx-background-color: black;-fx-background-image: url(/pics/monk.png);-fx-background-repeat: stretch;-fx-background-position: center center;-fx-background-size: 100.0% 100.0%;";
 		}
 	}
-	
+
 	public void moveCharacter() {
-//		
-//		String[] keysPressed = new String[FPADriver.currentlyActiveKeys.size()];
-//		keysPressed = FPADriver.currentlyActiveKeys.toArray(keysPressed);
-//		String key = keysPressed[0];
-//		
-//		sout
-//		
-//		if (entityName != null && key.equals("W")) {
-//			int i = FPADriver.mapContents.indexOf(entityName.button.getParent());
-//			if (FPADriver.mapContents.get(i-gridScene.getColumnConstraints().size()).getChildren().size() <1) {
-//			FPADriver.mapContents.get(i-gridScene.getColumnConstraints().size()).getChildren().add(entityName.button);
-//			FPADriver.mapContents.get(i).getChildren().removeAll(entityName.button);
-//			}
-//		}
+		//
+		// String[] keysPressed = new String[FPADriver.currentlyActiveKeys.size()];
+		// keysPressed = FPADriver.currentlyActiveKeys.toArray(keysPressed);
+		// String key = keysPressed[0];
+		//
+		// sout
+		//
+		// if (entityName != null && key.equals("W")) {
+		// int i = FPADriver.mapContents.indexOf(entityName.button.getParent());
+		// if
+		// (FPADriver.mapContents.get(i-gridScene.getColumnConstraints().size()).getChildren().size()
+		// <1) {
+		// FPADriver.mapContents.get(i-gridScene.getColumnConstraints().size()).getChildren().add(entityName.button);
+		// FPADriver.mapContents.get(i).getChildren().removeAll(entityName.button);
+		// }
+		// }
+	}
+	
+	public void updatePlacer () {
+		canPlace = true;
 	}
 }

@@ -80,7 +80,7 @@
 				</Button>
             <VBox>
                <children>
-                  <Label text="Entity Select" textFill="#d6d6d6">
+                  <Label text="Player/Monster Select" textFill="#d6d6d6">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -89,7 +89,7 @@
                      <children>
                    		  <HBox>
                            <children>
-                                  <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="160.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" style="-fx-background-color: #81888e;">
+                                  <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="150.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" prefWidth="250.0" style="-fx-background-color: #81888e;">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -100,21 +100,6 @@
                                  </light>
                               </Lighting>
                            </effect></ChoiceBox>
-            				<Button fx:id="entityButton" maxHeight="50.0" maxWidth="300.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleButton" style="-fx-background-color: #71604b;" text="Select">
-            					<font>
-            						<Font size="18.0" />
-            					</font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant azimuth="219.86" />
-                                 </light>
-                              </Lighting>
-                           </effect>
-            				</Button>
                            </children>
                         </HBox>
                         <VBox alignment="CENTER">
