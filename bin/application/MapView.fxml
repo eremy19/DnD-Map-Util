@@ -89,7 +89,7 @@
                      <children>
                    		  <HBox>
                            <children>
-                                  <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="150.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updateSelector" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" prefWidth="250.0" style="-fx-background-color: #81888e;">
+                                  <ChoiceBox fx:id="entitySelect" maxHeight="50.0" maxWidth="500.0" minHeight="40.0" minWidth="150.0" onContextMenuRequested="#updateSelector" onMouseClicked="#updatePlacer" onMouseEntered="#updateSelector" onMouseExited="#updateSelector" onMouseReleased="#updateSelector" prefWidth="250.0" style="-fx-background-color: #81888e;">
                            <effect>
                               <Lighting>
                                  <bumpInput>

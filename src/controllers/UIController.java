@@ -297,14 +297,12 @@ public class UIController {
 	}
 
 	public void reset() {
-		for (int i = 0; (i < mapGrid.getChildren().size() - 1) && i <= 191; i++) {
+		for (Pane p : FPADriver.mapContents) {
 
-			FPADriver.mapContents.get(i).getChildren()
-					.removeAll(FXCollections.observableArrayList(FPADriver.mapContents.get(i).getChildren()));
+			p.getChildren()
+					.removeAll(FXCollections.observableArrayList(p.getChildren()));
 
-			mapGrid.getChildren().get(i)
-					.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
-			System.out.println(mapGrid.getChildren().size() + " " + i);
+			p.setStyle("-fx-background-color: lightgreen; -fx-border-color: black; -fx-border-width: 0.5;");
 		}
 	}
 
