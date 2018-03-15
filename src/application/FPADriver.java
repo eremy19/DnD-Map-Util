@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import controllers.ConfigureController;
 import controllers.EntityController;
 import controllers.UIController;
 import javafx.application.Application;
@@ -202,38 +203,62 @@ public class FPADriver extends Application {
 
 		});
 		controller.entitySceneSwap.setOnAction(e -> Stage.setScene(sceneEntity));
+		
+		controller2.confAttButton.setOnMouseClicked((event) -> {
+		    try {
+		        FXMLLoader loader3 = new FXMLLoader((getClass().getResource("ConfigureView.fxml")));
+
+		 		Parent root3 = loader3.load();
+
+		 		ConfigureController controller3 = loader3.getController();
+		        controller3.applybutton.setOnAction(e -> {
+		        	String[] finalAtts = controller3.returnAtts(String.valueOf(controller2.chooseEntity.getValue()));
+		        	
+		        	controller2.updateAttributeLabels(finalAtts[0], finalAtts[1], finalAtts[2], finalAtts[3], finalAtts[4], finalAtts[5]);
+		        });
+		        Scene scene = new Scene(root3, 600, 400);
+		        Stage stage = new Stage();
+		        stage.setTitle("New Window");
+		        stage.setResizable(false);
+		        stage.setScene(scene);
+		        stage.show();
+		    } catch (IOException e) {
+	            e.printStackTrace();
+		        System.out.println("Failed to create new Window.");
+		    }
+		});
 		controller2.entities.setOnAction(e -> {
 			Stage.setScene(sceneMap);
 			controller.updateEntityChoiceBox();
 		});
-		controller2.DexSlider.valueProperty().addListener(new ChangeListener<Number>() {
+		controller2.Att1Slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				controller2.updateDex();
+				controller2.updateAtt1();
 			}
 		});
-		controller2.WisSlider.valueProperty().addListener(new ChangeListener<Number>() {
+		controller2.Att2Slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				controller2.updateWis();
+				controller2.updateAtt2();
 			}
 		});
-		controller2.IntSlider.valueProperty().addListener(new ChangeListener<Number>() {
+		controller2.Att3Slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				controller2.updateInt();
+				controller2.updateAtt3();
 			}
 		});
-		controller2.ConSlider.valueProperty().addListener(new ChangeListener<Number>() {
+		controller2.Att4Slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				controller2.updateCon();
+				controller2.updateAtt4();
 			}
 		});
-		controller2.ChaSlider.valueProperty().addListener(new ChangeListener<Number>() {
+		controller2.Att5Slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				controller2.updateCha();
+				controller2.updateAtt5();
 			}
 		});
-		controller2.StrSlider.valueProperty().addListener(new ChangeListener<Number>() {
+		controller2.Att6Slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				controller2.updateStr();
+				controller2.updateAtt6();
 			}
 		});
 		controller2.HitDiceSelect
@@ -286,7 +311,6 @@ public class FPADriver extends Application {
 							controller.descriptionArea.appendText(ent.mob.getName() + "\nMax hp:" + ent.mob.getMaxHP()
 									+ "\nCurrent hp: " + ent.mob.getCurrentHP() + "\n\n");
 
-							ent.updateOptions(ent.optionsStringArr);
 							controller.HPBox.setDisable(false);
 							controller.removeEntityButton.setDisable(false);
 							controller.viewStatsButton.setDisable(false);

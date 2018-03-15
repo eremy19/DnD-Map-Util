@@ -72,3 +72,8 @@
     -fx-background-position: top center;
     -fx-background-size: 100% 100%;
 }
+#anchorPane {
+    -fx-background-image: url(open-book.jpg);
+    -fx-background-position: top left;
+    -fx-background-repeat: none;
+    }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="anchorPane" fx:id="anchorPane" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConfigureController">
+   <children>
+      <HBox alignment="TOP_CENTER" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <VBox>
+               <children>
+                  <Label text="Configure Attribute Names" textFill="WHITE" />
+                  <TextField fx:id="att1text" promptText="Attribute 1" />
+                  <TextField fx:id="att2text" promptText="Attribute 2" />
+                  <TextField fx:id="att3text" promptText="Attribute 3" />
+                  <TextField fx:id="att4text" promptText="Attribute 4" />
+                  <TextField fx:id="att5text" promptText="Attribute 5" />
+                  <TextField fx:id="att6text" promptText="Attribute 6" />
+               </children>
+            </VBox>
+            <Button fx:id="applybutton" mnemonicParsing="false" text="Apply Changes" />
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>

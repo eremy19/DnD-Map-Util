@@ -22,39 +22,43 @@ public class EntityController {
 	public Button entities;
 	public Button NameOk;
 	public Button HealthOk;
-	public Button ArmorOk;
-	public Button SCAOk;
-	public Button SABOk;
+	public Button AbilitesOk;
+	public Button SkillsOk;
+	public Button NotesOk;
 	public Button SpeedOk;
-	public Button InitiativeOk;
 	public Button DiceOk;
 	public Button removeButton;
+	public Button confAttButton;
 	public ChoiceBox chooseEntity;
 	public TextField NameTypeBox;
 	public TextField HealthTypeBox;
-	public TextField ArmorTypeBox;
-	public TextField SCATypeBox;
-	public TextField SABTypeBox;
 	public TextField SpeedTypeBox;
-	public TextField InitiativeTypeBox;
+	public TextField SkillsTypeBox;
+	public TextField AbilitiesTypeBox;
+	public TextField NotesTypeBox;
 	public Label CurrentName;
-	public Slider IntSlider;
-	public Slider DexSlider;
-	public Slider ChaSlider;
-	public Slider StrSlider;
-	public Slider ConSlider;
-	public Slider WisSlider;
+	public Slider Att1Slider;
+	public Slider Att2Slider;
+	public Slider Att3Slider;
+	public Slider Att4Slider;
+	public Slider Att5Slider;
+	public Slider Att6Slider;
 	public ChoiceBox HitDiceSelect;
-	public ChoiceBox IconSelect;
-	public Button IconOk;
 	public Button CharacterCreate;
 	public Button MonsterCreate;
 	public int MonsterNum;
 	public int PlayerNum = 0;
+	public Label attribute1Label;
+	public Label attribute2Label;
+	public Label attribute3Label;
+	public Label attribute4Label;
+	public Label attribute5Label;
+	public Label attribute6Label;
 
+	
 	public void generateBlankPlayer() {
 		String name = "Character " + ++PlayerNum;
-		Player mobBlank = new Player(name, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "d4");
+		Player mobBlank = new Player(name, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "Unassigned Skill", "Unassigned Ability", "d4");
 		System.out.println(mobBlank.toString());
 		FPADriver.addPlayer(mobBlank);
 		updateChoiceBox();
@@ -62,7 +66,7 @@ public class EntityController {
 
 	public void generateBlankMonster() {
 		String name = "Monster " + ++MonsterNum;
-		Monster mobBlank = new Monster(name, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "d4");
+		Monster mobBlank = new Monster(name, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "Unassigned Skill", "Unassigned Ability", "d4");
 		System.out.println(mobBlank.toString());
 		FPADriver.addMonster(mobBlank);
 		updateChoiceBox();
@@ -81,88 +85,65 @@ public class EntityController {
 		try {
 			NameTypeBox.setText(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getName());
 			HealthTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getMaxHP()));
-			ArmorTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getArmor()));
-			SCATypeBox.setText(
-					String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getSpellCastingAbility()));
-			SABTypeBox.setText(
-					String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getSpellAttackBonus()));
+			SkillsTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getSkills()));
+			AbilitiesTypeBox.setText(
+					String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAbilities()));
+			NotesTypeBox.setText(
+					String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getNotes()));
 			SpeedTypeBox.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getSpeed()));
-			InitiativeTypeBox
-					.setText(String.valueOf(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getInitiative()));
-			IntSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getInteligence());
-			DexSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getDexterity());
-			ChaSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getCharisma());
-			StrSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getStrength());
-			ConSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getConstitution());
-			WisSlider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getWisdom());
-			HitDiceSelect.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getHitDie());
-			enableEntityEdit();
+			Att1Slider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute1());
+			Att2Slider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute2());
+			Att3Slider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute3());
+			Att4Slider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute4());
+			Att5Slider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute5());
+			Att6Slider.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute6());
+			HitDiceSelect.setValue(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAssignedDie());
+			updateAttributeLabels(FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute1name(), FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute2name(), FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute3name(), FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute4name(), FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute5name(), FPADriver.AvaliableEntities.get(chooseEntity.getValue()).getAttribute6name());
+			disableEdit(false);
 		} catch (NullPointerException e) {
 
 		}
 
 	}
-	
-	public void enableEntityEdit() {
-		NameTypeBox.setDisable(false);
-		HealthTypeBox.setDisable(false);
-		ArmorTypeBox.setDisable(false);
-		SCATypeBox.setDisable(false);
-		SABTypeBox.setDisable(false);
-		SpeedTypeBox.setDisable(false);
-		InitiativeTypeBox.setDisable(false);
-		IntSlider.setDisable(false);
-		DexSlider.setDisable(false);
-		ChaSlider.setDisable(false);
-		StrSlider.setDisable(false);
-		ConSlider.setDisable(false);
-		WisSlider.setDisable(false);
-		HitDiceSelect.setDisable(false);
-		NameOk.setDisable(false);
-		HealthOk.setDisable(false);
-		ArmorOk.setDisable(false);
-		SCAOk.setDisable(false);
-		SABOk.setDisable(false);
-		SpeedOk.setDisable(false);
-		InitiativeOk.setDisable(false);
-		DiceOk.setDisable(false);
-		removeButton.setDisable(false);
-		IconSelect.setDisable(false);
-		IconOk.setDisable(false);
-	}
-	public void disableEntityEdit() {
-		NameTypeBox.setDisable(true);
-		HealthTypeBox.setDisable(true);
-		ArmorTypeBox.setDisable(true);
-		SCATypeBox.setDisable(true);
-		SABTypeBox.setDisable(true);
-		SpeedTypeBox.setDisable(true);
-		InitiativeTypeBox.setDisable(true);
-		IntSlider.setDisable(true);
-		DexSlider.setDisable(true);
-		ChaSlider.setDisable(true);
-		StrSlider.setDisable(true);
-		ConSlider.setDisable(true);
-		WisSlider.setDisable(true);
-		HitDiceSelect.setDisable(true);
-		NameOk.setDisable(true);
-		HealthOk.setDisable(true);
-		ArmorOk.setDisable(true);
-		SCAOk.setDisable(true);
-		SABOk.setDisable(true);
-		SpeedOk.setDisable(true);
-		InitiativeOk.setDisable(true);
-		DiceOk.setDisable(true);
-		removeButton.setDisable(true);
-	//	IconSelect.setDisable(true);
-	//	IconOk.setDisable(true);
+
+	public void disableEdit(Boolean tf) {
+		NameTypeBox.setDisable(tf);
+		DiceOk.setDisable(tf);
+		removeButton.setDisable(tf);
+		HealthTypeBox.setDisable(tf);
+		SkillsTypeBox.setDisable(tf);
+		AbilitiesTypeBox.setDisable(tf);
+		NotesTypeBox.setDisable(tf);
+		SpeedTypeBox.setDisable(tf);
+		Att1Slider.setDisable(tf);
+		Att2Slider.setDisable(tf);
+		Att3Slider.setDisable(tf);
+		Att4Slider.setDisable(tf);
+		Att5Slider.setDisable(tf);
+		Att6Slider.setDisable(tf);
+		HitDiceSelect.setDisable(tf);
+		NameOk.setDisable(tf);
+		HealthOk.setDisable(tf);
+		NotesOk.setDisable(tf);
+		SkillsOk.setDisable(tf);
+		AbilitesOk.setDisable(tf);
+		SpeedOk.setDisable(tf);
+		confAttButton.setDisable(tf);
 	}
 	public void removeEntity() {
 		FPADriver.AvaliableEntities.remove(chooseEntity.getValue());
-		disableEntityEdit();
+		disableEdit(true);
 		updateChoiceBox();
 	}
-	
+	public void updateAttributeLabels(String att1, String att2,String att3,String att4,String att5,String att6) {
+		attribute1Label.setText(att1);
+		attribute2Label.setText(att2);
+		attribute3Label.setText(att3);
+		attribute4Label.setText(att4);
+		attribute5Label.setText(att5);
+		attribute6Label.setText(att6);
+	}
+
 	public void updateName() {
 		Mob temp = FPADriver.AvaliableEntities.get(chooseEntity.getValue());
 		try {
@@ -182,7 +163,7 @@ public class EntityController {
 		} catch (NullPointerException e) {
 
 		}
-		disableEntityEdit();
+		disableEdit(true);
 		updateChoiceBox();
 	}
 	public void updateHealth() {
@@ -193,32 +174,7 @@ public class EntityController {
 			System.out.println("Incorrect Entry In Text Box");
 		}
 	}
-	public void updateArmor() {
-		String entry = ArmorTypeBox.getText();
-		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setArmor(Integer.parseInt(entry));
-		} else {
-			System.out.println("Incorrect Entry In Text Box");
-		}
-	}
-
-	public void updateSCA() {
-		String entry = SCATypeBox.getText();
-		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setSpellCastingAbility(Integer.parseInt(entry));
-		} else {
-			System.out.println("Incorrect Entry In Text Box");
-		}
-	}
-
-	public void updateSAB() {
-		String entry = SABTypeBox.getText();
-		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setSpellAttackBonus(Integer.parseInt(entry));
-		} else {
-			System.out.println("Incorrect Entry In Text Box");
-		}
-	}
+	
 
 	public void updateSpeed() {
 		String entry = SpeedTypeBox.getText();
@@ -229,10 +185,26 @@ public class EntityController {
 		}
 	}
 
-	public void updateInitiative() {
-		String entry = InitiativeTypeBox.getText();
+	public void updateSkills() {
+		String entry = SkillsTypeBox.getText();
 		if (tryParseInt(entry)) {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setInitiative(Integer.parseInt(entry));
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setSkills(entry);
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}
+	public void updateAbilities() {
+		String entry = AbilitiesTypeBox.getText();
+		if (tryParseInt(entry)) {
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAbilities(entry);
+		} else {
+			System.out.println("Incorrect Entry In Text Box");
+		}
+	}
+	public void updateNotes(){
+		String entry = NotesTypeBox.getText();
+		if (tryParseInt(entry)) {
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setNotes(entry);
 		} else {
 			System.out.println("Incorrect Entry In Text Box");
 		}
@@ -249,49 +221,49 @@ public class EntityController {
 		}
 	}
 
-	public void updateCha() {
+	public void updateAtt1() {
 		try {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setCharisma((int) ChaSlider.getValue());
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAttribute1((int) Att1Slider.getValue());
 		} catch (NullPointerException e) {
 
 		}
 	}
 
-	public void updateDex() {
+	public void updateAtt2() {
 		try {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setDexterity((int) DexSlider.getValue());
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAttribute2((int) Att2Slider.getValue());
 		} catch (NullPointerException e) {
 
 		}
 	}
 
-	public void updateInt() {
+	public void updateAtt3() {
 		try {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setInteligence((int) IntSlider.getValue());
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAttribute3((int) Att3Slider.getValue());
 		} catch (NullPointerException e) {
 
 		}
 	}
 
-	public void updateWis() {
+	public void updateAtt4() {
 		try {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setWisdom((int) WisSlider.getValue());
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAttribute4((int) Att4Slider.getValue());
 		} catch (NullPointerException e) {
 
 		}
 	}
 
-	public void updateStr() {
+	public void updateAtt5() {
 		try {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setStength((int) StrSlider.getValue());
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAttribute5((int) Att5Slider.getValue());
 		} catch (NullPointerException e) {
 
 		}
 	}
 
-	public void updateCon() {
+	public void updateAtt6() {
 		try {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setConstitution((int) ConSlider.getValue());
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAttribute6((int) Att6Slider.getValue());
 		} catch (NullPointerException e) {
 
 		}
@@ -300,7 +272,7 @@ public class EntityController {
 	public void updateHitDice() {
 		String dice = (String) HitDiceSelect.getValue();
 		try {
-			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setHitDie(dice);
+			FPADriver.AvaliableEntities.get(chooseEntity.getValue()).setAssignedDie(dice);
 		} catch (NullPointerException e) {
 
 		}

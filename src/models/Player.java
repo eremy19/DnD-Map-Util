@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Player extends Mob implements Serializable {
 
+	public Player(String name, int maxHP, int currentHP, int tempHP, int attribute1, int attribute2, int attribute3,
+			int attribute4, int attribute5, int attribute6, int experience, int speed, String skills, String abilities,
+			String assignedDie) {
+		super(name, maxHP, currentHP, tempHP, attribute1, attribute2, attribute3, attribute4, attribute5, attribute6,
+				experience, speed, skills, abilities, assignedDie);
+	}
+
 	private static final long serialVersionUID = 1L;
 
-	public Player(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
-			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, int initiative,
-			String hitDie) {
-		super(name, maxHP, strength, dexterity, constitution, inteligence, wisdom, charisma, armor, spellAttackBonus,
-				spellCastingAbility, speed, initiative, hitDie);
-
-	}
 	
 
 }

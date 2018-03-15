@@ -8,249 +8,75 @@ public class Mob implements Serializable {
 	private int maxHP;
 	private int currentHP;
 	private int tempHP;
-	private int strength;
-	private int strMod;
-	private int dexterity;
-	private int dexMod;
-	private int constitution;
-	private int conMod;
-	private int inteligence;
-	private int intMod;
-	private int wisdom;
-	private int wisMod;
-	private int charisma;
-	private int chaMod;
-	private int armor;
-	private int spellAttackBonus;
-	private int spellCastingAbility;
+	private int attribute1;
+	private int attribute2;
+	private int attribute3;
+	private int attribute4;
+	private int attribute5;
+	private int attribute6;
+	private int experience;
 	private int speed;
-	private int initiative;
-	private String hitDie;
+	private String skills;
+	private String abilities;
+	private String assignedDie;
 	private String notes;
+	private String attribute1name;
+	private String attribute2name;
+	private String attribute3name;
+	private String attribute4name;
+	private String attribute5name;
+	private String attribute6name;
 
-	/*
-	 * statMod = (int)(stat-10)/2
-	 */
 
-	public Mob(String name, int maxHP, int strength, int dexterity, int constitution, int inteligence, int wisdom,
-			int charisma, int armor, int spellAttackBonus, int spellCastingAbility, int speed, int initive,
-			String hitDie) {
+	
+	public Mob(String name, int maxHP, int currentHP, int tempHP, int attribute1, int attribute2, int attribute3,
+			int attribute4, int attribute5, int attribute6, int experience, int speed, String skills, String abilities,
+			String assignedDie) {
 		setName(name);
 		setMaxHP(maxHP);
-		setCurrentHP(maxHP);
-		setStength(strength);
-		setDexterity(dexterity);
-		setConstitution(constitution);
-		setInteligence(inteligence);
-		setWisdom(wisdom);
-		setCharisma(charisma);
-		setArmor(armor);
-		setSpellAttackBonus(spellAttackBonus);
-		setSpellCastingAbility(spellCastingAbility);
-		setSpeed(speed);
-		setInitiative(initive);
-		setHitDie(hitDie);
-		// setNotes(notes);
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getStrength() {
-		return strength;
-	}
-
-	public void setStength(int strength) {
-		this.strength = strength;
-		strMod = setMod(strength);
-	}
-
-	public int getStrMod() {
-		return strMod;
-	}
-
-	public int getDexterity() {
-		return dexterity;
-	}
-
-	public void setDexterity(int dexterity) {
-		this.dexterity = dexterity;
-		dexMod = setMod(dexterity);
-	}
-
-	public int getDexMod() {
-		return dexMod;
-	}
-
-	public int getConstitution() {
-		return constitution;
-	}
-
-	public void setConstitution(int constitution) {
-		this.constitution = constitution;
-		conMod = setMod(constitution);
-	}
-
-	public int getConMod() {
-		return conMod;
-	}
-
-	public int getInteligence() {
-		return inteligence;
-	}
-
-	public void setInteligence(int inteligence) {
-		this.inteligence = inteligence;
-		intMod = setMod(inteligence);
-	}
-
-	public int getIntMod() {
-		return intMod;
-	}
-
-	public int getWisdom() {
-		return wisdom;
-	}
-
-	public void setWisdom(int wisdom) {
-		this.wisdom = wisdom;
-		wisMod = setMod(wisdom);
-	}
-
-	public int getWisMod() {
-		return wisMod;
-	}
-
-	public int getCharisma() {
-		return charisma;
-	}
-
-	public void setCharisma(int charisma) {
-		this.charisma = charisma;
-		chaMod = setMod(charisma);
-	}
-
-	public int getChaMod() {
-		return chaMod;
-	}
-
-	public int getArmor() {
-		return armor;
-	}
-
-	public void setArmor(int armor) {
-		this.armor = armor;
-	}
-
-	public int getSpellAttackBonus() {
-		return spellAttackBonus;
-	}
-
-	public void setSpellAttackBonus(int spellAttackBonus) {
-		this.spellAttackBonus = spellAttackBonus;
-	}
-
-	public int getSpellCastingAbility() {
-		return spellCastingAbility;
-	}
-
-	public void setSpellCastingAbility(int spellCastingAbility) {
-		this.spellCastingAbility = spellCastingAbility;
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-	public int setMod(int stat) {
-		int statMod = (int) (stat - 10) / 2;
-		return statMod;
-	}
-
-	public int getMaxHP() {
-		return maxHP;
-	}
-
-	public void setMaxHP(int maxHP) {
-		this.maxHP = maxHP;
-	}
-
-	public int getCurrentHP() {
-		return currentHP;
-	}
-
-	public void setCurrentHP(int maxHP) {
-		this.currentHP = maxHP;
-	}
-
-	public int getTempHP() {
-		return tempHP;
-	}
-
-	public void setTempHP(int tempHP) {
-		this.tempHP = tempHP;
-	}
-
-	public int getInitiative() {
-		return initiative;
-	}
-
-	public void setInitiative(int initive) {
-		this.initiative = initive;
-	}
-
-	public String getHitDie() {
-		return hitDie;
-	}
-
-	public void setHitDie(String hitDie) {
-		this.hitDie = hitDie;
-	}
-
-	public void updateStats(int str, int dex, int con, int intelligence, int wis, int cha, int hpCurrent, int hpMax,
-			int tempHP, int armor, int spellCast, int spellAttack, int initiative) {
-		setStength(str);
-		setDexterity(dex);
-		setConstitution(con);
-		setInteligence(intelligence);
-		setWisdom(wis);
-		setCharisma(cha);
-		setCurrentHP(hpCurrent);
-		setMaxHP(hpMax);
+		setCurrentHP(currentHP);
 		setTempHP(tempHP);
-		setSpellAttackBonus(spellAttack);
-		setSpellCastingAbility(spellCast);
-		setInitiative(initiative);
+		setAttribute1(attribute1);
+		setAttribute2(attribute2);
+		setAttribute3(attribute3);
+		setAttribute4(attribute4);
+		setAttribute5(attribute5);
+		setAttribute6(attribute6);
+		setExperience(experience);
+		setSpeed (speed);
+		setSkills (skills);
+		setAbilities (abilities);
+		setAssignedDie (assignedDie);
+		//defaults to basic stat names
+		setAttribute1name("Strength");
+		setAttribute2name("Dexterity");
+		setAttribute3name("Constitution");
+		setAttribute4name("Intelligence");
+		setAttribute5name("Wisdom");
+		setAttribute6name("Charisma");
 	}
 
-	public void getStats() {
-		this.toString();
+	public void updateStats(String name, int maxHP, int currentHP, int tempHP, int attribute1, int attribute2, int attribute3,
+			int attribute4, int attribute5, int attribute6, int experience, int speed, String skills, String abilities,
+			String assignedDie, String notes) {
+		setName(name);
+		setMaxHP(maxHP);
+		setCurrentHP(currentHP);
+		setTempHP(tempHP);
+		setAttribute1(attribute1);
+		setAttribute2(attribute2);
+		setAttribute3(attribute3);
+		setAttribute4(attribute4);
+		setAttribute5(attribute5);
+		setAttribute6(attribute6);
+		setExperience(experience);
+		setSpeed (speed);
+		setSkills (skills);
+		setAbilities (abilities);
+		setAssignedDie (assignedDie);
+		setNotes (notes);
 	}
 
-	public void getOptions() {
-		// this will determine what options are available.
-	}
-
-	public void notes(String notes) {
-		System.out.println(notes);
-	}
 
 	@Override
 	public String toString() {
@@ -263,31 +89,339 @@ public class Mob implements Serializable {
 		builder.append("\n");
 		builder.append("TempHP: " + tempHP);
 		builder.append("\n");
-		builder.append("Str: " + strength + "+(" + strMod + ")");
+		builder.append(attribute1name + ": " + attribute1);
 		builder.append("\n");
-		builder.append("Dex: " + dexterity + "+(" + dexMod + ")");
+		builder.append(attribute2name + ": " + attribute2);
 		builder.append("\n");
-		builder.append("Con: " + constitution + "+(" + conMod + ")");
+		builder.append(attribute3name + ": " + attribute3);
 		builder.append("\n");
-		builder.append("Int: " + inteligence + "+(" + intMod + ")");
+		builder.append(attribute4name + ": " + attribute4);
 		builder.append("\n");
-		builder.append("Wis: " + wisdom + "+(" + wisMod + ")");
+		builder.append(attribute5name + ": " + attribute5);
 		builder.append("\n");
-		builder.append("Cha: " + charisma + "+(" + chaMod + ")");
+		builder.append(attribute6name + ": " + attribute6);
 		builder.append("\n");
-		builder.append("AC: " + armor);
-		builder.append("\n");
-		builder.append("SAB: " + spellAttackBonus);
-		builder.append("\n");
-		builder.append("SCA: " + spellCastingAbility);
+		builder.append("XP: " + experience);
 		builder.append("\n");
 		builder.append("Speed: " + speed);
 		builder.append("\n");
-		builder.append("Initive: " + initiative);
+		builder.append("Skills: " + skills);
 		builder.append("\n");
-		builder.append("Hit Die: " + hitDie);
+		builder.append("Abilities: " + abilities);
+		builder.append("\n");
+		builder.append("Die: " + assignedDie);
+		builder.append("\n");
+		builder.append("Notes: " + notes);
 		builder.append("\n");
 		return builder.toString();
+	}
+
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+
+	public int getMaxHP() {
+		return maxHP;
+	}
+
+
+
+
+	public void setMaxHP(int maxHP) {
+		this.maxHP = maxHP;
+	}
+
+
+
+
+	public int getCurrentHP() {
+		return currentHP;
+	}
+
+
+
+
+	public void setCurrentHP(int currentHP) {
+		this.currentHP = currentHP;
+	}
+
+
+
+
+	public int getTempHP() {
+		return tempHP;
+	}
+
+
+
+
+	public void setTempHP(int tempHP) {
+		this.tempHP = tempHP;
+	}
+
+
+
+
+	public int getAttribute1() {
+		return attribute1;
+	}
+
+
+
+
+	public void setAttribute1(int attribute1) {
+		this.attribute1 = attribute1;
+	}
+
+
+
+
+	public int getAttribute2() {
+		return attribute2;
+	}
+
+
+
+
+	public void setAttribute2(int attribute2) {
+		this.attribute2 = attribute2;
+	}
+
+
+
+
+	public int getAttribute3() {
+		return attribute3;
+	}
+
+
+
+
+	public void setAttribute3(int attribute3) {
+		this.attribute3 = attribute3;
+	}
+
+
+
+
+	public int getAttribute4() {
+		return attribute4;
+	}
+
+
+
+
+	public void setAttribute4(int attribute4) {
+		this.attribute4 = attribute4;
+	}
+
+
+
+
+	public int getAttribute5() {
+		return attribute5;
+	}
+
+
+
+
+	public void setAttribute5(int attribute5) {
+		this.attribute5 = attribute5;
+	}
+
+
+
+
+	public int getAttribute6() {
+		return attribute6;
+	}
+
+
+
+
+	public void setAttribute6(int attribute6) {
+		this.attribute6 = attribute6;
+	}
+
+
+
+
+	public int getExperience() {
+		return experience;
+	}
+
+
+
+
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+
+
+
+
+	public int getSpeed() {
+		return speed;
+	}
+
+
+
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+
+
+
+	public String getSkills() {
+		return skills;
+	}
+
+
+
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+
+
+
+	public String getAbilities() {
+		return abilities;
+	}
+
+
+
+
+	public void setAbilities(String abilities) {
+		this.abilities = abilities;
+	}
+
+
+
+
+	public String getAssignedDie() {
+		return assignedDie;
+	}
+
+
+
+
+	public void setAssignedDie(String assignedDie) {
+		this.assignedDie = assignedDie;
+	}
+
+
+
+
+	public String getNotes() {
+		return notes;
+	}
+
+
+
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+
+
+
+	public String getAttribute1name() {
+		return attribute1name;
+	}
+
+
+
+
+	public void setAttribute1name(String attribute1name) {
+		this.attribute1name = attribute1name;
+	}
+
+
+
+
+	public String getAttribute2name() {
+		return attribute2name;
+	}
+
+
+
+
+	public void setAttribute2name(String attribute2name) {
+		this.attribute2name = attribute2name;
+	}
+
+
+
+
+	public String getAttribute3name() {
+		return attribute3name;
+	}
+
+
+
+
+	public void setAttribute3name(String attribute3name) {
+		this.attribute3name = attribute3name;
+	}
+
+
+
+
+	public String getAttribute4name() {
+		return attribute4name;
+	}
+
+
+
+
+	public void setAttribute4name(String attribute4name) {
+		this.attribute4name = attribute4name;
+	}
+
+
+
+
+	public String getAttribute5name() {
+		return attribute5name;
+	}
+
+
+
+
+	public void setAttribute5name(String attribute5name) {
+		this.attribute5name = attribute5name;
+	}
+
+
+
+
+	public String getAttribute6name() {
+		return attribute6name;
+	}
+
+
+
+
+	public void setAttribute6name(String attribute6name) {
+		this.attribute6name = attribute6name;
 	}
 
 }
